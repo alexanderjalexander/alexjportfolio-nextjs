@@ -1,0 +1,12 @@
+.heading2 {
+    font-family: Hauser, sans-serif;
+    font-size: 45px;
+    line-height: 45px;
+    margin: 45px 25px 25px 25px;
+    width: auto;
+    color: white;
+
+    font-style: italic;
+    text-transform: uppercase;
+    text-decoration-color: white;
+}

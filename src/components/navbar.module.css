@@ -1,0 +1,118 @@
+.navbar {
+    display: block;
+    width: 100%;
+    background-color: #333333;
+    opacity: 1;
+    z-index: 10;
+    min-height: 70px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    filter: drop-shadow(0px 0px 20px #000000);
+}
+
+.logo {
+    position: absolute;
+    padding: 25px;
+    text-transform: capitalize;
+    font-size: 30px;
+    line-height: 18px;
+    color: white;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.mainnav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 4;
+    margin: auto auto auto auto;
+    text-align: center;
+    max-width: 1000px;
+}
+
+.navlink {
+    padding: 20px 20px 20px 20px;
+    text-transform: capitalize;
+    cursor: pointer;
+    text-decoration: none;
+
+    height: 100%;
+    color: white;
+    transition: 0.25s ease-in-out;
+}
+
+.navlink:hover {
+    background-color: #ffffff;
+    text-decoration: none;
+    color: black;
+    transition: background-color 0.25s ease-in-out,
+        color 0.25s ease-in-out;
+}
+
+/* 
+-------------------------------
+DROPDOWN NAVBAR HANDLING
+-------------------------------
+*/
+
+.dropdown_nav {
+    float: right;
+    position: relative;
+    display: none;
+}
+
+.dropdown_btn {
+    color: white;
+    padding: 25px;
+    font-size: 18px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+
+    transition: 0.25s ease-in-out;
+}
+
+.dropdown_btn:hover {
+    color: black;
+    font-size: 18px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+
+    transition: background-color 0.25s ease-in-out,
+        color 0.25s ease-in-out;
+}
+
+.dropdown_content {
+    display: none;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    background-color: #333333;
+}
+
+.dropdown_content a {
+    color: white;
+    padding: 20px 20px;
+    text-decoration: none;
+    display: block;
+}
+
+.show {
+    display: block;
+}
+
+@media screen and (max-width: 860px) {
+    .mainnav {
+        display: none;
+    }
+
+    .dropdown_nav {
+        display: block;
+    }
+}

@@ -1,0 +1,65 @@
+@import url('https://db.onlinewebfonts.com/c/875965672039b1abef7e59380205dd60?family=Hauser'); 
+@import url('https://db.onlinewebfonts.com/c/7dad8f7ed48fd3a0fecdeb0554a2a1ad?family=Hauser+Italic'); 
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital@0;1&display=swap');
+
+@font-face {
+    font-family: "Hauser Italic";
+    src: url("https://db.onlinewebfonts.com/t/7dad8f7ed48fd3a0fecdeb0554a2a1ad.eot");
+    src: url("https://db.onlinewebfonts.com/t/7dad8f7ed48fd3a0fecdeb0554a2a1ad.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/7dad8f7ed48fd3a0fecdeb0554a2a1ad.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/7dad8f7ed48fd3a0fecdeb0554a2a1ad.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/7dad8f7ed48fd3a0fecdeb0554a2a1ad.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/7dad8f7ed48fd3a0fecdeb0554a2a1ad.svg#Hauser Italic")format("svg");
+}
+
+@font-face {
+    font-family: "Hauser";
+    src: url("https://db.onlinewebfonts.com/t/875965672039b1abef7e59380205dd60.eot");
+    src: url("https://db.onlinewebfonts.com/t/875965672039b1abef7e59380205dd60.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/875965672039b1abef7e59380205dd60.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/875965672039b1abef7e59380205dd60.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/875965672039b1abef7e59380205dd60.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/875965672039b1abef7e59380205dd60.svg#Hauser")format("svg");
+}
+
+html {
+  padding: 0;
+  margin: 0;
+  line-height: 1.6;
+  font-size: 18px;
+}
+
+body {
+    background-image: linear-gradient(145deg, #333333, #222222);
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0px;
+    --defaultwidth: min(1500px, 80%);
+}
+
+h1 {
+    font-style: italic;
+    font-family: "Hauser Italic", sans-serif;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-style: italic;
+    font-family: "Hauser Italic", sans-serif;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 2px;
+}
+
+p {
+    font-family: "Exo", sans-serif;
+    color: white;
+    width: 100%;
+}
+
+.paragraph {
+    margin: 25px 25px;
+    width: auto;
+}
