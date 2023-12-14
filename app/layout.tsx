@@ -1,6 +1,6 @@
 // Styles and Headers/Footers
 
-import { Metadata } from 'next'
+import { Metadata, Viewport } from 'next'
 
 import './globals.css';
 
@@ -11,13 +11,11 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 config.autoAddCss = false
 
 export const metadata: Metadata = {
-    themeColor: 'black', 
     manifest: '/site.webmanifest',
-    viewport: {
-        width: 'device-width',
-        initialScale: 1,
-        maximumScale: 1,
-      }
+}
+
+export const viewport: Viewport = {
+  themeColor: 'black',
 }
 
 export default function RootLayout({
