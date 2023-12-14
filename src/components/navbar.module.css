@@ -1,10 +1,11 @@
 .navbar {
-    display: block;
     width: 100%;
     background-color: #333333;
     opacity: 1;
     z-index: 10;
     min-height: 70px;
+
+    display: block;
 
     position: fixed;
     top: 0;
@@ -13,8 +14,12 @@
     filter: drop-shadow(0px 0px 20px #000000);
 }
 
+.navbar_flex {
+    display: flex;
+}
+
 .logo {
-    position: absolute;
+    margin-left: 0;
     padding: 25px;
     text-transform: capitalize;
     font-size: 30px;
@@ -30,7 +35,7 @@
     justify-content: center;
     align-items: center;
     flex-shrink: 4;
-    margin: auto auto auto auto;
+    margin: 0 auto auto auto;
     text-align: center;
     max-width: 1000px;
 }
@@ -61,8 +66,7 @@ DROPDOWN NAVBAR HANDLING
 */
 
 .dropdown_nav {
-    float: right;
-    position: relative;
+    position: static;
     display: none;
 }
 
@@ -73,7 +77,7 @@ DROPDOWN NAVBAR HANDLING
     border: none;
     background-color: rgba(0, 0, 0, 0);
     cursor: pointer;
-
+    margin-left: auto;
     transition: 0.25s ease-in-out;
 }
 
@@ -91,7 +95,8 @@ DROPDOWN NAVBAR HANDLING
 .dropdown_content {
     display: none;
     position: absolute;
-    right: 0;
+    width: 100%;
+    left: 0;
     text-align: center;
     background-color: #333333;
 }
@@ -107,7 +112,7 @@ DROPDOWN NAVBAR HANDLING
     display: block;
 }
 
-@media screen and (max-width: 860px) {
+@media screen and (max-width: 916px) {
     .mainnav {
         display: none;
     }
