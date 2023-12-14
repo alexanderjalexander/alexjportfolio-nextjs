@@ -20,9 +20,9 @@
 
 .intro_header {
     display: block;
-    font-size: max(5vw, 60px);
+    font-size: max(5vw, 48px);
     font-style: italic;
-    line-height: max(5vw, 60px);
+    line-height: max(5vw, 48px);
     width: auto;
     margin: auto min(8vw, 50px) 5px min(8vw, 50px);
     padding-bottom: 0.05vw;
@@ -38,7 +38,8 @@
     font-family: Exo, sans-serif;
     color: white;
     margin: auto max(10vw, 50px);
-    font-size: 20px;
+    font-size: 18px;
+    line-height: normal;
 }
 
 @media screen and (max-width: 860px) {
