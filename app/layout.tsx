@@ -2,18 +2,13 @@
 
 import { Metadata } from 'next'
 
-import '../styles/global.css';
-import Navbar from '../src/components/navbar'
-import Footer from '../src/components/footer'
+// import '../styles/global.css';
+
 import { exo } from '../fonts';
 
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 config.autoAddCss = false
-
-import { AnimatePresence, motion, Spring } from 'framer-motion';
-
-import { createContext } from 'react';
 
 export const metadata: Metadata = {
     themeColor: 'black', 
@@ -35,9 +30,7 @@ export default function RootLayout({
     return (
     <html lang="en" className={exo.className} >
         <body>
-          <Navbar />
           {children}
-          <Footer />
         </body>
     </html>
     )

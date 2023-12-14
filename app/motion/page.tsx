@@ -1,16 +1,12 @@
 import { Metadata } from "next";
-import Intro from '../../src/components/intro';
 
 export const metadata : Metadata = {
-    title: "AJ's Portfolio: Motion"
+    title: "AJ's Portfolio: Motion Graphics"
 }
 
 export default function Page() {
     return (
         <div>
-            <Intro 
-            title="Motion"
-            desc=""/>
         </div>
     )
 }
