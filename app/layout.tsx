@@ -8,28 +8,25 @@ import { exo } from '../fonts';
 
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
+import { Providers } from "./providers";
 config.autoAddCss = false
 
 export const metadata: Metadata = {
-    manifest: '/site.webmanifest',
+  manifest: '/site.webmanifest',
 }
 
 export const viewport: Viewport = {
   themeColor: 'black',
 }
 
-export default function RootLayout({
-    // Layouts must accept a children prop.
-    // This will be populated with nested layouts or pages
-    children,
-  }: {
-    children: React.ReactNode
-  }) {
-    return (
-    <html lang="en" className={exo.className} >
-        <body>
-          {children}
-        </body>
-    </html>
-    )
-  }
+export default function RootLayout({children,}: {children: React.ReactNode}) {
+  return (
+  <html lang="en" className='dark'>
+    <body>
+      <Providers>
+        {children}
+      </Providers>
+    </body>
+  </html>
+  )
+}
