@@ -2,7 +2,7 @@
 
 import { Metadata } from 'next'
 
-// import '../styles/global.css';
+import './globals.css';
 
 import { exo } from '../fonts';
 

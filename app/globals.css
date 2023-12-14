@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url('https://db.onlinewebfonts.com/c/875965672039b1abef7e59380205dd60?family=Hauser'); 
 @import url('https://db.onlinewebfonts.com/c/7dad8f7ed48fd3a0fecdeb0554a2a1ad?family=Hauser+Italic'); 
 @import url('https://fonts.googleapis.com/css2?family=Exo:ital@0;1&display=swap');
