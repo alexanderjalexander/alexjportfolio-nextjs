@@ -23,8 +23,9 @@
     font-size: max(5vw, 48px);
     font-style: italic;
     line-height: max(5vw, 48px);
+    text-align: center;
     width: auto;
-    margin: auto min(8vw, 50px) 5px min(8vw, 50px);
+    margin: 5px 0;
     padding-bottom: 0.05vw;
     color: white;
 
