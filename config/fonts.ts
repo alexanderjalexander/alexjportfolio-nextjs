@@ -1,9 +1,9 @@
-import { Fira_Code as FontMono, Fira_Sans as FiraSans } from "next/font/google"
+import { Fira_Code as FontMono, Fira_Sans as FontSans } from "next/font/google"
 
-export const firaSans = FiraSans({
+export const fontSans = FontSans({
   subsets: ["latin"],
   weight: "400",
-  variable: "--fira-sans",
+  variable: "--font-sans",
 })
 
 export const fontMono = FontMono({
