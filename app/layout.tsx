@@ -1,5 +1,3 @@
-// Styles and Headers/Footers
-
 import { Metadata, Viewport } from 'next'
 
 import './globals.css';
