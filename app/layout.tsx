@@ -1,11 +1,9 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import { siteConfig } from "@/config/site";
-import { firaSans } from "@/config/fonts";
+import { fontSans } from "@/config/fonts";
 import { Providers } from "./providers";
 import { Navbar } from "@/components/navbar";
-import { Link } from "@nextui-org/link";
-import clsx from "clsx";
 
 export const metadata: Metadata = {
 	title: {
@@ -32,10 +30,7 @@ export default function RootLayout({children,}: {children: React.ReactNode;}) {
 		<html lang="en" suppressHydrationWarning>
 			<head />
 			<body
-				className={clsx(
-					"min-h-screen bg-background font-sans antialiased",
-					firaSans.variable
-				)}
+				className={'min-h-screen bg-background '+fontSans.variable+' font-sans antialiased'}
 			>
 				<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
 					<div className="relative flex flex-col h-screen">
