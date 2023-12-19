@@ -1,12 +1,7 @@
-import { Metadata } from "next";
+export default function Home() {
+	return (
+		<div>
 
-export const metadata : Metadata = {
-    title: "AJ's Portfolio"
-}
-
-export default function Page() {
-    return (
-        <div>
-        </div>
-    )
+		</div>
+	);
 }
