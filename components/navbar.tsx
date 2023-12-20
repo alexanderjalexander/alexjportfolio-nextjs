@@ -10,11 +10,11 @@ import {
 	NavbarMenuItem,
 } from "@nextui-org/navbar";
 import { Link } from "@nextui-org/link";
-
 import { link as linkStyles } from "@nextui-org/theme";
+import NextLink from "next/link";
 
 import { siteConfig } from "@/config/site";
-import NextLink from "next/link";
+
 import clsx from "clsx";
 
 import { ThemeSwitch } from "@/components/theme-switch";
@@ -22,6 +22,9 @@ import {
 	GithubIcon, LinkedInIcon,
 } from "@/components/icons";
 import { useState } from "react";
+
+
+import { fontMono } from "@/config/fonts";
 
 export const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,9 +34,10 @@ export const Navbar = () => {
 			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
 				<NavbarBrand as="li" className="gap-3 max-w-fit">
 					<NextLink className="flex justify-start items-center gap-1" href="/">
-						<p className="font-bold text-inherit">AJ</p>
+						<p className={'font-bold '+fontMono.variable+' font-mono font-weight-800 text-xl text-inherit'}>AJ</p>
 					</NextLink>
 				</NavbarBrand>
+
 				<ul className="hidden md:flex gap-4 justify-start ml-2">
 					{siteConfig.navItems.map((item) => (
 						<NavbarItem key={item.href}>
