@@ -1,3 +1,5 @@
+"use client"
+
 import {
 	Navbar as NextUINavbar,
 	NavbarContent,
@@ -19,10 +21,13 @@ import { ThemeSwitch } from "@/components/theme-switch";
 import {
 	GithubIcon, LinkedInIcon,
 } from "@/components/icons";
+import { useState } from "react";
 
 export const Navbar = () => {
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	
 	return (
-		<NextUINavbar maxWidth="xl" position="sticky">
+		<NextUINavbar isBordered maxWidth="xl" position="sticky" isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
 			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
 				<NavbarBrand as="li" className="gap-3 max-w-fit">
 					<NextLink className="flex justify-start items-center gap-1" href="/">
@@ -62,7 +67,7 @@ export const Navbar = () => {
 				<div className="mx-4 mt-2 flex flex-col gap-2">
 					{siteConfig.navItems.map((item, index) => (
 						<NavbarMenuItem key={`${item}-${index}`}>
-							<Link href="#" color="foreground" size="lg">
+							<Link onPress={() => setIsMenuOpen(false)} href={item.href} color="foreground" size="lg">
 								{item.label}
 							</Link>
 						</NavbarMenuItem>
