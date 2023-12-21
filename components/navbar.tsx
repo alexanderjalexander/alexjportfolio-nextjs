@@ -44,7 +44,7 @@ export const Navbar = () => {
 					</NextLink>
 				</NavbarBrand>
 
-				<ul className="hidden md:flex gap-4 justify-start ml-2">
+				<ul className="hidden min-[920px]:flex gap-4 justify-start ml-2">
 					{siteConfig.navItems.map((item) => (
 						<NavbarItem key={item.href}>
 							<Link
@@ -87,7 +87,7 @@ export const Navbar = () => {
 				</Link>
 
 				<ThemeSwitch />
-				<NavbarMenuToggle className="md:hidden" />
+				<NavbarMenuToggle className="min-[920px]:hidden" />
 			</NavbarContent>
 
 			<NavbarMenu>

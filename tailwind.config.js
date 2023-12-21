@@ -16,6 +16,13 @@ module.exports = {
       },
     },
   },
+  screens: {
+    'sm': '480px',
+    'md': '720px',
+    'lg': '920px',
+    'xl': '1280px',
+    '2xl': '1536px',
+  },
   darkMode: "class",
   plugins: [nextui({
     themes: {
