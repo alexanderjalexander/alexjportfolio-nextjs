@@ -30,7 +30,13 @@ export const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	
 	return (
-		<NextUINavbar isBordered maxWidth="xl" position="sticky" isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
+		<NextUINavbar 
+			isBordered 
+			maxWidth="xl" 
+			position="sticky" 
+			isMenuOpen={isMenuOpen} 
+			onMenuOpenChange={setIsMenuOpen}
+		>
 			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
 				<NavbarBrand as="li" className="gap-3 max-w-fit">
 					<NextLink className="flex justify-start items-center gap-1" href="/">
@@ -41,16 +47,19 @@ export const Navbar = () => {
 				<ul className="hidden md:flex gap-4 justify-start ml-2">
 					{siteConfig.navItems.map((item) => (
 						<NavbarItem key={item.href}>
-							<NextLink
+							<Link
+								as={NextLink}
 								className={clsx(
 									linkStyles({ color: "foreground" }),
-									"data-[active=true]:text-primary data-[active=true]:font-medium"
+									"hover:text-primary-100 hover:font-medium",
+									"transition ease-in-out"
 								)}
 								color="foreground"
+								isBlock
 								href={item.href}
 							>
 								{item.label}
-							</NextLink>
+							</Link>
 						</NavbarItem>
 					))}
 				</ul>
@@ -58,11 +67,25 @@ export const Navbar = () => {
 
 			<NavbarContent className="basis-1 pl-4" justify="end">
 				<Link isExternal href={siteConfig.links.github} aria-label="Github">
-					<GithubIcon className="text-default-500" />
+					<GithubIcon
+						className={clsx(
+							linkStyles({ color: "foreground" }),
+							"hover:text-primary-100 hover:font-medium",
+							"transition ease-in-out"
+						)} 
+					/>
 				</Link>
+
 				<Link isExternal href={siteConfig.links.linkedin} aria-label="LinkedIn">
-					<LinkedInIcon className="text-default-500" />
+					<LinkedInIcon 
+						className={clsx(
+							linkStyles({ color: "foreground" }),
+							"hover:text-primary-100 hover:font-medium",
+							"transition ease-in-out"
+						)} 
+					/>
 				</Link>
+
 				<ThemeSwitch />
 				<NavbarMenuToggle className="md:hidden" />
 			</NavbarContent>
@@ -71,7 +94,17 @@ export const Navbar = () => {
 				<div className="mx-4 mt-2 flex flex-col gap-2">
 					{siteConfig.navItems.map((item, index) => (
 						<NavbarMenuItem key={`${item}-${index}`}>
-							<Link onPress={() => setIsMenuOpen(false)} href={item.href} color="foreground" size="lg">
+							<Link 
+								isBlock
+								as={NextLink}
+								onPress={() => setIsMenuOpen(false)} 
+								href={item.href} color="foreground" size="lg"
+								className={clsx(
+									linkStyles({ color: "foreground" }),
+									"hover:text-primary-100 hover:font-medium",
+									"transition ease-in-out"
+								)}
+							>
 								{item.label}
 							</Link>
 						</NavbarMenuItem>
