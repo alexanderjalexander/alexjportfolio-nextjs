@@ -1,4 +1,5 @@
 import { tv } from "tailwind-variants";
+import { fontMono } from "@/config/fonts";
 
 export const title = tv({
 	base: "tracking-tight inline font-semibold",
@@ -28,9 +29,14 @@ export const title = tv({
 			start: "text-start",
 			end: "text-end",
 		},
+		font: {
+			sans: "font-sans",
+			mono: "font-mono "+fontMono.variable,
+		},
 	},
 	defaultVariants: {
 		size: "md",
+		font: "sans",
 	},
 	compoundVariants: [
 		{
