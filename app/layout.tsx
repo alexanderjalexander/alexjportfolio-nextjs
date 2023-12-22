@@ -1,30 +1,49 @@
-import { Metadata, Viewport } from 'next'
-
-import './globals.css';
-
-import { exo } from '../fonts';
-
-import { config } from '@fortawesome/fontawesome-svg-core'
-import '@fortawesome/fontawesome-svg-core/styles.css'
+import "@/styles/globals.css";
+import { Metadata, Viewport } from "next";
+import { siteConfig } from "@/config/site";
+import { fontSans } from "@/config/fonts";
 import { Providers } from "./providers";
-config.autoAddCss = false
+import { Navbar } from "@/components/navbar";
 
 export const metadata: Metadata = {
-  manifest: '/site.webmanifest',
-}
+	title: {
+		default: siteConfig.name,
+		template: `%s - ${siteConfig.name}`,
+	},
+	description: siteConfig.description,
+	icons: {
+		icon: "/favicon.ico",
+		shortcut: "/favicon-16x16.png",
+		apple: "/apple-touch-icon.png",
+	},
+};
 
 export const viewport: Viewport = {
-  themeColor: 'black',
+	themeColor: [
+		{ media: "(prefers-color-scheme: light)", color: "white" },
+		{ media: "(prefers-color-scheme: dark)", color: "black" },
+	],
 }
 
-export default function RootLayout({children,}: {children: React.ReactNode}) {
-  return (
-  <html lang="en" className='dark'>
-    <body>
-      <Providers>
-        {children}
-      </Providers>
-    </body>
-  </html>
-  )
+export default function RootLayout({children,}: {children: React.ReactNode;}) {
+	return (
+		<html lang="en" suppressHydrationWarning>
+			<head />
+			<body
+				className={'min-h-screen bg-gradient-to-tr from-primary-900 via-background to-primary-900 '+fontSans.variable+' font-sans antialiased'}
+			>
+				<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+					<div className="relative flex flex-col h-screen">
+						<Navbar />
+						<main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
+							{children}
+						</main>
+						<footer className="w-full flex items-center justify-center py-3">
+							
+						</footer>
+					</div>
+				</Providers>
+			</body>
+		</html>
+	);
 }

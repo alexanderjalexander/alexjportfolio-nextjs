@@ -1,12 +1,9 @@
-import { Metadata } from "next";
+import { title } from "@/components/primitives";
 
-export const metadata : Metadata = {
-    title: "AJ's Portfolio: Graphic Design"
-}
-
-export default function Page() {
-    return (
-        <div>
-        </div>
-    )
+export default function Graphic_Design() {
+	return (
+		<div>
+			<h1 className={title({ fullWidth: true })}>Under Construction</h1>
+		</div>
+	);
 }
