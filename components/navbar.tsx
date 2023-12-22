@@ -88,7 +88,7 @@ export const Navbar = () => {
 				</Link>
 
 				<ThemeSwitch />
-				<NavbarMenuToggle className="min-[920px]:hidden" />
+				<NavbarMenuToggle className="min-[920px]:hidden hover:text-primary-100 transition-all ease-in-out" />
 			</NavbarContent>
 
 			<NavbarMenu className="overflow-auto scrollbar-hide">
