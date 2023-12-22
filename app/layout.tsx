@@ -4,6 +4,7 @@ import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Providers } from "./providers";
 import { Navbar } from "@/components/navbar";
+import { PageWrapper } from "@/components/pagewrapper";
 
 export const metadata: Metadata = {
 	title: {
@@ -29,9 +30,7 @@ export default function RootLayout({children,}: {children: React.ReactNode;}) {
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<head />
-			<body
-				className={'min-h-screen bg-gradient-to-tr from-primary-900 via-background to-primary-900 '+fontSans.variable+' font-sans antialiased'}
-			>
+			<body className={'min-h-screen bg-gradient-to-tr from-primary-900 via-background to-primary-900 '+fontSans.variable+' font-sans antialiased'}>
 				<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
 					<div className="relative flex flex-col h-screen">
 						<Navbar />
