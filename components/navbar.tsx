@@ -98,7 +98,7 @@ export const Navbar = () => {
 							<Link 
 								isBlock
 								as={NextLink}
-								onPress={() => setIsMenuOpen(false)} 
+								onClick={() => setIsMenuOpen(false)} 
 								href={item.href} color="foreground" size="lg"
 								className={clsx(
 									linkStyles({ color: "foreground" }),
