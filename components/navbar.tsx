@@ -90,7 +90,7 @@ export const Navbar = () => {
 				<NavbarMenuToggle className="min-[920px]:hidden" />
 			</NavbarContent>
 
-			<NavbarMenu>
+			<NavbarMenu className="overflow-auto scrollbar-hide">
 				<div className="mx-4 mt-2 flex flex-col gap-2">
 					{siteConfig.navItems.map((item, index) => (
 						<NavbarMenuItem key={`${item}-${index}`}>
