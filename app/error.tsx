@@ -18,20 +18,26 @@ export default function Error({
   }, [error])
  
   return (
-    <div>
-      <Header1Mono text="Something went wrong!" />
+    <div className="block" >
+      <Header1Mono>Something went wrong!</Header1Mono>
       <p className="text-center">Oops. We&apos;re not sure what happened there... :\</p>
-      <Code color='danger'>
-        {error.message}
-      </Code>
-      <Button className="align-center"
-        onClick={
-          // Attempt to recover by trying to re-render the segment
-          () => reset()
-        }
-      >
-        Try again
-      </Button>
+      
+      <div>
+        <Code color='danger'>
+          {error.message}
+        </Code>
+      </div>
+
+      <div>
+        <Button className="display-block align-center"
+          onClick={
+            // Attempt to recover by trying to re-render the segment
+            () => reset()
+          }
+        >
+          Try again
+        </Button>
+      </div>
     </div>
   )
 }
