@@ -7,15 +7,18 @@ import NextImage from "next/image";
 export default function Home() {
 	return (
 		<PageWrapper>
-			<div className="mx-auto">
+			<div className="hero container max-w-screen-lg mx-auto pb-10 flex">
 				<Image 
 					as={NextImage}
 					width={300}
 					height={300}
+					removeWrapper={true}
+					shadow="lg"
 					alt="Profile Picture of AJ"
 					src="/AJPicrew.png"
+					loading="eager"
 					radius="full"
-					className="my-5 mx-auto w-50% justify-center"
+					className="mx-auto border-8 border-primary-50"
 				/>
 			</div>
 			<Header1Mono>AJ&apos;s Portfolio</Header1Mono>
