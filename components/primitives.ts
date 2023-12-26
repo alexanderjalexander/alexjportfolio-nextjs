@@ -68,8 +68,13 @@ export const subtitle = tv({
 			start: "text-start",
 			end: "text-end",
 		},
+		font: {
+			sans: "font-sans",
+			mono: "font-mono "+fontMono.variable,
+		},
 	},
   defaultVariants:{
-    fullWidth: true
+    fullWidth: true,
+	font: "sans",
   }
 });

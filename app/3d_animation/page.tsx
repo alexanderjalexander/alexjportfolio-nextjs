@@ -5,7 +5,7 @@ import { title } from "@/components/primitives";
 export default function Animation() {
 	return (
 		<PageWrapper>
-			<Header1Mono text="3D Animation"/>
+			<Header1Mono>3D Animation</Header1Mono>
 		</PageWrapper>
 	);
 }

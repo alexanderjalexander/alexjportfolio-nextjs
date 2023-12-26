@@ -5,7 +5,7 @@ import { title } from "@/components/primitives";
 export default function Graphic_Design() {
 	return (
 		<PageWrapper>
-			<Header1Mono text="Graphic Design"/>
+			<Header1Mono>Graphic Design</Header1Mono>
 		</PageWrapper>
 	);
 }

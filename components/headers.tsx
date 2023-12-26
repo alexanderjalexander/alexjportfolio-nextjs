@@ -1,43 +1,65 @@
 import { subtitle, title } from "@/components/primitives";
 
-export function Header1({text}:{text:string}) {
+export function Header1({children}:{children: React.ReactNode;}) {
     return (
-        <h1 className={title({ size:"lg", fullWidth: true, align:"center" })}>{text}</h1>
+        <div className={title({ size:"lg", fullWidth: true, align:"center" })}>
+            {children}
+        </div>
     )
 }
 
-export function Header1Mono({text}:{text:string}) {
+export function Header1Mono({children}:{children: React.ReactNode;}) {
     return (
-        <h1 className={title({ font:"mono", size:"lg", fullWidth: true, align:"center" })}>{text}</h1>
+        <div className={title({ font:"mono", size:"lg", fullWidth: true, align:"center" })}>
+            {children}
+        </div>
     )
 }
 
-export function Header2({text}:{text:string}) {
+export function Header2({children}:{children: React.ReactNode;}) {
     return (
-        <h2 className={title({ size:"md", fullWidth: true, align:"center" })}>{text}</h2>
+        <div className={title({ size:"md", fullWidth: true, align:"center" })}>
+            {children}
+        </div>
     )
 }
 
-export function Header2Mono({text}:{text:string}) {
+export function Header2Mono({children}:{children: React.ReactNode;}) {
     return (
-        <h2 className={title({ font:"mono", size:"md", fullWidth: true, align:"center" })}>{text}</h2>
+        <div className={title({ font:"mono", size:"md", fullWidth: true, align:"center" })}>
+            {children}
+        </div>
     )
 }
 
-export function Header3({text}:{text:string}) {
+export function Header3({children}:{children: React.ReactNode;}) {
     return (
-        <h3 className={title({ size:"sm", fullWidth: true, align:"center" })}>{text}</h3>
+        <div className={title({ size:"sm", fullWidth: true, align:"center" })}>
+            {children}
+        </div>
     )
 }
 
-export function Header3Mono({text}:{text:string}) {
+export function Header3Mono({children}:{children: React.ReactNode;}) {
     return (
-        <h2 className={title({ font:"mono", size:"sm", fullWidth: true, align:"center" })}>{text}</h2>
+        <div className={title({ font:"mono", size:"sm", fullWidth: true, align:"center" })}>
+            {children}
+        </div>
     )
 }
 
-export function Subheader({text}:{text:string}) {
+export function Subheader({children}:{children: React.ReactNode;}) {
     return (
-        <p className={subtitle({ align:"center" })}>{text}</p>
+        <div className={subtitle({ align:"center" })}>
+            {children}
+        </div>
+    )
+}
+
+export function SubheaderMono({children}:{children: React.ReactNode;}) {
+    return (
+        <div className={subtitle({ font:"mono", align:"center" })}>
+            {children}
+        </div>
     )
 }

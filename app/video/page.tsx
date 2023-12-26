@@ -5,7 +5,7 @@ import { title } from "@/components/primitives";
 export default function Video() {
 	return (
 		<PageWrapper>
-			<Header1Mono text="Video Editing"/>
+			<Header1Mono>Video Editing</Header1Mono>
 		</PageWrapper>
 	);
 }

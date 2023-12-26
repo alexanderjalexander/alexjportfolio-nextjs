@@ -5,7 +5,7 @@ import { title } from "@/components/primitives";
 export default function Programming() {
 	return (
 		<PageWrapper>
-			<Header1Mono text="Programming"/>
+			<Header1Mono>Programming</Header1Mono>
 		</PageWrapper>
 	);
 }
