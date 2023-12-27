@@ -1,31 +1,72 @@
-import { Header1Mono, SubheaderMono } from "@/components/headers";
+import { Header1Mono, Header2Mono, SubheaderMono } from "@/components/headers";
 import { PageWrapper } from "@/components/pagewrapper";
 import TypewriterWrapper from "@/components/typewriterwrapper";
-import { Image } from "@nextui-org/react";
+import { siteConfig } from "@/config/site";
+import { Card, CardHeader, Divider, Image } from "@nextui-org/react";
 import NextImage from "next/image";
 
 export default function Home() {
-	return (
-		<PageWrapper>
-			<div className="hero container max-w-screen-lg mx-auto pb-10 flex">
-				<Image 
-					as={NextImage}
-					width={300}
-					height={300}
-					removeWrapper={true}
-					shadow="lg"
-					alt="Profile Picture of AJ"
-					src="/AJPicrew.png"
-					loading="eager"
-					radius="full"
-					className="mx-auto border-8 border-primary-50"
-				/>
-			</div>
-			<Header1Mono>AJ&apos;s Portfolio</Header1Mono>
-			<SubheaderMono>
-				<TypewriterWrapper 
-				text="An interactive portfolio of my projects, accomplishments, and hobbies :)"/>
-			</SubheaderMono>
-		</PageWrapper>
-	);
+  return (
+    <PageWrapper>
+      <div className="container max-w-screen-lg mx-auto pb-10 flex">
+        <Image
+          as={NextImage}
+          width={300}
+          height={300}
+          removeWrapper={true}
+          shadow="lg"
+          alt="Profile Picture of AJ"
+          src="/AJPicrew.png"
+          loading="eager"
+          radius="full"
+          className="mx-auto z-1 maxw-300 w-80% border-8 border-primary-50"
+        />
+      </div>
+      <Header1Mono>AJ&apos;s Portfolio</Header1Mono>
+      <SubheaderMono>
+        <TypewriterWrapper text="An interactive portfolio of my projects, accomplishments, and hobbies :)" />
+      </SubheaderMono>
+      <Divider className="my-10" />
+      <div>
+        <Header2Mono>About Me</Header2Mono>
+        <p>
+          Hello there! My name&apos;s Alex; I&apos;m a 3/4 Computer Science
+          student at Stevens Institute of Technology and I am based in NJ. I am
+          a creative and open-minded person committed to exploring the many ways
+          I can express myself creatively or create exciting new projects
+          through various forms of technology and media.
+        </p>
+        <p>
+          For many years, I&apos;ve focused a lot of my passion into programming
+          and various art forms surrounding design, multimedia, and technology.
+          In addition to my studies as a Computer Science major, I enjoy
+          programming my own projects, and have worked with high school teams to
+          produce games as an extra-curricular activity. I also enjoy and am
+          self-taught in video editing, animation, graphic design, and motion
+          graphics.
+        </p>
+        <p>
+          I hope that as you scroll through each part of this web page, you get
+          a sense of who I am as an individual and how I blend my own creative
+          inspirations into the things that I create!
+        </p>
+      </div>
+      <Divider className="my-10" />
+      <div>
+        <Header2Mono>My Skills</Header2Mono>
+        {siteConfig.skills.map((item, index) => (
+          <Card key={index} className="my-5">
+            <Image
+                removeWrapper
+                alt="$index background"
+                className="z-0 w-full h-full object-cover"
+                src={item.img}
+                
+              />
+          </Card>
+        ))}
+      </div>
+      <Divider className="mt-10" />
+    </PageWrapper>
+  );
 }
