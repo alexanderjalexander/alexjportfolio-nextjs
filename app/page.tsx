@@ -61,7 +61,6 @@ export default function Home() {
                 alt=""
                 className="z-0 w-full h-full min-h-20 object-cover"
                 src={item.img}
-                
               />
           </Card>
         ))}
