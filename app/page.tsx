@@ -8,7 +8,7 @@ import NextImage from "next/image";
 export default function Home() {
   return (
     <PageWrapper>
-      <div className="container max-w-screen-lg mx-auto pb-10 flex">
+      <div className="container max-w-screen-sm mx-auto pb-10 flex">
         <Image
           as={NextImage}
           width={300}
@@ -19,7 +19,7 @@ export default function Home() {
           src="/AJPicrew.png"
           loading="eager"
           radius="full"
-          className="mx-auto z-1 maxw-300 w-80% border-8 border-primary-50"
+          className="mx-auto z-1 max-w-[300px] w-4/5 border-8 border-primary-50"
         />
       </div>
       <Header1Mono>AJ&apos;s Portfolio</Header1Mono>
