@@ -58,8 +58,8 @@ export default function Home() {
           <Card key={index} className="my-5">
             <Image
                 removeWrapper
-                alt="$index background"
-                className="z-0 w-full h-full object-cover"
+                alt=""
+                className="z-0 w-full h-full min-h-20 object-cover"
                 src={item.img}
                 
               />
