@@ -1,4 +1,4 @@
-import { Header1Mono, Header2Mono, SubheaderMono } from "@/components/headers";
+import { Header1Mono, Header2Mono, Header3Mono, SubheaderMono } from "@/components/headers";
 import { PageWrapper } from "@/components/pagewrapper";
 import TypewriterWrapper from "@/components/typewriterwrapper";
 import { siteConfig } from "@/config/site";
@@ -54,16 +54,21 @@ export default function Home() {
       <Divider className="my-10" />
       <div>
         <Header2Mono>My Skills</Header2Mono>
-        {siteConfig.skills.map((item, index) => (
-          <Card key={index} className="my-5">
-            <Image
-                removeWrapper
-                alt=""
-                className="z-0 w-full h-full min-h-20 object-cover"
-                src={item.img}
-              />
-          </Card>
-        ))}
+        <div className="block md:flex flex-row flex-wrap gap-1">
+          {siteConfig.skills.map((item, index) => (
+            <Card key={index} className="my-5 h-[100px] sm:h-[150px] sm:w-[300px] mx-auto">
+              <CardHeader className="absolute z-10 top-0 bottom-0">
+                <Header3Mono>{item.label}</Header3Mono>
+              </CardHeader>
+              <Image
+                  removeWrapper
+                  alt=""
+                  className="z-0 w-full h-full blur-sm object-cover"
+                  src={item.img}
+                />
+            </Card>
+          ))}
+        </div>
       </div>
       <Divider className="mt-10" />
     </PageWrapper>
