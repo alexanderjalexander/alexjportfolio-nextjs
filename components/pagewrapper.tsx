@@ -15,9 +15,7 @@ export function PageWrapper({children, className,}:
                exit={{ opacity: 0, y: -100 }}
             className={classNames("min-h-screenHeightWithoutHeader", className)}
             onAnimationStart={() => (console.log('Page Animation Started...'))}
-            onAnimationComplete={() => (console.log('Page Animation Complete!'))}
-            onWaiting={() => (console.log('Page Animation Waiting...'))}
-            onAbort={() => (console.log('Page Animation Aborted...'))}>
+            onAnimationComplete={() => (console.log('Page Animation Complete!'))}>
                 {children}
             </motion.div>
         </div>
