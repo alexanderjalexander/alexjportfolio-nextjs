@@ -58,7 +58,7 @@ export default function Home() {
           {siteConfig.skills.map((item, index) => (
             <Card key={index} className="my-5 h-[100px] sm:h-[150px] sm:w-[300px] mx-auto">
               <CardHeader className="absolute z-10 top-0 bottom-0">
-                <Header3Mono>{item.label}</Header3Mono>
+                <Header3Mono className="drop-shadow-sm">{item.label}</Header3Mono>
               </CardHeader>
               <Image
                   removeWrapper
