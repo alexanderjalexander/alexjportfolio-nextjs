@@ -13,7 +13,11 @@ export function PageWrapper({children, className,}:
             // transition={{ delay: 0.25 }}
             animate={{ opacity: 1, y: 0 }}
                exit={{ opacity: 0, y: -100 }}
-            className={classNames("min-h-screenHeightWithoutHeader", className)}>
+            className={classNames("min-h-screenHeightWithoutHeader", className)}
+            onAnimationStart={() => (console.log('Page Animation Started...'))}
+            onAnimationComplete={() => (console.log('Page Animation Complete!'))}
+            onWaiting={() => (console.log('Page Animation Waiting...'))}
+            onAbort={() => (console.log('Page Animation Aborted...'))}>
                 {children}
             </motion.div>
         </div>
