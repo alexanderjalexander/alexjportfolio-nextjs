@@ -1,11 +1,11 @@
-# Next.js & NextUI Template
+# Portfolio Website
 
-This is a template for creating applications using Next.js 13 (app directory) and NextUI (v2).
+This is a new portfolio site to be more visually appealing and technologically performant, taking advantage of server-side rendering and animations and themes.
 
 ## Technologies Used
 
-- [Next.js 13](https://nextjs.org/docs/getting-started)
-- [NextUI v2](https://nextui.org/)
+- [Next.js](https://nextjs.org/docs/getting-started)
+- [NextUI](https://nextui.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Tailwind Variants](https://tailwind-variants.org)
 - [TypeScript](https://www.typescriptlang.org/)
