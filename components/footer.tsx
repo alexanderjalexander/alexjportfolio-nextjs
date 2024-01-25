@@ -7,6 +7,7 @@ import { GithubIcon, LinkedInIcon } from "./icons"
 export default function Footer() {
     return (
         <FadeInScroll>
+            {/* TODO: Implement Stevens Webring */}
             <footer className="w-full flex flex-col sm:flex-row items-start justify-around py-10">
                 <div>
                     <Header2Mono>
