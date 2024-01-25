@@ -5,7 +5,7 @@ import { title } from "@/components/primitives";
 export default function Motion_Graphics() {
 	return (
 		<PageWrapper>
-			<Header1Mono>Motion Graphics</Header1Mono>
+			<Header1Mono className="pt-32">Motion Graphics</Header1Mono>
 		</PageWrapper>
 	);
 }

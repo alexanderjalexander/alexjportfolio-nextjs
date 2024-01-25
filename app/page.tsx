@@ -8,25 +8,31 @@ import NextImage from "next/image";
 export default function Home() {
   return (
     <PageWrapper>
-      <div className="container max-w-screen-sm mx-auto pb-10 flex">
-        <Image
-          as={NextImage}
-          width={300}
-          height={300}
-          removeWrapper={true}
-          shadow="lg"
-          alt="Profile Picture of AJ"
-          src="/AJPicrew.png"
-          loading="eager"
-          radius="full"
-          className="mx-auto z-1 max-w-[300px] w-4/5 border-8 border-primary-50"
-        />
+      <div className="h-screen flex items-center">
+        <div className="h-min m-auto">
+          <div className="container max-w-screen-sm mx-auto pb-10 flex">
+            <Image
+              as={NextImage}
+              width={300}
+              height={300}
+              removeWrapper={true}
+              shadow="lg"
+              alt="Profile Picture of AJ"
+              src="/AJPicrew.png"
+              loading="eager"
+              radius="full"
+              className="mx-auto z-1 max-w-[300px] w-4/5 border-8 border-primary-50"
+            />
+          </div>
+          <Header1Mono>AJ&apos;s Portfolio</Header1Mono>
+          <SubheaderMono>
+            <TypewriterWrapper text="An interactive portfolio of my projects, accomplishments, and hobbies :)" />
+          </SubheaderMono>
+        </div>
       </div>
-      <Header1Mono>AJ&apos;s Portfolio</Header1Mono>
-      <SubheaderMono>
-        <TypewriterWrapper text="An interactive portfolio of my projects, accomplishments, and hobbies :)" />
-      </SubheaderMono>
+
       <Divider className="my-10" />
+
       <div>
         <Header2Mono>About Me</Header2Mono>
         <p>
@@ -51,7 +57,9 @@ export default function Home() {
           inspirations into the things that I create!
         </p>
       </div>
+
       <Divider className="my-10" />
+
       <div>
         <Header2Mono>My Skills</Header2Mono>
         <div className="block md:flex flex-row flex-wrap gap-1">
@@ -70,7 +78,9 @@ export default function Home() {
           ))}
         </div>
       </div>
+
       <Divider className="mt-10" />
+
     </PageWrapper>
   );
 }
