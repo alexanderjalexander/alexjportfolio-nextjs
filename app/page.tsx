@@ -1,3 +1,5 @@
+"use client"
+
 import { FadeInScroll } from "@/components/fadeinscroll";
 import { Header1Mono, Header2Mono, Header3Mono, SubheaderMono } from "@/components/headers";
 import { PageWrapper } from "@/components/pagewrapper";
@@ -5,10 +7,14 @@ import TypewriterWrapper from "@/components/typewriterwrapper";
 import { siteConfig } from "@/config/site";
 import { Card, CardHeader, Divider, Image } from "@nextui-org/react";
 import NextImage from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+  
   return (
     <PageWrapper>
+      {/*  */}
       <div className="h-screen flex items-center">
         <div className="h-min m-auto">
           <div className="container max-w-screen-sm mx-auto pb-10 flex">
@@ -32,6 +38,7 @@ export default function Home() {
         </div>
       </div>
 
+      {/* About Me */}
       <FadeInScroll>
         <Divider className="my-10" />
 
@@ -61,6 +68,7 @@ export default function Home() {
         </div>
       </FadeInScroll>
 
+      {/* Skills */}
       <FadeInScroll>
         <Divider className="my-10" />
 
@@ -68,16 +76,16 @@ export default function Home() {
           <Header2Mono>My Skills</Header2Mono>
           <div className="block md:flex flex-row flex-wrap gap-1">
             {siteConfig.skills.map((item, index) => (
-              <Card key={index} className="my-5 h-[100px] sm:h-[150px] sm:w-[300px] mx-auto">
-                <CardHeader className="absolute z-10 top-0 bottom-0">
+              <Card 
+                key={index} 
+                isPressable
+                onClick={() => (
+                  router.push(item.href)
+                )}
+                className="my-5 h-[100px] w-4/5 sm:h-[150px] sm:w-[300px] mx-auto bg-primary-900 hover:bg-primary-700">
+                <CardHeader className="absolute z-2 top-0 bottom-0">
                   <Header3Mono className="drop-shadow-sm">{item.label}</Header3Mono>
                 </CardHeader>
-                <Image
-                    removeWrapper
-                    alt=""
-                    className="z-0 w-full h-full blur-sm object-cover"
-                    src={item.img}
-                  />
               </Card>
             ))}
           </div>

@@ -21,7 +21,8 @@ export function Providers({ children, themeProps }: ProvidersProps) {
 				defaultTheme="dark"
 				themes={['light', 'dark']}
 			>
-				{children}</NextThemesProvider>
+				{children}
+			</NextThemesProvider>
 		</NextUIProvider>
 	);
 }

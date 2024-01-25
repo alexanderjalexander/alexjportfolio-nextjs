@@ -1,13 +1,13 @@
 "use client"
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Spinner } from "@nextui-org/react"
 import classNames from "classnames";
 
 export function PageWrapper({children, className,}: 
 { children: React.ReactNode; className?: string;}) {
     return (
-        <div>
+        <AnimatePresence>
             <motion.div key={0}
             initial={{ opacity: 0, y: -100 }}
             // transition={{ delay: 0.25 }}
@@ -18,6 +18,6 @@ export function PageWrapper({children, className,}:
             onAnimationComplete={() => (console.log('Page Animation Complete!'))}>
                 {children}
             </motion.div>
-        </div>
+        </AnimatePresence>
     );
 }
