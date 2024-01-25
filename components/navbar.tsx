@@ -118,7 +118,7 @@ export const Navbar = () => {
 					</div>
 				</NavbarMenu>
 			</NextUINavbar>
-			<motion.div className="h-2 bg-primary-100" style={{ scaleX }} />
+			<motion.div className="h-2 bg-primary-50" style={{ scaleX }} />
 		</div>
 	);
 };
