@@ -1,44 +1,50 @@
-// Styles and Headers/Footers
-
-import { Metadata } from 'next'
-
-import '../styles/global.css';
-import Navbar from '../src/components/navbar'
-import Footer from '../src/components/footer'
-import { exo } from '../fonts';
-
-import { config } from '@fortawesome/fontawesome-svg-core'
-import '@fortawesome/fontawesome-svg-core/styles.css'
-config.autoAddCss = false
-
-import { AnimatePresence, motion, Spring } from 'framer-motion';
-
-import { createContext } from 'react';
+import "@/styles/globals.css";
+import { Metadata, Viewport } from "next";
+import { siteConfig } from "@/config/site";
+import { fontSans } from "@/config/fonts";
+import { Providers } from "./providers";
+import { Navbar } from "@/components/navbar";
+import { Header2Mono } from "@/components/headers";
+import { Divider } from "@nextui-org/react";
+import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
-    themeColor: 'black', 
-    manifest: '/site.webmanifest',
-    viewport: {
-        width: 'device-width',
-        initialScale: 1,
-        maximumScale: 1,
-      }
+	title: {
+		default: siteConfig.name,
+		template: `%s - ${siteConfig.name}`,
+	},
+	description: siteConfig.description,
+	icons: {
+		icon: "/favicon.ico",
+		shortcut: "/favicon-16x16.png",
+		apple: "/apple-touch-icon.png",
+	},
+};
+
+export const viewport: Viewport = {
+	themeColor: [
+		{ media: "(prefers-color-scheme: light)", color: "white" },
+		{ media: "(prefers-color-scheme: dark)", color: "black" },
+	],
 }
 
-export default function RootLayout({
-    // Layouts must accept a children prop.
-    // This will be populated with nested layouts or pages
-    children,
-  }: {
-    children: React.ReactNode
-  }) {
-    return (
-    <html lang="en" className={exo.className} >
-        <body>
-          <Navbar />
-          {children}
-          <Footer />
-        </body>
-    </html>
-    )
-  }
+export default function RootLayout({children,}: {children: React.ReactNode;}) {
+	return (
+		<html lang="en" suppressHydrationWarning>
+			<head />
+			<body className={'min-h-screen '+fontSans.variable+' font-sans antialiased' + 
+			' bg-fixed bg-gradient-to-tr from-primary-900 via-background to-primary-900'}>
+				<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+					<div>
+						<Navbar />
+						<main className="container mx-auto max-w-7xl px-6 flex-grow">
+							{children}
+						</main>
+						<Divider className="mt-10" />
+						<Footer />
+					</div>
+				</Providers>
+			</body>
+		</html>
+	);
+}

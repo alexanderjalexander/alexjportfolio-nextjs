@@ -1,16 +1,12 @@
-import { Metadata } from "next";
-import Intro from '../../src/components/intro';
+import { Header1, Header1Mono, Header2, Header3, Subheader } from "@/components/headers";
+import { PageWrapper } from "@/components/pagewrapper";
+import { title } from "@/components/primitives";
 
-export const metadata : Metadata = {
-    title: "AJ's Portfolio: Programming"
-}
-
-export default function Page() {
-    return (
-        <div>
-            <Intro 
-            title="Programming"
-            desc=""/>
-        </div>
-    )
+export default function Programming() {
+	return (
+		<PageWrapper>
+			<Header1Mono className="pt-32">Programming</Header1Mono>
+			<Subheader>Under construction!</Subheader>
+		</PageWrapper>
+	);
 }
