@@ -92,8 +92,6 @@ export default function Home() {
         </div>
       </FadeInScroll>
 
-      <Divider className="mt-10" />
-
     </PageWrapper>
   );
 }

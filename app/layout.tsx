@@ -4,7 +4,9 @@ import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Providers } from "./providers";
 import { Navbar } from "@/components/navbar";
-import { PageWrapper } from "@/components/pagewrapper";
+import { Header2Mono } from "@/components/headers";
+import { Divider } from "@nextui-org/react";
+import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
 	title: {
@@ -38,9 +40,8 @@ export default function RootLayout({children,}: {children: React.ReactNode;}) {
 						<main className="container mx-auto max-w-7xl px-6 flex-grow">
 							{children}
 						</main>
-						<footer className="w-full flex items-center justify-center py-3">
-							
-						</footer>
+						<Divider className="mt-10" />
+						<Footer />
 					</div>
 				</Providers>
 			</body>
