@@ -81,62 +81,69 @@ export default function Home() {
       <FadeInScroll>
         <Divider className="my-10" />
         <Header2Mono>My Skills</Header2Mono>
-        <div className="flex justify-around flex-wrap">
-          <FadeInScroll className="my-2 w-1/2 ">
+        <div className="flex flex-row justify-around flex-wrap">
+          <FadeInScroll className="my-2 sm:w-1/2 ">
             <Header3Mono>Programming Software</Header3Mono>
             <div className="flex justify-center gap-2 flex-wrap">
               {siteConfig.skills.programmingsoftware.map(
                 (item, index) =>
-                (<Chip key={index} className="dark:bg-red-700 bg-red-300" size="lg">{item.label}</Chip>)
+                (<Chip key={index} className="dark:bg-red-700 bg-red-300" size="md">{item.label}</Chip>)
               )}
             </div>
           </FadeInScroll>
-          <FadeInScroll className="my-2 w-1/2 ">
+          <FadeInScroll className="my-2 sm:w-1/2 ">
             <Header3Mono>Creative Software</Header3Mono>
             <div className="flex justify-center gap-2 flex-wrap">
               {siteConfig.skills.creativesoftware.map(
                 (item, index) =>
-                (<Chip key={index} className="dark:bg-cyan-700 bg-cyan-300" size="lg">{item.label}</Chip>)
+                (<Chip key={index} className="dark:bg-cyan-700 bg-cyan-300" size="md">{item.label}</Chip>)
               )}
             </div>
           </FadeInScroll>
-          <FadeInScroll className="my-2 w-1/2 ">
+          <FadeInScroll className="my-2 sm:w-1/2 ">
             <Header3Mono>Programming Languages</Header3Mono>
             <div className="flex justify-center gap-2 flex-wrap">
               {siteConfig.skills.languages.map(
                 (item, index) =>
-                (<Chip key={index} className="dark:bg-purple-700 bg-purple-300" size="lg">{item.label}</Chip>)
+                (<Chip key={index} className="dark:bg-purple-700 bg-purple-300" size="md">{item.label}</Chip>)
               )}
             </div>
           </FadeInScroll>
-          <FadeInScroll className="my-2 w-1/2 ">
+          <FadeInScroll className="my-2 sm:w-1/2 ">
             <Header3Mono>Databases</Header3Mono>
             <div className="flex justify-center gap-2 flex-wrap">
               {siteConfig.skills.databases.map(
                 (item, index) =>
-                (<Chip key={index} className="dark:bg-yellow-700 bg-yellow-500" size="lg">{item.label}</Chip>)
+                (<Chip key={index} className="dark:bg-yellow-700 bg-yellow-500" size="md">{item.label}</Chip>)
               )}
             </div>
           </FadeInScroll>
-          <FadeInScroll className="my-2 w-1/2 ">
+          <FadeInScroll className="my-2 sm:w-1/2 ">
             <Header3Mono>Frameworks</Header3Mono>
             <div className="flex justify-center gap-2 flex-wrap">
               {siteConfig.skills.frameworks.map(
                 (item, index) =>
-                (<Chip key={index} className="dark:bg-emerald-700 bg-emerald-300" size="lg">{item.label}</Chip>)
+                (<Chip key={index} className="dark:bg-emerald-700 bg-emerald-300" size="md">{item.label}</Chip>)
               )}
             </div>
           </FadeInScroll>
-          <FadeInScroll className="my-2 w-1/2 ">
+          <FadeInScroll className="my-2 sm:w-1/2 ">
             <Header3Mono>Miscellaneous</Header3Mono>
             <div className="flex justify-center gap-2 flex-wrap">
               {siteConfig.skills.miscellaneous.map(
                 (item, index) =>
-                (<Chip key={index} className="dark:bg-orange-700 bg-orange-300" size="lg">{item.label}</Chip>)
+                (<Chip key={index} className="dark:bg-orange-700 bg-orange-300" size="md">{item.label}</Chip>)
               )}
             </div>
           </FadeInScroll>
         </div>
+      </FadeInScroll>
+
+      {/* My Work Experience */}
+      <FadeInScroll>
+        {/* Make some fancy stuff here with like lines and stuff to pop stuff in */}
+        {/* NextUI Dividers have vertical orientation, might be able to make a custom timeline */}
+        {/* Vertical Dividers and cards */}
       </FadeInScroll>
 
       {/* What I Do */}
