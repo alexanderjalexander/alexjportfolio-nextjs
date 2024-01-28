@@ -40,7 +40,7 @@ export default function RootLayout({children,}: {children: React.ReactNode;}) {
 						<main className="container mx-auto max-w-7xl px-6 flex-grow">
 							{children}
 						</main>
-						<Divider className="mt-10" />
+						<Divider className="my-10" />
 						<Footer />
 					</div>
 				</Providers>
