@@ -1,8 +1,13 @@
-import { Header1, Header1Mono, Header2, Header3, SubheaderMono } from "@/components/headers";
+import { Header1, Header1Mono, Header2, Header2Mono, Header3, Header3Mono, Subheader, SubheaderMono } from "@/components/headers";
 import TypewriterWrapper from "@/components/typewriterwrapper";
 import { PageWrapper } from "@/components/pagewrapper";
 import { title } from "@/components/primitives";
 import { Metadata } from "next";
+
+import { FadeInScroll } from "@/components/fadeinscroll";
+import { Button, Chip, Card, CardBody, CardFooter, CardHeader, Divider, Link } from "@nextui-org/react";
+import { projects } from "./projects";
+import { GithubIcon } from "@/components/icons";
 
 export const metadata: Metadata = {
     title: 'Programming',
@@ -14,12 +19,57 @@ export default function Programming() {
 			{/* Intro Header */}
             <div className="h-screen flex items-center">
                 <div className="h-min m-auto">
-                    <Header1Mono className="mb-5">Video Editing</Header1Mono>
+                    <Header1Mono className="mb-5">Programming</Header1Mono>
                     <SubheaderMono>
-                        <TypewriterWrapper text="A comprehensive history of all my YouTube and editing experience." />
+                        <TypewriterWrapper text="All my projects, websites, and personal endeavors into code and technology." />
                     </SubheaderMono>
                 </div>
             </div>
+
+            {/* About Section */}
+        	<FadeInScroll>
+                <Divider className="my-10" />
+                <Header2Mono className="mb-5">About</Header2Mono>
+                <p>Programming has not only been the primary facet of my studies in Computer Science, but has also been a distinct passion of mine ever since I started learning about it in middle school and high school. From developing games to creating parsers and interpreters, I&apos;ve always been super interested in developing my own programs and creating awesome products for users.</p>
+            </FadeInScroll>
+
+            {/* Programming Project Cards Section */}
+            <FadeInScroll>
+                <Divider className="my-10" />
+                <Header2Mono className="mb-5">Projects</Header2Mono>
+                {projects.map(
+                    (item) =>
+                    (<Card key={item.id} isBlurred className="bg-primary-900 my-8">
+                        <CardHeader className="block">
+                            <div className="text-lg lg:text-lg">{item.title}</div>
+                            <div className="text-sm lg:text-sm opacity-70">{item.subtitle}</div>
+                        </CardHeader>
+                        <CardBody>
+                            <div>{item.desc}</div>
+                        </CardBody>
+                        <CardFooter>
+                            {item.languages.map(
+                                (item, index) => (<Chip key="index" className="mr-1 bg-primary-700">{item}</Chip>)
+                            )}
+                            
+                            {item.link 
+                            ? (<Button 
+                                href="https://github.com/nextui-org/nextui"
+                                as={Link}
+                                target="_blank"
+                                color="primary"
+                                startContent={<GithubIcon />}
+                                showAnchorIcon
+                                variant="solid"
+                                className="text-foreground bg-primary-700 ml-auto">
+                                    View Project
+                                </Button>) 
+                            : (<div></div>)}
+                        </CardFooter>
+                    </Card>)
+                )}
+            </FadeInScroll>
+
 		</PageWrapper>
 	);
 }
