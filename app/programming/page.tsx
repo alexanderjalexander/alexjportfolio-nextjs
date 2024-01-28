@@ -47,24 +47,26 @@ export default function Programming() {
                         <CardBody>
                             <div>{item.desc}</div>
                         </CardBody>
-                        <CardFooter>
-                            {item.languages.map(
-                                (item, index) => (<Chip key="index" className="mr-1 bg-primary-700">{item}</Chip>)
-                            )}
+                        <CardFooter className="flex flex-wrap">
+                            <div >
+                                {item.languages.map(
+                                    (item, index) => (<Chip key="index" className="m-1 bg-primary-700">{item}</Chip>)
+                                )}
+                            </div>
                             
                             {item.link 
-                            ? (<Button 
-                                href="https://github.com/nextui-org/nextui"
-                                as={Link}
-                                target="_blank"
-                                color="primary"
-                                startContent={<GithubIcon />}
-                                showAnchorIcon
-                                variant="solid"
-                                className="text-foreground bg-primary-700 ml-auto">
-                                    View Project
-                                </Button>) 
-                            : (<div></div>)}
+                                ? (<Button 
+                                    href={item.url}
+                                    as={Link}
+                                    target="_blank"
+                                    color="primary"
+                                    startContent={<GithubIcon />}
+                                    showAnchorIcon
+                                    variant="solid"
+                                    className="text-foreground bg-primary-700 right-0 ml-auto w-full my-2 sm:w-auto">
+                                        View Project
+                                    </Button>) 
+                                : (<div></div>)}
                         </CardFooter>
                     </Card>)
                 )}
