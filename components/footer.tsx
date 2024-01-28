@@ -10,9 +10,9 @@ export default function Footer() {
     return (
         <FadeInScroll>
             {/* TODO: Implement Stevens Webring */}
-            <footer>
+            <footer className="px-6">
                 <Webring />
-                <div className="w-full flex flex-col sm:flex-row items-center content-center justify-around px-6">
+                <div className="w-full flex flex-col sm:flex-row items-center content-center justify-around">
                     <div>
                         <Header2Mono>
                             Contact Me
@@ -50,6 +50,7 @@ export default function Footer() {
                         </p>
                     </div>
                 </div>
+                <div className="text-center py-6">&copy; 2024 Alexander Jansiewicz. All Rights Reserved.</div>
             </footer>
         </FadeInScroll>
     )
