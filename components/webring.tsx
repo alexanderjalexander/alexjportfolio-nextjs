@@ -10,6 +10,7 @@ interface WebringPerson {
 
 const userID="alexanderjalexander"
 
+
 export default async function Webring() {
     let response, response2;
     let neighbors: WebringPerson[];
