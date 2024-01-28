@@ -31,7 +31,7 @@ module.exports = {
           background: "#FFFFFF",
           foreground: "#11181C",
           primary: {
-            900: "#abc1fe",
+            900: "#c2d4ff",
             800: "#abc1fe",
             700: "#7f98fc",
             600: "#5970fa",
