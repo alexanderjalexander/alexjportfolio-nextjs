@@ -139,6 +139,13 @@ export default function Home() {
         </div>
       </FadeInScroll>
 
+      {/* My Work Experience */}
+      <FadeInScroll>
+        {/* Make some fancy stuff here with like lines and stuff to pop stuff in */}
+        {/* NextUI Dividers have vertical orientation, might be able to make a custom timeline */}
+        {/* Vertical Dividers and cards */}
+      </FadeInScroll>
+
       {/* What I Do */}
       <FadeInScroll>
         <Divider className="my-10" />
