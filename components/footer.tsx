@@ -8,10 +8,10 @@ export default function Footer() {
     return (
         <FadeInScroll>
             {/* TODO: Implement Stevens Webring */}
-            <footer className="w-full flex flex-col sm:flex-row items-start justify-around py-10">
+            <footer className="w-full flex flex-col sm:flex-row items-center content-center justify-around py-10 px-6">
                 <div>
                     <Header2Mono>
-                        Contact me
+                        Contact Me
                     </Header2Mono>
                     <p>Phone Number: (908)-367-0582</p>
                     <p>Email Address: ajansiew@stevens.edu</p>
