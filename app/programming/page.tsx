@@ -56,7 +56,7 @@ export default function Programming() {
                             
                             {item.link 
                                 ? (<Button 
-                                    href="https://github.com/nextui-org/nextui"
+                                    href={item.url}
                                     as={Link}
                                     target="_blank"
                                     color="primary"
