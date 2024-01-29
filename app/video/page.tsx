@@ -19,7 +19,7 @@ export default function Video() {
     		{/* Intro Header */}
             <div className="h-screen flex items-center">
                 <div className="h-min m-auto">
-                    <Header1Mono className="pt-32 mb-5">Video Editing</Header1Mono>
+                    <Header1Mono className="mb-5">Video Editing</Header1Mono>
                     <SubheaderMono>
                         <TypewriterWrapper text="A comprehensive history of all my YouTube and editing experience." />
                     </SubheaderMono>
