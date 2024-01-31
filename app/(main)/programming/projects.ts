@@ -13,7 +13,7 @@ export const projects = [
         id: 2,
         title: "Stevens M&T Website",
         subtitle: "Full-stack website serving as a hub for Stevens Music and Technology Students.",
-        desc: "A.K.A. the very site you're on right now! Created originally with raw HTML, CSS, and minimal JS, it was rebuilt from the ground up using a modern JS framework for ease of use, accessability, and server-side-rendering.",
+        desc: "A hub website for Stevens Music and Technology students to connect with each other, listen to student bands and music, and find upcoming events and opportunities.",
         link: true,
         url: "https://github.com/alexanderjalexander/stevensmandtsite",
         languages: ["Next.js", "Node.js", "Mantine", "PostCSS"]
