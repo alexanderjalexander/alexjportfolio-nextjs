@@ -77,13 +77,13 @@ export const commissions = {
     simply_ashton:[
         {
             id: 1,
-            name:"ashton-1-dumbideas",
+            name:"dumbideas",
             thumbnail:"https://img.youtube.com/vi/wq09Mxn1gRA/mqdefault.jpg",
             url:"https://www.youtube.com/watch?v=wq09Mxn1gRA"
         },
         {
             id: 2,
-            name:"ashton-2-s19-loadouts",
+            name:"s19-loadouts",
             thumbnail:"https://img.youtube.com/vi/1EJHJksLoxU/mqdefault.jpg",
             url:"https://www.youtube.com/watch?v=1EJHJksLoxU"
         }
@@ -91,79 +91,79 @@ export const commissions = {
     retro:[
         {
             id: 1,
-            name:"retro-1-crypto",
+            name:"crypto",
             thumbnail:"https://img.youtube.com/vi/N0Go1WDrnf0/mqdefault.jpg",
             url:"https://www.youtube.com/watch?v=N0Go1WDrnf0"
         },
         {
             id: 2,
-            name:"retro-2-volt",
+            name:"volt",
             thumbnail:"https://img.youtube.com/vi/ag15M27dFZo/mqdefault.jpg",
             url:"https://www.youtube.com/watch?v=ag15M27dFZo"
         },
         {
             id: 3,
-            name:"retro-3-amongus",
+            name:"amongus",
             thumbnail:"https://img.youtube.com/vi/aXSRGIqMdxk/mqdefault.jpg",
             url:"https://www.youtube.com/watch?v=aXSRGIqMdxk"
         },
         {
             id: 4,
-            name:"retro-4-cyberpunk",
+            name:"cyberpunk",
             thumbnail:"https://img.youtube.com/vi/bbzSFHHqt8A/mqdefault.jpg",
             url:"https://www.youtube.com/watch?v=bbzSFHHqt8A"
         },
         {
             id: 5,
-            name:"retro-5-memetrailer",
+            name:"memetrailer",
             thumbnail:"https://img.youtube.com/vi/2xc_fqBZ6pQ/mqdefault.jpg",
             url:"https://www.youtube.com/watch?v=2xc_fqBZ6pQ"
         },
         {
             id: 6,
-            name:"retro-6-wargames",
+            name:"wargames",
             thumbnail:"https://img.youtube.com/vi/XolMHxXgGRg/mqdefault.jpg",
             url:"https://www.youtube.com/watch?v=XolMHxXgGRg"
         },
         {
             id: 7,
-            name:"retro-7-arenas",
+            name:"arenas",
             thumbnail:"https://img.youtube.com/vi/XJ9KQ558860/mqdefault.jpg",
             url:"https://www.youtube.com/watch?v=XJ9KQ558860"
         },
         {
             id: 8,
-            name:"retro-8-arenastut",
+            name:"arenastut",
             thumbnail:"https://img.youtube.com/vi/0HUYYVkmGKU/mqdefault.jpg",
             url:"https://www.youtube.com/watch?v=0HUYYVkmGKU"
         },
         {
             id: 9,
-            name:"retro-9-genesis",
+            name:"genesis",
             thumbnail:"https://img.youtube.com/vi/nt7vLUCURrk/mqdefault.jpg",
             url:"https://www.youtube.com/watch?v=nt7vLUCURrk"
         },
         {
             id: 10,
-            name:"retro-10-rampart",
+            name:"rampart",
             thumbnail:"https://img.youtube.com/vi/KTcdXljWzKQ/mqdefault.jpg",
             url:"https://www.youtube.com/watch?v=KTcdXljWzKQ"
         },
         {
             id: 11,
-            name:"retro-11-vantage",
+            name:"vantage",
             thumbnail:"https://img.youtube.com/vi/hkYB061AjO8/mqdefault.jpg",
             url:"https://www.youtube.com/watch?v=hkYB061AjO8"
         },
         {
             id: 12,
-            name:"retro-12-gunrun",
+            name:"gunrun",
             thumbnail:"https://img.youtube.com/vi/80GhIE3MeCI/mqdefault.jpg",
             url:"https://www.youtube.com/watch?v=80GhIE3MeCI"
         },
         {
             id: 13,
-            name:"retro-13-tdm",
+            name:"tdm",
             thumbnail:"https://img.youtube.com/vi/ovEBTTJBC2U/mqdefault.jpg",
             url:"https://www.youtube.com/watch?v=ovEBTTJBC2U"
         }
@@ -171,7 +171,7 @@ export const commissions = {
     mccreamy:[
         {
             id: 1,
-            name:"mccreamy-overwatch",
+            name:"overwatch",
             thumbnail:"https://img.youtube.com/vi/MPwqjtHz--s/mqdefault.jpg",
             url:"https://www.youtube.com/watch?v=MPwqjtHz--s"
         }
