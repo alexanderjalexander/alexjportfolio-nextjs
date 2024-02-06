@@ -1,13 +1,11 @@
 import { Header1, Header1Mono, Header2Mono, Header3, Header3Mono, SubheaderMono } from "@/components/headers";
 import TypewriterWrapper from "@/components/typewriterwrapper";
 import { PageWrapper } from "@/components/pagewrapper";
-import { title } from "@/components/primitives";
 import { FadeInScroll } from "@/components/fadeinscroll";
 import { Accordion, AccordionItem, Card, Divider, Image } from "@nextui-org/react";
 import { Metadata } from "next";
 
 // Importing video file declaration
-import { commissions } from "./videos_backup";
 import * as vid from "./videos"
 
 export const metadata: Metadata = {
@@ -103,76 +101,6 @@ export default async function Video() {
                 )}
 
             </FadeInScroll>
-
-            {/* Commissions 
-            <FadeInScroll>
-                <Divider className="my-10" />
-                <Header2Mono>Commissions</Header2Mono>
-
-                <FadeInScroll className="my-8">
-                    <Header3Mono>SimplyAshton</Header3Mono>
-                    <div className="flex flex-wrap justify-center content-center my-2 sm:my-4 gap-4 sm:gap-8">
-                        {commissions.simply_ashton.map(
-                            (item, index) =>
-                            (<a key={index} target="_blank" href={item.url} rel="noopener noreferrer">
-                                <Card isPressable className="w-[160px] sm:w-[320px] bg-blue-500 backdrop-blur-sm">
-                                    <Image
-                                        isZoomed
-                                        alt=""
-                                        src={item.thumbnail}
-                                        className="z-0 w-full h-full object-cover opacity-0"
-                                        height={160}
-                                        width={320}
-                                    />
-                                </Card>
-                            </a>)
-                        )}
-                    </div>
-                </FadeInScroll>
-
-                <FadeInScroll className="my-8">
-                    <Header3Mono>Retro-Spect</Header3Mono>
-                    <div className="flex flex-wrap justify-center content-center my-2 sm:my-4 gap-4 sm:gap-8">
-                        {commissions.retro.map(
-                            (item, index) =>
-                            (<a key={index} target="_blank" href={item.url} rel="noopener noreferrer">
-                                <Card isPressable className="w-[160px] sm:w-[320px]">
-                                    <Image 
-                                        isZoomed
-                                        alt=""
-                                        src={item.thumbnail}
-                                        className="z-0 w-full h-full object-cover"
-                                        height={160}
-                                        width={320}
-                                    />
-                                </Card>
-                            </a>)
-                        )}
-                    </div>
-                </FadeInScroll>
-
-                <FadeInScroll className="my-8">
-                    <Header3Mono>McCreamy</Header3Mono>
-                    <div className="flex flex-wrap justify-center content-center my-2 sm:my-4 gap-4 sm:gap-8">
-                        {commissions.mccreamy.map(
-                            (item, index) =>
-                            (<a key={index} target="_blank" href={item.url} rel="noopener noreferrer">
-                                <Card isPressable className="w-[160px] sm:w-[320px]">
-                                    <Image 
-                                        isZoomed
-                                        alt=""
-                                        src={item.thumbnail}
-                                        className="z-0 w-full h-full object-cover"
-                                        height={160}
-                                        width={320}
-                                    />
-                                </Card>
-                            </a>)
-                        )}
-                    </div>
-                </FadeInScroll>
-            </FadeInScroll> */}
-
         </PageWrapper>
     );
 }
