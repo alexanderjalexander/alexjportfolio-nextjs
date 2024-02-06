@@ -114,7 +114,7 @@ export default function Home() {
             <div className="flex justify-center gap-2 flex-wrap">
               {siteConfig.skills.databases.map(
                 (item, index) =>
-                (<Chip key={index} className="dark:bg-yellow-700 bg-yellow-500" size="md">{item.label}</Chip>)
+                (<Chip key={index} className="dark:bg-yellow-700 bg-yellow-300" size="md">{item.label}</Chip>)
               )}
             </div>
           </FadeInScroll>
