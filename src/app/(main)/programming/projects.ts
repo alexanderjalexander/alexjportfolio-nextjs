@@ -6,7 +6,7 @@ export const projects = [
         desc: "A.K.A. the very site you're on right now! Created originally with raw HTML, CSS, and minimal JS, it was rebuilt from the ground up using a modern JS framework for ease of use, accessability, and server-side-rendering.",
         link: false,
         url: "",
-        languages: ["Next.js", "Node.js", "Tailwind CSS"]
+        languages: ["Next.js", "Node.js", "Tailwind CSS", "Neon PostgreSQL", "Drizzle ORM", "Framer Motion"]
     }
     ,
     {
