@@ -7,13 +7,29 @@ import { Accordion, AccordionItem, Card, Divider, Image } from "@nextui-org/reac
 import { Metadata } from "next";
 
 // Importing video file declaration
-import { vids, commissions } from "./videos";
+import { commissions } from "./videos_backup";
+import * as vid from "./videos"
 
 export const metadata: Metadata = {
     title: 'Video',
 }
 
-export default function Video() {
+export default async function Video() {
+    const vids = await vid.getPersonalVideos();
+    const commissions = await vid.getCommissions();
+    const commissioners = await vid.getCommissioners();
+
+    const commissionGroups = [];
+
+    for (let x of commissioners) {
+        commissionGroups.push({
+            creator: x.creator,
+            commissions: commissions.filter(
+                (item) => { return (item.person === x.creator) ? true : false }
+            )
+        })
+    }
+    
     return (
     	<PageWrapper>
     		{/* Intro Header */}
@@ -40,12 +56,12 @@ export default function Video() {
                 <div className="flex flex-wrap justify-center content-center my-2 sm:my-4 gap-4 sm:gap-8">
                     {vids.map(
                         (item, index) =>
-                        (<a key={index} target="_blank" href={item.url} rel="noopener noreferrer">
+                        (<a key={index} target="_blank" href={vid.getVideoURL(item.url)} rel="noopener noreferrer">
                             <Card isPressable className="w-[160px] sm:w-[320px]">
                                 <Image 
                                     isZoomed
                                     alt=""
-                                    src={item.thumbnail}
+                                    src={vid.getVideoThumbnail(item.url)}
                                     className="z-0 w-full h-full object-cover"
                                     height={160}
                                     width={320}
@@ -53,10 +69,42 @@ export default function Video() {
                             </Card>
                         </a>)
                     )}
+                    
                 </div>
             </FadeInScroll>
 
-            {/* Commissions */}
+            {/* Database Fetched Commissions */}
+            <FadeInScroll>
+                <Divider className="my-10" />
+                <Header2Mono>Commissions</Header2Mono>
+                
+                {commissionGroups.map(
+                    (item, index) => 
+                    (<FadeInScroll className="my-8" key={index}>
+                        <Header3Mono>{item.creator}</Header3Mono>
+                        <div className="flex flex-wrap justify-center content-center my-2 sm:my-4 gap-4 sm:gap-8">
+                            {item.commissions.map(
+                                (innerItem, innerIndex) =>
+                                (<a key={innerIndex} target="_blank" href={vid.getVideoURL(innerItem.url)} rel="noopener noreferrer">
+                                    <Card isPressable className="w-[160px] sm:w-[320px] bg-blue-500 backdrop-blur-sm">
+                                        <Image
+                                            isZoomed
+                                            alt=""
+                                            src={vid.getVideoThumbnail(innerItem.url)}
+                                            className="z-0 w-full h-full object-cover opacity-0"
+                                            height={160}
+                                            width={320}
+                                        />
+                                    </Card>
+                                </a>)
+                            )}
+                        </div>
+                    </FadeInScroll>)
+                )}
+
+            </FadeInScroll>
+
+            {/* Commissions 
             <FadeInScroll>
                 <Divider className="my-10" />
                 <Header2Mono>Commissions</Header2Mono>
@@ -123,7 +171,7 @@ export default function Video() {
                         )}
                     </div>
                 </FadeInScroll>
-            </FadeInScroll>
+            </FadeInScroll> */}
 
         </PageWrapper>
     );
