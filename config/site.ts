@@ -103,7 +103,7 @@ export const siteConfig = {
 			{ label: "Mantine" },
 			{ label: "NextUI" },
 			{ label: "Tailwind CSS" },
-			{ label: "Tailwind CSS" },
+			{ label: "Framer Motion" },
 		],
 		miscellaneous: [
 			{ label: "Hardware Repair/Assembly" },
