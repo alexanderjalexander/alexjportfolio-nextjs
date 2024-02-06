@@ -3,7 +3,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "drizzle:introspect": "drizzle-kit introspect:pg --config=drizzle.config.ts",
+    "drizzle:generate": "drizzle-kit generate:pg --config=drizzle.config.ts"
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.7.2",
@@ -25,6 +27,8 @@
     "autoprefixer": "10.4.16",
     "classnames": "^2.3.2",
     "clsx": "^2.0.0",
+    "dotenv": "^16.4.1",
+    "drizzle-orm": "^0.29.3",
     "eslint": "8.48.0",
     "eslint-config-next": "14.0.2",
     "framer-motion": "^10.16.16",
@@ -40,6 +44,7 @@
     "typewriter-effect": "^2.21.0"
   },
   "devDependencies": {
-    "@react-aria/ssr": "^3.9.1"
+    "@react-aria/ssr": "^3.9.1",
+    "drizzle-kit": "^0.20.14"
   }
 }
