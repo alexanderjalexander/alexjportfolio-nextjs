@@ -21,6 +21,9 @@ export default function Error({error, reset,}:
         <Code color='danger'>
           {error.message}
         </Code>
+        <Code color='danger'>
+          {error.stack}
+        </Code>
       </div>
 
       <div>
