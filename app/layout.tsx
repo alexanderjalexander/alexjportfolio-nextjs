@@ -3,10 +3,6 @@ import { Metadata, Viewport } from "next";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Providers } from "./providers";
-import { Navbar } from "@/components/navbar";
-import { Header2Mono } from "@/components/headers";
-import { Divider } from "@nextui-org/react";
-import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
 	title: {
@@ -35,14 +31,7 @@ export default function RootLayout({children,}: {children: React.ReactNode;}) {
 			<body className={'min-h-screen '+fontSans.variable+' font-sans antialiased' + 
 			' bg-fixed bg-gradient-to-tr from-primary-900 via-background to-primary-900'}>
 				<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-					<div>
-						<Navbar />
-						<main className="container mx-auto max-w-7xl px-6 flex-grow">
-							{children}
-						</main>
-						<Divider className="my-10" />
-						<Footer />
-					</div>
+					{children}
 				</Providers>
 			</body>
 		</html>

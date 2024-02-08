@@ -51,7 +51,7 @@ export default function Home() {
             src="/portrait.jpg"
             className="basis-1/5 z-1 max-w-[300px]"
           />
-          <div className="basis-3/5">
+          <div className="basis-100 lg:basis-3/5">
             <p>
               Hello there! My name&apos;s Alex; I&apos;m a 3/4 Computer Science
               student at Stevens Institute of Technology and I am based in NJ. I am
