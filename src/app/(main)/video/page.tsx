@@ -6,7 +6,7 @@ import { Accordion, AccordionItem, Card, Divider, Image } from "@nextui-org/reac
 import { Metadata } from "next";
 
 // Importing video file declaration
-import * as vid from "./videos"
+import * as vid from "@/src/db/data/videos"
 
 export const metadata: Metadata = {
     title: 'Video',

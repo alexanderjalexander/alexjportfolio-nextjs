@@ -11,6 +11,7 @@ This is a new portfolio site to be more visually appealing and technologically p
 - [TypeScript](https://www.typescriptlang.org/)
 - [Framer Motion](https://www.framer.com/motion/)
 - [next-themes](https://github.com/pacocoursey/next-themes)
+- [Neon Serverless PostgreSQL](https://neon.tech/)
 
 ## How to Use
 
@@ -34,6 +35,12 @@ npm install
 ```bash
 npm run dev
 ```
+### Create a .env file
+
+```
+DATABASE_URL=<database url goes here from Neon>
+```
+
 
 ## License
 
