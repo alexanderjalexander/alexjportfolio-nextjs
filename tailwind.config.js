@@ -1,7 +1,19 @@
 import {nextui} from '@nextui-org/theme'
+import { siteConfig } from "@/config/site";
+
+const safelist = [
+  'm-1',
+  'dark:bg-red-700 bg-red-300', 
+  'dark:bg-cyan-700 bg-cyan-300', 
+  'dark:bg-purple-700 bg-purple-300', 
+  'dark:bg-yellow-700 bg-yellow-300', 
+  'dark:bg-emerald-700 bg-emerald-300', 
+  'dark:bg-orange-700 bg-orange-300'
+]
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  safelist,
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',

@@ -1,20 +1,21 @@
-import { Header1, Header1Mono, Header2, Header2Mono, Header3, Header3Mono, Subheader, SubheaderMono } from "@/components/headers";
+import { Header1Mono, Header2Mono, SubheaderMono } from "@/components/headers";
 import TypewriterWrapper from "@/components/typewriterwrapper";
 import { PageWrapper } from "@/components/pagewrapper";
-import { title } from "@/components/primitives";
 import { Metadata } from "next";
 
 import { FadeInScroll } from "@/components/fadeinscroll";
 import { Button, Chip, Card, CardBody, CardFooter, CardHeader, Divider, Link } from "@nextui-org/react";
-import { projects } from "./projects";
 import { GithubIcon } from "@/components/icons";
+import { getProgrammingProjectsFull } from "@/src/lib/data/programming";
 
 export const metadata: Metadata = {
     title: 'Programming',
 }
 
-export default function Programming() {
-	return (
+export default async function Programming() {
+	const programmingProjects = await getProgrammingProjectsFull();
+    
+    return (
 		<PageWrapper>
 			{/* Intro Header */}
             <div className="h-screen flex items-center">
@@ -37,7 +38,45 @@ export default function Programming() {
             <FadeInScroll>
                 <Divider className="my-10" />
                 <Header2Mono className="mb-5">Projects</Header2Mono>
-                {projects.map(
+                {programmingProjects.reverse().map(
+                    (project) => 
+                    (<Card key={project.id} isBlurred className="bg-primary-900 my-8">
+                        <CardHeader className="block">
+                            <div className="text-lg lg:text-lg">{project.title}</div>
+                            <div className="text-sm lg:text-sm opacity-70">{project.subtitle}</div>
+                        </CardHeader>
+                        <CardBody>
+                            <div>{project.description}</div>
+                        </CardBody>
+                        <CardFooter className="flex flex-wrap">
+                            <div >
+                                {//@ts-ignore
+                                project.skills.map(
+                                    //@ts-ignore
+                                    (item, index) => 
+                                    (<Chip key={index} className={'m-1 ' + item.color}>
+                                        {item.skill}
+                                    </Chip>)
+                                )}
+                            </div>
+                            
+                            {project.link 
+                                ? (<Button 
+                                    href={project.link}
+                                    as={Link}
+                                    target="_blank"
+                                    color="primary"
+                                    startContent={<GithubIcon />}
+                                    showAnchorIcon
+                                    variant="solid"
+                                    className="text-foreground bg-primary-700 right-0 ml-auto w-full my-2 sm:w-auto">
+                                        View Project
+                                    </Button>) 
+                                : (<div></div>)}
+                        </CardFooter>
+                    </Card>)
+                )}
+                {/* {projects.map(
                     (item) =>
                     (<Card key={item.id} isBlurred className="bg-primary-900 my-8">
                         <CardHeader className="block">
@@ -69,7 +108,7 @@ export default function Programming() {
                                 : (<div></div>)}
                         </CardFooter>
                     </Card>)
-                )}
+                )} */}
             </FadeInScroll>
 
 		</PageWrapper>

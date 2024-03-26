@@ -88,12 +88,10 @@ export default async function Home() {
               <div className="flex justify-center gap-2 flex-wrap">
                 {skillsCategories[category].skills.map(
                   (skill:string) => 
-                  {
-                    const color = skillsCategories[category].color;
-                    const colorclass = `dark:bg-${color}-700 bg-${color}-300`;
+                  { 
                     return (
                     <Chip key={skill} 
-                      className={colorclass}
+                      className={skillsCategories[category].color}
                       size="md">
                         {skill}
                     </Chip>)

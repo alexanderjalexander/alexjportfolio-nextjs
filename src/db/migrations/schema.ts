@@ -1,7 +1,7 @@
 import { pgTable, integer, varchar, foreignKey, unique, date } from "drizzle-orm/pg-core"
-import { sql } from "drizzle-orm"
+  import { sql } from "drizzle-orm"
 
-
+// Videos Page Tables
 
 export const creators = pgTable("creators", {
 	id: integer("id").primaryKey().notNull(),
@@ -31,6 +31,8 @@ export const categories = pgTable("categories", {
 	}
 });
 
+// Site-wide Skills Tables
+
 export const skillCategory = pgTable("skill_category", {
 	category: integer("category").notNull().references(() => categories.id),
 	skill: integer("skill").notNull().references(() => skills.id),
@@ -44,4 +46,25 @@ export const skills = pgTable("skills", {
 	return {
 		skillsSkillKey: unique("skills_skill_key").on(table.skill),
 	}
+});
+
+// Programming Projects Page Tables
+
+export const programmingProjects = pgTable("programming_projects", {
+	id: integer("id").primaryKey().notNull(),
+	title: varchar("title", { length: 30 }).notNull(),
+	subtitle: varchar("subtitle", { length: 100 }).notNull(),
+	description: varchar("description", { length: 500 }).notNull(),
+	link: varchar("link", { length: 75 }),
+},
+(table) => {
+	return {
+		programmingProjectsTitleKey: unique("programming_projects_title_key").on(table.title),
+		programmingProjectsLinkKey: unique("programming_projects_link_key").on(table.link),
+	}
+});
+
+export const programmingSkills = pgTable("programming_skills", {
+	project: integer("project").notNull().references(() => programmingProjects.id),
+	skill: integer("skill").notNull().references(() => skills.id),
 });
