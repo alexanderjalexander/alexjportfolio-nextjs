@@ -1,5 +1,5 @@
 import { getDatabase } from "@/src/db";
-import { skills, categories, skillCategory } from "../migrations/schema";
+import { skills, categories, skillCategory } from "../../db/migrations/schema";
 import { eq, isNull } from "drizzle-orm";
 
 /*

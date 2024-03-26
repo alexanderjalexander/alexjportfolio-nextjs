@@ -3,7 +3,7 @@ import { Header1Mono, Header2Mono, Header3Mono, SubheaderMono } from "@/componen
 import { PageWrapper } from "@/components/pagewrapper";
 import TypewriterWrapper from "@/components/typewriterwrapper";
 import { siteConfig } from "@/config/site";
-import * as db from "@/src/db/data/skills";
+import * as db from "@/src/lib/data/skills";
 import { Card, CardHeader, Chip, Divider, Image } from "@nextui-org/react";
 import NextImage from "next/image";
 import Link from "next/link";
