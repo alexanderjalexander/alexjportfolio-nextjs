@@ -1,16 +1,15 @@
-"use client"
-
 import { FadeInScroll } from "@/components/fadeinscroll";
 import { Header1Mono, Header2Mono, Header3Mono, SubheaderMono } from "@/components/headers";
 import { PageWrapper } from "@/components/pagewrapper";
 import TypewriterWrapper from "@/components/typewriterwrapper";
 import { siteConfig } from "@/config/site";
+import * as db from "@/src/db/data/skills";
 import { Card, CardHeader, Chip, Divider, Image } from "@nextui-org/react";
 import NextImage from "next/image";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
-export default function Home() {
-  const router = useRouter();
+export default async function Home() {
+  const skillsCategories = await db.getSkillsCategories();
   
   return (
     <PageWrapper>
@@ -82,60 +81,27 @@ export default function Home() {
         <Divider className="my-10" />
         <Header2Mono>My Skills</Header2Mono>
         <div className="flex flex-row justify-around flex-wrap">
-          <FadeInScroll className="my-2 sm:w-1/2 ">
-            <Header3Mono>Programming Software</Header3Mono>
-            <div className="flex justify-center gap-2 flex-wrap">
-              {siteConfig.skills.programmingsoftware.map(
-                (item, index) =>
-                (<Chip key={index} className="dark:bg-red-700 bg-red-300" size="md">{item.label}</Chip>)
-              )}
-            </div>
-          </FadeInScroll>
-          <FadeInScroll className="my-2 sm:w-1/2 ">
-            <Header3Mono>Creative Software</Header3Mono>
-            <div className="flex justify-center gap-2 flex-wrap">
-              {siteConfig.skills.creativesoftware.map(
-                (item, index) =>
-                (<Chip key={index} className="dark:bg-cyan-700 bg-cyan-300" size="md">{item.label}</Chip>)
-              )}
-            </div>
-          </FadeInScroll>
-          <FadeInScroll className="my-2 sm:w-1/2 ">
-            <Header3Mono>Programming Languages</Header3Mono>
-            <div className="flex justify-center gap-2 flex-wrap">
-              {siteConfig.skills.languages.map(
-                (item, index) =>
-                (<Chip key={index} className="dark:bg-purple-700 bg-purple-300" size="md">{item.label}</Chip>)
-              )}
-            </div>
-          </FadeInScroll>
-          <FadeInScroll className="my-2 sm:w-1/2 ">
-            <Header3Mono>Databases</Header3Mono>
-            <div className="flex justify-center gap-2 flex-wrap">
-              {siteConfig.skills.databases.map(
-                (item, index) =>
-                (<Chip key={index} className="dark:bg-yellow-700 bg-yellow-300" size="md">{item.label}</Chip>)
-              )}
-            </div>
-          </FadeInScroll>
-          <FadeInScroll className="my-2 sm:w-1/2 ">
-            <Header3Mono>Frameworks</Header3Mono>
-            <div className="flex justify-center gap-2 flex-wrap">
-              {siteConfig.skills.frameworks.map(
-                (item, index) =>
-                (<Chip key={index} className="dark:bg-emerald-700 bg-emerald-300" size="md">{item.label}</Chip>)
-              )}
-            </div>
-          </FadeInScroll>
-          <FadeInScroll className="my-2 sm:w-1/2 ">
-            <Header3Mono>Miscellaneous</Header3Mono>
-            <div className="flex justify-center gap-2 flex-wrap">
-              {siteConfig.skills.miscellaneous.map(
-                (item, index) =>
-                (<Chip key={index} className="dark:bg-orange-700 bg-orange-300" size="md">{item.label}</Chip>)
-              )}
-            </div>
-          </FadeInScroll>
+          {Object.keys(skillsCategories).map(
+            (category, index) => 
+            <FadeInScroll className="my-2 sm:w-1/2" key={index}>
+              <Header3Mono>{category}</Header3Mono>
+              <div className="flex justify-center gap-2 flex-wrap">
+                {skillsCategories[category].skills.map(
+                  (skill:string) => 
+                  {
+                    const color = skillsCategories[category].color;
+                    const colorclass = `dark:bg-${color}-700 bg-${color}-300`;
+                    return (
+                    <Chip key={skill} 
+                      className={colorclass}
+                      size="md">
+                        {skill}
+                    </Chip>)
+                  }
+                )}
+              </div>
+            </FadeInScroll>
+          )}
         </div>
       </FadeInScroll>
 
@@ -157,9 +123,8 @@ export default function Home() {
               <Card 
                 key={index} 
                 isPressable
-                onClick={() => (
-                  router.push(item.href)
-                )}
+                as={Link}
+                href={item.href}
                 className="my-5 h-[100px] w-4/5 sm:h-[150px] sm:w-[300px] mx-auto bg-primary-900 hover:bg-primary-700">
                 <CardHeader className="absolute z-2 top-0 bottom-0">
                   <Header3Mono className="drop-shadow-sm">{item.label}</Header3Mono>
