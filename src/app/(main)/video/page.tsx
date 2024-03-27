@@ -1,8 +1,8 @@
-import { Header1, Header1Mono, Header2Mono, Header3, Header3Mono, SubheaderMono } from "@/components/headers";
+import { Header1Mono, Header2Mono, Header3Mono, SubheaderMono } from "@/components/headers";
 import TypewriterWrapper from "@/components/typewriterwrapper";
 import { PageWrapper } from "@/components/pagewrapper";
 import { FadeInScroll } from "@/components/fadeinscroll";
-import { Accordion, AccordionItem, Card, Divider, Image } from "@nextui-org/react";
+import { Card, Divider, Image } from "@nextui-org/react";
 import { Metadata } from "next";
 
 // Importing video file declaration
@@ -13,20 +13,18 @@ export const metadata: Metadata = {
 }
 
 export default async function Video() {
-    const vids = await vid.getPersonalVideos();
-    const commissions = await vid.getCommissions();
-    const commissioners = await vid.getCommissioners();
-
-    const commissionGroups = [];
-
-    for (let x of commissioners) {
-        commissionGroups.push({
-            creator: x.creator,
-            commissions: commissions.filter(
-                (item) => { return (item.person === x.creator) ? true : false }
-            )
-        })
-    }
+    let vids = await vid.getPersonalVideos();
+    let commissions = await vid.getCommissions();
+    // try {
+    //     vids = await fetch(process.env.URL + 'http://localhost:3000/api/video', {
+    //         method: 'GET',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         }
+    //     })
+    // } catch(e) {
+    //     throw e;
+    // }
     
     return (
     	<PageWrapper>
@@ -76,7 +74,31 @@ export default async function Video() {
                 <Divider className="my-10" />
                 <Header2Mono>Commissions</Header2Mono>
                 
-                {commissionGroups.map(
+                {Object.keys(commissions).map(
+                    (commissioner, index) => 
+                    (<FadeInScroll className="my-8" key={index}>
+                        <Header3Mono>{commissioner}</Header3Mono>
+                        <div className="flex flex-wrap justify-center content-center my-2 sm:my-4 gap-4 sm:gap-8">
+                            {(commissions[commissioner].map(
+                                (video, innerIndex) => 
+                                (<a key={innerIndex} target="_blank" href={vid.getVideoURL(video.url)} rel="noopener noreferrer">
+                                <Card isPressable className="w-[160px] sm:w-[320px] bg-blue-500 backdrop-blur-sm">
+                                    <Image
+                                        isZoomed
+                                        alt=""
+                                        src={vid.getVideoThumbnail(video.url)}
+                                        className="z-0 w-full h-full object-cover opacity-0"
+                                        height={160}
+                                        width={320}
+                                    />
+                                </Card>
+                            </a>)   
+                            ))}
+                        </div>
+                    </FadeInScroll>)
+                )}
+
+                {/* {commissions.map(
                     (item, index) => 
                     (<FadeInScroll className="my-8" key={index}>
                         <Header3Mono>{item.creator}</Header3Mono>
@@ -98,7 +120,7 @@ export default async function Video() {
                             )}
                         </div>
                     </FadeInScroll>)
-                )}
+                )} */}
 
             </FadeInScroll>
         </PageWrapper>

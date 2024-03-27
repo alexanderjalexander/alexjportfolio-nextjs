@@ -10,7 +10,6 @@ import Link from "next/link";
 
 export default async function Home() {
   const skillsCategories = await db.getSkillsCategories();
-  throw new Error('Testing');
   return (
     <PageWrapper>
       {/* Intro Card */}

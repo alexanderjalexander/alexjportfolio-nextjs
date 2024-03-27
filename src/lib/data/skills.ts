@@ -1,6 +1,7 @@
 import { getDatabase } from "@/src/db";
 import { skills, categories, skillCategory } from "../../db/migrations/schema";
 import { eq } from "drizzle-orm";
+import { LooseObject } from "@/types";
 
 export async function getSkillsCategories() {
     const skillsCategories = (await getDatabase())
@@ -11,10 +12,6 @@ export async function getSkillsCategories() {
     .from(skillCategory)
     .innerJoin(categories, eq(categories.id, skillCategory.category))
     .innerJoin(skills, eq(skills.id, skillCategory.skill));
-
-    interface LooseObject {
-        [key: string]: any
-    }
 
     let i = 0;
     // ENSURE THESE COLORS ARE CONSISTENT WITH TAILWIND CONFIG JS COLORS
@@ -27,7 +24,7 @@ export async function getSkillsCategories() {
         'dark:bg-orange-700 bg-orange-300'
     ];
     
-    const result: LooseObject = {};
+    const result:LooseObject = {};
 
     for (let x of await skillsCategories) {
         if (!result.hasOwnProperty(x.category)) {

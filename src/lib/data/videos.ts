@@ -1,12 +1,13 @@
 import { getDatabase } from "@/src/db";
 import { creators, videos } from "@/src/db/migrations/schema";
+import { LooseObject } from "@/types";
 import { eq, isNull } from "drizzle-orm";
 
 export async function getCommissioners() {
-    const commissioners = (await getDatabase()).select({
+    let commissioners = (await getDatabase()).select({
         creator: creators.name
     }).from(creators);
-    return commissioners;
+    return (await commissioners).map((x) => (x.creator));
 }
 
 export async function getPersonalVideos() {
@@ -23,7 +24,31 @@ export async function getCommissions() {
         url: videos.youtubeId,
         date: videos.publishDate
     }).from(creators).innerJoin(videos, eq(videos.commissionFor, creators.id)).orderBy(creators.name, videos.publishDate);
-    return commissions;
+    
+    interface CommissionsObject {
+        [key: string]: [
+            { url:string, date:string }
+        ]
+    }
+
+    let result:CommissionsObject = {}
+
+    for (let commission of await commissions) {
+        let person = commission.person;
+        if (!result.hasOwnProperty(commission.person)) {
+            result[commission.person] = [{
+                url: commission.url,
+                date: commission.date
+            }]
+        } else {
+            result[person].push({
+                url: commission.url,
+                date: commission.date
+            });
+        }
+    }
+    
+    return result;
 }
 
 export function getVideoURL(id:string) {
