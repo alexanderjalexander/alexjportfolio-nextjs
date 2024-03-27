@@ -18,18 +18,18 @@ export async function getPersonalVideos() {
     return vids;
 }
 
+export interface CommissionsObject {
+    [key: string]: [
+        { url:string, date:string }
+    ]
+}
+
 export async function getCommissions() {
     const commissions = (await getDatabase()).select({
         person: creators.name,
         url: videos.youtubeId,
         date: videos.publishDate
     }).from(creators).innerJoin(videos, eq(videos.commissionFor, creators.id)).orderBy(creators.name, videos.publishDate);
-    
-    interface CommissionsObject {
-        [key: string]: [
-            { url:string, date:string }
-        ]
-    }
 
     let result:CommissionsObject = {}
 

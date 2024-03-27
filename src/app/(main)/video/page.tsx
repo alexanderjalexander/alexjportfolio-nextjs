@@ -5,6 +5,7 @@ import { FadeInScroll } from "@/components/fadeinscroll";
 import { Card, Divider, Image } from "@nextui-org/react";
 import { Metadata } from "next";
 
+
 // Importing video file declaration
 import * as vid from "@/src/lib/data/videos"
 
@@ -13,18 +14,14 @@ export const metadata: Metadata = {
 }
 
 export default async function Video() {
-    let vids = await vid.getPersonalVideos();
-    let commissions = await vid.getCommissions();
-    // try {
-    //     vids = await fetch(process.env.URL + 'http://localhost:3000/api/video', {
-    //         method: 'GET',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         }
-    //     })
-    // } catch(e) {
-    //     throw e;
-    // }
+    let vids:{url:string,date:string}[];
+    let commissions:vid.CommissionsObject;
+    try {
+        vids = await vid.getPersonalVideos();
+        commissions = await vid.getCommissions()
+    } catch(e) {
+        throw Error('500: ' + e);
+    }
     
     return (
     	<PageWrapper>
