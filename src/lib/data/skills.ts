@@ -1,19 +1,6 @@
 import { getDatabase } from "@/src/db";
 import { skills, categories, skillCategory } from "../../db/migrations/schema";
-import { eq, isNull } from "drizzle-orm";
-
-/*
- * select c.category, s.skill
- * from skill_category
- *      inner join categories c on c.id = skill_category.category
- *      inner join skills s on s.id = skill_category.skill
- */
-
-export async function getCategories() {
-    return (await getDatabase())
-    .select({category: categories.category})
-    .from(categories);
-}
+import { eq } from "drizzle-orm";
 
 export async function getSkillsCategories() {
     const skillsCategories = (await getDatabase())

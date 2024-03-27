@@ -1,8 +1,7 @@
 'use client' 
  
-import { Header1Mono } from '@/components/headers'
+import { Header1Mono, Header3 } from '@/components/headers'
 import { Button } from '@nextui-org/button'
-import { Code } from '@nextui-org/code'
 import { useEffect } from 'react'
  
 export default function Error({error, reset,}: 
@@ -18,12 +17,12 @@ export default function Error({error, reset,}:
       <p className="text-center">Oops. We&apos;re not sure what happened there... :\</p>
       
       <div>
-        <Code color='danger'>
+        <Header3 className='text-red-700' align='start'>
           {error.message}
-        </Code>
-        <Code color='danger'>
+        </Header3>
+        <p color='danger'>
           {error.stack}
-        </Code>
+        </p>
       </div>
 
       <div>

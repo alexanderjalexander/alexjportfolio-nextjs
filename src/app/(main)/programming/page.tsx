@@ -76,39 +76,6 @@ export default async function Programming() {
                         </CardFooter>
                     </Card>)
                 )}
-                {/* {projects.map(
-                    (item) =>
-                    (<Card key={item.id} isBlurred className="bg-primary-900 my-8">
-                        <CardHeader className="block">
-                            <div className="text-lg lg:text-lg">{item.title}</div>
-                            <div className="text-sm lg:text-sm opacity-70">{item.subtitle}</div>
-                        </CardHeader>
-                        <CardBody>
-                            <div>{item.desc}</div>
-                        </CardBody>
-                        <CardFooter className="flex flex-wrap">
-                            <div >
-                                {item.languages.map(
-                                    (item, index) => (<Chip key="index" className="m-1 bg-primary-700">{item}</Chip>)
-                                )}
-                            </div>
-                            
-                            {item.link 
-                                ? (<Button 
-                                    href={item.url}
-                                    as={Link}
-                                    target="_blank"
-                                    color="primary"
-                                    startContent={<GithubIcon />}
-                                    showAnchorIcon
-                                    variant="solid"
-                                    className="text-foreground bg-primary-700 right-0 ml-auto w-full my-2 sm:w-auto">
-                                        View Project
-                                    </Button>) 
-                                : (<div></div>)}
-                        </CardFooter>
-                    </Card>)
-                )} */}
             </FadeInScroll>
 
 		</PageWrapper>
