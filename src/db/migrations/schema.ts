@@ -1,7 +1,7 @@
 import { pgTable, integer, varchar, foreignKey, unique, date } from "drizzle-orm/pg-core"
   import { sql } from "drizzle-orm"
 
-// Videos Page Tables
+
 
 export const creators = pgTable("creators", {
 	id: integer("id").primaryKey().notNull(),
@@ -31,8 +31,6 @@ export const categories = pgTable("categories", {
 	}
 });
 
-// Site-wide Skills Tables
-
 export const skillCategory = pgTable("skill_category", {
 	category: integer("category").notNull().references(() => categories.id),
 	skill: integer("skill").notNull().references(() => skills.id),
@@ -47,8 +45,6 @@ export const skills = pgTable("skills", {
 		skillsSkillKey: unique("skills_skill_key").on(table.skill),
 	}
 });
-
-// Programming Projects Page Tables
 
 export const programmingProjects = pgTable("programming_projects", {
 	id: integer("id").primaryKey().notNull(),
@@ -66,5 +62,23 @@ export const programmingProjects = pgTable("programming_projects", {
 
 export const programmingSkills = pgTable("programming_skills", {
 	project: integer("project").notNull().references(() => programmingProjects.id),
+	skill: integer("skill").notNull().references(() => skills.id),
+});
+
+export const motionGraphicsProjects = pgTable("motion_graphics_projects", {
+	id: integer("id").primaryKey().notNull(),
+	name: varchar("name", { length: 30 }).notNull(),
+	description: varchar("description", { length: 300 }).notNull(),
+	youtubeId: varchar("youtube_id", { length: 11 }).notNull(),
+	publishDate: date("publish_date").notNull(),
+},
+(table) => {
+	return {
+		motionGraphicsProjectsYoutubeIdKey: unique("motion_graphics_projects_youtube_id_key").on(table.youtubeId),
+	}
+});
+
+export const motionGraphicsSkills = pgTable("motion_graphics_skills", {
+	project: integer("project").notNull().references(() => motionGraphicsProjects.id),
 	skill: integer("skill").notNull().references(() => skills.id),
 });

@@ -58,3 +58,26 @@ Obtains list of commissions. All commissions done for a creator can be obtained 
   ...
 }
 ```
+
+## `/api/motion`
+
+### `GET /`
+
+Obtains list of motion graphics projects, ordered by date descending.
+
+```json
+[
+  {
+    "id": 4,
+    "name": "...",
+    "description": "...",
+    "youtube_id": 11-char youtube id,
+    "publish_date": "YYYY-MM-DD",
+    "skills": [
+      "...",
+      ...
+    ]
+  },
+  ...
+]
+```

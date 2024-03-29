@@ -42,7 +42,7 @@ export default async function Programming() {
                     (project) => 
                     (<Card key={project.id} isBlurred className="bg-primary-900 my-8">
                         <CardHeader className="block">
-                            <div className="text-lg lg:text-lg">{project.title}</div>
+                            <div className="font-bold text-lg lg:text-lg">{project.title}</div>
                             <div className="text-sm lg:text-sm opacity-70">{project.subtitle}</div>
                         </CardHeader>
                         <CardBody>
