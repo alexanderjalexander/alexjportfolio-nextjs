@@ -5,6 +5,8 @@ import TypewriterWrapper from "@/components/typewriterwrapper";
 import { FadeInScroll } from "@/components/fadeinscroll";
 import { Card, CardHeader, CardBody, CardFooter, Divider, Chip } from "@nextui-org/react";
 import { getMotionGraphicsFull } from "@/src/lib/data/motion";
+import * as vid from "@/src/lib/data/videos";
+import { Image } from "@nextui-org/react";
 
 export const metadata: Metadata = {
     title: 'Motion Graphics',
@@ -18,14 +20,20 @@ export default async function Motion_Graphics() {
 				<div className="text-lg lg:text-lg font-bold">{project.name}</div>
 				<div className="text-sm lg:text-sm opacity-70 italic">{project.publish_date}</div>
 			</CardHeader>
-			<CardBody>
-				<iframe
-					className="rounded-xl"
-					width="100%"
-					height="260"
-					src={`https://www.youtube.com/embed/${project.youtube_id}`}
-					allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-				/>
+			<CardBody className="w-full">
+				<div className="pb-3">
+					<a target="blank" href={vid.getVideoURL(project.youtube_id)}
+					rel="noopener noreferrer" className="mw-full">
+						<Card isPressable className="mw-full w-full">
+							<Image	removeWrapper
+								isZoomed
+								className="z-0 w-full object-cover"
+								alt={`${project.name} Link`}
+								src={vid.getVideoThumbnail(project.youtube_id)}
+							/>
+						</Card>
+					</a>
+				</div>
 				<div>{project.description}</div>
 			</CardBody>
 			<CardFooter className="flex-wrap">
