@@ -53,7 +53,7 @@ export default async function Video() {
                             <Card isPressable className="w-[160px] sm:w-[320px]">
                                 <Image 
                                     isZoomed
-                                    alt=""
+                                    alt={`Video ${index} Link`}
                                     src={vid.getVideoThumbnail(item.url)}
                                     className="z-0 w-full h-full object-cover"
                                     height={160}
@@ -82,7 +82,7 @@ export default async function Video() {
                                 <Card isPressable className="w-[160px] sm:w-[320px] bg-blue-500 backdrop-blur-sm">
                                     <Image
                                         isZoomed
-                                        alt=""
+                                        alt={`${commissioner} Video ${index}`}
                                         src={vid.getVideoThumbnail(video.url)}
                                         className="z-0 w-full h-full object-cover opacity-0"
                                         height={160}
