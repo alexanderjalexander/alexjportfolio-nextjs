@@ -13,6 +13,8 @@ export const metadata: Metadata = {
 }
 
 export default async function Motion_Graphics() {
+	// TODO: Modal implementation of iframe for optimization
+	// Use a skeleton to optimize loading and keep UI persistent.
 	const motion_graphics_projects = (await getMotionGraphicsFull()).map(
 		(project) =>
 		(<Card key={project.id} isBlurred className="basis-full md:basis-2/5 bg-primary-900 p-1 my-4">
