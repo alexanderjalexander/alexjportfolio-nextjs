@@ -2,7 +2,6 @@ import { Header1Mono, Header2Mono, SubheaderMono } from "@/components/headers";
 import TypewriterWrapper from "@/components/typewriterwrapper";
 import { PageWrapper } from "@/components/pagewrapper";
 import { Metadata } from "next";
-
 import { FadeInScroll } from "@/components/fadeinscroll";
 import { Button, Chip, Card, CardBody, CardFooter, CardHeader, Divider, Link } from "@nextui-org/react";
 import { GithubIcon } from "@/components/icons";
