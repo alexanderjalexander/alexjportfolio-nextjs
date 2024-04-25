@@ -31,11 +31,6 @@ export const categories = pgTable("categories", {
 	}
 });
 
-export const skillCategory = pgTable("skill_category", {
-	category: integer("category").notNull().references(() => categories.id),
-	skill: integer("skill").notNull().references(() => skills.id),
-});
-
 export const skills = pgTable("skills", {
 	id: integer("id").primaryKey().notNull(),
 	skill: varchar("skill", { length: 35 }).notNull(),
@@ -65,6 +60,34 @@ export const programmingSkills = pgTable("programming_skills", {
 	skill: integer("skill").notNull().references(() => skills.id),
 });
 
+export const skillCategory = pgTable("skill_category", {
+	category: integer("category").notNull().references(() => categories.id),
+	skill: integer("skill").notNull().references(() => skills.id),
+});
+
+export const motionGraphicsSkills = pgTable("motion_graphics_skills", {
+	project: integer("project").notNull().references(() => motionGraphicsProjects.id),
+	skill: integer("skill").notNull().references(() => skills.id),
+});
+
+export const animationProjects = pgTable("animation_projects", {
+	id: integer("id").primaryKey().notNull(),
+	name: varchar("name", { length: 30 }).notNull(),
+	description: varchar("description", { length: 300 }).notNull(),
+	youtubeId: varchar("youtube_id", { length: 11 }).notNull(),
+	publishDate: date("publish_date").notNull(),
+},
+(table) => {
+	return {
+		animationProjectsYoutubeIdKey: unique("animation_projects_youtube_id_key").on(table.youtubeId),
+	}
+});
+
+export const animationSkills = pgTable("animation_skills", {
+	project: integer("project").notNull().references(() => motionGraphicsProjects.id),
+	skill: integer("skill").notNull().references(() => skills.id),
+});
+
 export const motionGraphicsProjects = pgTable("motion_graphics_projects", {
 	id: integer("id").primaryKey().notNull(),
 	name: varchar("name", { length: 30 }).notNull(),
@@ -76,9 +99,4 @@ export const motionGraphicsProjects = pgTable("motion_graphics_projects", {
 	return {
 		motionGraphicsProjectsYoutubeIdKey: unique("motion_graphics_projects_youtube_id_key").on(table.youtubeId),
 	}
-});
-
-export const motionGraphicsSkills = pgTable("motion_graphics_skills", {
-	project: integer("project").notNull().references(() => motionGraphicsProjects.id),
-	skill: integer("skill").notNull().references(() => skills.id),
 });
