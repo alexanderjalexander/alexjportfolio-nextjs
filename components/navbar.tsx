@@ -13,8 +13,6 @@ import { Link } from "@nextui-org/link";
 import { link as linkStyles } from "@nextui-org/theme";
 import NextLink from "next/link";
 
-
-
 import clsx from "clsx";
 
 import { ThemeSwitch } from "@/components/theme-switch";
@@ -25,6 +23,7 @@ import { fontMono } from "@/config/fonts";
 import { useState } from "react";
 
 import { motion, useScroll, useSpring } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 export const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,6 +33,8 @@ export const Navbar = () => {
 		damping: 30,
 		restDelta: 0.001
 	});
+
+	const pathname = usePathname();
 
 	return (
 		<div className="w-screen top-0 z-10 fixed">
@@ -56,9 +57,9 @@ export const Navbar = () => {
 								<Link
 									as={NextLink}
 									className={clsx(
-										linkStyles({ color: "foreground" }),
 										"hover:text-primary-100 hover:font-medium",
-										"transition ease-in-out"
+										"transition ease-in-out",
+										(item.href === pathname ? "bg-primary-700 rounded-xl" : "")
 									)}
 									color="foreground"
 									isBlock
@@ -106,9 +107,9 @@ export const Navbar = () => {
 									onClick={() => setIsMenuOpen(false)} 
 									href={item.href} color="foreground" size="lg"
 									className={clsx(
-										linkStyles({ color: "foreground" }),
 										"hover:text-primary-100 hover:font-medium",
-										"transition ease-in-out"
+										"transition ease-in-out",
+										(item.href === pathname ? "bg-primary-700 rounded-xl" : "")
 									)}
 								>
 									{item.label}
