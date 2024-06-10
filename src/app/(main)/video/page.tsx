@@ -95,30 +95,6 @@ export default async function Video() {
                     </FadeInScroll>)
                 )}
 
-                {/* {commissions.map(
-                    (item, index) => 
-                    (<FadeInScroll className="my-8" key={index}>
-                        <Header3Mono>{item.creator}</Header3Mono>
-                        <div className="flex flex-wrap justify-center content-center my-2 sm:my-4 gap-4 sm:gap-8">
-                            {item.commissions.map(
-                                (innerItem, innerIndex) =>
-                                (<a key={innerIndex} target="_blank" href={vid.getVideoURL(innerItem.url)} rel="noopener noreferrer">
-                                    <Card isPressable className="w-[160px] sm:w-[320px] bg-blue-500 backdrop-blur-sm">
-                                        <Image
-                                            isZoomed
-                                            alt=""
-                                            src={vid.getVideoThumbnail(innerItem.url)}
-                                            className="z-0 w-full h-full object-cover opacity-0"
-                                            height={160}
-                                            width={320}
-                                        />
-                                    </Card>
-                                </a>)
-                            )}
-                        </div>
-                    </FadeInScroll>)
-                )} */}
-
             </FadeInScroll>
         </PageWrapper>
     );

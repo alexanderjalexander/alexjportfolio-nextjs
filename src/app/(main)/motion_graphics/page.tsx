@@ -3,7 +3,7 @@ import { PageWrapper } from "@/components/pagewrapper";
 import { Metadata } from "next";
 import TypewriterWrapper from "@/components/typewriterwrapper";
 import { FadeInScroll } from "@/components/fadeinscroll";
-import { Card, CardHeader, CardBody, CardFooter, Divider, Chip } from "@nextui-org/react";
+import { Divider } from "@nextui-org/react";
 import { getMotionGraphicsFull } from "@/src/lib/data/motion";
 import { makeCards } from "@/components/youtube_project_card";
 

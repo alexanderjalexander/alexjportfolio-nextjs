@@ -10,6 +10,13 @@ export async function getObjects() {
         Bucket: process.env.BUCKET_NAME_RESIZE!,
     });
     const { Contents } = await s3.send(command);
+    for (let x of Contents!) {
+        ['LastModified', 'ETag', 'StorageClass', 'Owner'].forEach(
+            // It works, TypeScript is just being annoying about it bc it thinks a string can't be used to index an object smh my head
+            // @ts-ignore
+            e => delete x[e]
+        );
+    }
     return Contents;
 }
 
