@@ -1,4 +1,5 @@
 import { neon, neonConfig } from "@neondatabase/serverless";
+import type { NeonQueryFunction } from "@neondatabase/serverless";
 import { drizzle } from "drizzle-orm/neon-http"
 
 neonConfig.fetchConnectionCache = false;
@@ -10,7 +11,7 @@ export async function getDatabase() {
         throw new Error('process.env.DATABASE_URL is missing.');
     }
     
-    const sql = neon(process.env.DATABASE_URL!);
+    const sql:NeonQueryFunction<boolean, boolean> = neon(process.env.DATABASE_URL!);
     const db = drizzle(sql);
     
     return db;
