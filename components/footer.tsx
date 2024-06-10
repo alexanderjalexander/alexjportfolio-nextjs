@@ -36,7 +36,7 @@ export default function Footer() {
                         </p>
                         <p>
                             <Button
-                                href="https://www.linkedin.com/in/alexander-j-27144720b/"
+                                href="https://github.com/alexanderjalexander/"
                                 as={Link}
                                 isExternal
                                 className="bg-primary-900"
