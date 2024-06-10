@@ -3,13 +3,11 @@ import { Header2Mono } from "./headers"
 import { Button } from "@nextui-org/button"
 import { Link } from "@nextui-org/link"
 import { GithubIcon, LinkedInIcon } from "./icons"
-import { Divider } from "@nextui-org/react"
 import Webring from "./webring"
 
 export default function Footer() {
     return (
         <FadeInScroll>
-            {/* TODO: Implement Stevens Webring */}
             <footer className="px-6">
                 <Webring />
                 <div className="w-full flex flex-col sm:flex-row items-center content-center justify-around">

@@ -16,8 +16,6 @@ export default async function Webring() {
     let neighbors: WebringPerson[];
     let random: WebringPerson;
     try {
-        console.log('Trying to access webring API...')
-
         response = await fetch(`https://sitring.eric.si/${userID}/neighbors`, {
             method: "GET"
         });
@@ -27,8 +25,6 @@ export default async function Webring() {
             method: "GET"
         });
         random = await response2.json()
-
-        console.log('Done Reading! Attempting to return...')
         return(
             <div className="m-auto w-fit pb-6 text-xs text-center">
                 <div>
@@ -42,9 +38,9 @@ export default async function Webring() {
                 </div>
             </div>
         )
-    } catch(Error) {
-        console.error('Something went wrong. Returning empty div.')
-        console.error(Error)
+    } catch(e) {
+        console.error('Something went wrong while fetching the webring. Returning empty div.')
+        console.error(e)
         return (<div></div>)
     }
 }

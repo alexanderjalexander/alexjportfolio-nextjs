@@ -1,27 +1,27 @@
-import { Header1, Header1Mono, Header2, Header2Mono, Header3, Header3Mono, Subheader, SubheaderMono } from "@/components/headers";
+import { Header1Mono, Header2Mono, SubheaderMono } from "@/components/headers";
 import TypewriterWrapper from "@/components/typewriterwrapper";
 import { PageWrapper } from "@/components/pagewrapper";
-import { title } from "@/components/primitives";
 import { Metadata } from "next";
-
 import { FadeInScroll } from "@/components/fadeinscroll";
 import { Button, Chip, Card, CardBody, CardFooter, CardHeader, Divider, Link } from "@nextui-org/react";
-import { projects } from "./projects";
 import { GithubIcon } from "@/components/icons";
+import { getProgrammingProjectsSkillsFull } from "@/src/lib/data/programming";
 
 export const metadata: Metadata = {
     title: 'Programming',
 }
 
-export default function Programming() {
-	return (
+export default async function Programming() {
+	const programmingProjects = await getProgrammingProjectsSkillsFull();
+    
+    return (
 		<PageWrapper>
 			{/* Intro Header */}
             <div className="h-screen flex items-center">
                 <div className="h-min m-auto">
                     <Header1Mono className="mb-5">Programming</Header1Mono>
                     <SubheaderMono>
-                        <TypewriterWrapper text="All my projects, websites, and personal endeavors into code and technology." />
+                        <TypewriterWrapper text={"public static void main(String args[]) { System.out.println(\"Hello World!\"); }"} />
                     </SubheaderMono>
                 </div>
             </div>
@@ -37,26 +37,31 @@ export default function Programming() {
             <FadeInScroll>
                 <Divider className="my-10" />
                 <Header2Mono className="mb-5">Projects</Header2Mono>
-                {projects.map(
-                    (item) =>
-                    (<Card key={item.id} isBlurred className="bg-primary-900 my-8">
+                {programmingProjects.reverse().map(
+                    (project) => 
+                    (<Card key={project.id} isBlurred className="bg-primary-900 my-8">
                         <CardHeader className="block">
-                            <div className="text-lg lg:text-lg">{item.title}</div>
-                            <div className="text-sm lg:text-sm opacity-70">{item.subtitle}</div>
+                            <div className="font-bold text-lg lg:text-lg">{project.title}</div>
+                            <div className="text-sm lg:text-sm opacity-70">{project.subtitle}</div>
                         </CardHeader>
                         <CardBody>
-                            <div>{item.desc}</div>
+                            <div>{project.description}</div>
                         </CardBody>
                         <CardFooter className="flex flex-wrap">
                             <div >
-                                {item.languages.map(
-                                    (item, index) => (<Chip key="index" className="m-1 bg-primary-700">{item}</Chip>)
+                                {//@ts-ignore
+                                project.skills.map(
+                                    //@ts-ignore
+                                    (item, index) => 
+                                    (<Chip key={index} className={'m-1 ' + item.color}>
+                                        {item.skill}
+                                    </Chip>)
                                 )}
                             </div>
                             
-                            {item.link 
+                            {project.link 
                                 ? (<Button 
-                                    href={item.url}
+                                    href={project.link}
                                     as={Link}
                                     target="_blank"
                                     color="primary"

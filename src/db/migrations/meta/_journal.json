@@ -1,0 +1,13 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1711406222216,
+      "tag": "0000_worthless_vin_gonzales",
+      "breakpoints": true
+    }
+  ]
+}

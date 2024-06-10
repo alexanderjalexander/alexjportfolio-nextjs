@@ -11,7 +11,7 @@ export default function TypewriterWrapper({text}:{text:string}) {
 					.start(); 
 				}}
                 options={{
-                    delay: 50,
+                    delay: 40,
                 }}
 			/>
     )

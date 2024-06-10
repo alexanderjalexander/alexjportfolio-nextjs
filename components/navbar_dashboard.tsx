@@ -13,6 +13,8 @@ import { Link } from "@nextui-org/link";
 import { link as linkStyles } from "@nextui-org/theme";
 import NextLink from "next/link";
 
+
+
 import clsx from "clsx";
 
 import { ThemeSwitch } from "@/components/theme-switch";
@@ -23,18 +25,9 @@ import { fontMono } from "@/config/fonts";
 import { useState } from "react";
 
 import { motion, useScroll, useSpring } from "framer-motion";
-import { usePathname } from "next/navigation";
 
-export const Navbar = () => {
+export const NavbarDashboard = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	const { scrollYProgress } = useScroll();
-	const scaleX = useSpring(scrollYProgress, {
-		stiffness: 100,
-		damping: 30,
-		restDelta: 0.001
-	});
-
-	const pathname = usePathname();
 
 	return (
 		<div className="w-screen top-0 z-10 fixed">
@@ -52,14 +45,14 @@ export const Navbar = () => {
 					</NavbarBrand>
 
 					<ul className="hidden min-[920px]:flex gap-4 justify-start ml-2">
-						{siteConfig.navItems.map((item) => (
+						{[siteConfig.navItems[0]].map((item) => (
 							<NavbarItem key={item.href}>
 								<Link
 									as={NextLink}
 									className={clsx(
+										linkStyles({ color: "foreground" }),
 										"hover:text-primary-100 hover:font-medium",
-										"transition ease-in-out",
-										(item.href === pathname ? "bg-primary-700 rounded-xl" : "")
+										"transition ease-in-out"
 									)}
 									color="foreground"
 									isBlock
@@ -73,33 +66,13 @@ export const Navbar = () => {
 				</NavbarContent>
 
 				<NavbarContent className="basis-1 pl-4" justify="end">
-					<Link isExternal href={siteConfig.links.github} aria-label="Github">
-						<GithubIcon
-							className={clsx(
-								linkStyles({ color: "foreground" }),
-								"hover:text-primary-100 hover:font-medium",
-								"transition ease-in-out"
-							)} 
-						/>
-					</Link>
-
-					<Link isExternal href={siteConfig.links.linkedin} aria-label="LinkedIn">
-						<LinkedInIcon 
-							className={clsx(
-								linkStyles({ color: "foreground" }),
-								"hover:text-primary-100 hover:font-medium",
-								"transition ease-in-out"
-							)} 
-						/>
-					</Link>
-
 					<ThemeSwitch />
 					<NavbarMenuToggle className="min-[920px]:hidden hover:text-primary-100 transition-all ease-in-out" />
 				</NavbarContent>
 
 				<NavbarMenu className="overflow-auto scrollbar-hide">
 					<div className="mx-4 mt-2 flex flex-col gap-2">
-						{siteConfig.navItems.map((item, index) => (
+						{[siteConfig.navItems[0]].map((item, index) => (
 							<NavbarMenuItem key={`${item}-${index}`}>
 								<Link 
 									isBlock
@@ -107,9 +80,9 @@ export const Navbar = () => {
 									onClick={() => setIsMenuOpen(false)} 
 									href={item.href} color="foreground" size="lg"
 									className={clsx(
+										linkStyles({ color: "foreground" }),
 										"hover:text-primary-100 hover:font-medium",
-										"transition ease-in-out",
-										(item.href === pathname ? "bg-primary-700 rounded-xl" : "")
+										"transition ease-in-out"
 									)}
 								>
 									{item.label}
@@ -119,7 +92,6 @@ export const Navbar = () => {
 					</div>
 				</NavbarMenu>
 			</NextUINavbar>
-			<motion.div className="h-2 bg-primary-50" style={{ scaleX }} />
 		</div>
 	);
 };
