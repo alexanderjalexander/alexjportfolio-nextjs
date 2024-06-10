@@ -51,7 +51,7 @@ export default async function Home() {
           />
           <div className="basis-100 lg:basis-3/5">
             <p>
-              Hello there! My name&apos;s Alex; I&apos;m a 3/4 Computer Science
+              Hello there! My name&apos;s Alex(he/him); I&apos;m a 3/4 Computer Science
               student at Stevens Institute of Technology and I am based in NJ. I am
               a creative and open-minded person committed to exploring the many ways
               I can express myself creatively or create exciting new projects
