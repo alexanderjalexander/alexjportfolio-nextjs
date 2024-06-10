@@ -19,6 +19,7 @@ export default function GraphicDesignContent({videos}:{videos:(string|undefined)
     return (<>
         <div className="overflow-auto">
             <Modal isOpen={isOpen} 
+                    className="bg-background"
                     backdrop="blur" 
                     size="2xl"
                     onOpenChange={onOpenChange}
