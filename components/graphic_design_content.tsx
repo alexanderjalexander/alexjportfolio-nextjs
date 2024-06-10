@@ -1,6 +1,6 @@
 "use client"
 
-import { Button, Card, Divider, Image, Modal, ModalHeader, ModalContent, ModalFooter, ModalBody, Skeleton, useDisclosure } from "@nextui-org/react"
+import { Button, Card, Divider, Image, Modal, ModalHeader, ModalContent, ModalFooter, ModalBody, Spinner, useDisclosure } from "@nextui-org/react"
 import { useState } from "react";
 import { Header2Mono, Header3Mono } from "./headers";
 import { FadeInScroll } from "./fadeinscroll";
@@ -8,11 +8,11 @@ import { FadeInScroll } from "./fadeinscroll";
 export default function GraphicDesignContent({videos}:{videos:(string|undefined)[]}) {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
     const [image, setImage] = useState({
-        header: '', alt: '', url: ''
+        header: '', alt: '', url: '', loaded: false
     });
 
     const openModal = (header:string, alt:string, url:string) => {
-        setImage({header:header, alt:alt, url:url})
+        setImage({loaded:false, header:header, alt:alt, url:url})
         onOpen();
     }
 
@@ -27,16 +27,23 @@ export default function GraphicDesignContent({videos}:{videos:(string|undefined)
                 {(onClose) => (<>
                     <ModalHeader>{image.header}</ModalHeader>
                     <ModalBody className="justify-center content-center">
+                        {(!image.loaded) ? <Spinner label="Loading" /> : <></>}
                         <Image 
                             alt={image.alt}
                             src={image.url}
                             loading="eager"
+                            onLoad={() => setImage({...image, loaded:true})}
                             isBlurred
                             className="z-0 w-full h-full object-cover"
                         />
                     </ModalBody>
                     <ModalFooter>
-                        <Button color="danger" variant="light" onPress={onClose}>
+                        <a target="_blank" href={image.url}>
+                            <Button color="primary" variant="solid">
+                                Open Full Image
+                            </Button>
+                        </a>
+                        <Button color="danger" variant="solid" onPress={onClose}>
                             Close
                         </Button>
                     </ModalFooter>
