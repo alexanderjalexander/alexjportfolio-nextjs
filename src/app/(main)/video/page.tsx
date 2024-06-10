@@ -30,7 +30,7 @@ export default async function Video() {
                 <div className="h-min m-auto">
                     <Header1Mono className="mb-5">Video Editing</Header1Mono>
                     <SubheaderMono>
-                        <TypewriterWrapper text="A comprehensive history of all my YouTube and editing experience." />
+                        <TypewriterWrapper text="All my editing experience, YouTube history, and content creation fascinations" />
                     </SubheaderMono>
                 </div>
             </div>

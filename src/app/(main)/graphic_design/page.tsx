@@ -31,7 +31,7 @@ export default async function Graphic_Design() {
         	<FadeInScroll>
                 <Divider className="my-10" />
                 <Header2Mono className="mb-5">About</Header2Mono>
-                <p>Whether it&apos;s for thumbnails, posters, or other promotional material, graphic design has the power to grab your attention from the first go by .</p>
+                <p>Whether it&apos;s for thumbnails, posters, or other promotional material, graphic design has the power to grab your attention from the first glance. It&apos;s one of the most fundamental pieces behind such disciplines such as content creation, marketing, UI/UX, etc. Throughout my time and experience with the discipline, the tenets and teachings of Graphic Design has played an undoubtedly fundamental role helping me make birthday posters for friends, thumbnails for YouTube videos, designing mockups for apps and icons, and so much more.</p>
             </FadeInScroll>
 
             {/* Graphic Design Work Section */}

@@ -21,7 +21,7 @@ export default async function Animation() {
                 <div className="h-min m-auto">
                     <Header1Mono className="mb-5">3D Animation</Header1Mono>
                     <SubheaderMono>
-                        <TypewriterWrapper text="Making even the most impossible of things come to life through CGI." />
+                        <TypewriterWrapper text="Where even the most impossible of things can come to life" />
                     </SubheaderMono>
                 </div>
             </div>

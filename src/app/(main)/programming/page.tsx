@@ -21,7 +21,7 @@ export default async function Programming() {
                 <div className="h-min m-auto">
                     <Header1Mono className="mb-5">Programming</Header1Mono>
                     <SubheaderMono>
-                        <TypewriterWrapper text="All my projects, websites, and personal endeavors into code and technology." />
+                        <TypewriterWrapper text={"public static void main(String args[]) { System.out.println(\"Hello World!\"); }"} />
                     </SubheaderMono>
                 </div>
             </div>

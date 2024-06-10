@@ -23,7 +23,7 @@ export default async function Motion_Graphics() {
                 <div className="h-min m-auto">
                     <Header1Mono className="mb-5">Motion Graphics</Header1Mono>
                     <SubheaderMono>
-                        <TypewriterWrapper text="Motion graphics central: the hub for all my motion graphics experimentation and projects." />
+                        <TypewriterWrapper text="Adjustment layers, chroma keys, typography, and VFX galore" />
                     </SubheaderMono>
                 </div>
             </div>
