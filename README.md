@@ -160,3 +160,27 @@ Obtains list of 3D animation projects, ordered by date descending.
 ## `/api/graphic_design`
 
 ### `GET /`
+
+Fetches all possible keys provided in the image bucket for the graphic design page. Each key can be used to fetch that specific image.
+
+```json
+[
+  {
+    "Key": "Posters/Some poster here.jpg",
+    "Size": 85592
+  },
+  ...
+]
+```
+
+### `GET /[...id]`
+
+Returns a full-quality image provided from the key given.
+
+404s if the key leads to no image.
+
+### `GET /resize/[...id]`
+
+Returns a low-quality image provided from the key given. Useful for keeping the graphic design page optimized when displaying every image.
+
+404s if the key leads to no image.
