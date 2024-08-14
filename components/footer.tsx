@@ -15,7 +15,6 @@ export default function Footer() {
                         <Header2Mono>
                             Contact Me
                         </Header2Mono>
-                        <p>Phone Number: (908)-367-0582</p>
                         <p>Email Address: ajansiew@stevens.edu</p>
                     </div>
                     <div>
