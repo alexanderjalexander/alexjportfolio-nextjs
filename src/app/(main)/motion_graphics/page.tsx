@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import TypewriterWrapper from "@/components/typewriterwrapper";
 import { FadeInScroll } from "@/components/fadeinscroll";
 import { Divider } from "@nextui-org/react";
-import { getMotionGraphicsFull } from "@/src/lib/data/motion";
+import { getCachedMotionGraphicsFull } from "@/src/lib/data/motion";
 import { makeCards } from "@/components/youtube_project_card";
 
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default async function Motion_Graphics() {
 	// TODO: Modal implementation of iframe for optimization
 	// Use a skeleton to optimize loading and keep UI persistent.
-	const motion_graphics_projects = makeCards(await getMotionGraphicsFull());
+	const motion_graphics_projects = makeCards(await getCachedMotionGraphicsFull());
 
 	return (
 		<PageWrapper>

@@ -5,14 +5,14 @@ import { Metadata } from "next";
 import { FadeInScroll } from "@/components/fadeinscroll";
 import { Button, Chip, Card, CardBody, CardFooter, CardHeader, Divider, Link } from "@nextui-org/react";
 import { GithubIcon } from "@/components/icons";
-import { getProgrammingProjectsSkillsFull } from "@/src/lib/data/programming";
+import * as db from "@/src/lib/data/programming";
 
 export const metadata: Metadata = {
     title: 'Programming',
 }
 
 export default async function Programming() {
-	const programmingProjects = await getProgrammingProjectsSkillsFull();
+	const programmingProjects = await db.getCachedProgrammingProjectsSkillsFull();
     
     return (
 		<PageWrapper>

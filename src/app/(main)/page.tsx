@@ -9,7 +9,7 @@ import NextImage from "next/image";
 import Link from "next/link";
 
 export default async function Home() {
-  const skillsCategories = await db.getSkillsCategories();
+  const skillsCategories = await db.getCachedSkillsCategories();
   return (
     <PageWrapper>
       {/* Intro Card */}

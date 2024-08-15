@@ -1,7 +1,9 @@
 import { getDatabase } from "@/src/db";
 import { animationProjects, skills, animationSkills } from "@/src/db/migrations/schema";
 import { desc, eq, sql } from "drizzle-orm";
-import { getColorCategorizedSkills } from "./skills";
+import { getCachedColorCategorizedSkills } from "./skills";
+import { unstable_cache } from "next/cache";
+import { siteConfig } from "@/config/site";
 
 export async function getAnimation() {
     return (await getDatabase())
@@ -35,7 +37,7 @@ export async function getAnimationFull(): Promise<{
     skills: { color: string, skill: string }[]
 }[]> {
     let projects = await getAnimation();
-    const skillsColored = await getColorCategorizedSkills();
+    const skillsColored = await getCachedColorCategorizedSkills();
     projects.map(
         (project) => {
             //@ts-ignore
@@ -51,3 +53,19 @@ export async function getAnimationFull(): Promise<{
     //@ts-ignore
     return projects;
 }
+
+export const getCachedAnimation = unstable_cache(
+    async () => getAnimation(),
+    ['animation'],
+    {
+        revalidate: siteConfig.revalidateTime,
+    }
+);
+
+export const getCachedAnimationFull = unstable_cache(
+    async () => getAnimationFull(),
+    ['animation-full'],
+    {
+        revalidate: siteConfig.revalidateTime,
+    }
+);

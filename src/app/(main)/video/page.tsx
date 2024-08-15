@@ -18,7 +18,7 @@ export default async function Video() {
     let commissions:vid.CommissionsObject;
     try {
         vids = await vid.getPersonalVideos();
-        commissions = await vid.getCommissions()
+        commissions = await vid.getCachedCommissions()
     } catch(e) {
         throw Error('500: ' + e);
     }

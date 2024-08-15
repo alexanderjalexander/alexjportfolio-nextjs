@@ -60,4 +60,5 @@ export const siteConfig = {
 		github: "https://github.com/alexanderjalexander",
 		linkedin: "https://www.linkedin.com/in/alexander-j-27144720b/"
 	},
+	revalidateTime: 604800
 };

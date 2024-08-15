@@ -1,9 +1,9 @@
-import { getAnimation } from "@/src/lib/data/animation";
+import { getCachedAnimation } from "@/src/lib/data/animation";
 
 export const dynamic = 'force-dynamic'
 export async function GET(req: Request) {
     try {
-        const res = await getAnimation();
+        const res = await getCachedAnimation();
         return new Response(JSON.stringify(res), {
             status: 200,
             headers: {}

@@ -1,4 +1,6 @@
+import { siteConfig } from "@/config/site";
 import { GetObjectCommand, ListObjectsCommand, S3Client } from "@aws-sdk/client-s3";
+import { unstable_cache } from "next/cache";
 
 const s3 = new S3Client({
     endpoint: `https://s3.${process.env.REGION!}.backblazeb2.com`,
@@ -20,6 +22,12 @@ export async function getObjects() {
     return Contents;
 }
 
+export const getCachedObjects = unstable_cache(
+    async() => getObjects(),
+    ['graphic-design-objects'],
+    { revalidate: siteConfig.revalidateTime, }
+)
+
 export async function getObject(key:string) {
     const command = new GetObjectCommand({
         Bucket: process.env.BUCKET_NAME!,
@@ -29,6 +37,12 @@ export async function getObject(key:string) {
     return data;
 }
 
+export const getCachedObject = unstable_cache(
+    async(key:string) => getObject(key),
+    ['graphic-design-object'],
+    { revalidate: siteConfig.revalidateTime, }
+)
+
 export async function getObjectResized(key:string) {
     const command = new GetObjectCommand({
         Bucket: process.env.BUCKET_NAME_RESIZE!,
@@ -37,3 +51,9 @@ export async function getObjectResized(key:string) {
     const data = await s3.send(command);
     return data;
 }
+
+export const getCachedObjectResized = unstable_cache(
+    async(key:string) => getObjectResized(key),
+    ['graphic-design-object-resized'],
+    { revalidate: siteConfig.revalidateTime, }
+)

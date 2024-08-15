@@ -2,6 +2,8 @@ import { getDatabase } from "@/src/db";
 import { skills, categories, skillCategory } from "../../db/migrations/schema";
 import { eq } from "drizzle-orm";
 import { LooseObject } from "@/types";
+import { unstable_cache } from "next/cache";
+import { siteConfig } from "@/config/site";
 
 export async function getSkillsCategories() {
     const skillsCategories = (await getDatabase())
@@ -60,3 +62,19 @@ export async function getColorCategorizedSkills() {
     }
     return result;
 }
+
+export const getCachedSkillsCategories = unstable_cache(
+    async () => getSkillsCategories(),
+    ['skills-categories'],
+    {
+        revalidate: siteConfig.revalidateTime,
+    }
+);
+
+export const getCachedColorCategorizedSkills = unstable_cache(
+    async () => getColorCategorizedSkills(),
+    ['colored-skills'],
+    {
+        revalidate: siteConfig.revalidateTime,
+    }
+);

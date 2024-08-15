@@ -4,7 +4,7 @@ import TypewriterWrapper from "@/components/typewriterwrapper";
 import { FadeInScroll } from "@/components/fadeinscroll";
 import { Divider } from "@nextui-org/react";
 import { Metadata } from "next";
-import { getObjects } from "@/src/lib/data/graphic_design";
+import { getCachedObjects } from "@/src/lib/data/graphic_design";
 import GraphicDesignContent from "@/components/graphic_design_content";
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default async function Graphic_Design() {
 
-    let objects = (await getObjects())!.map((obj) => (obj.Key));
+    let objects = (await getCachedObjects())!.map((obj) => (obj.Key));
 	
     return (
 		<PageWrapper>
