@@ -55,7 +55,7 @@ export async function getMotionGraphicsFull(): Promise<{
 }
 
 export const getCachedMotionGraphics = unstable_cache(
-    async () => getMotionGraphics(),
+    async () => await getMotionGraphics(),
     ['motion-graphics'],
     {
         tags: ['motion-graphics'],
@@ -64,7 +64,7 @@ export const getCachedMotionGraphics = unstable_cache(
 );
 
 export const getCachedMotionGraphicsFull = unstable_cache(
-    async () => getMotionGraphicsFull(),
+    async () => await getMotionGraphicsFull(),
     ['motion-graphics-full'],
     {
         tags: ['motion-graphics-full'],

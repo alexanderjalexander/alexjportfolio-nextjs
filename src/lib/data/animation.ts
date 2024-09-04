@@ -55,7 +55,7 @@ export async function getAnimationFull(): Promise<{
 }
 
 export const getCachedAnimation = unstable_cache(
-    async () => getAnimation(),
+    async () => await getAnimation(),
     ['animation'],
     {
         tags: ['animation'],
@@ -64,7 +64,7 @@ export const getCachedAnimation = unstable_cache(
 );
 
 export const getCachedAnimationFull = unstable_cache(
-    async () => getAnimationFull(),
+    async () => await getAnimationFull(),
     ['animation-full'],
     {
         tags: ['animation-full'],

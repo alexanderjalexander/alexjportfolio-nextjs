@@ -85,7 +85,7 @@ export async function getCommissions() {
 }
 
 export const getCachedCommissions = unstable_cache(
-    async() => getCommissions(),
+    async() => await getCommissions(),
     ['commission-vids'],
     { 
         tags: ['commission-vids'],

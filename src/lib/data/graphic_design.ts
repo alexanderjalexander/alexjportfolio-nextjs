@@ -23,7 +23,7 @@ export async function getObjects() {
 }
 
 export const getCachedObjects = unstable_cache(
-    async() => getObjects(),
+    async() => await getObjects(),
     ['graphic-design-objects'],
     { 
         tags: ['graphic-design-objects'],
@@ -41,7 +41,7 @@ export async function getObject(key:string) {
 }
 
 export const getCachedObject = unstable_cache(
-    async(key:string) => getObject(key),
+    async(key:string) => await getObject(key),
     ['graphic-design-object'],
     { 
         tags: ['graphic-design-object'],
@@ -59,7 +59,7 @@ export async function getObjectResized(key:string) {
 }
 
 export const getCachedObjectResized = unstable_cache(
-    async(key:string) => getObjectResized(key),
+    async(key:string) => await getObjectResized(key),
     ['graphic-design-object-resized'],
     { 
         tags: ['graphic-design-object-resized'],

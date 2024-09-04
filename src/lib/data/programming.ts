@@ -88,7 +88,7 @@ export async function getProgrammingProjectsSkills() {
 }
 
 export const getCachedProgrammingProjectsSkills = unstable_cache(
-    async () => getProgrammingProjectsSkills(),
+    async () => await getProgrammingProjectsSkills(),
     ['programming-projects-skills'],
     { 
         tags: ['programming-projects-skills'],
@@ -143,7 +143,7 @@ export async function getProgrammingProjectsSkillsFull() {
 }
 
 export const getCachedProgrammingProjectsSkillsFull = unstable_cache(
-    async () => getProgrammingProjectsSkillsFull(),
+    async () => await getProgrammingProjectsSkillsFull(),
     ['programming-projects-skills-full'],
     {
         tags: ['programming-projects-skills-full'],

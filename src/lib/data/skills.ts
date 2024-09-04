@@ -64,7 +64,7 @@ export async function getColorCategorizedSkills() {
 }
 
 export const getCachedSkillsCategories = unstable_cache(
-    async () => getSkillsCategories(),
+    async () => await getSkillsCategories(),
     ['skills-categories'],
     {
         tags: ['skills-categories'],
@@ -73,7 +73,7 @@ export const getCachedSkillsCategories = unstable_cache(
 );
 
 export const getCachedColorCategorizedSkills = unstable_cache(
-    async () => getColorCategorizedSkills(),
+    async () => await getColorCategorizedSkills(),
     ['colored-skills'],
     {
         tags: ['colored-skills'],
