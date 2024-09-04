@@ -58,6 +58,7 @@ export const getCachedMotionGraphics = unstable_cache(
     async () => getMotionGraphics(),
     ['motion-graphics'],
     {
+        tags: ['motion-graphics'],
         revalidate: siteConfig.revalidateTime,
     }
 );
@@ -66,6 +67,7 @@ export const getCachedMotionGraphicsFull = unstable_cache(
     async () => getMotionGraphicsFull(),
     ['motion-graphics-full'],
     {
+        tags: ['motion-graphics-full'],
         revalidate: siteConfig.revalidateTime,
     }
 );

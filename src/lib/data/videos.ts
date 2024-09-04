@@ -21,6 +21,7 @@ export const getCommissioners = unstable_cache(
     },
     ['commissioners'],
     {
+        tags: ['commissioners'],
         revalidate: siteConfig.revalidateTime
     }
 )
@@ -45,6 +46,7 @@ export const getPersonalVideos = unstable_cache(
     },
     ['personal-vids'],
     {
+        tags: ['personal-vids'],
         revalidate: siteConfig.revalidateTime
     }
 )
@@ -85,7 +87,10 @@ export async function getCommissions() {
 export const getCachedCommissions = unstable_cache(
     async() => getCommissions(),
     ['commission-vids'],
-    { revalidate: siteConfig.revalidateTime }
+    { 
+        tags: ['commission-vids'],
+        revalidate: siteConfig.revalidateTime 
+    }
 )
 
 export function getVideoURL(id:string) {

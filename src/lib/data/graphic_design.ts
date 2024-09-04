@@ -25,7 +25,10 @@ export async function getObjects() {
 export const getCachedObjects = unstable_cache(
     async() => getObjects(),
     ['graphic-design-objects'],
-    { revalidate: siteConfig.revalidateTime, }
+    { 
+        tags: ['graphic-design-objects'],
+        revalidate: siteConfig.revalidateTime, 
+    }
 )
 
 export async function getObject(key:string) {
@@ -40,7 +43,10 @@ export async function getObject(key:string) {
 export const getCachedObject = unstable_cache(
     async(key:string) => getObject(key),
     ['graphic-design-object'],
-    { revalidate: siteConfig.revalidateTime, }
+    { 
+        tags: ['graphic-design-object'],
+        revalidate: siteConfig.revalidateTime, 
+    }
 )
 
 export async function getObjectResized(key:string) {
@@ -55,5 +61,8 @@ export async function getObjectResized(key:string) {
 export const getCachedObjectResized = unstable_cache(
     async(key:string) => getObjectResized(key),
     ['graphic-design-object-resized'],
-    { revalidate: siteConfig.revalidateTime, }
+    { 
+        tags: ['graphic-design-object-resized'],
+        revalidate: siteConfig.revalidateTime, 
+    }
 )

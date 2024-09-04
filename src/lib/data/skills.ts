@@ -67,6 +67,7 @@ export const getCachedSkillsCategories = unstable_cache(
     async () => getSkillsCategories(),
     ['skills-categories'],
     {
+        tags: ['skills-categories'],
         revalidate: siteConfig.revalidateTime,
     }
 );
@@ -75,6 +76,7 @@ export const getCachedColorCategorizedSkills = unstable_cache(
     async () => getColorCategorizedSkills(),
     ['colored-skills'],
     {
+        tags: ['colored-skills'],
         revalidate: siteConfig.revalidateTime,
     }
 );

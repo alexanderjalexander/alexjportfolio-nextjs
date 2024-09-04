@@ -22,6 +22,7 @@ export const getProgrammingProjects = unstable_cache(
     },
     ['programming-projects'],
     {
+        tags: ['programming-projects'],
         revalidate: siteConfig.revalidateTime,
     }
 );
@@ -49,7 +50,10 @@ export const getProgrammingSkills = unstable_cache(
         .innerJoin(skills, eq(skills.id, programmingSkills.skill));
     },
     ['programming-skills'],
-    {}
+    {
+        tags: ['programming-skills'],
+        revalidate: siteConfig.revalidateTime,
+    }
 )
 
 
@@ -86,7 +90,10 @@ export async function getProgrammingProjectsSkills() {
 export const getCachedProgrammingProjectsSkills = unstable_cache(
     async () => getProgrammingProjectsSkills(),
     ['programming-projects-skills'],
-    { revalidate: siteConfig.revalidateTime }
+    { 
+        tags: ['programming-projects-skills'],
+        revalidate: siteConfig.revalidateTime 
+    }
 )
 
 export async function getProgrammingProjectsSkillsFull() {
@@ -139,6 +146,7 @@ export const getCachedProgrammingProjectsSkillsFull = unstable_cache(
     async () => getProgrammingProjectsSkillsFull(),
     ['programming-projects-skills-full'],
     {
+        tags: ['programming-projects-skills-full'],
         revalidate: siteConfig.revalidateTime
     }
 )

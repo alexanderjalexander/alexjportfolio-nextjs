@@ -58,6 +58,7 @@ export const getCachedAnimation = unstable_cache(
     async () => getAnimation(),
     ['animation'],
     {
+        tags: ['animation'],
         revalidate: siteConfig.revalidateTime,
     }
 );
@@ -66,6 +67,7 @@ export const getCachedAnimationFull = unstable_cache(
     async () => getAnimationFull(),
     ['animation-full'],
     {
+        tags: ['animation-full'],
         revalidate: siteConfig.revalidateTime,
     }
 );
