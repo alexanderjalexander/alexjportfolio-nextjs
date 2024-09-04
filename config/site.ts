@@ -60,5 +60,5 @@ export const siteConfig = {
 		github: "https://github.com/alexanderjalexander",
 		linkedin: "https://www.linkedin.com/in/alexander-j-27144720b/"
 	},
-	revalidateTime: 604800
+	revalidateTime: (60*60*24) // 60 seconds/min * 60 min/hr * 24 hr/min = 86400 sec
 };
