@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'Video',
 }
 
-export const dynamic = 'force-dynamic';
+// export const dynamic = 'force-dynamic';
 
 export default async function Video() {
     let vids:{url:string,date:string}[];
@@ -24,6 +24,9 @@ export default async function Video() {
     } catch(e) {
         throw Error('500: ' + e);
     }
+
+    console.log(vids);
+    console.log(commissions);
     
     return (
     	<PageWrapper>
@@ -49,7 +52,7 @@ export default async function Video() {
                 <Divider className="my-10" />
                 <Header2Mono>My YouTube Videos</Header2Mono>
                 <div className="flex flex-wrap justify-center content-center my-2 sm:my-4 gap-4 sm:gap-8">
-                    {vids.map(
+                    {vids!.map(
                         (item, index) =>
                         (<a key={index} target="_blank" href={vid.getVideoURL(item.url)} rel="noopener noreferrer">
                             <Card isPressable className="w-[160px] sm:w-[320px]">
@@ -78,7 +81,7 @@ export default async function Video() {
                     (<FadeInScroll className="my-8" key={index}>
                         <Header3Mono>{commissioner}</Header3Mono>
                         <div className="flex flex-wrap justify-center content-center my-2 sm:my-4 gap-4 sm:gap-8">
-                            {(commissions[commissioner].map(
+                            {(commissions[commissioner]!.map(
                                 (video, innerIndex) => 
                                 (<a key={innerIndex} target="_blank" href={vid.getVideoURL(video.url)} rel="noopener noreferrer">
                                 <Card isPressable className="w-[160px] sm:w-[320px] bg-blue-500 backdrop-blur-sm">

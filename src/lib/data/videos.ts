@@ -1,42 +1,25 @@
 import { getDatabase } from "@/src/db";
 import { creators, videos } from "@/src/db/migrations/schema";
-import { LooseObject } from "@/types";
-import { unstable_cache } from "next/cache";
 import { siteConfig } from "@/config/site";
 import { eq, isNull } from "drizzle-orm";
+import { memoize } from "nextjs-better-unstable-cache";
 
-// export async function getCommissioners() {
-//     let commissioners = (await getDatabase()).select({
-//         creator: creators.name
-//     }).from(creators);
-//     return (await commissioners).map((x) => (x.creator));
-// }
-
-export const getCommissioners = unstable_cache(
+export const getCommissioners = memoize(
     async() => {
         let commissioners = (await getDatabase()).select({
             creator: creators.name
         }).from(creators);
         return (await commissioners).map((x) => (x.creator));
     },
-    ['commissioners'],
     {
-        tags: ['commissioners'],
-        revalidate: siteConfig.revalidateTime
+        revalidateTags: ['commissioners'],
+        duration: siteConfig.revalidateTime,
+        log: ['datacache', 'verbose'],
+        logid: 'Commissioners'
     }
 )
 
-/* 
-export async function getPersonalVideos() {
-    const vids = (await getDatabase()).select({
-        url: videos.youtubeId,
-        date: videos.publishDate
-    }).from(videos).where(isNull(videos.commissionFor)).orderBy(videos.publishDate)
-    return vids;
-}
-*/
-
-export const getPersonalVideos = unstable_cache(
+export const getPersonalVideos = memoize(
     async () => {
         const vids = (await getDatabase()).select({
             url: videos.youtubeId,
@@ -44,10 +27,11 @@ export const getPersonalVideos = unstable_cache(
         }).from(videos).where(isNull(videos.commissionFor)).orderBy(videos.publishDate)
         return vids;
     },
-    ['personal-vids'],
     {
-        tags: ['personal-vids'],
-        revalidate: siteConfig.revalidateTime
+        revalidateTags: ['personal-vids'],
+        duration: siteConfig.revalidateTime,
+        log: ['datacache', 'verbose'],
+        logid: 'Personal Videos'
     }
 )
 
@@ -84,12 +68,13 @@ export async function getCommissions() {
     return result;
 }
 
-export const getCachedCommissions = unstable_cache(
+export const getCachedCommissions = memoize(
     async() => await getCommissions(),
-    ['commission-vids'],
     { 
-        tags: ['commission-vids'],
-        revalidate: siteConfig.revalidateTime 
+        revalidateTags: ['commission-vids'],
+        duration: siteConfig.revalidateTime,
+        log: ['datacache', 'verbose'],
+        logid: 'Commission Videos'
     }
 )
 

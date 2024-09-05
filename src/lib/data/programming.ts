@@ -2,44 +2,26 @@ import { getDatabase } from "@/src/db";
 import { programmingProjects, programmingSkills, skills } from "@/src/db/migrations/schema";
 import { eq } from "drizzle-orm";
 import { siteConfig } from "@/config/site";
-import { unstable_cache } from "next/cache";
 import { getCachedColorCategorizedSkills } from "./skills";
+import { memoize } from "nextjs-better-unstable-cache";
 
 
-/*
-export async function getProgrammingProjects() {
-    return (await getDatabase())
-        .select()
-        .from(programmingProjects);
-}
-*/
 
-export const getProgrammingProjects = unstable_cache(
+export const getProgrammingProjects = memoize(
     async () => {
         return (await getDatabase())
         .select()
         .from(programmingProjects);
     },
-    ['programming-projects'],
     {
-        tags: ['programming-projects'],
-        revalidate: siteConfig.revalidateTime,
+        revalidateTags: ['programming-projects'],
+        duration: siteConfig.revalidateTime,
+        log: ['datacache', 'verbose'],
+        logid: 'Programming Projects'
     }
 );
 
-/*
-export async function getProgrammingSkills() {
-    return (await getDatabase())
-        .select({
-            project: programmingSkills.project,
-            skill: skills.skill
-        })
-        .from(programmingSkills)
-        .innerJoin(skills, eq(skills.id, programmingSkills.skill));
-}
-*/
-
-export const getProgrammingSkills = unstable_cache(
+export const getProgrammingSkills = memoize(
     async () => {
         return (await getDatabase())
         .select({
@@ -49,10 +31,11 @@ export const getProgrammingSkills = unstable_cache(
         .from(programmingSkills)
         .innerJoin(skills, eq(skills.id, programmingSkills.skill));
     },
-    ['programming-skills'],
     {
-        tags: ['programming-skills'],
-        revalidate: siteConfig.revalidateTime,
+        revalidateTags: ['programming-skills'],
+        duration: siteConfig.revalidateTime,
+        log: ['datacache', 'verbose'],
+        logid: 'Programming Skills'
     }
 )
 
@@ -87,12 +70,13 @@ export async function getProgrammingProjectsSkills() {
     return projects;
 }
 
-export const getCachedProgrammingProjectsSkills = unstable_cache(
+export const getCachedProgrammingProjectsSkills = memoize(
     async () => await getProgrammingProjectsSkills(),
-    ['programming-projects-skills'],
     { 
-        tags: ['programming-projects-skills'],
-        revalidate: siteConfig.revalidateTime 
+        revalidateTags: ['programming-projects-skills'],
+        duration: siteConfig.revalidateTime,
+        log: ['datacache', 'verbose'],
+        logid: 'Programming Projects + Skills'
     }
 )
 
@@ -142,12 +126,13 @@ export async function getProgrammingProjectsSkillsFull() {
     return projects;
 }
 
-export const getCachedProgrammingProjectsSkillsFull = unstable_cache(
+export const getCachedProgrammingProjectsSkillsFull = memoize(
     async () => await getProgrammingProjectsSkillsFull(),
-    ['programming-projects-skills-full'],
     {
-        tags: ['programming-projects-skills-full'],
-        revalidate: siteConfig.revalidateTime
+        revalidateTags: ['programming-projects-skills-full'],
+        duration: siteConfig.revalidateTime,
+        log: ['datacache', 'verbose'],
+        logid: 'Programming Projects + Skills Full'
     }
 )
 

@@ -9,8 +9,7 @@ export async function GET(
     try {
         const key = Array.isArray(params.id) ? params.id.join('/') : params.id;
         let res = await getObject(key);
-        const streamToString = await res.Body?.transformToByteArray();
-        return new Response(streamToString, {
+        return new Response(res.stream, {
             status: 200,
             // @ts-ignore
             headers: {

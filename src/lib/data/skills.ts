@@ -2,8 +2,8 @@ import { getDatabase } from "@/src/db";
 import { skills, categories, skillCategory } from "../../db/migrations/schema";
 import { eq } from "drizzle-orm";
 import { LooseObject } from "@/types";
-import { unstable_cache } from "next/cache";
 import { siteConfig } from "@/config/site";
+import { memoize } from "nextjs-better-unstable-cache";
 
 export async function getSkillsCategories() {
     const skillsCategories = (await getDatabase())
@@ -63,20 +63,22 @@ export async function getColorCategorizedSkills() {
     return result;
 }
 
-export const getCachedSkillsCategories = unstable_cache(
+export const getCachedSkillsCategories = memoize(
     async () => await getSkillsCategories(),
-    ['skills-categories'],
     {
-        tags: ['skills-categories'],
-        revalidate: siteConfig.revalidateTime,
+        revalidateTags: ['skills-categories'],
+        duration: siteConfig.revalidateTime,
+        log: ['datacache', 'verbose'],
+        logid: 'Skills + Categories'
     }
 );
 
-export const getCachedColorCategorizedSkills = unstable_cache(
+export const getCachedColorCategorizedSkills = memoize(
     async () => await getColorCategorizedSkills(),
-    ['colored-skills'],
     {
-        tags: ['colored-skills'],
-        revalidate: siteConfig.revalidateTime,
+        revalidateTags: ['colored-skills'],
+        duration: siteConfig.revalidateTime,
+        log: ['datacache', 'verbose'],
+        logid: 'Color Categorized Skills'
     }
 );

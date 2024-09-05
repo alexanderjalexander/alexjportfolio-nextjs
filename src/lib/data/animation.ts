@@ -2,8 +2,8 @@ import { getDatabase } from "@/src/db";
 import { animationProjects, skills, animationSkills } from "@/src/db/migrations/schema";
 import { desc, eq, sql } from "drizzle-orm";
 import { getCachedColorCategorizedSkills } from "./skills";
-import { unstable_cache } from "next/cache";
 import { siteConfig } from "@/config/site";
+import { memoize } from "nextjs-better-unstable-cache";
 
 export async function getAnimation() {
     return (await getDatabase())
@@ -54,20 +54,22 @@ export async function getAnimationFull(): Promise<{
     return projects;
 }
 
-export const getCachedAnimation = unstable_cache(
+export const getCachedAnimation = memoize(
     async () => await getAnimation(),
-    ['animation'],
     {
-        tags: ['animation'],
-        revalidate: siteConfig.revalidateTime,
+        revalidateTags: ['animation'],
+        duration: siteConfig.revalidateTime,
+        log: ['datacache', 'verbose'],
+        logid: 'Animation Projects'
     }
 );
 
-export const getCachedAnimationFull = unstable_cache(
+export const getCachedAnimationFull = memoize(
     async () => await getAnimationFull(),
-    ['animation-full'],
     {
-        tags: ['animation-full'],
-        revalidate: siteConfig.revalidateTime,
+        revalidateTags: ['animation-full'],
+        duration: siteConfig.revalidateTime,
+        log: ['datacache', 'verbose'],
+        logid: 'Animation Projects Full'
     }
 );

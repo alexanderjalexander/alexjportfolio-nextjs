@@ -9,13 +9,12 @@ export async function GET(
     try {
         const key = Array.isArray(params.id) ? params.id.join('/') : params.id;
         let res = await getObjectResized(key);
-        const streamToString = await res.Body?.transformToByteArray();
-        return new Response(streamToString, {
+        return new Response(res.stream, {
             status: 200,
             // @ts-ignore
             headers: {
                 'Content-Type': res.ContentType,
-                'Content-Length': res.ContentLength
+                'Content-Length': res.ContentLength,
             }
         });
     } catch(e) {

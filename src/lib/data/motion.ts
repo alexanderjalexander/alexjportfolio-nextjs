@@ -2,8 +2,8 @@ import { getDatabase } from "@/src/db";
 import { motionGraphicsProjects, skills, motionGraphicsSkills } from "@/src/db/migrations/schema";
 import { desc, eq, sql } from "drizzle-orm";
 import { getCachedColorCategorizedSkills } from "./skills";
-import { unstable_cache } from "next/cache";
 import { siteConfig } from "@/config/site";
+import { memoize } from "nextjs-better-unstable-cache";
 
 export async function getMotionGraphics() {
     return (await getDatabase())
@@ -54,20 +54,22 @@ export async function getMotionGraphicsFull(): Promise<{
     return projects;
 }
 
-export const getCachedMotionGraphics = unstable_cache(
+export const getCachedMotionGraphics = memoize(
     async () => await getMotionGraphics(),
-    ['motion-graphics'],
     {
-        tags: ['motion-graphics'],
-        revalidate: siteConfig.revalidateTime,
+        revalidateTags: ['motion-graphics'],
+        duration: siteConfig.revalidateTime,
+        log: ['datacache', 'verbose'],
+        logid: 'Motion Graphics Projects'
     }
 );
 
-export const getCachedMotionGraphicsFull = unstable_cache(
+export const getCachedMotionGraphicsFull = memoize(
     async () => await getMotionGraphicsFull(),
-    ['motion-graphics-full'],
     {
-        tags: ['motion-graphics-full'],
-        revalidate: siteConfig.revalidateTime,
+        revalidateTags: ['motion-graphics-full'],
+        duration: siteConfig.revalidateTime,
+        log: ['datacache', 'verbose'],
+        logid: 'Motion Graphics Projects Full'
     }
 );
