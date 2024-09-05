@@ -11,6 +11,8 @@ export const metadata: Metadata = {
     title: '3D Animation',
 }
 
+export const dynamic = 'force-dynamic';
+
 export default async function Animation() {
 	const animation_projects = makeCards(await getCachedAnimationFull());
 	

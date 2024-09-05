@@ -11,6 +11,8 @@ export const metadata: Metadata = {
     title: 'Programming',
 }
 
+export const dynamic = 'force-dynamic';
+
 export default async function Programming() {
 	const programmingProjects = await db.getCachedProgrammingProjectsSkillsFull();
     

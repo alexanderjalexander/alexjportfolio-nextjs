@@ -11,6 +11,8 @@ export const metadata: Metadata = {
     title: 'Motion Graphics',
 }
 
+export const dynamic = 'force-dynamic';
+
 export default async function Motion_Graphics() {
 	// TODO: Modal implementation of iframe for optimization
 	// Use a skeleton to optimize loading and keep UI persistent.

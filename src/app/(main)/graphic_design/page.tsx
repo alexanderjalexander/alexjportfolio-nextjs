@@ -11,6 +11,8 @@ export const metadata: Metadata = {
     title: 'Graphic Design',
 }
 
+export const dynamic = 'force-dynamic';
+
 export default async function Graphic_Design() {
 
     let objects = (await getCachedObjects())!.map((obj) => (obj.Key));

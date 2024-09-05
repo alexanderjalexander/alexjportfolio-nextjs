@@ -13,6 +13,8 @@ export const metadata: Metadata = {
     title: 'Video',
 }
 
+export const dynamic = 'force-dynamic';
+
 export default async function Video() {
     let vids:{url:string,date:string}[];
     let commissions:vid.CommissionsObject;
