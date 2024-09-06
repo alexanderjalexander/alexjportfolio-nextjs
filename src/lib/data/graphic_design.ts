@@ -1,6 +1,6 @@
 import { siteConfig } from "@/config/site";
 import { GetObjectCommand, ListObjectsCommand, S3Client } from "@aws-sdk/client-s3";
-import { memoize } from "nextjs-better-unstable-cache";
+import { unstable_cache } from "next/cache";
 
 const s3 = new S3Client({
     endpoint: `https://s3.${process.env.REGION!}.backblazeb2.com`,
@@ -22,13 +22,12 @@ export async function getObjects() {
     return Contents;
 }
 
-export const getCachedObjects = memoize(
+export const getCachedObjects = unstable_cache(
     async() => await getObjects(),
+    ['graphic-design-objects'],
     { 
-        revalidateTags: ['graphic-design-objects'],
-        duration: siteConfig.revalidateTime,
-        log: ['datacache', 'verbose'],
-        logid: 'Graphic Design Objects'
+        tags: ['graphic-design-objects'],
+        revalidate: siteConfig.revalidateTime, 
     }
 )
 
@@ -38,13 +37,17 @@ export async function getObject(key:string) {
         Key: key
     })
     const data = await s3.send(command);
-    const streamToString = await data.Body?.transformToByteArray();
-    return {
-        stream: streamToString,
-        ContentType: data.ContentType,
-        ContentLength: data.ContentLength 
-    };
+    return data;
 }
+
+export const getCachedObject = unstable_cache(
+    async(key:string) => await getObject(key),
+    ['graphic-design-object'],
+    { 
+        tags: ['graphic-design-object'],
+        revalidate: siteConfig.revalidateTime, 
+    }
+)
 
 export async function getObjectResized(key:string) {
     const command = new GetObjectCommand({
@@ -52,10 +55,14 @@ export async function getObjectResized(key:string) {
         Key: key
     })
     const data = await s3.send(command);
-    const streamToString = await data.Body?.transformToByteArray();
-    return {
-        stream: streamToString,
-        ContentType: data.ContentType,
-        ContentLength: data.ContentLength 
-    };
+    return data;
 }
+
+export const getCachedObjectResized = unstable_cache(
+    async(key:string) => await getObjectResized(key),
+    ['graphic-design-object-resized'],
+    { 
+        tags: ['graphic-design-object-resized'],
+        revalidate: siteConfig.revalidateTime, 
+    }
+)

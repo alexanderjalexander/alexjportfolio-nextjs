@@ -1,9 +1,9 @@
-import { getCachedObjects } from "@/src/lib/data/graphic_design";
+import { getObjects } from "@/src/lib/data/graphic_design";
 
 export const dynamic = 'force-dynamic' // defaults to auto
 export async function GET(req: Request) {
     try {
-        let res = await getCachedObjects();
+        let res = await getObjects();
         return new Response(JSON.stringify(res), {
             status: 200,
             headers: {}
