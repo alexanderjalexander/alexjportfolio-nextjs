@@ -1,9 +1,9 @@
-import { getCachedProgrammingProjectsSkills } from "@/src/lib/data/programming";
+import { getProgrammingProjectsSkills } from "@/src/lib/data/programming";
 
 export const dynamic = 'force-dynamic' // defaults to auto
 export async function GET(req: Request) {
     try {
-        const res = await getCachedProgrammingProjectsSkills();
+        const res = await getProgrammingProjectsSkills();
         return new Response(JSON.stringify(res), {
             status: 200,
             headers: {}

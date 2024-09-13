@@ -62,21 +62,3 @@ export async function getColorCategorizedSkills() {
     }
     return result;
 }
-
-export const getCachedSkillsCategories = unstable_cache(
-    async () => await getSkillsCategories(),
-    ['skills-categories'],
-    {
-        tags: ['skills-categories'],
-        revalidate: siteConfig.revalidateTime,
-    }
-);
-
-export const getCachedColorCategorizedSkills = unstable_cache(
-    async () => await getColorCategorizedSkills(),
-    ['colored-skills'],
-    {
-        tags: ['colored-skills'],
-        revalidate: siteConfig.revalidateTime,
-    }
-);

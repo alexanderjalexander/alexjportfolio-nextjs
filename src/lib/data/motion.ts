@@ -1,9 +1,7 @@
 import { getDatabase } from "@/src/db";
 import { motionGraphicsProjects, skills, motionGraphicsSkills } from "@/src/db/migrations/schema";
 import { desc, eq, sql } from "drizzle-orm";
-import { getCachedColorCategorizedSkills } from "./skills";
-import { unstable_cache } from "next/cache";
-import { siteConfig } from "@/config/site";
+import { getColorCategorizedSkills } from "./skills";
 
 export async function getMotionGraphics() {
     return (await getDatabase())
@@ -37,7 +35,7 @@ export async function getMotionGraphicsFull(): Promise<{
     skills: { color: string, skill: string }[]
 }[]> {
     let projects = await getMotionGraphics();
-    const skillsColored = await getCachedColorCategorizedSkills();
+    const skillsColored = await getColorCategorizedSkills();
     projects.map(
         (project) => {
             //@ts-ignore
@@ -53,21 +51,3 @@ export async function getMotionGraphicsFull(): Promise<{
     //@ts-ignore
     return projects;
 }
-
-export const getCachedMotionGraphics = unstable_cache(
-    async () => await getMotionGraphics(),
-    ['motion-graphics'],
-    {
-        tags: ['motion-graphics'],
-        revalidate: siteConfig.revalidateTime,
-    }
-);
-
-export const getCachedMotionGraphicsFull = unstable_cache(
-    async () => await getMotionGraphicsFull(),
-    ['motion-graphics-full'],
-    {
-        tags: ['motion-graphics-full'],
-        revalidate: siteConfig.revalidateTime,
-    }
-);

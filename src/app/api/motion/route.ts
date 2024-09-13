@@ -1,9 +1,9 @@
-import { getCachedMotionGraphics } from "@/src/lib/data/motion";
+import { getMotionGraphics } from "@/src/lib/data/motion";
 
 export const dynamic = 'force-dynamic' // defaults to auto
 export async function GET(req: Request) {
     try {
-        const res = await getCachedMotionGraphics();
+        const res = await getMotionGraphics();
         return new Response(JSON.stringify(res), {
             status: 200,
             headers: {}
