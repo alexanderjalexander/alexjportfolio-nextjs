@@ -30,6 +30,9 @@ You will need access to a PostgreSQL Server of some kind, very much preferably N
 # Neon Environment Variables
 DATABASE_URL=<database url goes here from Neon>
 
+# Next.js Debug Caching
+NEXT_PRIVATE_DEBUG_CACHE=1
+
 # BackBlaze B2 Environment Variables
 REGION=<specified AWS bucket region from BackBlaze>
 BUCKET_NAME=<Original Bucket>
