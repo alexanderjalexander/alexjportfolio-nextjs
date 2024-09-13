@@ -57,12 +57,3 @@ export async function getObjectResized(key:string) {
     const data = await s3.send(command);
     return data;
 }
-
-export const getCachedObjectResized = unstable_cache(
-    async(key:string) => await getObjectResized(key),
-    ['graphic-design-object-resized'],
-    { 
-        tags: ['graphic-design-object-resized'],
-        revalidate: siteConfig.revalidateTime, 
-    }
-)
