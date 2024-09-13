@@ -4,18 +4,19 @@ import TypewriterWrapper from "@/components/typewriterwrapper";
 import { FadeInScroll } from "@/components/fadeinscroll";
 import { Divider } from "@nextui-org/react";
 import { Metadata } from "next";
-import { getCachedObjects } from "@/src/lib/data/graphic_design";
+import { getObjects } from "@/src/lib/data/graphic_design";
 import GraphicDesignContent from "@/components/graphic_design_content";
+import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
     title: 'Graphic Design',
 }
 
-export const dynamic = 'force-dynamic';
+export const revalidate = siteConfig.revalidateTime;
 
 export default async function Graphic_Design() {
 
-    let objects = (await getCachedObjects())!.map((obj) => (obj.Key));
+    let objects = (await getObjects())!.map((obj) => (obj.Key));
 	
     return (
 		<PageWrapper>

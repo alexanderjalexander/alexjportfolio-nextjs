@@ -1,6 +1,8 @@
+import { siteConfig } from "@/config/site";
 import { getMotionGraphics } from "@/src/lib/data/motion";
 
-export const dynamic = 'force-dynamic' // defaults to auto
+export const revalidate = siteConfig.revalidateTime;
+
 export async function GET(req: Request) {
     try {
         const res = await getMotionGraphics();

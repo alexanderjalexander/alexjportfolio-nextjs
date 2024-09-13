@@ -1,6 +1,8 @@
+import { siteConfig } from "@/config/site";
 import { getAnimation } from "@/src/lib/data/animation";
 
-export const dynamic = 'force-dynamic'
+export const revalidate = siteConfig.revalidateTime;
+
 export async function GET(req: Request) {
     try {
         const res = await getAnimation();

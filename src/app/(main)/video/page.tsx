@@ -8,19 +8,20 @@ import { Metadata } from "next";
 
 // Importing video file declaration
 import * as vid from "@/src/lib/data/videos"
+import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
     title: 'Video',
 }
 
-export const dynamic = 'force-dynamic';
+export const revalidate = siteConfig.revalidateTime;
 
 export default async function Video() {
     let vids:{url:string,date:string}[];
     let commissions:vid.CommissionsObject;
     try {
         vids = await vid.getPersonalVideos();
-        commissions = await vid.getCachedCommissions()
+        commissions = await vid.getCommissions()
     } catch(e) {
         throw Error('500: ' + e);
     }

@@ -1,5 +1,4 @@
 import { Header1Mono, Header3 } from '@/components/headers'
-import { Button } from '@nextui-org/button'
 
 export default function notFound() {
     return (
