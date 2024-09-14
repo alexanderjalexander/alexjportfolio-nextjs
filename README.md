@@ -86,7 +86,7 @@ Obtains list of self-made videos.
 ```json
 [
   {
-    "url": "...",
+    "url": 11-char youtube id,
     "date": "..."
   },
   ...

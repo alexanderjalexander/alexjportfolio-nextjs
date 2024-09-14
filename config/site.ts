@@ -28,6 +28,10 @@ export const siteConfig = {
 			label: "3D Animation",
 			href: "/3d_animation",
 		},
+		{
+			label: "API",
+			href: "/api-reference",
+		},
 	],
 	activities: [
 		{
