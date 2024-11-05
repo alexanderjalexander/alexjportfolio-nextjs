@@ -12,7 +12,7 @@ export async function GET(req: Request) {
             headers: {}
         });
     } catch(e) {
-        return new NextResponse('An error happened while fetching data', {
+        return new NextResponse(`An error happened while fetching data: ${e}`, {
             status: 500
         })
     }

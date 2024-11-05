@@ -39,6 +39,9 @@ BUCKET_NAME=<Original Bucket>
 BUCKET_NAME_RESIZE=<Resize Bucket. Good for optimized page loading and images>
 AWS_ACCESS_KEY_ID=<your b2 keyId>
 AWS_SECRET_ACCESS_KEY=<your b2 applicationKey>
+
+# YouTube API Key
+YOUTUBE_API_KEY=<your YouTube Data API V3 Key (standard non-OAuth key)>
 ```
 
 ### Run the development server

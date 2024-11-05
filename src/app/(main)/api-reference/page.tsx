@@ -77,24 +77,31 @@ export default async function Graphic_Design() {
                 <p>Obtains list of commissions. All commissions done for a creator can be obtained through the key denoted by that creator's name.</p>
                 <Card><CardBody className={"font-mono "+fontMono.variable}>
                     <pre>&#123;</pre>
-                    <pre>&emsp;"Creator1": [,</pre>
 
-                    <pre>&emsp;&emsp;&#123;</pre>
-                    <pre>&emsp;&emsp;&emsp;"url": 11-char youtube id,</pre>
-                    <pre>&emsp;&emsp;&emsp;"date": "...",</pre>
-                    <pre>&emsp;&emsp;&#125;</pre>
-                    <pre>&emsp;&emsp;...</pre>
+                    <pre>&emsp;"Creator1": ,</pre>
+                    <pre>&emsp;&emsp;"views": number,</pre>
+                    <pre>&emsp;&emsp;"pfp": a URL containing a 240x240 profile picture,</pre>
+                    <pre>&emsp;&emsp;"id": some string id,</pre>
+                    <pre>&emsp;&emsp;"videos": [,</pre>
+                    <pre>&emsp;&emsp;&emsp;&#123;</pre>
+                    <pre>&emsp;&emsp;&emsp;&emsp;"url": 11-char youtube id,</pre>
+                    <pre>&emsp;&emsp;&emsp;&emsp;"date": "...",</pre>
+                    <pre>&emsp;&emsp;&emsp;&#125;</pre>
+                    <pre>&emsp;&emsp;&emsp;...</pre>
+                    <pre>&emsp;&emsp;],</pre>
 
-                    <pre>&emsp;],</pre>
-                    <pre>&emsp;"Creator2": [,</pre>
+                    <pre>&emsp;"Creator2": ,</pre>
+                    <pre>&emsp;&emsp;"views": number,</pre>
+                    <pre>&emsp;&emsp;"pfp": a URL containing a 240x240 profile picture,</pre>
+                    <pre>&emsp;&emsp;"id": some string id,</pre>
+                    <pre>&emsp;&emsp;"videos": [,</pre>
+                    <pre>&emsp;&emsp;&emsp;&#123;</pre>
+                    <pre>&emsp;&emsp;&emsp;&emsp;"url": 11-char youtube id,</pre>
+                    <pre>&emsp;&emsp;&emsp;&emsp;"date": "...",</pre>
+                    <pre>&emsp;&emsp;&emsp;&#125;</pre>
+                    <pre>&emsp;&emsp;&emsp;...</pre>
+                    <pre>&emsp;&emsp;],</pre>
 
-                    <pre>&emsp;&emsp;&#123;</pre>
-                    <pre>&emsp;&emsp;&emsp;"url": 11-char youtube id,</pre>
-                    <pre>&emsp;&emsp;&emsp;"date": "...",</pre>
-                    <pre>&emsp;&emsp;&#125;</pre>
-                    <pre>&emsp;&emsp;...</pre>
-
-                    <pre>&emsp;],</pre>
                     <pre>&#125;</pre>
                 </CardBody></Card>
                 <p></p>
