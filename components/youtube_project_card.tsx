@@ -1,6 +1,7 @@
 import { Card, CardHeader, CardBody, CardFooter, Chip } from "@nextui-org/react";
 import { Image } from "@nextui-org/react";
-import * as vid from "@/src/lib/data/videos";
+
+import { getVideoURL, getVideoThumbnail } from "@/src/lib/data/videos";
 
 interface project_interface {
     id: number,
@@ -20,14 +21,14 @@ export function makeCard(project:project_interface) {
             </CardHeader>
             <CardBody className="w-full">
                 <div className="pb-3">
-                    <a target="blank" href={vid.getVideoURL(project.youtube_id)}
+                    <a target="blank" href={getVideoURL(project.youtube_id)}
                     rel="noopener noreferrer" className="mw-full">
                         <Card isPressable className="mw-full w-full">
                             <Image	removeWrapper
                                 isZoomed
                                 className="z-0 w-full object-cover"
                                 alt={`${project.name} Link`}
-                                src={vid.getVideoThumbnail(project.youtube_id)}
+                                src={getVideoThumbnail(project.youtube_id)}
                             />
                         </Card>
                     </a>
@@ -56,14 +57,14 @@ export function makeCards(arr?:project_interface[]) {
                 </CardHeader>
                 <CardBody className="w-full">
                     <div className="pb-3">
-                        <a target="blank" href={vid.getVideoURL(project.youtube_id)}
+                        <a target="blank" href={getVideoURL(project.youtube_id)}
                         rel="noopener noreferrer" className="mw-full">
                             <Card isPressable className="mw-full w-full">
                                 <Image	removeWrapper
                                     isZoomed
                                     className="z-0 w-full object-cover"
                                     alt={`${project.name} Link`}
-                                    src={vid.getVideoThumbnail(project.youtube_id)}
+                                    src={getVideoThumbnail(project.youtube_id)}
                                 />
                             </Card>
                         </a>

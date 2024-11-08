@@ -1,7 +1,7 @@
-import * as React from "react";
+import { FC } from "react";
 import { IconSvgProps } from "@/types";
 // https://www.svgviewer.dev/s/473895/linkedin
-export const LinkedInIcon: React.FC<IconSvgProps> = ({
+export const LinkedInIcon: FC<IconSvgProps> = ({
 	size = 24,
 	width,
 	height,
@@ -19,7 +19,7 @@ export const LinkedInIcon: React.FC<IconSvgProps> = ({
 	);
 };
 
-export const GithubIcon: React.FC<IconSvgProps> = ({
+export const GithubIcon: FC<IconSvgProps> = ({
 	size = 24,
 	width,
 	height,

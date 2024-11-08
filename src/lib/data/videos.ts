@@ -1,7 +1,7 @@
 import { getDatabase } from "@/src/db";
 import { creators, videos } from "@/src/db/migrations/schema";
 import { eq, isNull } from "drizzle-orm";
-import youtubeService from '../../auth/youtube'
+import ytHeaders from "../../auth/youtube";
 
 export async function getCommissioners() {
     let commissioners = (await getDatabase()).select({
@@ -63,23 +63,29 @@ export async function getCommissions() {
 
     for (let person in result) {
         let vid_id_list = result[person].videos.map(vid => vid.url);
-        const response = await youtubeService.videos.list({
-            part: ['id', 'statistics'],
-            fields: "items.statistics.viewCount,items.id",
-            id: vid_id_list,
-        })
 
-        const vid_list = response.data.items;
+        const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=id,statistics&fields=items.statistics.viewCount,items.id&id=${vid_id_list.toString()}&key=${process.env.YOUTUBE_API_KEY!}`,
+            {
+                headers: ytHeaders,
+                method: "GET",
+                redirect: "follow",
+            }
+        )
+
+        const vids = (await response.json());
+        const vid_list = vids.items;
         for (let item of vid_list!) {
             result[person].views += Number(item.statistics?.viewCount)!
         }
 
-        const channelInfo = await youtubeService.channels.list({
-            part: ['snippet', 'statistics'],
-            fields: "items.snippet.thumbnails.medium,",
-            id: [result[person].id],
-        })
-        const channel = channelInfo.data.items![0];
+        const channelInfo = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&fields=items.snippet.thumbnails.medium&id=${result[person].id}&key=${process.env.YOUTUBE_API_KEY!}`, 
+            {
+                headers: ytHeaders,
+                method: "GET",
+                redirect: "follow",
+            }
+        )
+        const channel = (await channelInfo.json()).items![0];
         let pfp = channel.snippet?.thumbnails?.medium?.url!;
         result[person].pfp = pfp.replace("ggpht", "googleusercontent");
     }

@@ -1,7 +1,7 @@
 import type { Config } from "drizzle-kit";
-import * as dotenv from "dotenv";
+import { config } from "dotenv";
 
-dotenv.config();
+config();
 
 if (!process.env.DATABASE_URL) {
     throw new Error('process.env.DATABASE_URL is missing.');

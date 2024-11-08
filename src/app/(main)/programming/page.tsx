@@ -5,7 +5,7 @@ import { Metadata } from "next";
 import { FadeInScroll } from "@/components/fadeinscroll";
 import { Button, Chip, Card, CardBody, CardFooter, CardHeader, Divider, Link } from "@nextui-org/react";
 import { GithubIcon } from "@/components/icons";
-import * as db from "@/src/lib/data/programming";
+import { getProgrammingProjectsSkillsFull } from "@/src/lib/data/programming";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export const revalidate = siteConfig.revalidateTime;
 
 export default async function Programming() {
-	const programmingProjects = await db.getProgrammingProjectsSkillsFull();
+	const programmingProjects = await getProgrammingProjectsSkillsFull();
     
     return (
 		<PageWrapper>
