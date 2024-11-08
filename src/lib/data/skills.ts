@@ -2,8 +2,6 @@ import { getDatabase } from "@/src/db";
 import { skills, categories, skillCategory } from "../../db/migrations/schema";
 import { eq } from "drizzle-orm";
 import { LooseObject } from "@/types";
-import { unstable_cache } from "next/cache";
-import { siteConfig } from "@/config/site";
 
 export async function getSkillsCategories() {
     const skillsCategories = (await getDatabase())
