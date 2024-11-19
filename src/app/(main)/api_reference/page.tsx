@@ -2,7 +2,7 @@ import { Header1Mono, SubheaderMono, Header2Mono, Header3Mono } from "@/componen
 import { PageWrapper } from "@/components/pagewrapper";
 import TypewriterWrapper from "@/components/typewriterwrapper";
 import { FadeInScroll } from "@/components/fadeinscroll";
-import { Card, CardBody, Divider } from "@nextui-org/react";
+import { Card, CardBody, Code, Divider } from "@nextui-org/react";
 import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export const revalidate = siteConfig.revalidateTime;
 
-export default async function Graphic_Design() {
+export default async function API_Reference() {
 
     return (
 		<PageWrapper>
@@ -56,7 +56,8 @@ export default async function Graphic_Design() {
                     <pre>]</pre>
                 </CardBody></Card>
                 <p></p>
-
+            </FadeInScroll>
+            <FadeInScroll>
                 <Divider className="my-10" />
                 <Header3Mono className="mb-5" align="left">/api/video</Header3Mono>
 
@@ -105,7 +106,8 @@ export default async function Graphic_Design() {
                     <pre>&#125;</pre>
                 </CardBody></Card>
                 <p></p>
-
+            </FadeInScroll>
+            <FadeInScroll>
                 <Divider className="my-10" />
                 <Header3Mono className="mb-5" align="left">/api/motion</Header3Mono>
 
@@ -125,7 +127,8 @@ export default async function Graphic_Design() {
                     <pre>]</pre>
                 </CardBody></Card>
                 <p></p>
-
+            </FadeInScroll>
+            <FadeInScroll>
                 <Divider className="my-10" />
                 <Header3Mono className="mb-5" align="left">/api/animation</Header3Mono>
 
@@ -145,7 +148,8 @@ export default async function Graphic_Design() {
                     <pre>]</pre>
                 </CardBody></Card>
                 <p></p>
-
+            </FadeInScroll>
+            <FadeInScroll>
                 <Divider className="my-10" />
                 <Header3Mono className="mb-5" align="left">/api/graphic_design</Header3Mono>
 
@@ -169,7 +173,14 @@ export default async function Graphic_Design() {
                 <Header3Mono className="mb-5" align="left">GET /resize/[...id]</Header3Mono>
                 <p>Returns a low-quality image provided from the key given. Useful for keeping the graphic design page optimized when displaying every image.</p>
                 <p>404s if the key leads to no image.</p>
-
+            </FadeInScroll>
+            <FadeInScroll>
+                <Divider className="my-10" />
+                <Header3Mono className="mb-5" align="left">/api/cron</Header3Mono>
+                <Header3Mono className="mb-5" align="left">GET /</Header3Mono>
+                <p>Activates the portfolio site's main Cron job: revalidate every path that is not dynamic. This is helpful to ensure that caches are properly updated every day at regular times. The website automatically fires this every 24 hours at 12:00AM.</p>
+                <p>To manually activate it, the correct 16-digit alphanumeric Bearer token is required. This is to prevent unauthorized cache invalidations.</p>
+                <p>Returns 401 if unauthorized, or <Code>&#123; success: true &#125;</Code> if authorization passes and revalidations are successful.</p>
             </FadeInScroll>
 
 		</PageWrapper>

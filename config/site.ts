@@ -30,7 +30,7 @@ export const siteConfig = {
 		},
 		{
 			label: "API",
-			href: "/api-reference",
+			href: "/api_reference",
 		},
 	],
 	activities: [
