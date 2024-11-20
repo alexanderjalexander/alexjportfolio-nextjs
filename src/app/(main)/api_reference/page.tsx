@@ -42,7 +42,7 @@ export default async function API_Reference() {
 
                 <Header3Mono className="mb-5" align="left">GET /</Header3Mono>
                 <p>Obtains list of all my current programming projects.</p>
-                <Card><CardBody className={"font-mono "+fontMono.variable}>
+                <Card><CardBody className={"bg-primary-900 font-mono "+fontMono.variable}>
                     <pre>[</pre>
                     <pre>&emsp;&#123;</pre>
                     <pre>&emsp;&emsp;"id": 4,</pre>
@@ -63,7 +63,7 @@ export default async function API_Reference() {
 
                 <Header3Mono className="mb-5" align="left">GET /</Header3Mono>
                 <p>Obtains list of self-made videos. </p>
-                <Card><CardBody className={"font-mono "+fontMono.variable}>
+                <Card><CardBody className={"bg-primary-900 font-mono "+fontMono.variable}>
                     <pre>[</pre>
                     <pre>&emsp;&#123;</pre>
                     <pre>&emsp;&emsp;"url": 11-char youtube id,</pre>
@@ -76,7 +76,7 @@ export default async function API_Reference() {
 
                 <Header3Mono className="mb-5" align="left">GET /commissions</Header3Mono>
                 <p>Obtains list of commissions. All commissions done for a creator can be obtained through the key denoted by that creator's name.</p>
-                <Card><CardBody className={"font-mono "+fontMono.variable}>
+                <Card><CardBody className={"bg-primary-900 font-mono "+fontMono.variable}>
                     <pre>&#123;</pre>
 
                     <pre>&emsp;"Creator1": ,</pre>
@@ -113,7 +113,7 @@ export default async function API_Reference() {
 
                 <Header3Mono className="mb-5" align="left">GET /</Header3Mono>
                 <p>Obtains list of motion graphics projects, ordered by date descending.</p>
-                <Card><CardBody className={"font-mono "+fontMono.variable}>
+                <Card><CardBody className={"bg-primary-900 font-mono "+fontMono.variable}>
                     <pre>[</pre>
                     <pre>&emsp;&#123;</pre>
                     <pre>&emsp;&emsp;"id": 4,</pre>
@@ -134,7 +134,7 @@ export default async function API_Reference() {
 
                 <Header3Mono className="mb-5" align="left">GET /</Header3Mono>
                 <p>Obtains list of 3D animation projects, ordered by date descending.</p>
-                <Card><CardBody className={"font-mono "+fontMono.variable}>
+                <Card><CardBody className={"bg-primary-900 font-mono "+fontMono.variable}>
                     <pre>[</pre>
                     <pre>&emsp;&#123;</pre>
                     <pre>&emsp;&emsp;"id": 4,</pre>
@@ -155,7 +155,7 @@ export default async function API_Reference() {
 
                 <Header3Mono className="mb-5" align="left">GET /</Header3Mono>
                 <p>Fetches all possible keys provided in the image bucket for the graphic design page. Each key can be used to fetch that specific image.</p>
-                <Card><CardBody className={"font-mono "+fontMono.variable}>
+                <Card><CardBody className={"bg-primary-900 font-mono "+fontMono.variable}>
                     <pre>[</pre>
                     <pre>&emsp;&#123;</pre>
                     <pre>&emsp;&emsp;"Key": "Posters/Some poster here.jpg",</pre>
