@@ -27,6 +27,8 @@ export const viewport: Viewport = {
 	],
 }
 
+export const revalidate = 86400;
+
 export default function RootLayout({children,}: {children: React.ReactNode;}) {
 	return (
 		<html lang="en" suppressHydrationWarning>

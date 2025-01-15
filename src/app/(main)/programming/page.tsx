@@ -6,13 +6,10 @@ import { FadeInScroll } from "@/components/fadeinscroll";
 import { Button, Chip, Card, CardBody, CardFooter, CardHeader, Divider, Link } from "@nextui-org/react";
 import { GithubIcon } from "@/components/icons";
 import { getProgrammingProjectsSkillsFull } from "@/src/lib/data/programming";
-import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
     title: 'Programming',
 }
-
-export const revalidate = siteConfig.revalidateTime;
 
 export default async function Programming() {
 	const programmingProjects = await getProgrammingProjectsSkillsFull();

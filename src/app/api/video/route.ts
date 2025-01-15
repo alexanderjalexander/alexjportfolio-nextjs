@@ -2,8 +2,6 @@ import { siteConfig } from "@/config/site";
 import { getPersonalVideos } from "@/src/lib/data/videos";
 import { NextResponse } from "next/server";
 
-export const revalidate = siteConfig.revalidateTime;
-
 export async function GET(req: Request) {
     try {
         const body = await getPersonalVideos();

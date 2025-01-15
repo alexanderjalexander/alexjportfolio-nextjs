@@ -1,7 +1,4 @@
-import { siteConfig } from "@/config/site";
 import { getObjects } from "@/src/lib/data/graphic_design";
-
-export const revalidate = siteConfig.revalidateTime;
 
 export async function GET(req: Request) {
     try {

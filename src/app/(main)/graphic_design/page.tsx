@@ -6,13 +6,10 @@ import { Divider } from "@nextui-org/react";
 import { Metadata } from "next";
 import { getObjects } from "@/src/lib/data/graphic_design";
 import GraphicDesignContent from "@/components/graphic_design_content";
-import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
     title: 'Graphic Design',
 }
-
-export const revalidate = siteConfig.revalidateTime;
 
 export default async function Graphic_Design() {
 

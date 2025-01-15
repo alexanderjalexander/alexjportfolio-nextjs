@@ -8,8 +8,6 @@ import { Card, CardHeader, Chip, Divider, Image } from "@nextui-org/react";
 import NextImage from "next/image";
 import Link from "next/link";
 
-export const revalidate = siteConfig.revalidateTime;
-
 export default async function Home() {
   const skillsCategories = await getSkillsCategories();
   return (

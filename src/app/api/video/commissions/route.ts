@@ -1,8 +1,5 @@
-import { siteConfig } from "@/config/site";
 import { getCommissions } from "@/src/lib/data/videos";
 import { NextResponse } from "next/server";
-
-export const revalidate = siteConfig.revalidateTime;
 
 export async function GET(req: Request) {
     try {

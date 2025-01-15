@@ -1,7 +1,4 @@
-import { siteConfig } from "@/config/site";
 import { getProgrammingProjectsSkills } from "@/src/lib/data/programming";
-
-export const revalidate = siteConfig.revalidateTime;
 
 export async function GET(req: Request) {
     try {

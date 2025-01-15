@@ -4,17 +4,11 @@ import { PageWrapper } from "@/components/pagewrapper";
 import { FadeInScroll } from "@/components/fadeinscroll";
 import { Button, Card, Divider, Image, Link } from "@nextui-org/react";
 import { Metadata } from "next";
-
-
-// Importing video file declaration
 import * as vid from "@/src/lib/data/videos"
-import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
     title: 'Video',
 }
-
-export const revalidate = siteConfig.revalidateTime;
 
 export default async function Video() {
     let vids:{url:string,date:string}[];

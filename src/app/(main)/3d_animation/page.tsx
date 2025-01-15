@@ -3,7 +3,6 @@ import { Header1Mono, Header2Mono, SubheaderMono } from "@/components/headers";
 import { PageWrapper } from "@/components/pagewrapper";
 import TypewriterWrapper from "@/components/typewriterwrapper";
 import { makeCards } from "@/components/youtube_project_card";
-import { siteConfig } from "@/config/site";
 import { getAnimationFull } from "@/src/lib/data/animation";
 import { Divider } from "@nextui-org/react";
 import { Metadata } from "next";
@@ -11,8 +10,6 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
     title: '3D Animation',
 }
-
-export const revalidate = siteConfig.revalidateTime;
 
 export default async function Animation() {
 	const animation_projects = makeCards(await getAnimationFull());

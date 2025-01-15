@@ -6,13 +6,10 @@ import { FadeInScroll } from "@/components/fadeinscroll";
 import { Divider } from "@nextui-org/react";
 import { getMotionGraphicsFull } from "@/src/lib/data/motion";
 import { makeCards } from "@/components/youtube_project_card";
-import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
     title: 'Motion Graphics',
 }
-
-export const revalidate = siteConfig.revalidateTime;
 
 export default async function Motion_Graphics() {
 	// TODO: Modal implementation of iframe for optimization

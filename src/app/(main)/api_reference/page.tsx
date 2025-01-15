@@ -4,15 +4,12 @@ import TypewriterWrapper from "@/components/typewriterwrapper";
 import { FadeInScroll } from "@/components/fadeinscroll";
 import { Card, CardBody, Code, Divider } from "@nextui-org/react";
 import { Metadata } from "next";
-import { siteConfig } from "@/config/site";
 
 import { fontMono } from "@/config/fonts";
 
 export const metadata: Metadata = {
     title: 'API Reference',
 }
-
-export const revalidate = siteConfig.revalidateTime;
 
 export default async function API_Reference() {
 

@@ -1,8 +1,5 @@
-import { siteConfig } from "@/config/site";
 import { getObject } from "@/src/lib/data/graphic_design";
 import { NoSuchKey } from "@aws-sdk/client-s3";
-
-export const revalidate = siteConfig.revalidateTime;
 
 export async function GET(
     req: Request,
