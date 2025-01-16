@@ -6,15 +6,15 @@ import { FadeInScroll } from "@/components/fadeinscroll";
 import { Divider } from "@nextui-org/react";
 import { getMotionGraphicsFull } from "@/src/lib/data/motion";
 import { makeCards } from "@/components/youtube_project_card";
+import VideoCardContent from "@/components/video_card_content";
 
 export const metadata: Metadata = {
     title: 'Motion Graphics',
 }
 
 export default async function Motion_Graphics() {
-	// TODO: Modal implementation of iframe for optimization
-	// Use a skeleton to optimize loading and keep UI persistent.
-	const motion_graphics_projects = makeCards(await getMotionGraphicsFull());
+	const motion_graphics_projects = await getMotionGraphicsFull();
+	const motion_graphics_cards = makeCards(motion_graphics_projects);
 
 	return (
 		<PageWrapper>
@@ -36,13 +36,7 @@ export default async function Motion_Graphics() {
             </FadeInScroll>
 
 			{/* Motion Graphics Work */}
-            <FadeInScroll>
-                <Divider className="my-10" />
-                <Header2Mono>My Work</Header2Mono>
-                <div className="flex flex-wrap justify-around content-center my-2 sm:my-4 gap-4 sm:gap-8">
-                    {motion_graphics_projects}
-                </div>
-            </FadeInScroll>
+            <VideoCardContent content={motion_graphics_projects} header={"My Work"} />
 		</PageWrapper>
 	);
 }

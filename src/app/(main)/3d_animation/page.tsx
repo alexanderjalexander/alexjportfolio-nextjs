@@ -6,13 +6,14 @@ import { makeCards } from "@/components/youtube_project_card";
 import { getAnimationFull } from "@/src/lib/data/animation";
 import { Divider } from "@nextui-org/react";
 import { Metadata } from "next";
+import VideoCardContent from "@/components/video_card_content";
 
 export const metadata: Metadata = {
     title: '3D Animation',
 }
 
 export default async function Animation() {
-	const animation_projects = makeCards(await getAnimationFull());
+	const animation_projects = await getAnimationFull();
 	
 	return (
 		<PageWrapper>
@@ -34,13 +35,7 @@ export default async function Animation() {
             </FadeInScroll>
 
 			{/* 3D Animation Cards Section */}
-			<FadeInScroll>
-                <Divider className="my-10" />
-                <Header2Mono>My Work</Header2Mono>
-                <div className="flex flex-wrap justify-around content-center my-2 sm:my-4 gap-4 sm:gap-8">
-                    {animation_projects}
-                </div>
-            </FadeInScroll>
+            <VideoCardContent content={animation_projects} header={"My Work"} />
 		</PageWrapper>
 	);
 }
