@@ -3,7 +3,7 @@ import TypewriterWrapper from "@/components/typewriterwrapper";
 import { PageWrapper } from "@/components/pagewrapper";
 import { Metadata } from "next";
 import { FadeInScroll } from "@/components/fadeinscroll";
-import { Button, Chip, Card, CardBody, CardFooter, CardHeader, Divider, Link } from "@nextui-org/react";
+import { Button, Chip, Card, CardBody, CardFooter, CardHeader, Divider, Link } from "@heroui/react";
 import { GithubIcon } from "@/components/icons";
 import { getProgrammingProjectsSkillsFull } from "@/src/lib/data/programming";
 

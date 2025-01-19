@@ -1,8 +1,8 @@
 "use client";
 
 import { FC } from "react";
-import { VisuallyHidden } from "@nextui-org/react";
-import { SwitchProps, useSwitch } from "@nextui-org/switch";
+import { VisuallyHidden } from "@heroui/react";
+import { SwitchProps, useSwitch } from "@heroui/switch";
 import { useTheme } from "next-themes";
 import { useIsSSR } from "@react-aria/ssr";
 import clsx from "clsx";

@@ -1,7 +1,7 @@
 'use client' 
  
 import { Header1Mono, Header3 } from '@/components/headers'
-import { Button } from '@nextui-org/button'
+import { Button } from "@heroui/button"
 import { useEffect } from 'react'
  
 export default function Error({error, reset,}: 

@@ -2,7 +2,7 @@ import { Header1Mono, SubheaderMono, Header2Mono } from "@/components/headers";
 import { PageWrapper } from "@/components/pagewrapper";
 import TypewriterWrapper from "@/components/typewriterwrapper";
 import { FadeInScroll } from "@/components/fadeinscroll";
-import { Divider } from "@nextui-org/react";
+import { Divider } from "@heroui/react";
 import { Metadata } from "next";
 import { getObjects } from "@/src/lib/data/graphic_design";
 import GraphicDesignContent from "@/components/graphic_design_content";

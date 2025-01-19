@@ -4,7 +4,7 @@ import { PageWrapper } from "@/components/pagewrapper";
 import TypewriterWrapper from "@/components/typewriterwrapper";
 import { siteConfig } from "@/config/site";
 import { getSkillsCategories } from "@/src/lib/data/skills";
-import { Card, CardHeader, Chip, Divider, Image } from "@nextui-org/react";
+import { Card, CardHeader, Chip, Divider, Image } from "@heroui/react";
 import NextImage from "next/image";
 import Link from "next/link";
 
@@ -42,9 +42,7 @@ export default async function Home() {
         <Header2Mono className="mb-5">About Me</Header2Mono>
         <div className="flex flex-wrap items-center justify-center gap-16">
           <Image 
-            as={NextImage}
             width={500}
-            height={500}
             alt="Portrait Picture of AJ"
             src="/portrait.jpg"
             className="basis-1/5 z-1 max-w-[300px]"

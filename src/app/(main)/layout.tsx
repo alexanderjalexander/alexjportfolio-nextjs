@@ -1,5 +1,5 @@
 import { Navbar } from "@/components/navbar";
-import { Divider } from "@nextui-org/react";
+import { Divider } from "@heroui/react";
 import Footer from "@/components/footer";
 import React from "react";
 

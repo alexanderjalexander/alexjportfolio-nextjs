@@ -10,7 +10,7 @@ import {
     ModalFooter,
     ModalHeader,
     useDisclosure
-} from "@nextui-org/react";
+} from "@heroui/react";
 import {Header2Mono} from "@/components/headers";
 import {FadeInScroll} from "@/components/fadeinscroll";
 import {useState} from "react";

@@ -1,7 +1,7 @@
 import { FadeInScroll } from "./fadeinscroll"
 import { Header2Mono } from "./headers"
-import { Button } from "@nextui-org/button"
-import { Link } from "@nextui-org/link"
+import { Button } from "@heroui/button"
+import { Link } from "@heroui/link"
 import { GithubIcon, LinkedInIcon } from "./icons"
 import Webring from "./webring"
 

@@ -3,7 +3,7 @@ import { PageWrapper } from "@/components/pagewrapper";
 import { Metadata } from "next";
 import TypewriterWrapper from "@/components/typewriterwrapper";
 import { FadeInScroll } from "@/components/fadeinscroll";
-import { Divider } from "@nextui-org/react";
+import { Divider } from "@heroui/react";
 import { getMotionGraphicsFull } from "@/src/lib/data/motion";
 import VideoCardContent from "@/components/video_card_content";
 

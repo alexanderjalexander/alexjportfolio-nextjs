@@ -1,6 +1,6 @@
 "use client"
 
-import { Button, Card, Divider, Image, Modal, ModalHeader, ModalContent, ModalFooter, ModalBody, Spinner, useDisclosure } from "@nextui-org/react"
+import { Button, Card, Divider, Image, Modal, ModalHeader, ModalContent, ModalFooter, ModalBody, Spinner, useDisclosure } from "@heroui/react"
 import { useState } from "react";
 import { Header2Mono, Header3Mono } from "./headers";
 import { FadeInScroll } from "./fadeinscroll";
@@ -64,7 +64,6 @@ export default function GraphicDesignContent({videos}:{videos:(string|undefined)
                             alt={`${video}`}
                             src={`/api/graphic_design/resize/${video}`}
                             className="z-0 w-full h-full object-cover"
-                            height={160}
                         />
                     </Card>
                 ))) 

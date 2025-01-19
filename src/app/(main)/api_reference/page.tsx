@@ -2,7 +2,7 @@ import { Header1Mono, SubheaderMono, Header2Mono, Header3Mono } from "@/componen
 import { PageWrapper } from "@/components/pagewrapper";
 import TypewriterWrapper from "@/components/typewriterwrapper";
 import { FadeInScroll } from "@/components/fadeinscroll";
-import { Card, CardBody, Code, Divider } from "@nextui-org/react";
+import { Card, CardBody, Code, Divider } from "@heroui/react";
 import { Metadata } from "next";
 
 import { fontMono } from "@/config/fonts";

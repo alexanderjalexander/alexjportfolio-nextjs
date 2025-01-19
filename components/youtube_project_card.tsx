@@ -1,5 +1,5 @@
-import { Card, CardHeader, CardBody, CardFooter, Chip } from "@nextui-org/react";
-import { Image } from "@nextui-org/react";
+import { Card, CardHeader, CardBody, CardFooter, Chip } from "@heroui/react";
+import { Image } from "@heroui/react";
 
 import { getVideoURL, getVideoThumbnail } from "@/src/lib/data/videos";
 
