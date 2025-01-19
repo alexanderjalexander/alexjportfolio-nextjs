@@ -94,7 +94,7 @@ export default function VideoCardContent({content, header}: { content: project_i
                                     <CardBody className="w-full">
                                         <div className="pb-3">
                                             <Card isPressable
-                                                  onClick={() => openModal(project.name, project.youtube_id)}
+                                                  onPress={() => openModal(project.name, project.youtube_id)}
                                                   className="mw-full w-full">
                                                 <Image	removeWrapper
                                                           isZoomed

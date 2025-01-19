@@ -1,5 +1,4 @@
 import {heroui} from "@heroui/theme"
-import { siteConfig } from "@/config/site";
 
 const safelist = [
   'm-1',

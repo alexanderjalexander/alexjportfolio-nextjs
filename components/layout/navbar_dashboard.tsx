@@ -102,7 +102,7 @@ export const NavbarDashboard = () => {
 									)}
 									color="foreground"
 									isBlock
-									onClick={handleSignOut}
+									onPress={handleSignOut}
 								>
 									Log Out
 								</Link>
@@ -120,7 +120,7 @@ export const NavbarDashboard = () => {
 								<Link 
 									isBlock
 									as={NextLink}
-									onClick={() => setIsMenuOpen(false)} 
+									onPress={() => setIsMenuOpen(false)}
 									href={item.href} color="foreground" size="lg"
 									className={clsx(
 										linkStyles({ color: "foreground" }),

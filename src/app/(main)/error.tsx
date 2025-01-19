@@ -27,7 +27,7 @@ export default function Error({error, reset,}:
 
       <div>
         <Button className="display-block align-center"
-          onClick={
+          onPress={
             // Attempt to recover by trying to re-render the segment
             () => reset()
           }

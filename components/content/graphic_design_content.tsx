@@ -2,7 +2,7 @@
 
 import { Button, Card, Divider, Image, Modal, ModalHeader, ModalContent, ModalFooter, ModalBody, Spinner, useDisclosure } from "@heroui/react"
 import { useState } from "react";
-import { Header2Mono, Header3Mono } from "../text/headers";
+import { Header2Mono } from "../text/headers";
 import { FadeInScroll } from "../page-anim/fadeinscroll";
 
 export default function GraphicDesignContent({videos}:{videos:(string|undefined)[]}) {
@@ -57,7 +57,7 @@ export default function GraphicDesignContent({videos}:{videos:(string|undefined)
             <div className="columns-2 sm:columns-3 my-2 sm:my-4 gap-4 sm:gap-8">
                 {(videos !== undefined) 
                 ? (videos.map((video) => (
-                    <Card key={video} isPressable onClick={() => openModal(video!, video!, `api/graphic_design/${video}`)} 
+                    <Card key={video} isPressable onPress={() => openModal(video!, video!, `api/graphic_design/${video}`)}
                       className="w-full h-fit mb-4 sm:gap-8">
                         <Image 
                             isZoomed
