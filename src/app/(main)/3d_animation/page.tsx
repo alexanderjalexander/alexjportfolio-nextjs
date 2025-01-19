@@ -2,7 +2,6 @@ import { FadeInScroll } from "@/components/fadeinscroll";
 import { Header1Mono, Header2Mono, SubheaderMono } from "@/components/headers";
 import { PageWrapper } from "@/components/pagewrapper";
 import TypewriterWrapper from "@/components/typewriterwrapper";
-import { makeCards } from "@/components/youtube_project_card";
 import { getAnimationFull } from "@/src/lib/data/animation";
 import { Divider } from "@nextui-org/react";
 import { Metadata } from "next";

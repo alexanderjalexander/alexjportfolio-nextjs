@@ -5,7 +5,6 @@ import TypewriterWrapper from "@/components/typewriterwrapper";
 import { FadeInScroll } from "@/components/fadeinscroll";
 import { Divider } from "@nextui-org/react";
 import { getMotionGraphicsFull } from "@/src/lib/data/motion";
-import { makeCards } from "@/components/youtube_project_card";
 import VideoCardContent from "@/components/video_card_content";
 
 export const metadata: Metadata = {
@@ -14,7 +13,6 @@ export const metadata: Metadata = {
 
 export default async function Motion_Graphics() {
 	const motion_graphics_projects = await getMotionGraphicsFull();
-	const motion_graphics_cards = makeCards(motion_graphics_projects);
 
 	return (
 		<PageWrapper>

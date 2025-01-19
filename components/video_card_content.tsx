@@ -1,6 +1,5 @@
 "use client"
 
-import {makeCards} from "@/components/youtube_project_card";
 import {
     Button, Card, CardBody, CardFooter, CardHeader, Chip,
     Divider,
@@ -29,8 +28,6 @@ export interface project_interface {
 }
 
 export default function VideoCardContent({content, header}: { content: project_interface[]; header: string }) {
-    const cards = makeCards(content);
-
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
     const [video, setVideo] = useState({
         header: '', id: '', loaded: false
