@@ -39,28 +39,30 @@ export default function VideoCardContent({content, header}: { content: project_i
     }
 
     const player = (
-        <LiteYouTubeEmbed
-            id={video.id}
-            playlist={false}
-            params="autoplay"
-            title={video.header}
-            noCookie={true}
-        />
+        <div className={"rounded-xl"}>
+            <LiteYouTubeEmbed
+                id={video.id}
+                playlist={false}
+                params="autoplay"
+                title={video.header}
+                noCookie={true}
+            />
+        </div>
     )
 
     return (
         <div>
             <div className="overflow-auto">
                 <Modal isOpen={isOpen}
-                       className="bg-background"
+                       className="bg-background w-full"
                        backdrop="blur"
                        size="5xl"
                        onOpenChange={onOpenChange}
-                       placement="top">
-                    <ModalContent className="w-3/4">
+                       placement="center">
+                    <ModalContent className="">
                         {(onClose) => (<>
                             <ModalHeader>{video.header}</ModalHeader>
-                            <ModalBody className="justify-center content-center">
+                            <ModalBody className="justify-center content-center rounded-xl px-2 md:px-6">
                                 {player}
                             </ModalBody>
                             <ModalFooter>
@@ -74,7 +76,8 @@ export default function VideoCardContent({content, header}: { content: project_i
                                 </Button>
                             </ModalFooter>
                         </>)}
-                    </ModalContent></Modal>
+                    </ModalContent>
+                </Modal>
             </div>
             <FadeInScroll>
                 <Divider className="my-10"/>

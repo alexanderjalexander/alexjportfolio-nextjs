@@ -71,21 +71,23 @@ export default async function Video() {
                 {Object.keys(commissions).map(
                     (commissioner, index) => 
                     (<FadeInScroll className="my-8" key={index}>
-                        <Header3Mono className="flex flex-column gap-4 justify-center items-center">
+                        <Header3Mono className="flex flex-col sm:flex-row gap-x-4 gap-y-1 justify-center items-center">
                             <Image  src={commissions[commissioner].pfp} 
                                     alt={`${commissioner} Profile Picture`}
                                     height={100} width={100} radius="full"
-                                    className='z-0'
+                                    className='z-0 sm:w-min'
                             />
-                            {commissioner}
-                            <Button color="primary"
-                                    as={Link} target="_blank"
-                                    href={`https://www.youtube.com/channel/${commissions[commissioner].id}`}
-                                    variant="solid"
-                                    showAnchorIcon
-                                    className="text-foreground bg-primary-700 sm:w-auto">
-                                Visit Channel
-                            </Button>
+                            <div className="flex flex-wrap flex-row gap-x-4 gap-y-1 justify-center items-center">
+                                {commissioner}
+                                <Button color="primary"
+                                        as={Link} target="_blank"
+                                        href={`https://www.youtube.com/channel/${commissions[commissioner].id}`}
+                                        variant="solid"
+                                        showAnchorIcon
+                                        className="text-foreground bg-primary-700 sm:w-auto">
+                                    Visit
+                                </Button>
+                            </div>
                         </Header3Mono>
                         <SubheaderMono>Total Views: {new Intl.NumberFormat().format(commissions[commissioner].views)}</SubheaderMono>
                         <div className="flex flex-wrap justify-center content-center my-2 sm:my-4 gap-4 sm:gap-8">
