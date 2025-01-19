@@ -78,7 +78,7 @@ Licensed under the [MIT license](https://github.com/nextui-org/next-app-template
 
 Obtains list of all my current programming projects.
 
-```json
+```
 [
   {
     "id": 1,
@@ -100,7 +100,7 @@ Obtains list of all my current programming projects.
 
 Obtains list of self-made videos. 
 
-```json
+```
 [
   {
     "url": 11-char youtube id,
@@ -114,7 +114,7 @@ Obtains list of self-made videos.
 
 Obtains list of commissions. All commissions done for a creator can be obtained through the key denoted by that creator's name.
 
-```json
+```
 {
   "Creator1": [
     {
@@ -137,7 +137,7 @@ Obtains list of commissions. All commissions done for a creator can be obtained 
 
 Obtains list of motion graphics projects, ordered by date descending.
 
-```json
+```
 [
   {
     "id": 4,
@@ -160,7 +160,7 @@ Obtains list of motion graphics projects, ordered by date descending.
 
 Obtains list of 3D animation projects, ordered by date descending.
 
-```json
+```
 [
   {
     "id": 4,
@@ -183,7 +183,7 @@ Obtains list of 3D animation projects, ordered by date descending.
 
 Fetches all possible keys provided in the image bucket for the graphic design page. Each key can be used to fetch that specific image.
 
-```json
+```
 [
   {
     "Key": "Posters/Some poster here.jpg",

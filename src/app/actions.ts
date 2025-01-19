@@ -3,7 +3,6 @@
 import { initServerApp } from "@/src/auth/firebaseServer";
 import { auth } from "firebase-admin";
 import { cookies } from "next/headers";
-import { z } from "zod";
 
 initServerApp();
 

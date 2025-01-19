@@ -82,7 +82,7 @@ export const Navbar = () => {
 						)}
 						color="foreground"
 						isBlock
-						href="/admin"
+						href={"/admin"}
 					>
 						Admin
 					</Link>
