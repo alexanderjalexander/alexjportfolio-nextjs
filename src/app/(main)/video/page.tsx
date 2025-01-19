@@ -33,20 +33,21 @@ export default async function Video() {
             </div>
     
     		{/* About Section */}
-        	<FadeInScroll>
-                <Divider className="my-10" />
+            <FadeInScroll>
+                <Divider className="my-10"/>
                 <Header2Mono className="mb-5">About</Header2Mono>
                 <p>Without a doubt, video editing has been one of my most prominent hobbies. I enjoy exploring how manipulation of certain video clips/shots allows for conveying specific messages, illlustrating stories, or implementing certain themes. Having experience with After Effects, VEGAS Pro, and Premiere Pro, I enjoy creating my own films and montages to create content and portray my best creative vision.</p>
+                <p>While all of the data loaded here comes from this site's PostgreSQL backend, all the video data you see is fetched in tandem from Google's YouTube API. All views are calculated on the fly on every page revalidation, providing accurate statistics for videos, views, and channel names.</p>
             </FadeInScroll>
 
             {/* Personal Videos */}
             <FadeInScroll>
-                <Divider className="my-10" />
+                <Divider className="my-10"/>
                 <Header2Mono>My YouTube Videos</Header2Mono>
                 <div className="flex flex-wrap justify-center content-center my-2 sm:my-4 gap-4 sm:gap-8">
                     {vids.map(
                         (item, index) =>
-                        (<a key={index} target="_blank" href={vid.getVideoURL(item.url)} rel="noopener noreferrer">
+                            (<a key={index} target="_blank" href={vid.getVideoURL(item.url)} rel="noopener noreferrer">
                             <Card isPressable className="w-[160px] sm:w-[320px]">
                                 <Image 
                                     isZoomed
