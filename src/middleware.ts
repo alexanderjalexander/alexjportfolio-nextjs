@@ -17,5 +17,12 @@ export async function middleware(request: NextRequest) {
       default:
         return NextResponse.next();
     }
+  } else {
+    switch (request.url) {
+      case (getFullURLFromLocal("/admin", request.url)):
+        return NextResponse.redirect(getFullURLFromLocal("/admin/login", request.url));
+      default:
+        return NextResponse.next();
+    }
   }
 }

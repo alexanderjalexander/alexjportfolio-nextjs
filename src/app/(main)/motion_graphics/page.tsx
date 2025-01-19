@@ -1,11 +1,11 @@
-import { Header1Mono, Header2Mono, SubheaderMono } from "@/components/headers";
-import { PageWrapper } from "@/components/pagewrapper";
+import { Header1Mono, Header2Mono, SubheaderMono } from "@/components/text/headers";
+import { PageWrapper } from "@/components/page-anim/pagewrapper";
 import { Metadata } from "next";
-import TypewriterWrapper from "@/components/typewriterwrapper";
-import { FadeInScroll } from "@/components/fadeinscroll";
+import TypewriterWrapper from "@/components/text/typewriterwrapper";
+import { FadeInScroll } from "@/components/page-anim/fadeinscroll";
 import { Divider } from "@heroui/react";
 import { getMotionGraphicsFull } from "@/src/lib/data/motion";
-import VideoCardContent from "@/components/video_card_content";
+import VideoCardContent from "@/components/content/video_card_content";
 
 export const metadata: Metadata = {
     title: 'Motion Graphics',

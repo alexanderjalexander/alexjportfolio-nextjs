@@ -1,4 +1,4 @@
-import { Header1Mono } from '@/components/headers'
+import { Header1Mono } from '@/components/text/headers'
 
 export default function notFound() {
     return (

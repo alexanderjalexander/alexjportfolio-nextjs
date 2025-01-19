@@ -1,6 +1,6 @@
 'use client' 
  
-import { Header1Mono, Header3 } from '@/components/headers'
+import { Header1Mono, Header3 } from '@/components/text/headers'
 import { Button } from "@heroui/button"
 import { useEffect } from 'react'
  

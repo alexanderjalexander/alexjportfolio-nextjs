@@ -1,6 +1,6 @@
-import { Navbar } from "@/components/navbar";
+import { Navbar } from "@/components/layout/navbar";
 import { Divider } from "@heroui/react";
-import Footer from "@/components/footer";
+import Footer from "@/components/layout/footer";
 import React from "react";
 
 export default function RootLayout({children,}: {children: React.ReactNode;}) {

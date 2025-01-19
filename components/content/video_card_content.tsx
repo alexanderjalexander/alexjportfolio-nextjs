@@ -11,8 +11,8 @@ import {
     ModalHeader,
     useDisclosure
 } from "@heroui/react";
-import {Header2Mono} from "@/components/headers";
-import {FadeInScroll} from "@/components/fadeinscroll";
+import {Header2Mono} from "@/components/text/headers";
+import {FadeInScroll} from "@/components/page-anim/fadeinscroll";
 import {useState} from "react";
 import {getVideoThumbnail, getVideoURL} from "@/src/lib/data/videos";
 

@@ -1,11 +1,11 @@
-import { FadeInScroll } from "@/components/fadeinscroll";
-import { Header1Mono, Header2Mono, SubheaderMono } from "@/components/headers";
-import { PageWrapper } from "@/components/pagewrapper";
-import TypewriterWrapper from "@/components/typewriterwrapper";
+import { FadeInScroll } from "@/components/page-anim/fadeinscroll";
+import { Header1Mono, Header2Mono, SubheaderMono } from "@/components/text/headers";
+import { PageWrapper } from "@/components/page-anim/pagewrapper";
+import TypewriterWrapper from "@/components/text/typewriterwrapper";
 import { getAnimationFull } from "@/src/lib/data/animation";
 import { Divider } from "@heroui/react";
 import { Metadata } from "next";
-import VideoCardContent from "@/components/video_card_content";
+import VideoCardContent from "@/components/content/video_card_content";
 
 export const metadata: Metadata = {
     title: '3D Animation',

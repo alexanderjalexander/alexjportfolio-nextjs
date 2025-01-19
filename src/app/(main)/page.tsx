@@ -1,7 +1,7 @@
-import { FadeInScroll } from "@/components/fadeinscroll";
-import { Header1Mono, Header2Mono, Header3Mono, SubheaderMono } from "@/components/headers";
-import { PageWrapper } from "@/components/pagewrapper";
-import TypewriterWrapper from "@/components/typewriterwrapper";
+import { FadeInScroll } from "@/components/page-anim/fadeinscroll";
+import { Header1Mono, Header2Mono, Header3Mono, SubheaderMono } from "@/components/text/headers";
+import { PageWrapper } from "@/components/page-anim/pagewrapper";
+import TypewriterWrapper from "@/components/text/typewriterwrapper";
 import { siteConfig } from "@/config/site";
 import { getSkillsCategories } from "@/src/lib/data/skills";
 import { Card, CardHeader, Chip, Divider, Image } from "@heroui/react";

@@ -1,9 +1,9 @@
-import { FadeInScroll } from "./fadeinscroll"
-import { Header2Mono } from "./headers"
+import { FadeInScroll } from "../page-anim/fadeinscroll"
+import { Header2Mono } from "../text/headers"
 import { Button } from "@heroui/button"
 import { Link } from "@heroui/link"
-import { GithubIcon, LinkedInIcon } from "./icons"
-import Webring from "./webring"
+import { GithubIcon, LinkedInIcon } from "../icons"
+import Webring from "../webring"
 
 export default function Footer() {
     return (

@@ -1,4 +1,4 @@
-import { subtitle, title } from "@/components/primitives";
+import { subtitle, title } from "@/components/text/primitives";
 import classNames from "classnames";
 
 export function Header1(

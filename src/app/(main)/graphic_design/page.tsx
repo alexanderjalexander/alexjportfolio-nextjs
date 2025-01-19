@@ -1,11 +1,11 @@
-import { Header1Mono, SubheaderMono, Header2Mono } from "@/components/headers";
-import { PageWrapper } from "@/components/pagewrapper";
-import TypewriterWrapper from "@/components/typewriterwrapper";
-import { FadeInScroll } from "@/components/fadeinscroll";
+import { Header1Mono, SubheaderMono, Header2Mono } from "@/components/text/headers";
+import { PageWrapper } from "@/components/page-anim/pagewrapper";
+import TypewriterWrapper from "@/components/text/typewriterwrapper";
+import { FadeInScroll } from "@/components/page-anim/fadeinscroll";
 import { Divider } from "@heroui/react";
 import { Metadata } from "next";
 import { getObjects } from "@/src/lib/data/graphic_design";
-import GraphicDesignContent from "@/components/graphic_design_content";
+import GraphicDesignContent from "@/components/content/graphic_design_content";
 
 export const metadata: Metadata = {
     title: 'Graphic Design',

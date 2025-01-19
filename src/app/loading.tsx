@@ -1,5 +1,5 @@
 import {Spinner} from "@heroui/react";
-import {SubheaderMono} from "@/components/headers";
+import {SubheaderMono} from "@/components/text/headers";
 
 export default function Loading() {
     return <div className="h-screen flex items-center">

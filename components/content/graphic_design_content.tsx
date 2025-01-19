@@ -2,8 +2,8 @@
 
 import { Button, Card, Divider, Image, Modal, ModalHeader, ModalContent, ModalFooter, ModalBody, Spinner, useDisclosure } from "@heroui/react"
 import { useState } from "react";
-import { Header2Mono, Header3Mono } from "./headers";
-import { FadeInScroll } from "./fadeinscroll";
+import { Header2Mono, Header3Mono } from "../text/headers";
+import { FadeInScroll } from "../page-anim/fadeinscroll";
 
 export default function GraphicDesignContent({videos}:{videos:(string|undefined)[]}) {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();

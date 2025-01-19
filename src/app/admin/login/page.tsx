@@ -1,6 +1,6 @@
-import {Header1Mono} from "@/components/headers";
+import {Header1Mono} from "@/components/text/headers";
 import React from "react";
-import {PageWrapper} from "@/components/pagewrapper";
+import {PageWrapper} from "@/components/page-anim/pagewrapper";
 import LoginButtons from "@/src/app/admin/login/loginbuttons";
 import {Metadata} from "next";
 

@@ -15,7 +15,7 @@ import NextLink from "next/link";
 
 import clsx from "clsx";
 
-import { ThemeSwitch } from "@/components/theme-switch";
+import { ThemeSwitch } from "@/components/layout/theme-switch";
 import { GithubIcon, LinkedInIcon, } from "@/components/icons";
 import { siteConfig } from "@/config/site";
 import { fontMono } from "@/config/fonts";
@@ -46,7 +46,7 @@ export const Navbar = () => {
 				className="">
 				<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
 					<NavbarBrand as="li" className="gap-3 max-w-fit">
-						<NextLink className="flex justify-start items-center gap-1" href="/">
+						<NextLink className="flex justify-start items-center gap-1" href="/public">
 							<p className={'font-bold '+fontMono.variable+' font-mono font-weight-800 text-xl text-inherit'}>AJ</p>
 						</NextLink>
 					</NavbarBrand>

@@ -1,7 +1,7 @@
-import { Header1Mono, SubheaderMono, Header2Mono, Header3Mono } from "@/components/headers";
-import { PageWrapper } from "@/components/pagewrapper";
-import TypewriterWrapper from "@/components/typewriterwrapper";
-import { FadeInScroll } from "@/components/fadeinscroll";
+import { Header1Mono, SubheaderMono, Header2Mono, Header3Mono } from "@/components/text/headers";
+import { PageWrapper } from "@/components/page-anim/pagewrapper";
+import TypewriterWrapper from "@/components/text/typewriterwrapper";
+import { FadeInScroll } from "@/components/page-anim/fadeinscroll";
 import { Card, CardBody, Code, Divider } from "@heroui/react";
 import { Metadata } from "next";
 
