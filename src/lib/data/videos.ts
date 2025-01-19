@@ -1,14 +1,6 @@
 import { getDatabase } from "@/src/db";
 import { creators, videos } from "@/src/db/migrations/schema";
 import { eq, isNull } from "drizzle-orm";
-import ytHeaders from "../../auth/youtube";
-
-export async function getCommissioners() {
-    let commissioners = (await getDatabase()).select({
-        creator: creators.name
-    }).from(creators);
-    return (await commissioners).map((x) => (x.creator));
-}
 
 export async function getPersonalVideos() {
     const vids = (await getDatabase()).select({
@@ -66,7 +58,6 @@ export async function getCommissions() {
 
         const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=id,statistics&fields=items.statistics.viewCount,items.id&id=${vid_id_list.toString()}&key=${process.env.YOUTUBE_API_KEY!}`,
             {
-                headers: ytHeaders,
                 method: "GET",
                 redirect: "follow",
             }
@@ -80,7 +71,6 @@ export async function getCommissions() {
 
         const channelInfo = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&fields=items.snippet.thumbnails.medium&id=${result[person].id}&key=${process.env.YOUTUBE_API_KEY!}`, 
             {
-                headers: ytHeaders,
                 method: "GET",
                 redirect: "follow",
             }
