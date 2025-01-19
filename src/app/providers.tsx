@@ -11,7 +11,7 @@ export interface ProvidersProps {
 	themeProps?: ThemeProviderProps;
 }
 
-export function Providers({ children, themeProps }: ProvidersProps) {
+export function Providers({ children }: ProvidersProps) {
   const router = useRouter();
 
 	return (
