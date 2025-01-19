@@ -1,8 +1,13 @@
 
 import {Header1Mono} from "@/components/headers";
 import {PageWrapper} from "@/components/pagewrapper";
+import {Metadata} from "next";
 
-export default function AdminLogin() {
+export const metadata: Metadata = {
+    title: 'Admin Dashboard',
+}
+
+export default function AdminHome() {
     return <PageWrapper>
         <div className="h-screen flex items-center">
             <div className="h-min m-auto">

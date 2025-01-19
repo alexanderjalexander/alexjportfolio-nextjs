@@ -2,6 +2,11 @@ import {Header1Mono} from "@/components/headers";
 import React from "react";
 import {PageWrapper} from "@/components/pagewrapper";
 import LoginButtons from "@/src/app/admin/login/loginbuttons";
+import {Metadata} from "next";
+
+export const metadata: Metadata = {
+    title: 'Admin Log In',
+}
 
 export default function AdminLogin() {
 
