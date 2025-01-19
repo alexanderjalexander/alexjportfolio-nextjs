@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/navbar";
 import { Divider } from "@nextui-org/react";
 import Footer from "@/components/footer";
-import {siteConfig} from "@/config/site";
+import React from "react";
 
 export default function RootLayout({children,}: {children: React.ReactNode;}) {
 	return (

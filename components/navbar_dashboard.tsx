@@ -13,21 +13,29 @@ import { Link } from "@nextui-org/link";
 import { link as linkStyles } from "@nextui-org/theme";
 import NextLink from "next/link";
 
-
-
 import clsx from "clsx";
 
 import { ThemeSwitch } from "@/components/theme-switch";
-import { GithubIcon, LinkedInIcon, } from "@/components/icons";
 import { siteConfig } from "@/config/site";
 import { fontMono } from "@/config/fonts";
 
 import { useState } from "react";
-
-import { motion, useScroll, useSpring } from "framer-motion";
+import {useAuthContext} from "@/components/AuthContext";
+import {signOutUser} from "@/src/auth/firebaseFunctions";
+import {logoutAction} from "@/src/app/actions";
+import {usePathname} from "next/navigation";
+import { Button } from "@nextui-org/react";
 
 export const NavbarDashboard = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+	const { user } = useAuthContext();
+	const pathname = usePathname();
+
+	async function handleSignOut() {
+		await signOutUser();
+		await logoutAction();
+	}
 
 	return (
 		<div className="w-screen top-0 z-10 fixed">
@@ -39,13 +47,13 @@ export const NavbarDashboard = () => {
 				className="">
 				<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
 					<NavbarBrand as="li" className="gap-3 max-w-fit">
-						<NextLink className="flex justify-start items-center gap-1" href="/">
-							<p className={'font-bold '+fontMono.variable+' font-mono font-weight-800 text-xl text-inherit'}>AJ</p>
+						<NextLink className="flex justify-start items-center gap-1" href="/admin/">
+							<p className={'font-bold '+fontMono.variable+' font-mono font-weight-800 text-xl text-inherit'}>AJ: Admin</p>
 						</NextLink>
 					</NavbarBrand>
 
 					<ul className="hidden min-[920px]:flex gap-4 justify-start ml-2">
-						{[siteConfig.navItems[0]].map((item) => (
+						{siteConfig.adminNavItems.map((item) => (
 							<NavbarItem key={item.href}>
 								<Link
 									as={NextLink}
@@ -66,13 +74,49 @@ export const NavbarDashboard = () => {
 				</NavbarContent>
 
 				<NavbarContent className="basis-1 pl-4" justify="end">
+					{user === null && pathname !== "/admin/login" && (
+						<NavbarItem>
+							<Link
+								as={NextLink}
+								className={clsx(
+									linkStyles({ color: "foreground" }),
+									"hover:text-primary-100 hover:font-medium",
+									"transition ease-in-out"
+								)}
+								color="foreground"
+								isBlock
+								href="/admin/login"
+							>
+								Log In
+							</Link>
+						</NavbarItem>
+					)}
+					{user !== null && (
+						<div className={'flex flex-row justify-end gap-4 items-center'}>
+							<h5>{user.displayName}</h5>
+							<NavbarItem>
+								<Link
+									className={clsx(
+										linkStyles({ color: "foreground" }),
+										"hover:text-primary-100 hover:font-medium",
+										"transition ease-in-out"
+									)}
+									color="foreground"
+									isBlock
+									onClick={handleSignOut}
+								>
+									Log Out
+								</Link>
+							</NavbarItem>
+						</div>
+					)}
 					<ThemeSwitch />
 					<NavbarMenuToggle className="min-[920px]:hidden hover:text-primary-100 transition-all ease-in-out" />
 				</NavbarContent>
 
 				<NavbarMenu className="overflow-auto scrollbar-hide">
 					<div className="mx-4 mt-2 flex flex-col gap-2">
-						{[siteConfig.navItems[0]].map((item, index) => (
+						{siteConfig.adminNavItems.map((item, index) => (
 							<NavbarMenuItem key={`${item}-${index}`}>
 								<Link 
 									isBlock

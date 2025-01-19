@@ -17,11 +17,11 @@ export const siteConfig = {
 			href: "/video",
 		},
 		{
-			label: "Motion Graphics",
+			label: "Motion",
 			href: "/motion_graphics",
 		},
 		{
-			label: "Graphic Design",
+			label: "Graphics",
 			href: "/graphic_design",
 		},
 		{
@@ -31,6 +31,16 @@ export const siteConfig = {
 		{
 			label: "API",
 			href: "/api_reference",
+		},
+	],
+	adminNavItems: [
+		{
+			label: "Main Site",
+			href: "/",
+		},
+		{
+			label: "Dashboard",
+			href: "/admin/",
 		},
 	],
 	activities: [
@@ -63,6 +73,5 @@ export const siteConfig = {
 	links: {
 		github: "https://github.com/alexanderjalexander",
 		linkedin: "https://www.linkedin.com/in/alexander-j-27144720b/"
-	},
-	revalidateTime: (60*60*24) // 60 seconds/min * 60 min/hr * 24 hr/day = 86400 sec
+	}
 };
