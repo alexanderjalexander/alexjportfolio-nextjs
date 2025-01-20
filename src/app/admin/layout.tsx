@@ -17,7 +17,7 @@ export default async function Layout({
     return (
         <AuthContextProvider>
             <NavbarDashboard />
-            <main className="container mx-auto max-w-7xl px-6 flex-grow">
+            <main className="container mx-auto max-w-full px-6 flex-grow">
                 {children}
             </main>
         </AuthContextProvider>

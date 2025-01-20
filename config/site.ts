@@ -40,7 +40,7 @@ export const siteConfig = {
 		},
 		{
 			label: "Dashboard",
-			href: "/admin/",
+			href: "/admin",
 		},
 	],
 	activities: [

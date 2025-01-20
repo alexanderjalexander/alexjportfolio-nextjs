@@ -37,10 +37,10 @@ export const NavbarDashboard = () => {
 	}
 
 	return (
-		<div className="w-screen top-0 z-10 fixed">
+		<div className="w-full top-0 z-10 fixed">
 			<NextUINavbar 
 				isBordered 
-				maxWidth="xl"
+				maxWidth="full"
 				isMenuOpen={isMenuOpen} 
 				onMenuOpenChange={setIsMenuOpen}
 				className="">
@@ -59,7 +59,8 @@ export const NavbarDashboard = () => {
 									className={clsx(
 										linkStyles({ color: "foreground" }),
 										"hover:text-primary-100 hover:font-medium",
-										"transition ease-in-out"
+										"transition ease-in-out rounded-xl",
+										(item.href === pathname ? "bg-primary-700" : "")
 									)}
 									color="foreground"
 									isBlock
@@ -80,7 +81,8 @@ export const NavbarDashboard = () => {
 								className={clsx(
 									linkStyles({ color: "foreground" }),
 									"hover:text-primary-100 hover:font-medium",
-									"transition ease-in-out"
+									"transition ease-in-out rounded-xl cursor-pointer",
+									('/admin/login' === pathname ? "bg-primary-700" : "")
 								)}
 								color="foreground"
 								isBlock
@@ -92,13 +94,12 @@ export const NavbarDashboard = () => {
 					)}
 					{user !== null && (
 						<div className={'flex flex-row justify-end gap-4 items-center'}>
-							<h5>{user.displayName}</h5>
 							<NavbarItem>
 								<Link
 									className={clsx(
 										linkStyles({ color: "foreground" }),
 										"hover:text-primary-100 hover:font-medium",
-										"transition ease-in-out"
+										"transition ease-in-out rounded-xl cursor-pointer"
 									)}
 									color="foreground"
 									isBlock
