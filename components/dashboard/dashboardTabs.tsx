@@ -1,17 +1,17 @@
 "use client"
 
 import {Tab, Tabs} from "@heroui/tabs";
-import SkillsTable from "@/components/dashboard/tables/skills_table";
-import {skillsDataType, categoriesDataType, skillsCategoriesDataType} from "@/src/lib/admin/categories-and-skills";
+import ActionableDataTable from "@/components/dashboard/tables/actionable_data_table";
+import {tableDataType} from "@/src/lib/admin/categories-and-skills";
 
 export default function DashboardTabs({
     skills,
     categories,
     skillsCategories
 }:{
-    skills: skillsDataType,
-    categories: categoriesDataType,
-    skillsCategories: skillsCategoriesDataType,
+    skills: tableDataType,
+    categories: tableDataType,
+    skillsCategories: tableDataType,
 }) {
     return (
         <Tabs aria-label={"Options"} radius={"md"} variant={"bordered"}
@@ -21,13 +21,13 @@ export default function DashboardTabs({
               }}
         >
             <Tab key="skills" title="Skills">
-                <SkillsTable skillsData={skills} />
+                <ActionableDataTable inputData={skills} />
             </Tab>
             <Tab key="categories" title="Categories">
-
+                <ActionableDataTable inputData={categories} />
             </Tab>
-            <Tab key="skills-and-categories" title="Skills & Categories">
-
+            <Tab key="skill-category-map" title="Skill-Category Mappings">
+                <ActionableDataTable inputData={skillsCategories} />
             </Tab>
         </Tabs>
     )
