@@ -1,9 +1,21 @@
 "use client"
 
-import {Table, TableBody, TableCell, TableColumn, TableHeader, TableRow, Tooltip} from "@heroui/react";
+import {
+    Button,
+    Modal, ModalBody, ModalContent, ModalFooter, ModalHeader,
+    Table,
+    TableBody,
+    TableCell,
+    TableColumn,
+    TableHeader,
+    TableRow,
+    Tooltip,
+    useDisclosure
+} from "@heroui/react";
 import {tableDataType} from "@/src/lib/admin/categories-and-skills";
 import {EditIcon, DeleteIcon} from "@/components/icons";
 import React from "react";
+import {Input} from "@heroui/input";
 
 export default function ActionableDataTable({inputData}: { inputData: tableDataType }) {
     // Add an "Actions" column with the buttons needed
@@ -11,9 +23,19 @@ export default function ActionableDataTable({inputData}: { inputData: tableDataT
         columns: [...inputData.columns, {column:"actions", label:"ACTIONS"}],
         data: inputData.data,
     }
-    type Data = (typeof inputData.data)[0];
+
+    // Modal Control
+    const editModal = useDisclosure();
+    const openEditModal = () => {
+        editModal.onOpen();
+    }
+    const deleteModal = useDisclosure();
+    const openDeleteModal = () => {
+        deleteModal.onOpen();
+    }
 
     // Cell Rendering Table
+    type Data = typeof inputData.data[0];
     const renderCell = React.useCallback((data: Data, columnKey: React.Key) => {
         const cellValue = data[columnKey as keyof Data];
 
@@ -22,14 +44,14 @@ export default function ActionableDataTable({inputData}: { inputData: tableDataT
                 return (
                     <div className="relative flex items-center gap-2 w-min m-auto">
                         <Tooltip content="Edit">
-                            <span className="text-lg text-default-500 cursor-pointer active:opacity-50">
+                            <Button onPress={openEditModal} type={"button"} color="primary" variant={"flat"}>
                                 <EditIcon/>
-                            </span>
+                            </Button>
                         </Tooltip>
                         <Tooltip color="danger" content="Delete">
-                            <span className="text-lg text-danger cursor-pointer active:opacity-50">
+                            <Button onPress={openDeleteModal} type={"button"} color="danger" variant={"flat"}>
                                 <DeleteIcon/>
-                            </span>
+                            </Button>
                         </Tooltip>
                     </div>
                 );
@@ -39,33 +61,87 @@ export default function ActionableDataTable({inputData}: { inputData: tableDataT
     }, []);
 
     return (
-        // TODO: Add modal to edit any and all rows
         // TODO: Make generic server action, which requires the table object to be passed back and forth
-        // TODO: Figure out chip support for joined tables (might require specialized table)
-        <Table classNames={{
-            table: "font-black",
-            base: "font-black",
-            tbody: "font-black",
-            th: "bg-primary-800 drop-shadow-md !font-bold",
-            td: "bg-transparent",
-            wrapper: "bg-transparent",
-        }}>
-            <TableHeader columns={inpdata.columns}>
-                {(column) => {
-                    return <TableColumn align={"center"} key={column.column}>{column.label}</TableColumn>
-                }}
-            </TableHeader>
-            <TableBody items={inpdata.data}>
-                {(item) => {
-                    // Weird workaround to get *every* table to render properly.
-                    // Not having a TableRow key for some values can cause it to not render properly.
-                    return (<TableRow key={JSON.stringify(item)}>
-                        {(columnKey) => {
-                            return <TableCell>{renderCell(item, columnKey)}</TableCell>
-                        }}
-                    </TableRow>)
-                }}
-            </TableBody>
-        </Table>
+        <div>
+            <Modal isOpen={editModal.isOpen}
+                   className="bg-background w-full"
+                   backdrop="blur"
+                   size="5xl"
+                   onOpenChange={editModal.onOpenChange}
+                   placement="center">
+                <ModalContent className="">
+                    {(onClose) => (<>
+                        <ModalHeader>Edit Row</ModalHeader>
+                        <ModalBody className="justify-center content-center rounded-xl px-2 md:px-6">
+                            {inputData.columns.map((column) => (
+                                <Input key={column.column}
+                                    isRequired
+                                    variant="bordered"
+                                    label={column.label}
+                                    type={column.type ?? "text"}
+                                />
+                            ))}
+                        </ModalBody>
+                        <ModalFooter>
+                            <Button color="primary" variant="solid" onPress={onClose}>
+                                Submit Edit
+                            </Button>
+                            <Button color="danger" variant="solid" onPress={onClose}>
+                                Discard Changes
+                            </Button>
+                        </ModalFooter>
+                    </>)}
+                </ModalContent>
+            </Modal>
+            <Modal isOpen={deleteModal.isOpen}
+                   className="bg-background w-full"
+                   backdrop="blur"
+                   size="5xl"
+                   onOpenChange={deleteModal.onOpenChange}
+                   placement="center">
+                <ModalContent className="">
+                    {(onClose) => (<>
+                        <ModalHeader>Delete Row</ModalHeader>
+                        <ModalBody className="justify-center content-center rounded-xl px-2 md:px-6">
+                            Are you sure you want to delete this row?
+                        </ModalBody>
+                        <ModalFooter>
+                            <Button color="primary" variant="solid" onPress={onClose}>
+                                Yes
+                            </Button>
+                            <Button color="danger" variant="solid" onPress={onClose}>
+                                No
+                            </Button>
+                        </ModalFooter>
+                    </>)}
+                </ModalContent>
+            </Modal>
+            <Table classNames={{
+                table: "font-black",
+                base: "font-black",
+                tbody: "font-black",
+                th: "bg-primary-800 drop-shadow-md !font-bold",
+                td: "bg-transparent",
+                wrapper: "bg-transparent",
+            }}>
+                <TableHeader columns={inpdata.columns}>
+                    {(column) => {
+                        return <TableColumn align={"center"} key={column.column}>{column.label}</TableColumn>
+                    }}
+                </TableHeader>
+                <TableBody items={inpdata.data}>
+                    {(item) => {
+                        // Weird workaround to get *every* table to render properly.
+                        // Not having a TableRow key for some values can cause it to not render properly.
+                        // @ts-ignore
+                        return (<TableRow key={Object.hasOwn(item, "id") ? item.id : JSON.stringify(item)}>
+                            {(columnKey) => {
+                                return <TableCell>{renderCell(item, columnKey)}</TableCell>
+                            }}
+                        </TableRow>)
+                    }}
+                </TableBody>
+            </Table>
+        </div>
     )
 }

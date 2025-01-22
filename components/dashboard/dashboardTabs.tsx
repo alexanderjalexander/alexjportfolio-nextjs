@@ -13,6 +13,8 @@ export default function DashboardTabs({
     categories: tableDataType,
     skillsCategories: tableDataType,
 }) {
+
+
     return (
         <Tabs aria-label={"Options"} radius={"md"} variant={"bordered"}
               classNames={{
