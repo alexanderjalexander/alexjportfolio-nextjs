@@ -8,11 +8,7 @@ export const metadata: Metadata = {
     title: 'Admin Dashboard',
 }
 
-export default async function AdminHome({
-    params,
-}: {
-    params: Promise<{ tab: string }>
-}) {
+export default async function AdminHome() {
     const categories = await getAllCategories();
     const skills = await getAllSkills();
     const mappings = await getAllSkillCategoryMappings();
