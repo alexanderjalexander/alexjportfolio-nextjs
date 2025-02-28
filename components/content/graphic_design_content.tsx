@@ -1,6 +1,13 @@
 "use client"
 
-import { Button, Card, Divider, Image, Modal, ModalHeader, ModalContent, ModalFooter, ModalBody, Spinner, useDisclosure } from "@heroui/react"
+import { Button } from "@heroui/button";
+import { Card } from "@heroui/card";
+import { Divider } from "@heroui/divider";
+import { Image } from "@heroui/image";
+import { Modal, ModalHeader, ModalContent, ModalFooter, ModalBody } from "@heroui/modal"
+import { Spinner } from "@heroui/spinner"
+import { useDisclosure } from "@heroui/use-disclosure"
+
 import { useState } from "react";
 import { Header2Mono } from "../text/headers";
 import { FadeInScroll } from "../page-anim/fadeinscroll";
@@ -54,16 +61,16 @@ export default function GraphicDesignContent({videos}:{videos:(string|undefined)
         <FadeInScroll>
             <Divider className="my-10" />
             <Header2Mono className="mb-5">My Work</Header2Mono>
-            <div className="columns-2 sm:columns-3 my-2 sm:my-4 gap-4 sm:gap-8">
+            <div className="columns-2 sm:columns-3 md:columns-4 my-2 sm:my-4 gap-4 sm:gap-8">
                 {(videos !== undefined) 
                 ? (videos.map((video) => (
                     <Card key={video} isPressable onPress={() => openModal(video!, video!, `api/graphic_design/${video}`)}
-                      className="w-full h-fit mb-4 sm:gap-8">
+                      className="w-full h-full mb-4 sm:gap-8">
                         <Image 
                             isZoomed
                             alt={`${video}`}
                             src={`/api/graphic_design/resize/${video}`}
-                            className="z-0 w-full h-full object-cover"
+                            className="z-0 object-fill"
                         />
                     </Card>
                 ))) 

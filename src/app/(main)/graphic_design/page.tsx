@@ -2,7 +2,7 @@ import { Header1Mono, SubheaderMono, Header2Mono } from "@/components/text/heade
 import { PageWrapper } from "@/components/page-anim/pagewrapper";
 import TypewriterWrapper from "@/components/text/typewriterwrapper";
 import { FadeInScroll } from "@/components/page-anim/fadeinscroll";
-import { Divider } from "@heroui/react";
+import { Divider } from "@heroui/divider";
 import { Metadata } from "next";
 import { getObjects } from "@/src/lib/data/graphic_design";
 import GraphicDesignContent from "@/components/content/graphic_design_content";

@@ -1,17 +1,7 @@
 "use client"
 
-import {
-    Button,
-    Modal, ModalBody, ModalContent, ModalFooter, ModalHeader,
-    Table,
-    TableBody,
-    TableCell,
-    TableColumn,
-    TableHeader,
-    TableRow,
-    Tooltip,
-    useDisclosure
-} from "@heroui/react";
+import {Table, TableBody, TableCell, TableColumn, TableHeader, TableRow} from "@heroui/table";
+import {Tooltip} from "@heroui/tooltip";
 import {tableDataType} from "@/src/lib/admin/categories-and-skills";
 import {EditIcon, DeleteIcon} from "@/components/icons";
 import React, {useState} from "react";

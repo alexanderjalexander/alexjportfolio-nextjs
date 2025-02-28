@@ -1,10 +1,8 @@
 import { getObject } from "@/src/lib/data/graphic_design";
 import { NoSuchKey } from "@aws-sdk/client-s3";
 
-export async function GET(
-    req: Request,
-    { params }: {params: {id:string[]}}
-) {
+export async function GET(req: Request, props: {params: Promise<{id:string[]}>}) {
+    const params = await props.params;
     try {
         const key = Array.isArray(params.id) ? params.id.join('/') : params.id;
         let res = await getObject(key);

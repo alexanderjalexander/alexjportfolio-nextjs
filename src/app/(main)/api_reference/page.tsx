@@ -2,7 +2,9 @@ import { Header1Mono, SubheaderMono, Header2Mono, Header3Mono } from "@/componen
 import { PageWrapper } from "@/components/page-anim/pagewrapper";
 import TypewriterWrapper from "@/components/text/typewriterwrapper";
 import { FadeInScroll } from "@/components/page-anim/fadeinscroll";
-import { Card, CardBody, Code, Divider } from "@heroui/react";
+import { Card, CardBody } from "@heroui/card";
+import { Code } from "@heroui/code";
+import { Divider } from "@heroui/divider";
 import { Metadata } from "next";
 
 import { fontMono } from "@/config/fonts";

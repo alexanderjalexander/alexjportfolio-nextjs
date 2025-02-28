@@ -4,9 +4,14 @@ import { PageWrapper } from "@/components/page-anim/pagewrapper";
 import TypewriterWrapper from "@/components/text/typewriterwrapper";
 import { siteConfig } from "@/config/site";
 import { getSkillsCategories } from "@/src/lib/data/skills";
-import { Card, CardHeader, Chip, Divider, Image } from "@heroui/react";
+
 import NextImage from "next/image";
 import Link from "next/link";
+
+import { Card, CardHeader } from "@heroui/card";
+import { Chip } from "@heroui/chip";
+import { Divider } from "@heroui/divider";
+import { Image } from "@heroui/image";
 
 export default async function Home() {
   const skillsCategories = await getSkillsCategories();
