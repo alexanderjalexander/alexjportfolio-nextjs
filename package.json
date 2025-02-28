@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@react-aria/ssr": "^3.9.1",
-    "drizzle-kit": "^0.18.1"
+    "drizzle-kit": "^0.30.5"
   },
   "overrides": {
     "@types/react": "19.0.10",
