@@ -1,6 +1,9 @@
 "use client"
 
+import {Button} from "@heroui/button";
 import {Table, TableBody, TableCell, TableColumn, TableHeader, TableRow} from "@heroui/table";
+import {useDisclosure} from "@heroui/use-disclosure";
+import {Modal, ModalHeader, ModalBody, ModalContent, ModalFooter} from "@heroui/modal";
 import {Tooltip} from "@heroui/tooltip";
 import {tableDataType} from "@/src/lib/admin/categories-and-skills";
 import {EditIcon, DeleteIcon} from "@/components/icons";
