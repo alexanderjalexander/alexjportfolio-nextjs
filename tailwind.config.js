@@ -11,7 +11,7 @@ const safelist = [
 ]
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   safelist,
   content: [
     './components/**/*.{js,ts,jsx,tsx,mdx}',

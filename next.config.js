@@ -7,7 +7,7 @@ const nextConfig = {
         },
     },
     experimental: {
-      optimizePackageImports: ['@heroui', '@heroui/react', 'framer-motion'],
+        optimizePackageImports: ['@heroui', '@heroui/react', 'framer-motion']
     }
 }
 
