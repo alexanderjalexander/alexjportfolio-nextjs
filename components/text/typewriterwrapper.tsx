@@ -1,18 +1,16 @@
 "use client"
 
-import Typewriter from 'typewriter-effect';
+import { TypeAnimation } from "react-type-animation"
 
 export default function TypewriterWrapper({text}:{text:string}) {
     return(
-        <Typewriter 
-				onInit={(typewriter) => { 
-				typewriter.typeString(text) 
-					.callFunction(() => {console.log('String typed out!');})
-					.start(); 
-				}}
-                options={{
-                    delay: 40,
-                }}
-			/>
+        <TypeAnimation
+            sequence={[
+                // Same substring at the start will only be typed out once, initially
+                text
+            ]}
+            wrapper="span"
+            speed={60}
+        />
     )
 };
