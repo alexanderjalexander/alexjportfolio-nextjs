@@ -3,7 +3,7 @@ import { PageWrapper } from "@/components/page-anim/pagewrapper";
 import { Metadata } from "next";
 import TypewriterWrapper from "@/components/text/typewriterwrapper";
 import { FadeInScroll } from "@/components/page-anim/fadeinscroll";
-import { Divider } from "@heroui/react";
+import { Divider } from "@heroui/divider";
 import { getMotionGraphicsFull } from "@/src/lib/data/motion";
 import VideoCardContent from "@/components/content/video_card_content";
 

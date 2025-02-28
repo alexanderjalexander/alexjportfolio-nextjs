@@ -3,7 +3,13 @@ import TypewriterWrapper from "@/components/text/typewriterwrapper";
 import { PageWrapper } from "@/components/page-anim/pagewrapper";
 import { Metadata } from "next";
 import { FadeInScroll } from "@/components/page-anim/fadeinscroll";
-import { Button, Chip, Card, CardBody, CardFooter, CardHeader, Divider, Link } from "@heroui/react";
+
+import { Button } from "@heroui/button";
+import { Card, CardBody, CardFooter, CardHeader } from "@heroui/card";
+import { Chip } from "@heroui/chip";
+import { Divider } from "@heroui/divider";
+import { Link } from "@heroui/link";
+
 import { GithubIcon } from "@/components/icons";
 import { getProgrammingProjectsSkillsFull } from "@/src/lib/data/programming";
 

@@ -6,6 +6,9 @@ const nextConfig = {
           hmrRefreshes: true,
         },
     },
+    experimental: {
+      optimizePackageImports: ['@heroui', '@heroui/react', 'framer-motion'],
+    }
 }
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({

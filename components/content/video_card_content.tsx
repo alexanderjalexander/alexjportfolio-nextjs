@@ -1,16 +1,13 @@
 "use client"
 
-import {
-    Button, Card, CardBody, CardFooter, CardHeader, Chip,
-    Divider,
-    Image,
-    Modal,
-    ModalBody,
-    ModalContent,
-    ModalFooter,
-    ModalHeader,
-    useDisclosure
-} from "@heroui/react";
+import { Button } from "@heroui/button";
+import { Card, CardBody, CardFooter, CardHeader } from "@heroui/card";
+import { Chip } from "@heroui/chip";
+import { Divider } from "@heroui/divider";
+import { Image } from "@heroui/image";
+import { Modal, ModalHeader, ModalContent, ModalFooter, ModalBody } from "@heroui/modal"
+import { useDisclosure } from "@heroui/use-disclosure"
+
 import {Header2Mono} from "@/components/text/headers";
 import {FadeInScroll} from "@/components/page-anim/fadeinscroll";
 import {useState} from "react";

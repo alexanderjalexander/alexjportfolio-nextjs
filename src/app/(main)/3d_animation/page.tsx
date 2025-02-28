@@ -3,7 +3,7 @@ import { Header1Mono, Header2Mono, SubheaderMono } from "@/components/text/heade
 import { PageWrapper } from "@/components/page-anim/pagewrapper";
 import TypewriterWrapper from "@/components/text/typewriterwrapper";
 import { getAnimationFull } from "@/src/lib/data/animation";
-import { Divider } from "@heroui/react";
+import { Divider } from "@heroui/divider";
 import { Metadata } from "next";
 import VideoCardContent from "@/components/content/video_card_content";
 
