@@ -3,7 +3,6 @@ import { programmingProjects, programmingSkills, skills } from "@/src/db/migrati
 import { eq } from "drizzle-orm";
 import { getColorCategorizedSkills } from "./skills";
 
-
 export async function getProgrammingProjects() {
     return (await getDatabase())
         .select()
@@ -23,14 +22,14 @@ export async function getProgrammingSkills() {
 
 export async function getProgrammingProjectsSkills() {
     const programmingSkills = await getProgrammingSkills();
-    /** skills = 
+    /** skills =
      * [
      *  { project: id, skill }
      * ...
      * ]
      */
     let projects = await getProgrammingProjects();
-    /** projects = 
+    /** projects =
      * [
      *  { id, title, subtitle, description, link }
      * ...
@@ -53,26 +52,26 @@ export async function getProgrammingProjectsSkills() {
 
 export async function getProgrammingProjectsSkillsFull() {
     const programmingSkills = await getProgrammingSkills();
-    /** skills = 
+    /** skills =
      * [
      *  { project: id, skill }
      * ...
      * ]
      */
+    let projects = await getProgrammingProjects();
+    /** projects =
+     * [
+     *  { id, title, subtitle, description, link }
+     * ...
+     * ]
+     */
     const skillsColored = await getColorCategorizedSkills();
-    /** skillsColored = 
+    /** skillsColored =
      * [
      *  { color: 'red', skill: 'Git & GitHub' },
      *  ...
      *  { color: 'cyan', skill: 'VEGAS Pro' },
      *  ...
-     * ]
-     */
-    let projects = await getProgrammingProjects();
-    /** projects = 
-     * [
-     *  { id, title, subtitle, description, link }
-     * ...
      * ]
      */
     for (let i = 0; i < projects.length; i++) {
@@ -100,14 +99,14 @@ export async function getProgrammingProjectsSkillsFull() {
 // Desired Format:
 /** Desired Format:
  * [
- *  {   id, 
- *      title, 
- *      subtitle, 
- *      description, 
- *      link, 
- *      skills: 
+ *  {   id,
+ *      title,
+ *      subtitle,
+ *      description,
+ *      link,
+ *      skills:
  *          [
- *          
+ *
  *          ]}
  * ]
  */

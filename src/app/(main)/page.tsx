@@ -1,17 +1,18 @@
-import { FadeInScroll } from "@/components/page-anim/fadeinscroll";
-import { Header1Mono, Header2Mono, Header3Mono, SubheaderMono } from "@/components/text/headers";
-import { PageWrapper } from "@/components/page-anim/pagewrapper";
+import {FadeInScroll} from "@/components/page-anim/fadeinscroll";
+import {Header1Mono, Header2Mono, Header3Mono, SubheaderMono} from "@/components/text/headers";
+import {PageWrapper} from "@/components/page-anim/pagewrapper";
 import TypewriterWrapper from "@/components/text/typewriterwrapper";
-import { siteConfig } from "@/config/site";
-import { getSkillsCategories } from "@/src/lib/data/skills";
+import {siteConfig} from "@/config/site";
+import {getSkillsCategories} from "@/src/lib/data/skills";
 
 import NextImage from "next/image";
 import Link from "next/link";
 
-import { Card, CardHeader } from "@heroui/card";
-import { Chip } from "@heroui/chip";
-import { Divider } from "@heroui/divider";
-import { Image } from "@heroui/image";
+import {Card, CardHeader} from "@heroui/card";
+import {Chip} from "@heroui/chip";
+import {Divider} from "@heroui/divider";
+import {Image} from "@heroui/image";
+import WorkExperienceContent from "@/components/content/work_experience_content";
 
 export default async function Home() {
   const skillsCategories = await getSkillsCategories();
@@ -36,17 +37,17 @@ export default async function Home() {
           </div>
           <Header1Mono>AJ&apos;s Portfolio</Header1Mono>
           <SubheaderMono>
-            <TypewriterWrapper text="An interactive portfolio of my projects, accomplishments, and hobbies :)" />
+            <TypewriterWrapper text="An interactive portfolio of my projects, accomplishments, and hobbies :)"/>
           </SubheaderMono>
         </div>
       </div>
 
       {/* About Me */}
       <FadeInScroll>
-        <Divider className="my-10" />
+        <Divider className="my-10"/>
         <Header2Mono className="mb-5">About Me</Header2Mono>
         <div className="flex flex-wrap items-center justify-center gap-16">
-          <Image 
+          <Image
             width={500}
             alt="Portrait Picture of AJ"
             src="/portrait.jpg"
@@ -80,27 +81,26 @@ export default async function Home() {
 
       {/* My Skills */}
       <FadeInScroll>
-        <Divider className="my-10" />
+        <Divider className="my-10"/>
         <Header2Mono>My Skills</Header2Mono>
         <div className="flex flex-row justify-around flex-wrap">
           {Object.keys(skillsCategories).map(
-            (category, index) => 
-            <FadeInScroll className="my-2 sm:w-1/2" key={index}>
-              <Header3Mono>{category}</Header3Mono>
-              <div className="flex justify-center gap-2 flex-wrap">
-                {skillsCategories[category].skills.map(
-                  (skill:string) => 
-                  { 
-                    return (
-                    <Chip key={skill} 
-                      className={skillsCategories[category].color}
-                      size="md">
-                        {skill}
-                    </Chip>)
-                  }
-                )}
-              </div>
-            </FadeInScroll>
+            (category, index) =>
+              <FadeInScroll className="my-2 sm:w-1/2" key={index}>
+                <Header3Mono>{category}</Header3Mono>
+                <div className="flex justify-center gap-2 flex-wrap">
+                  {skillsCategories[category].skills.map(
+                    (skill: string) => {
+                      return (
+                        <Chip key={skill}
+                              className={skillsCategories[category].color}
+                              size="md">
+                          {skill}
+                        </Chip>)
+                    }
+                  )}
+                </div>
+              </FadeInScroll>
           )}
         </div>
       </FadeInScroll>
@@ -110,18 +110,21 @@ export default async function Home() {
         {/* Make some fancy stuff here with like lines and stuff to pop stuff in */}
         {/* NextUI Dividers have vertical orientation, might be able to make a custom timeline */}
         {/* Vertical Dividers and cards */}
+        <Divider className={"my-10"}/>
+        <Header2Mono className={"mb-4"}>Work Experience</Header2Mono>
+        <WorkExperienceContent />
       </FadeInScroll>
 
       {/* What I Do */}
       <FadeInScroll>
-        <Divider className="my-10" />
+        <Divider className="my-10"/>
 
         <div>
           <Header2Mono>What I Do</Header2Mono>
           <div className="block md:flex flex-row flex-wrap gap-1">
             {siteConfig.activities.map((item, index) => (
-              <Card 
-                key={index} 
+              <Card
+                key={index}
                 isPressable
                 as={Link}
                 href={item.href}
