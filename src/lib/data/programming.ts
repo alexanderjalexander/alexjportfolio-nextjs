@@ -1,7 +1,7 @@
-import { getDatabase } from "@/src/db";
-import { programmingProjects, programmingSkills, skills } from "@/src/db/migrations/schema";
-import { eq } from "drizzle-orm";
-import { getColorCategorizedSkills } from "./skills";
+import {getDatabase} from "@/src/db";
+import {programmingProjects, programmingSkills, skills} from "@/src/db/migrations/schema";
+import {eq} from "drizzle-orm";
+import {getColorCategorizedSkills} from "./skills";
 
 export async function getProgrammingProjects() {
     return (await getDatabase())
@@ -37,14 +37,13 @@ export async function getProgrammingProjectsSkills() {
      */
     for (let i = 0; i < projects.length; i++) {
         let project = projects[i];
-        let skills = programmingSkills.filter(
-            (element) => (element.project === project.id)
-        ).map(
-            (element) => (element.skill)
-        )
         // @ts-ignore
         // Because adding a new thing to an object isn't fun
-        project['skills'] = skills;
+        project['skills'] = programmingSkills.filter(
+          (element) => (element.project === project.id)
+        ).map(
+          (element) => (element.skill)
+        );
     }
 
     return projects;
@@ -76,21 +75,20 @@ export async function getProgrammingProjectsSkillsFull() {
      */
     for (let i = 0; i < projects.length; i++) {
         let project = projects[i];
-        let skills = programmingSkills.filter(
-            (element) => (element.project === project.id)
-        ).map(
-            (element) => (element.skill)
-        ).map(
-            (skill) => {
-                let color = skillsColored.filter(
-                    (color_skill) => (color_skill.skill === skill)
-                )[0].color;
-                return {color: color, skill: skill}
-            }
-        )
         // @ts-ignore
         // Because adding a new thing to an object isn't fun
-        project['skills'] = skills;
+        project['skills'] = programmingSkills.filter(
+          (element) => (element.project === project.id)
+        ).map(
+          (element) => (element.skill)
+        ).map(
+          (skill) => {
+              let color = skillsColored.filter(
+                (color_skill) => (color_skill.skill === skill)
+              )[0].color;
+              return {color: color, skill: skill}
+          }
+        );
     }
 
     return projects;

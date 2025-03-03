@@ -37,14 +37,13 @@ export async function getWorkExperienceJobsSkills(): Promise<WorkExperienceJob[]
 
   for (let i = 0; i < jobs.length; i++) {
     let project = jobs[i];
-    let skills = workExperienceSkills.filter(
+    // @ts-ignore
+    // Because adding a new thing to an object isn't fun
+    project['skills'] = workExperienceSkills.filter(
       (element) => (element.job === project.id)
     ).map(
       (element) => (element.skill)
-    )
-    // @ts-ignore
-    // Because adding a new thing to an object isn't fun
-    project['skills'] = skills;
+    );
   }
 
   //@ts-ignore
@@ -72,7 +71,9 @@ export async function getWorkExperienceJobsSkillsFull():Promise<WorkExperienceJo
 
   for (let i = 0; i < jobs.length; i++) {
     let job = jobs[i];
-    let skills = workExperienceSkills.filter(
+    // @ts-ignore
+    // Because adding a new thing to an object isn't fun
+    job['skills'] = workExperienceSkills.filter(
       (element) => (element.job === job.id)
     ).map(
       (element) => (element.skill)
@@ -83,10 +84,7 @@ export async function getWorkExperienceJobsSkillsFull():Promise<WorkExperienceJo
         )[0].color;
         return {color: color, skill: skill}
       }
-    )
-    // @ts-ignore
-    // Because adding a new thing to an object isn't fun
-    job['skills'] = skills;
+    );
   }
 
   //@ts-ignore
