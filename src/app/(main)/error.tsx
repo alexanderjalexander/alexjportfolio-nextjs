@@ -1,32 +1,38 @@
-'use client' 
- 
-import { Header1Mono, Header3 } from '@/components/text/headers'
-import { Button } from "@heroui/button"
-import { useEffect } from 'react'
- 
-export default function Error({error, reset,}: 
-{ error: Error, reset: () => void }) {
+"use client";
+
+import { Header1Mono, Header3 } from "@/components/text/headers";
+import { Button } from "@heroui/button";
+import { useEffect } from "react";
+
+export default function Error({
+  error,
+  reset,
+}: {
+  error: Error;
+  reset: () => void;
+}) {
   useEffect(() => {
     // Log the error to an error reporting service
-    console.error(error)
-  }, [error])
- 
+    console.error(error);
+  }, [error]);
+
   return (
-    <div className="block" >
+    <div className="block">
       <Header1Mono className="pt-32">Something went wrong!</Header1Mono>
-      <p className="text-center">Oops. We&apos;re not sure what happened there... :\</p>
-      
+      <p className="text-center">
+        Oops. We&apos;re not sure what happened there... :\
+      </p>
+
       <div>
-        <Header3 className='text-red-700' align='start'>
+        <Header3 className="text-red-700" align="start">
           {error.message}
         </Header3>
-        <p color='danger'>
-          {error.stack}
-        </p>
+        <p color="danger">{error.stack}</p>
       </div>
 
       <div>
-        <Button className="display-block align-center"
+        <Button
+          className="display-block align-center"
           onPress={
             // Attempt to recover by trying to re-render the segment
             () => reset()
@@ -36,5 +42,5 @@ export default function Error({error, reset,}:
         </Button>
       </div>
     </div>
-  )
+  );
 }

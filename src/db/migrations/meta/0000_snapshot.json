@@ -68,12 +68,8 @@
           "tableFrom": "videos",
           "tableTo": "creators",
           "schemaTo": "public",
-          "columnsFrom": [
-            "commission_for"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["commission_for"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -81,9 +77,7 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {
         "videos_youtube_id_key": {
-          "columns": [
-            "youtube_id"
-          ],
+          "columns": ["youtube_id"],
           "nullsNotDistinct": false,
           "name": "videos_youtube_id_key"
         }
@@ -111,9 +105,7 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {
         "categories_category_key": {
-          "columns": [
-            "category"
-          ],
+          "columns": ["category"],
           "nullsNotDistinct": false,
           "name": "categories_category_key"
         }
@@ -143,12 +135,8 @@
           "tableFrom": "skill_category",
           "tableTo": "categories",
           "schemaTo": "public",
-          "columnsFrom": [
-            "category"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["category"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
@@ -157,12 +145,8 @@
           "tableFrom": "skill_category",
           "tableTo": "skills",
           "schemaTo": "public",
-          "columnsFrom": [
-            "skill"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["skill"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -192,9 +176,7 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {
         "skills_skill_key": {
-          "columns": [
-            "skill"
-          ],
+          "columns": ["skill"],
           "nullsNotDistinct": false,
           "name": "skills_skill_key"
         }

@@ -21,6 +21,7 @@ This is a new portfolio site, replacing the original one and improving upon it t
 ```bash
 npm install
 ```
+
 ### Create a .env file
 
 You will need access to a PostgreSQL Server of some kind, very much preferably Neon as Drizzle works directly with Neon in this project, as well as an object storage bucket(I recommend Backblaze B2). This project uses the S3-Compatible API for BackBlaze B2.
@@ -54,8 +55,6 @@ npm run dev
 
 Licensed under the [MIT license](https://github.com/nextui-org/next-app-template/blob/main/LICENSE).
 
-
-
 # API Routes Info
 
 ## `/api/programming`
@@ -84,7 +83,7 @@ Obtains list of all my current programming projects.
 
 ### `GET /`
 
-Obtains list of self-made videos. 
+Obtains list of self-made videos.
 
 ```
 [

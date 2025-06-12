@@ -44,6 +44,7 @@
     "@react-aria/ssr": "^3.9.9",
     "@tailwindcss/postcss": "^4.1.10",
     "drizzle-kit": "^0.31.1",
+    "prettier": "3.5.3",
     "tsx": "^4.20.2"
   },
   "overrides": {
