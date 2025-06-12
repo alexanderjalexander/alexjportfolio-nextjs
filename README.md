@@ -28,21 +28,21 @@ You will need access to a PostgreSQL Server of some kind, very much preferably N
 
 ```
 # Neon Environment Variables
-DATABASE_URL=<database url goes here from Neon>
+DATABASE_URL="<database url goes here from Neon>"
 
 # Next.js Environment Variables (CRON_SECRET can be whatever, just needs to be secure)
 NEXT_PRIVATE_DEBUG_CACHE=1
-CRON_SECRET=<16-digit alphanumeric token>
+CRON_SECRET="<16-digit alphanumeric token>"
 
 # BackBlaze B2 Environment Variables
-REGION=<specified AWS bucket region from BackBlaze>
-BUCKET_NAME=<Original Bucket>
-BUCKET_NAME_RESIZE=<Resize Bucket. Good for optimized page loading and images>
-AWS_ACCESS_KEY_ID=<your b2 keyId>
-AWS_SECRET_ACCESS_KEY=<your b2 applicationKey>
+REGION="<specified AWS bucket region from BackBlaze>"
+BUCKET_NAME="<Original Bucket>"
+BUCKET_NAME_RESIZE="<Resize Bucket. Good for optimized page loading and images>"
+AWS_ACCESS_KEY_ID="<your b2 keyId>"
+AWS_SECRET_ACCESS_KEY="<your b2 applicationKey>"
 
 # YouTube API Key
-YOUTUBE_API_KEY=<your YouTube Data API V3 Key (standard non-OAuth key)>
+YOUTUBE_API_KEY="<your YouTube Data API V3 Key (standard non-OAuth key)>"
 ```
 
 ### Run the development server
@@ -50,8 +50,6 @@ YOUTUBE_API_KEY=<your YouTube Data API V3 Key (standard non-OAuth key)>
 ```bash
 npm run dev
 ```
-
-
 
 ## License
 
@@ -65,7 +63,7 @@ Licensed under the [MIT license](https://github.com/nextui-org/next-app-template
 
 Obtains list of all my current programming projects.
 
-```json
+```
 [
   {
     "id": 1,
@@ -85,9 +83,9 @@ Obtains list of all my current programming projects.
 
 ### `GET /`
 
-Obtains list of self-made videos. 
+Obtains list of self-made videos.
 
-```json
+```
 [
   {
     "url": 11-char youtube id,
@@ -101,7 +99,7 @@ Obtains list of self-made videos.
 
 Obtains list of commissions. All commissions done for a creator can be obtained through the key denoted by that creator's name.
 
-```json
+```
 {
   "Creator1": [
     {
@@ -124,7 +122,7 @@ Obtains list of commissions. All commissions done for a creator can be obtained 
 
 Obtains list of motion graphics projects, ordered by date descending.
 
-```json
+```
 [
   {
     "id": 4,
@@ -147,7 +145,7 @@ Obtains list of motion graphics projects, ordered by date descending.
 
 Obtains list of 3D animation projects, ordered by date descending.
 
-```json
+```
 [
   {
     "id": 4,
@@ -170,7 +168,7 @@ Obtains list of 3D animation projects, ordered by date descending.
 
 Fetches all possible keys provided in the image bucket for the graphic design page. Each key can be used to fetch that specific image.
 
-```json
+```
 [
   {
     "Key": "Posters/Some poster here.jpg",

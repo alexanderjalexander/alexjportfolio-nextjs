@@ -1,18 +1,13 @@
-import type { Config } from "drizzle-kit";
 import { config } from "dotenv";
+import { defineConfig } from "drizzle-kit";
 
-config();
+config({ path: ".env" });
 
-if (!process.env.DATABASE_URL) {
-    throw new Error('process.env.DATABASE_URL is missing.');
-}
-
-export default {
-    schema: "./src/db/schema.ts",
-    out: "./src/db/migrations",
-    driver: 'pg',
-    dbCredentials: {
-        connectionString: process.env.DATABASE_URL!,
-    },
-    strict: true,
-} satisfies Config;
+export default defineConfig({
+  schema: "./src/db/migrations/schema.ts",
+  out: "./src/db/migrations",
+  dialect: "postgresql",
+  dbCredentials: {
+    url: process.env.DATABASE_URL!,
+  },
+});
