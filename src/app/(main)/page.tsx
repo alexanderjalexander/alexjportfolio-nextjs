@@ -21,7 +21,7 @@ export default async function Home() {
       {/* Intro Card */}
       <div className="h-screen flex items-center">
         <div className="h-min m-auto">
-          <div className="container max-w-screen-sm mx-auto pb-10 flex">
+          <div className="container max-w-(--breakpoint-sm) mx-auto pb-10 flex">
             <Image
               as={NextImage}
               width={300}

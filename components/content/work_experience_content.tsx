@@ -40,13 +40,13 @@ export default async function WorkExperienceContent() {
                 classNames={{indicator: "stroke-primary-100",}}/>
               <div className="ml-4 mt-3 h-full pb-8">
                 <Divider
-                  className="border-solid border-primary-100 border-1"
+                  className="border-solid border-primary-100 border"
                   orientation="vertical"/>
               </div>
             </div>
             <div className={"col-span-7 pb-2"}>
               <div className={"flex flex-row justify-between items-center"}>
-                <Header3Mono align={"left"} className={"!w-max"}>{job.jobTitle}</Header3Mono>
+                <Header3Mono align={"left"} className={"w-max!"}>{job.jobTitle}</Header3Mono>
                 <div>
                   <>{start_date}</>
                   <>{" - "}</>
@@ -54,7 +54,7 @@ export default async function WorkExperienceContent() {
                 </div>
               </div>
               <div className={"flex flex-row justify-between items-start"}>
-                <SubheaderMono align={"left"} className={"!w-max max-w-[50%]"}>{job.jobCompany}</SubheaderMono>
+                <SubheaderMono align={"left"} className={"w-max! max-w-[50%]"}>{job.jobCompany}</SubheaderMono>
                 <div>
                   {job.jobLocation}
                 </div>
