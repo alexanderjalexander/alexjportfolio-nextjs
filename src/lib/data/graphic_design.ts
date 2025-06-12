@@ -7,7 +7,7 @@ const s3 = new S3Client({
 
 export async function getObjects() {
     const command = new ListObjectsCommand({
-        Bucket: process.env.BUCKET_NAME_RESIZE!,
+        Bucket: process.env.BUCKET_NAME!,
     });
     const { Contents } = await s3.send(command);
     for (let x of Contents!) {
