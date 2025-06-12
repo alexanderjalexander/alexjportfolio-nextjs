@@ -91,10 +91,10 @@ export const getAllSkillCategoryMappings = unstable_cache(
       columns: (
         Object.keys(data[0]) ?? ["skillId", "skill", "categoryId", "category"]
       )
-        // @ts-ignore
         .map((col) => ({
           column: col,
           label: col.toUpperCase(),
+          // @ts-ignore
           type: getColType(typeof data[0][col]),
         })),
       data: data,
