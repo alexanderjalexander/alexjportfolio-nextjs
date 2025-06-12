@@ -39,10 +39,10 @@ function getColType(arg: string) {
 function obtainCols(cols: {}) {
   return (
     Object.keys(cols)
-      // @ts-ignore
       .map((col) => ({
         column: col,
         label: col.toUpperCase(),
+        // @ts-ignore
         type: getColType(cols[col].dataType),
       }))
   );
