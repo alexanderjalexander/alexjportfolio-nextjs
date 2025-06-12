@@ -73,19 +73,6 @@ export const Navbar = () => {
 				</NavbarContent>
 
 				<NavbarContent className="basis-1 pl-4" justify="end">
-					<Link
-						as={NextLink}
-						className={clsx(
-							linkStyles({ color: "foreground" }),
-							"hover:text-primary-100 hover:font-medium",
-							"transition ease-in-out"
-						)}
-						color="foreground"
-						isBlock
-						href={"/admin"}
-					>
-						Admin
-					</Link>
 
 					<Link isExternal href={siteConfig.links.github} aria-label="Github">
 						<GithubIcon

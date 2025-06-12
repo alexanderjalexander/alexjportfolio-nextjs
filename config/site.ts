@@ -33,16 +33,6 @@ export const siteConfig = {
 			href: "/api_reference",
 		},
 	],
-	adminNavItems: [
-		{
-			label: "Main Site",
-			href: "/",
-		},
-		{
-			label: "Dashboard",
-			href: "/admin",
-		},
-	],
 	activities: [
 		{
 			label: "Programming",

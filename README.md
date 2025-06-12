@@ -6,7 +6,6 @@ This is a new portfolio site, replacing the original one and improving upon it t
 
 - [Next.js](https://nextjs.org/docs/getting-started)
 - [NextUI](https://nextui.org/)
-- [Firebase](https://firebase.google.com/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Tailwind Variants](https://tailwind-variants.org)
 - [TypeScript](https://www.typescriptlang.org/)
@@ -26,8 +25,6 @@ npm install
 
 You will need access to a PostgreSQL Server of some kind, very much preferably Neon as Drizzle works directly with Neon in this project, as well as an object storage bucket(I recommend Backblaze B2). This project uses the S3-Compatible API for BackBlaze B2.
 
-You will also need a Firebase project with 
-
 ```
 # Neon Environment Variables
 DATABASE_URL="<database url goes here from Neon>"
@@ -45,17 +42,6 @@ AWS_SECRET_ACCESS_KEY="<your b2 applicationKey>"
 
 # YouTube API Key
 YOUTUBE_API_KEY="<your YouTube Data API V3 Key (standard non-OAuth key)>"
-
-# Firebase Environment Variables
-NEXT_PUBLIC_FIREBASE_KEY="<your firebase apiKey>"
-NEXT_PUBLIC_FIREBASE_DOMAIN="<your firebase authDomain>"
-NEXT_PUBLIC_FIREBASE_PROJECT_ID="<your firebase projectId>"
-NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET="<your firebase storageBucket>"
-NEXT_PUBLIC_FIREBASE_SENDER_ID="<your firebase messagingSenderId>"
-NEXT_PUBLIC_FIREBASE_APP_ID="<your firebase appId>"
-
-FIREBASE_CLIENT_EMAIL="<your firebase admin client email, found in Service Accounts -> Firebase Admin SDK -> Generate New Private Key>"
-FIREBASE_PRIVATE_KEY="<your firebase admin private key, found in Service Accounts -> Firebase Admin SDK -> Generate New Private Key>"
 ```
 
 ### Run the development server
