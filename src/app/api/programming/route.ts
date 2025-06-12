@@ -1,5 +1,7 @@
 import { getProgrammingProjectsSkills } from "@/src/lib/data/programming";
 
+export const dynamic = 'force-static'
+
 export async function GET(req: Request) {
     try {
         const res = await getProgrammingProjectsSkills();

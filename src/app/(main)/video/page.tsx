@@ -41,7 +41,7 @@ export default async function Video() {
                 <Divider className="my-10"/>
                 <Header2Mono className="mb-5">About</Header2Mono>
                 <p>Without a doubt, video editing has been one of my most prominent hobbies. I enjoy exploring how manipulation of certain video clips/shots allows for conveying specific messages, illlustrating stories, or implementing certain themes. Having experience with After Effects, VEGAS Pro, and Premiere Pro, I enjoy creating my own films and montages to create content and portray my best creative vision.</p>
-                <p>While all of the data loaded here comes from this site's PostgreSQL backend, all the video data you see is fetched in tandem from Google's YouTube API. All views are calculated on the fly on every page revalidation, providing accurate statistics for videos, views, and channel names.</p>
+                <p>While all of the data loaded here comes from this site`&apos;`s PostgreSQL backend, all the video data you see is fetched in tandem from Google`&apos;`s YouTube API. All views are calculated on the fly on every page revalidation, providing accurate statistics for videos, views, and channel names.</p>
             </FadeInScroll>
 
             {/* Personal Videos */}

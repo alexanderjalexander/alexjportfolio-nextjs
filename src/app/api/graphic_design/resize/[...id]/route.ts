@@ -1,6 +1,8 @@
 import { getObjectResized } from "@/src/lib/data/graphic_design";
 import { NoSuchKey } from "@aws-sdk/client-s3";
 
+export const dynamic = 'force-static'
+
 export async function GET(req: Request, props: {params: Promise<{id:string[]}>}) {
     const params = await props.params;
     try {

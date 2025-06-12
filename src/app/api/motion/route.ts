@@ -1,5 +1,7 @@
 import { getMotionGraphics } from "@/src/lib/data/motion";
 
+export const dynamic = 'force-static'
+
 export async function GET(req: Request) {
     try {
         const res = await getMotionGraphics();

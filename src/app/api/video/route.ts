@@ -1,6 +1,7 @@
-import { siteConfig } from "@/config/site";
 import { getPersonalVideos } from "@/src/lib/data/videos";
 import { NextResponse } from "next/server";
+
+export const dynamic = 'force-static'
 
 export async function GET(req: Request) {
     try {

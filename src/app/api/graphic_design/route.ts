@@ -1,5 +1,7 @@
 import { getObjects } from "@/src/lib/data/graphic_design";
 
+export const dynamic = 'force-static'
+
 export async function GET(req: Request) {
     try {
         let res = await getObjects();
