@@ -37,7 +37,7 @@ export default async function Home() {
               src="/AJPicrew.png"
               loading="eager"
               radius="full"
-              className="mx-auto z-1 max-w-[300px] w-4/5 border-8 border-primary-50"
+              className="mx-auto z-1 max-w-[250px] max-h-[250px] sm:max-w-[300px] sm:max-h-[300px] w-4/5 border-8 border-primary-50"
             />
           </div>
           <Header1Mono>AJ&apos;s Portfolio</Header1Mono>
@@ -60,26 +60,16 @@ export default async function Home() {
           />
           <div className="basis-100 lg:basis-3/5">
             <p>
-              Hello there! My name&apos;s Alex(he/him); I&apos;m a 4/4 Computer
-              Science student at Stevens Institute of Technology and I am based
-              in NJ. I am a creative and open-minded person committed to
-              exploring the many ways I can express myself creatively or create
-              exciting new projects through various forms of technology and
-              media.
+              Hello there! My name&apos;s Alex(he/him); I&apos;m a Masters Computer Science student at Stevens Institute of Technology and I am based in NJ. I am a creative and open-minded person committed to exploring the many ways I can express myself creatively or create exciting new projects through various forms of technology and media.
             </p>
             <p>
-              For many years, I&apos;ve focused a lot of my passion into
-              programming and various art forms surrounding design, multimedia,
-              and technology. In addition to my studies as a Computer Science
-              major, I enjoy programming my own projects, and have worked with
-              high school teams to produce games as an extra-curricular
-              activity. I also enjoy and am self-taught in video editing,
-              animation, graphic design, and motion graphics.
+              My primary focuses in CS are concentrated in software development (primarily full-stack), database management, as well as some dev ops and machine learning from time to time. I have lots of experience working on development teams in both an academic and professional setting, and am eager to bring my best foot forward and provide the best possible solutions to whatever project(s) I work on!
             </p>
             <p>
-              I hope that as you scroll through each part of this web page, you
-              get a sense of who I am as an individual and how I blend my own
-              creative inspirations into the things that I create!
+              In addition to my studies as a Computer Science major, I enjoy programming my own projects and involving myself in various creative hobbies. I am self-taught in video editing, animation, graphic design, and motion graphics, and also perform freelance video editing for content creators!
+            </p>
+            <p>
+              I hope that as you scroll through each part of this web page, you get a sense of who I am as an individual and how I blend my own creative inspirations into the things that I create!
             </p>
           </div>
         </div>

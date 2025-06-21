@@ -8,7 +8,7 @@ export default async function WorkExperienceContent() {
   const workExperience = await getWorkExperienceJobsSkillsFull();
 
   return (
-    <div className="m-auto w-3/4">
+    <div className="m-auto xs:w-3/4 pr-8">
       {workExperience.map((job, idx) => {
         let start_date = new Date(job.jobStartDate).toLocaleDateString(
           "en-us",
@@ -23,13 +23,14 @@ export default async function WorkExperienceContent() {
         if (job.jobEndDate === null) {
           end_date = "Present";
         } else {
-          end_date = new Date(job.jobEndDate);
-          end_date = end_date.toLocaleDateString("en-us", {
-            weekday: undefined,
-            day: undefined,
-            month: "short",
-            year: "numeric",
-          });
+          end_date = new Date(job.jobEndDate).toLocaleDateString(
+            "en-us", {
+              weekday: undefined,
+              day: undefined,
+              month: "short",
+              year: "numeric",
+            }
+          );
         }
         return (
           <div key={idx} className={"grid grid-cols-8 pb-4"}>
@@ -48,18 +49,24 @@ export default async function WorkExperienceContent() {
                 />
               </div>
             </div>
-            <div className={"col-span-7 pb-2"}>
-              <div className={"flex flex-row justify-between items-center"}>
-                <Header3Mono align={"left"} className={"w-max!"}>
+            <div className={"col-span-7 xs:col-span-6 pb-2"}>
+              <div className={"block sm:flex flex-row justify-between items-center"}>
+                <Header3Mono align={"left"} className={"w-max! max-w-fit"}>
                   {job.jobTitle}
                 </Header3Mono>
-                <div>
+                <div className={"sm:flex sm:text-right"}>
                   <>{start_date}</>
                   <>{" - "}</>
                   <>{end_date}</>
                 </div>
               </div>
-              <div className={"flex flex-row justify-between items-start"}>
+              <div className={"block sm:hidden"}>
+                <div>{job.jobLocation}</div>
+                <SubheaderMono align={"left"} className={"w-max! max-w-[50%]"}>
+                  {job.jobCompany}
+                </SubheaderMono>
+              </div>
+              <div className={"hidden sm:flex flex-row justify-between items-start"}>
                 <SubheaderMono align={"left"} className={"w-max! max-w-[50%]"}>
                   {job.jobCompany}
                 </SubheaderMono>
