@@ -29,6 +29,11 @@ export default async function Video() {
     throw Error("500: " + e);
   }
 
+  const outermost_css = "flex flex-wrap justify-center content-center my-2 sm:my-4 gap-4 md:gap-8";
+  const vid_link_css = "w-2/5 md:w-fit md:h-fit";
+  const card_css = "md:w-fit bg-blue-500 backdrop-blur-sm overflow-visible";
+  const image_css = "h-[150px] md:h-fit z-0 object-cover opacity-0";
+
   return (
     <PageWrapper>
       {/* Intro Header */}
@@ -62,26 +67,25 @@ export default async function Video() {
         </p>
       </FadeInScroll>
 
-      {/* Personal Videos */}
+      {/* Database Fetched Personal Videos */}
       <FadeInScroll>
         <Divider className="my-10" />
         <Header2Mono>My YouTube Videos</Header2Mono>
-        <div className="flex flex-wrap justify-center content-center my-2 sm:my-4 gap-4 sm:gap-8">
+        <div className={outermost_css}>
           {vids.map((item, index) => (
             <a
               key={index}
               target="_blank"
               href={vid.getVideoURL(item.url)}
               rel="noopener noreferrer"
+              className={vid_link_css}
             >
-              <Card isPressable className="w-[160px] sm:w-[320px]">
+              <Card isPressable className={card_css}>
                 <Image
                   isZoomed
                   alt={`Video ${index} Link`}
                   src={vid.getVideoThumbnail(item.url)}
-                  className="z-0 w-full h-full object-cover"
-                  height={160}
-                  width={320}
+                  className={image_css}
                 />
               </Card>
             </a>
@@ -124,25 +128,24 @@ export default async function Video() {
               Total Views:{" "}
               {new Intl.NumberFormat().format(commissions[commissioner].views)}
             </SubheaderMono>
-            <div className="flex flex-wrap justify-center content-center my-2 sm:my-4 gap-4 sm:gap-8">
+            <div className={outermost_css}>
               {commissions[commissioner].videos.map((video, innerIndex) => (
                 <a
                   key={innerIndex}
                   target="_blank"
                   href={vid.getVideoURL(video.url)}
                   rel="noopener noreferrer"
+                  className={vid_link_css}
                 >
                   <Card
                     isPressable
-                    className="w-[160px] sm:w-[320px] bg-blue-500 backdrop-blur-sm"
+                    className={card_css}
                   >
                     <Image
                       isZoomed
                       alt={`${commissioner} Video ${index}`}
                       src={vid.getVideoThumbnail(video.url)}
-                      className="z-0 w-full h-full object-cover opacity-0"
-                      height={160}
-                      width={320}
+                      className={image_css}
                     />
                   </Card>
                 </a>
