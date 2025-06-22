@@ -23,14 +23,12 @@ export default async function WorkExperienceContent() {
         if (job.jobEndDate === null) {
           end_date = "Present";
         } else {
-          end_date = new Date(job.jobEndDate).toLocaleDateString(
-            "en-us", {
-              weekday: undefined,
-              day: undefined,
-              month: "short",
-              year: "numeric",
-            }
-          );
+          end_date = new Date(job.jobEndDate).toLocaleDateString("en-us", {
+            weekday: undefined,
+            day: undefined,
+            month: "short",
+            year: "numeric",
+          });
         }
         return (
           <div key={idx} className={"grid grid-cols-8 pb-4"}>
@@ -50,7 +48,11 @@ export default async function WorkExperienceContent() {
               </div>
             </div>
             <div className={"col-span-7 xs:col-span-6 pb-2"}>
-              <div className={"block sm:flex flex-row justify-between items-center"}>
+              <div
+                className={
+                  "block sm:flex flex-row justify-between items-center"
+                }
+              >
                 <Header3Mono align={"left"} className={"w-max! max-w-fit"}>
                   {job.jobTitle}
                 </Header3Mono>
@@ -66,7 +68,11 @@ export default async function WorkExperienceContent() {
                   {job.jobCompany}
                 </SubheaderMono>
               </div>
-              <div className={"hidden sm:flex flex-row justify-between items-start"}>
+              <div
+                className={
+                  "hidden sm:flex flex-row justify-between items-start"
+                }
+              >
                 <SubheaderMono align={"left"} className={"w-max! max-w-[50%]"}>
                   {job.jobCompany}
                 </SubheaderMono>

@@ -60,16 +60,33 @@ export default async function Home() {
           />
           <div className="basis-100 lg:basis-3/5">
             <p>
-              Hello there! My name&apos;s Alex(he/him); I&apos;m a Masters Computer Science student at Stevens Institute of Technology and I am based in NJ. I am a creative and open-minded person committed to exploring the many ways I can express myself creatively or create exciting new projects through various forms of technology and media.
+              Hello there! My name&apos;s Alex(he/him); I&apos;m a Masters
+              Computer Science student at Stevens Institute of Technology and I
+              am based in NJ. I am a creative and open-minded person committed
+              to exploring the many ways I can express myself creatively or
+              create exciting new projects through various forms of technology
+              and media.
             </p>
             <p>
-              My primary focuses in CS are concentrated in software development (primarily full-stack), database management, as well as some dev ops and machine learning from time to time. I have lots of experience working on development teams in both an academic and professional setting, and am eager to bring my best foot forward and provide the best possible solutions to whatever project(s) I work on!
+              My primary focuses in CS are concentrated in software development
+              (primarily full-stack), database management, as well as some dev
+              ops and machine learning from time to time. I have lots of
+              experience working on development teams in both an academic and
+              professional setting, and am eager to bring my best foot forward
+              and provide the best possible solutions to whatever project(s) I
+              work on!
             </p>
             <p>
-              In addition to my studies as a Computer Science major, I enjoy programming my own projects and involving myself in various creative hobbies. I am self-taught in video editing, animation, graphic design, and motion graphics, and also perform freelance video editing for content creators!
+              In addition to my studies as a Computer Science major, I enjoy
+              programming my own projects and involving myself in various
+              creative hobbies. I am self-taught in video editing, animation,
+              graphic design, and motion graphics, and also perform freelance
+              video editing for content creators!
             </p>
             <p>
-              I hope that as you scroll through each part of this web page, you get a sense of who I am as an individual and how I blend my own creative inspirations into the things that I create!
+              I hope that as you scroll through each part of this web page, you
+              get a sense of who I am as an individual and how I blend my own
+              creative inspirations into the things that I create!
             </p>
           </div>
         </div>

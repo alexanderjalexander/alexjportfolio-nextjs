@@ -29,7 +29,8 @@ export default async function Video() {
     throw Error("500: " + e);
   }
 
-  const outermost_css = "flex flex-wrap justify-center content-center my-2 sm:my-4 gap-4 md:gap-8";
+  const outermost_css =
+    "flex flex-wrap justify-center content-center my-2 sm:my-4 gap-4 md:gap-8";
   const vid_link_css = "w-2/5 md:w-fit md:h-fit";
   const card_css = "md:w-fit bg-blue-500 backdrop-blur-sm overflow-visible";
   const image_css = "h-[150px] md:h-fit z-0 object-cover opacity-0";
@@ -137,10 +138,7 @@ export default async function Video() {
                   rel="noopener noreferrer"
                   className={vid_link_css}
                 >
-                  <Card
-                    isPressable
-                    className={card_css}
-                  >
+                  <Card isPressable className={card_css}>
                     <Image
                       isZoomed
                       alt={`${commissioner} Video ${index}`}

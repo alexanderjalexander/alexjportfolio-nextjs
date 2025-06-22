@@ -243,13 +243,31 @@ export default async function API_Reference() {
           /api/cron
         </Header3Mono>
         <Header3Mono className="mb-5" align="left">
-          GET /
+          GET /refresh_all/
         </Header3Mono>
         <p>
           Activates the portfolio site's main Cron job: revalidate every path
           that is not dynamic. This is helpful to ensure that caches are
           properly updated every day at regular times. The website automatically
-          fires this every 24 hours at 12:00AM.
+          fires this every week on Sunday at 12:00AM.
+        </p>
+        <p>
+          To manually activate it, the correct 16-digit alphanumeric Bearer
+          token is required. This is to prevent unauthorized cache
+          invalidations.
+        </p>
+        <p>
+          Returns 401 if unauthorized, or{" "}
+          <Code>&#123; success: true &#125;</Code> if authorization passes and
+          revalidations are successful.
+        </p>
+        <Header3Mono className="mb-5" align="left">
+          GET /refresh_some/
+        </Header3Mono>
+        <p>
+          Activates the portfolio site's secondary Cron job: revalidate only
+          certain non-dynamic paths that aren't expensive to recompute. The
+          website automatically fires this every 24 hours at 12:00AM.
         </p>
         <p>
           To manually activate it, the correct 16-digit alphanumeric Bearer

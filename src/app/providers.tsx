@@ -5,6 +5,7 @@ import { HeroUIProvider } from "@heroui/system";
 import { useRouter } from "next/navigation";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { ThemeProviderProps } from "next-themes";
+import { Analytics } from "@vercel/analytics/next";
 
 export interface ProvidersProps {
   children: ReactNode;
@@ -22,6 +23,7 @@ export function Providers({ children }: ProvidersProps) {
         themes={["light", "dark"]}
       >
         {children}
+        <Analytics />
       </NextThemesProvider>
     </HeroUIProvider>
   );

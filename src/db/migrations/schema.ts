@@ -12,16 +12,14 @@ import { sql } from "drizzle-orm";
 export const categories = pgTable(
   "categories",
   {
-    id: integer()
-      .primaryKey()
-      .generatedByDefaultAsIdentity({
-        name: "categories_id_seq",
-        startWith: 1,
-        increment: 1,
-        minValue: 1,
-        maxValue: 2147483647,
-        cache: 1,
-      }),
+    id: integer().primaryKey().generatedByDefaultAsIdentity({
+      name: "categories_id_seq",
+      startWith: 1,
+      increment: 1,
+      minValue: 1,
+      maxValue: 2147483647,
+      cache: 1,
+    }),
     category: varchar({ length: 35 }).notNull(),
   },
   (table) => [unique("categories_category_key").on(table.category)],
@@ -30,16 +28,14 @@ export const categories = pgTable(
 export const skills = pgTable(
   "skills",
   {
-    id: integer()
-      .primaryKey()
-      .generatedByDefaultAsIdentity({
-        name: "skills_id_seq",
-        startWith: 1,
-        increment: 1,
-        minValue: 1,
-        maxValue: 2147483647,
-        cache: 1,
-      }),
+    id: integer().primaryKey().generatedByDefaultAsIdentity({
+      name: "skills_id_seq",
+      startWith: 1,
+      increment: 1,
+      minValue: 1,
+      maxValue: 2147483647,
+      cache: 1,
+    }),
     skill: varchar({ length: 35 }).notNull(),
   },
   (table) => [unique("skills_skill_key").on(table.skill)],
@@ -68,16 +64,14 @@ export const skillCategory = pgTable(
 export const animationProjects = pgTable(
   "animation_projects",
   {
-    id: integer()
-      .primaryKey()
-      .generatedByDefaultAsIdentity({
-        name: "animation_projects_id_seq",
-        startWith: 1,
-        increment: 1,
-        minValue: 1,
-        maxValue: 2147483647,
-        cache: 1,
-      }),
+    id: integer().primaryKey().generatedByDefaultAsIdentity({
+      name: "animation_projects_id_seq",
+      startWith: 1,
+      increment: 1,
+      minValue: 1,
+      maxValue: 2147483647,
+      cache: 1,
+    }),
     name: varchar({ length: 30 }).notNull(),
     description: varchar({ length: 300 }).notNull(),
     youtubeId: varchar("youtube_id", { length: 11 }).notNull(),
@@ -112,16 +106,14 @@ export const animationSkills = pgTable(
 export const motionGraphicsProjects = pgTable(
   "motion_graphics_projects",
   {
-    id: integer()
-      .primaryKey()
-      .generatedByDefaultAsIdentity({
-        name: "motion_graphics_projects_id_seq",
-        startWith: 1,
-        increment: 1,
-        minValue: 1,
-        maxValue: 2147483647,
-        cache: 1,
-      }),
+    id: integer().primaryKey().generatedByDefaultAsIdentity({
+      name: "motion_graphics_projects_id_seq",
+      startWith: 1,
+      increment: 1,
+      minValue: 1,
+      maxValue: 2147483647,
+      cache: 1,
+    }),
     name: varchar({ length: 30 }).notNull(),
     description: varchar({ length: 300 }).notNull(),
     youtubeId: varchar("youtube_id", { length: 11 }).notNull(),
@@ -156,16 +148,14 @@ export const motionGraphicsSkills = pgTable(
 export const programmingProjects = pgTable(
   "programming_projects",
   {
-    id: integer()
-      .primaryKey()
-      .generatedByDefaultAsIdentity({
-        name: "programming_projects_id_seq",
-        startWith: 1,
-        increment: 1,
-        minValue: 1,
-        maxValue: 2147483647,
-        cache: 1,
-      }),
+    id: integer().primaryKey().generatedByDefaultAsIdentity({
+      name: "programming_projects_id_seq",
+      startWith: 1,
+      increment: 1,
+      minValue: 1,
+      maxValue: 2147483647,
+      cache: 1,
+    }),
     title: varchar({ length: 50 }).notNull(),
     subtitle: varchar({ length: 100 }).notNull(),
     description: varchar({ length: 500 }).notNull(),
@@ -197,16 +187,14 @@ export const programmingSkills = pgTable(
 export const creators = pgTable(
   "creators",
   {
-    id: integer()
-      .primaryKey()
-      .generatedByDefaultAsIdentity({
-        name: "creators_id_seq",
-        startWith: 1,
-        increment: 1,
-        minValue: 1,
-        maxValue: 2147483647,
-        cache: 1,
-      }),
+    id: integer().primaryKey().generatedByDefaultAsIdentity({
+      name: "creators_id_seq",
+      startWith: 1,
+      increment: 1,
+      minValue: 1,
+      maxValue: 2147483647,
+      cache: 1,
+    }),
     name: varchar({ length: 30 }).notNull(),
     channelId: varchar("channel_id", { length: 50 }).notNull(),
   },
@@ -216,16 +204,14 @@ export const creators = pgTable(
 export const videos = pgTable(
   "videos",
   {
-    id: integer()
-      .primaryKey()
-      .generatedByDefaultAsIdentity({
-        name: "videos_id_seq",
-        startWith: 1,
-        increment: 1,
-        minValue: 1,
-        maxValue: 2147483647,
-        cache: 1,
-      }),
+    id: integer().primaryKey().generatedByDefaultAsIdentity({
+      name: "videos_id_seq",
+      startWith: 1,
+      increment: 1,
+      minValue: 1,
+      maxValue: 2147483647,
+      cache: 1,
+    }),
     name: varchar({ length: 20 }).notNull(),
     youtubeId: varchar("youtube_id", { length: 11 }).notNull(),
     publishDate: date("publish_date").notNull(),
@@ -243,16 +229,14 @@ export const videos = pgTable(
 );
 
 export const workExperienceJobs = pgTable("work_experience_jobs", {
-  id: integer()
-    .primaryKey()
-    .generatedByDefaultAsIdentity({
-      name: "work_experience_jobs_id_seq",
-      startWith: 1,
-      increment: 1,
-      minValue: 1,
-      maxValue: 2147483647,
-      cache: 1,
-    }),
+  id: integer().primaryKey().generatedByDefaultAsIdentity({
+    name: "work_experience_jobs_id_seq",
+    startWith: 1,
+    increment: 1,
+    minValue: 1,
+    maxValue: 2147483647,
+    cache: 1,
+  }),
   jobTitle: varchar("job_title", { length: 50 }).notNull(),
   jobStartDate: date("job_start_date").notNull(),
   jobEndDate: date("job_end_date"),

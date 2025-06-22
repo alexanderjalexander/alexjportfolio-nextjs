@@ -37,15 +37,12 @@ function getColType(arg: string) {
  * @param cols the result of running getTableColumns
  */
 function obtainCols(cols: {}) {
-  return (
-    Object.keys(cols)
-      .map((col) => ({
-        column: col,
-        label: col.toUpperCase(),
-        // @ts-ignore
-        type: getColType(cols[col].dataType),
-      }))
-  );
+  return Object.keys(cols).map((col) => ({
+    column: col,
+    label: col.toUpperCase(),
+    // @ts-ignore
+    type: getColType(cols[col].dataType),
+  }));
 }
 
 export async function getAllSkills() {
@@ -90,13 +87,12 @@ export const getAllSkillCategoryMappings = unstable_cache(
     return {
       columns: (
         Object.keys(data[0]) ?? ["skillId", "skill", "categoryId", "category"]
-      )
-        .map((col) => ({
-          column: col,
-          label: col.toUpperCase(),
-          // @ts-ignore
-          type: getColType(typeof data[0][col]),
-        })),
+      ).map((col) => ({
+        column: col,
+        label: col.toUpperCase(),
+        // @ts-ignore
+        type: getColType(typeof data[0][col]),
+      })),
       data: data,
     };
   },
