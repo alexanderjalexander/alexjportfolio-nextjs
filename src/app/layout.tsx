@@ -3,6 +3,10 @@ import { Metadata, Viewport } from "next";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Providers } from "./providers";
+import { Navbar } from "@/components/layout/navbar";
+import React from "react";
+import { Divider } from "@heroui/divider";
+import Footer from "@/components/layout/footer";
 
 export const metadata: Metadata = {
   title: {
@@ -45,7 +49,10 @@ export default function RootLayout({
         }
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          {children}
+          <Navbar />
+          <main className="container mx-auto max-w-7xl px-6 grow">{children}</main>
+          <Divider className="my-10" />
+          <Footer />
         </Providers>
       </body>
     </html>

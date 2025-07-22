@@ -4,21 +4,22 @@ import { Button } from "@heroui/button";
 import { Link } from "@heroui/link";
 import { GithubIcon, LinkedInIcon } from "../icons";
 import Webring from "../webring";
+import { fontMono } from "@/config/fonts";
 
 export default function Footer() {
   return (
     <FadeInScroll>
       <footer className="px-6">
         <Webring />
-        <div className="w-full flex flex-col sm:flex-row items-center content-center justify-around">
-          <div>
-            <Header2Mono>Contact Me</Header2Mono>
-            <p>Email Address: ajansiew@stevens.edu</p>
-            <p>Phone Number: +1 (908) 367-0582</p>
+        <div className="w-full flex flex-col sm:flex-row items-start content-center justify-around">
+          <div className={``}>
+            <Header2Mono className={`mb-4!`}>Contact Me</Header2Mono>
+            <p className={`my-2! font-mono ${fontMono.variable}`}> Email Address: ajansiew@stevens.edu</p>
+            <p className={`my-2! font-mono ${fontMono.variable}`}> Phone Number: +1(908)367-0582</p>
           </div>
-          <div>
-            <Header2Mono>Socials</Header2Mono>
-            <p>
+          <div className={``}>
+            <Header2Mono className={`mb-4!`}>Socials</Header2Mono>
+            <p className={`my-2!`}>
               <Button
                 href="https://www.linkedin.com/in/alexander-j-27144720b/"
                 as={Link}
@@ -31,7 +32,7 @@ export default function Footer() {
                 LinkedIn
               </Button>
             </p>
-            <p>
+            <p className={`my-2!`}>
               <Button
                 href="https://github.com/alexanderjalexander/"
                 as={Link}
@@ -47,7 +48,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="text-center py-6">
-          &copy; 2024 Alexander Jansiewicz. All Rights Reserved.
+          &copy; 2022 Alexander Jansiewicz. All Rights Reserved.
         </div>
       </footer>
     </FadeInScroll>

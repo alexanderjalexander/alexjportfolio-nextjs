@@ -17,7 +17,7 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="block">
+    <div className="container mx-auto max-w-7xl px-6 grow">
       <Header1Mono className="pt-32">Something went wrong!</Header1Mono>
       <p className="text-center">
         Oops. We&apos;re not sure what happened there... :\
