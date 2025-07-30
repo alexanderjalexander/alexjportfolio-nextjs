@@ -17,11 +17,13 @@ export async function getSkillsCategories() {
   // ENSURE THESE COLORS ARE CONSISTENT WITH TAILWIND CONFIG JS COLORS
   const colors = [
     "dark:bg-red-700 bg-red-300",
-    "dark:bg-cyan-700 bg-cyan-300",
-    "dark:bg-purple-700 bg-purple-300",
+    "dark:bg-fuchsia-700 bg-fuchsia-300",
     "dark:bg-yellow-700 bg-yellow-300",
-    "dark:bg-emerald-700 bg-emerald-300",
-    "dark:bg-orange-700 bg-orange-300",
+    "dark:bg-green-700 bg-green-300",
+    "dark:bg-cyan-700 bg-cyan-300",
+    "dark:bg-blue-700 bg-blue-300",
+    "dark:bg-pink-700 bg-pink-300",
+    "dark:bg-slate-700 bg-slate-300",
   ];
 
   const result: LooseObject = {};
