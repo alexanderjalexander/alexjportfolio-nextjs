@@ -22,8 +22,8 @@
     "autoprefixer": "^10.4.21",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
-    "dotenv": "^16.5.0",
-    "drizzle-orm": "^0.44.2",
+    "dotenv": "^16.6.1",
+    "drizzle-orm": "^0.44.4",
     "eslint": "^9.28.0",
     "eslint-config-next": "^15.3.3",
     "framer-motion": "^12.17.3",
@@ -44,9 +44,9 @@
   "devDependencies": {
     "@react-aria/ssr": "^3.9.9",
     "@tailwindcss/postcss": "^4.1.10",
-    "drizzle-kit": "^0.31.1",
+    "drizzle-kit": "^0.31.4",
     "prettier": "3.5.3",
-    "tsx": "^4.20.2"
+    "tsx": "^4.20.3"
   },
   "overrides": {
     "esbuild": "^0.25.5"
