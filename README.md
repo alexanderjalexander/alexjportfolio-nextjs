@@ -26,21 +26,9 @@ npm install
 
 You will need access to a PostgreSQL Server of some kind, very much preferably Neon as Drizzle works directly with Neon in this project, as well as an object storage bucket(I recommend Backblaze B2). This project uses the S3-Compatible API for BackBlaze B2.
 
-
-
-An example of how to run this is given below.
-
-#### `.env.development.local`
-
-```dotenv
-# Connection URL to local PostgreSQL instance
-DATABASE_URL="postgresql://user:password@localhost:5432/postgres"
 ```
-
-#### `.env`
-```dotenv
 # Neon Environment Variables
-DATABASE_URL="<raw database connection string from Neon>"
+DATABASE_URL="<database url goes here from Neon>"
 
 # Next.js Environment Variables (CRON_SECRET can be whatever, just needs to be secure)
 NEXT_PRIVATE_DEBUG_CACHE=1
