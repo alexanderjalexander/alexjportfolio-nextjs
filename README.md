@@ -26,6 +26,10 @@ npm install
 
 You will need access to a PostgreSQL Server of some kind, very much preferably Neon as Drizzle works directly with Neon in this project, as well as an object storage bucket(I recommend Backblaze B2). This project uses the S3-Compatible API for BackBlaze B2.
 
+There are two buckets utilized: a standard and a resize version. For any graphic design portfolio pieces, full-size images are placed in the standard bucket, and then resized & copied using the `syncObjects` library function into the resize bucket.
+
+The current setup utilized no versioning, or "Keep only the latest files" versioning.
+
 ```
 # Neon Environment Variables
 DATABASE_URL="<database url goes here from Neon>"
