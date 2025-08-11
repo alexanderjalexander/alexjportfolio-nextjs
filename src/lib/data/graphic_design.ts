@@ -54,7 +54,7 @@ export async function getObject(key: string) {
 
 export async function getObjectResized(key: string) {
   const command = new GetObjectCommand({
-    Bucket: `${process.env.BUCKET_NAME_RESIZE!}-temp`,
+    Bucket: `${process.env.BUCKET_NAME_RESIZE!}`,
     Key: key,
   });
   const data = await s3.send(command);
@@ -63,13 +63,13 @@ export async function getObjectResized(key: string) {
 
 export async function syncObjects() {
   const list_temp_objs_command = new ListObjectsCommand({
-    Bucket: `${process.env.BUCKET_NAME_RESIZE!}-temp`,
+    Bucket: `${process.env.BUCKET_NAME_RESIZE!}`,
   });
   let keys_data = (await s3.send(list_temp_objs_command)).Contents?.map((x) => ({"Key": x.Key}))
     ?? [];
 
   const del_objs_command = new DeleteObjectsCommand({
-    Bucket: `${process.env.BUCKET_NAME_RESIZE!}-temp`,
+    Bucket: `${process.env.BUCKET_NAME_RESIZE!}`,
     Delete: {
       Objects: keys_data
     }
@@ -91,7 +91,7 @@ export async function syncObjects() {
 
     const put_obj_command = new PutObjectCommand(
       {
-        Bucket: `${process.env.BUCKET_NAME_RESIZE!}-temp`,
+        Bucket: `${process.env.BUCKET_NAME_RESIZE!}`,
         Key: key.Key!,
         Body: resize_image!,
         ContentType: res.ContentType,
