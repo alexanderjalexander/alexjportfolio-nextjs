@@ -14,8 +14,14 @@ export default function Footer() {
         <div className="w-full flex flex-col sm:flex-row items-start content-center justify-around">
           <div className={``}>
             <Header2Mono className={`mb-4!`}>Contact Me</Header2Mono>
-            <p className={`my-2! font-mono ${fontMono.variable}`}> Email Address: {process.env.EMAIL_ADDRESS!}</p>
-            <p className={`my-2! font-mono ${fontMono.variable}`}> Phone Number: {process.env.PHONE_NUMBER!}</p>
+            <p className={`my-2! font-mono ${fontMono.variable}`}>
+              {" "}
+              Email Address: {process.env.EMAIL_ADDRESS!}
+            </p>
+            <p className={`my-2! font-mono ${fontMono.variable}`}>
+              {" "}
+              Phone Number: {process.env.PHONE_NUMBER!}
+            </p>
           </div>
           <div className={``}>
             <Header2Mono className={`mb-4!`}>Socials</Header2Mono>

@@ -8,7 +8,7 @@ import TypewriterWrapper from "@/components/text/typewriterwrapper";
 import { FadeInScroll } from "@/components/page-anim/fadeinscroll";
 import { Divider } from "@heroui/divider";
 import { Metadata } from "next";
-import { getObjects } from "@/src/lib/data/graphic_design";
+import { getObjectsResized } from "@/src/lib/data/graphic_design";
 import GraphicDesignContent from "@/components/content/graphic_design_content";
 
 export const metadata: Metadata = {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Graphic_Design() {
-  let objects = (await getObjects())!.map((obj) => obj.Key);
+  let objects = (await getObjectsResized())!.map((obj) => obj.Key);
 
   return (
     <PageWrapper>
