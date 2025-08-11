@@ -1,5 +1,5 @@
 import { revalidatePath } from "next/cache";
-import { getObjects, getObjectsResized } from "@/src/lib/data/graphic_design";
+import { getObjects, getObjectsResized, syncObjects } from "@/src/lib/data/graphic_design";
 import { authorizeBearerToken } from "../../bearerHelpers";
 
 export async function GET(req: Request) {
@@ -7,6 +7,7 @@ export async function GET(req: Request) {
     return new Response("Unauthorized", { status: 401 });
   }
   try {
+    const sync_result = await syncObjects();
     const paths = [
       "/",
       "/programming",
@@ -22,18 +23,39 @@ export async function GET(req: Request) {
       "/api/video",
       "/api/video/commissions",
     ];
+    const revalidated_paths = [];
+    const error_revalidated_paths = [];
     for (let path of paths) {
-      revalidatePath(path);
+      try {
+        revalidatePath(path);
+        revalidated_paths.push(path);
+      } catch (_) {
+        error_revalidated_paths.push(path);
+      }
     }
     let gd_objs = await getObjects();
     for (let gd_obj of gd_objs!) {
-      revalidatePath(`/api/graphic_design/${gd_obj.Key}`);
+      try {
+        revalidatePath(`/api/graphic_design/${gd_obj.Key}`);
+        revalidated_paths.push(`/api/graphic_design/${gd_obj.Key}`)
+      } catch (_) {
+        error_revalidated_paths.push(`/api/graphic_design/${gd_obj.Key}`)
+      }
     }
     let gd_objs_resized = await getObjectsResized();
     for (let gd_obj of gd_objs_resized!) {
-      revalidatePath(`/api/graphic_design/resize/${gd_obj.Key}`);
+      try {
+        revalidatePath(`/api/graphic_design/resize/${gd_obj.Key}`);
+        revalidated_paths.push(`/api/graphic_design/resize/${gd_obj.Key}`)
+      } catch (_) {
+        error_revalidated_paths.push(`/api/graphic_design/resize/${gd_obj.Key}`)
+      }
     }
-    return Response.json({ success: true });
+    return Response.json({
+      syncedObjects: sync_result,
+      revalidatedPaths: revalidated_paths,
+      error_revalidated_paths: error_revalidated_paths,
+    });
   } catch (e) {
     return new Response("Something went wrong", {
       status: 500,

@@ -236,6 +236,45 @@ export default async function API_Reference() {
           keeping the graphic design page optimized when displaying every image.
         </p>
         <p>404s if the key leads to no image.</p>
+
+        <Header3Mono className="mb-5" align="left">
+          GET /sync
+        </Header3Mono>
+
+        <p>
+          Requires an alphanumeric bearer token to be attached to the header.
+          Syncs the contents of the normal bucket with the older bucket.
+        </p>
+        <p>
+          Syncs the contents of the resized bucket with the full-size bucket.
+        </p>
+        <p>
+          Returns 401 if unauthorized, or the following if authorization passes and
+          revalidations are successful.
+        </p>
+
+        <Card>
+          <CardBody className={"bg-primary-900 font-mono " + fontMono.variable}>
+            <pre>[</pre>
+            <pre>&emsp;&lbrack;</pre>
+            <pre>&emsp;&emsp;&emsp;"Key": "..."</pre>
+            <pre>&emsp;&emsp;&emsp;"$metadata": &lbrack;</pre>
+            <pre>&emsp;&emsp;&emsp;&emsp;"httpStatusCode"?: 200,</pre>
+            <pre>&emsp;&emsp;&emsp;&emsp;"requestId"?: "...",</pre>
+            <pre>&emsp;&emsp;&emsp;&emsp;"extendedRequestId"?: "...",</pre>
+            <pre>&emsp;&emsp;&emsp;&emsp;"cfId"?: "...",</pre>
+            <pre>&emsp;&emsp;&emsp;&emsp;"attempts"?: 1,</pre>
+            <pre>&emsp;&emsp;&emsp;&emsp;"totalRetryDelay"?: 0,</pre>
+            <pre>&emsp;&emsp;&emsp;&rbrack;</pre>
+            <pre>&emsp;&emsp;&emsp;"ContentType": "..."</pre>
+            <pre>&emsp;&emsp;&emsp;"ETag": "..."</pre>
+            <pre>&emsp;&emsp;&emsp;"VersionId": "..."</pre>
+            <pre>&emsp;&rbrack;</pre>
+            <pre>&emsp;...</pre>
+            <pre>]</pre>
+          </CardBody>
+        </Card>
+
       </FadeInScroll>
       <FadeInScroll>
         <Divider className="my-10" />
@@ -257,10 +296,18 @@ export default async function API_Reference() {
           invalidations.
         </p>
         <p>
-          Returns 401 if unauthorized, or{" "}
-          <Code>&#123; success: true &#125;</Code> if authorization passes and
+          Returns 401 if unauthorized, or the following if authorization passes and
           revalidations are successful.
         </p>
+        <Card>
+          <CardBody className={"bg-primary-900 font-mono " + fontMono.variable}>
+            <pre>&lbrack;</pre>
+            <pre>&emsp;&emsp;"syncedObjects": &lbrack;&rbrack;[],</pre>
+            <pre>&emsp;&emsp;"revalidatedPaths": []</pre>
+            <pre>&emsp;&emsp;"revalidatedPaths": []</pre>
+            <pre>&rbrack;</pre>
+          </CardBody>
+        </Card>
         <Header3Mono className="mb-5" align="left">
           GET /refresh_some/
         </Header3Mono>
