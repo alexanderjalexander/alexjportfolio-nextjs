@@ -256,20 +256,20 @@ export default async function API_Reference() {
         <Card>
           <CardBody className={"bg-primary-900 font-mono " + fontMono.variable}>
             <pre>[</pre>
-            <pre>&emsp;&lbrack;</pre>
+            <pre>&emsp;&#123;</pre>
             <pre>&emsp;&emsp;&emsp;"Key": "..."</pre>
-            <pre>&emsp;&emsp;&emsp;"$metadata": &lbrack;</pre>
+            <pre>&emsp;&emsp;&emsp;"$metadata": &#123;</pre>
             <pre>&emsp;&emsp;&emsp;&emsp;"httpStatusCode"?: 200,</pre>
             <pre>&emsp;&emsp;&emsp;&emsp;"requestId"?: "...",</pre>
             <pre>&emsp;&emsp;&emsp;&emsp;"extendedRequestId"?: "...",</pre>
             <pre>&emsp;&emsp;&emsp;&emsp;"cfId"?: "...",</pre>
             <pre>&emsp;&emsp;&emsp;&emsp;"attempts"?: 1,</pre>
             <pre>&emsp;&emsp;&emsp;&emsp;"totalRetryDelay"?: 0,</pre>
-            <pre>&emsp;&emsp;&emsp;&rbrack;</pre>
+            <pre>&emsp;&emsp;&emsp;&#125;</pre>
             <pre>&emsp;&emsp;&emsp;"ContentType": "..."</pre>
             <pre>&emsp;&emsp;&emsp;"ETag": "..."</pre>
             <pre>&emsp;&emsp;&emsp;"VersionId": "..."</pre>
-            <pre>&emsp;&rbrack;</pre>
+            <pre>&emsp;&#125;</pre>
             <pre>&emsp;...</pre>
             <pre>]</pre>
           </CardBody>
@@ -301,11 +301,11 @@ export default async function API_Reference() {
         </p>
         <Card>
           <CardBody className={"bg-primary-900 font-mono " + fontMono.variable}>
-            <pre>&lbrack;</pre>
-            <pre>&emsp;&emsp;"syncedObjects": &lbrack;&rbrack;[],</pre>
+            <pre>&#123;</pre>
+            <pre>&emsp;&emsp;"syncedObjects": &#123;&#125;[],</pre>
             <pre>&emsp;&emsp;"revalidatedPaths": []</pre>
             <pre>&emsp;&emsp;"revalidatedPaths": []</pre>
-            <pre>&rbrack;</pre>
+            <pre>&#125;</pre>
           </CardBody>
         </Card>
         <Header3Mono className="mb-5" align="left">
