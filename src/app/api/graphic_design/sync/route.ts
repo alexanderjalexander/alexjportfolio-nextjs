@@ -12,8 +12,11 @@ export async function GET(req: Request) {
       headers: {},
     });
   } catch (e) {
-    return new Response("An error happened while syncing the graphic design objects", {
-      status: 500,
-    });
+    return new Response(
+      "An error happened while syncing the graphic design objects",
+      {
+        status: 500,
+      },
+    );
   }
 }

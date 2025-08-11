@@ -1,5 +1,9 @@
 import { revalidatePath } from "next/cache";
-import { getObjects, getObjectsResized, syncObjects } from "@/src/lib/data/graphic_design";
+import {
+  getObjects,
+  getObjectsResized,
+  syncObjects,
+} from "@/src/lib/data/graphic_design";
 import { authorizeBearerToken } from "../../bearerHelpers";
 
 export async function GET(req: Request) {
@@ -37,18 +41,20 @@ export async function GET(req: Request) {
     for (let gd_obj of gd_objs!) {
       try {
         revalidatePath(`/api/graphic_design/${gd_obj.Key}`);
-        revalidated_paths.push(`/api/graphic_design/${gd_obj.Key}`)
+        revalidated_paths.push(`/api/graphic_design/${gd_obj.Key}`);
       } catch (_) {
-        error_revalidated_paths.push(`/api/graphic_design/${gd_obj.Key}`)
+        error_revalidated_paths.push(`/api/graphic_design/${gd_obj.Key}`);
       }
     }
     let gd_objs_resized = await getObjectsResized();
     for (let gd_obj of gd_objs_resized!) {
       try {
         revalidatePath(`/api/graphic_design/resize/${gd_obj.Key}`);
-        revalidated_paths.push(`/api/graphic_design/resize/${gd_obj.Key}`)
+        revalidated_paths.push(`/api/graphic_design/resize/${gd_obj.Key}`);
       } catch (_) {
-        error_revalidated_paths.push(`/api/graphic_design/resize/${gd_obj.Key}`)
+        error_revalidated_paths.push(
+          `/api/graphic_design/resize/${gd_obj.Key}`,
+        );
       }
     }
     return Response.json({

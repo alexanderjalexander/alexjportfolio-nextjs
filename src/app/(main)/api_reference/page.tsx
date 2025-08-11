@@ -249,8 +249,8 @@ export default async function API_Reference() {
           Syncs the contents of the resized bucket with the full-size bucket.
         </p>
         <p>
-          Returns 401 if unauthorized, or the following if authorization passes and
-          revalidations are successful.
+          Returns 401 if unauthorized, or the following if authorization passes
+          and revalidations are successful.
         </p>
 
         <Card>
@@ -274,7 +274,6 @@ export default async function API_Reference() {
             <pre>]</pre>
           </CardBody>
         </Card>
-
       </FadeInScroll>
       <FadeInScroll>
         <Divider className="my-10" />
@@ -296,8 +295,8 @@ export default async function API_Reference() {
           invalidations.
         </p>
         <p>
-          Returns 401 if unauthorized, or the following if authorization passes and
-          revalidations are successful.
+          Returns 401 if unauthorized, or the following if authorization passes
+          and revalidations are successful.
         </p>
         <Card>
           <CardBody className={"bg-primary-900 font-mono " + fontMono.variable}>

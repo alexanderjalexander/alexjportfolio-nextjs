@@ -197,6 +197,7 @@ Requires an alphanumeric bearer token to be attached to the header. This must be
 Syncs the contents of the normal bucket with the older bucket.
 
 Returns the following:
+
 ```
 [
   {
@@ -217,8 +218,7 @@ Returns the following:
 ]
 ```
 
-NOTE: This was tested assuming both graphic design buckets do not have versioning, or have a "Keep only the last version of this file" versioning ruleset. That is, for all files, `daysFromHidingToDeleting` is 1. 
-
+NOTE: This was tested assuming both graphic design buckets do not have versioning, or have a "Keep only the last version of this file" versioning ruleset. That is, for all files, `daysFromHidingToDeleting` is 1.
 
 ## `/api/cron`
 
