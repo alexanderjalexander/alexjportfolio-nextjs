@@ -12,8 +12,8 @@ export async function getWorkExperienceJobs() {
     .select()
     .from(workExperienceJobs)
     .orderBy(
-      desc(workExperienceJobs.jobEndDate),
       desc(workExperienceJobs.jobStartDate),
+      desc(workExperienceJobs.jobEndDate),
     );
 }
 
