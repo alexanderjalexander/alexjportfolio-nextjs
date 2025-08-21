@@ -26,13 +26,17 @@ npm install
 
 You will need access to a PostgreSQL Server of some kind, very much preferably Neon as Drizzle works directly with Neon in this project, as well as an object storage bucket(I recommend Backblaze B2). This project uses the S3-Compatible API for BackBlaze B2.
 
+There are two buckets utilized: a standard and a resize version. For any graphic design portfolio pieces, full-size images are placed in the standard bucket, and then resized & copied using the `syncObjects` library function into the resize bucket.
+
+The current setup utilized no versioning, or "Keep only the latest files" versioning.
+
 ```
 # Neon Environment Variables
 DATABASE_URL="<database url goes here from Neon>"
 
 # Next.js Environment Variables (CRON_SECRET can be whatever, just needs to be secure)
 NEXT_PRIVATE_DEBUG_CACHE=1
-CRON_SECRET="<16-digit alphanumeric token>"
+CRON_SECRET="<alphanumeric token>"
 
 # BackBlaze B2 Environment Variables
 REGION="<specified AWS bucket region from BackBlaze>"
@@ -189,3 +193,59 @@ Returns a full-quality image provided from the key given.
 Returns a low-quality image provided from the key given. Useful for keeping the graphic design page optimized when displaying every image.
 
 404s if the key leads to no image.
+
+### `GET /sync`
+
+Requires an alphanumeric bearer token to be attached to the header. This must be the same as the key in your `.env`'s `CRON_SECRET`.
+
+Syncs the contents of the normal bucket with the older bucket.
+
+Returns the following:
+
+```
+[
+  {
+    Key: string,
+    $metadata: {
+      httpStatusCode?: number,
+      requestId?: string,
+      extendedRequestId?: string,
+      cfId?: string,
+      attempts?: number,
+      totalRetryDelay?: number,
+    },
+    ContentType:  string,
+    ETag:  string,
+    VersionId:  string,
+  }
+  ...
+]
+```
+
+NOTE: This was tested assuming both graphic design buckets do not have versioning, or have a "Keep only the last version of this file" versioning ruleset. That is, for all files, `daysFromHidingToDeleting` is 1.
+
+## `/api/cron`
+
+### GET `/refresh_all/`
+
+Activates the portfolio site's main Cron job: revalidate every path that is not dynamic. This is helpful to ensure that caches are properly updated every day at regular times. The website automatically fires this every week on Sunday at 12:00AM.
+
+To manually activate it, the correct alphanumeric Bearer token is required. This is to prevent unauthorized cache invalidations.
+
+Returns 401 if unauthorized, or the following if successful:
+
+```
+{
+  syncedObjects: {}[],
+  revalidatedPaths: [],
+  error_revalidated_paths: [],
+}
+```
+
+### GET `/refresh_some/`
+
+Activates the portfolio site's secondary Cron job: revalidate only certain non-dynamic paths that aren't expensive to recompute. The website automatically fires this every 24 hours at 12:00AM.
+
+To manually activate it, the correct alphanumeric Bearer token is required. This is to prevent unauthorized cache invalidations.
+
+Returns 401 if unauthorized, or `{success: true}` if authorization passes and revalidations are successful.
