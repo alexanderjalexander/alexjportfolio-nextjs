@@ -51,7 +51,7 @@ export default function GraphicDesignContent({
             {(onClose) => (
               <>
                 <ModalHeader>{image.header}</ModalHeader>
-                <ModalBody className="justify-center content-center">
+                <ModalBody className="justify-center content-center items-center">
                   {!image.loaded ? <Spinner label="Loading" /> : <></>}
                   <Image
                     alt={image.alt}

@@ -12,10 +12,11 @@ import { Button } from "@heroui/button";
 import { Card, CardBody, CardFooter, CardHeader } from "@heroui/card";
 import { Chip } from "@heroui/chip";
 import { Divider } from "@heroui/divider";
-import { Link, LinkIcon } from "@heroui/link";
+import { Link } from "@heroui/link";
 
 import { GithubIcon } from "@/components/icons";
 import { getProgrammingProjectsSkillsFull } from "@/src/lib/data/programming";
+import ProgrammingContent from "@/components/content/programming_content";
 
 export const metadata: Metadata = {
   title: "Programming",
@@ -60,39 +61,7 @@ export default async function Programming() {
       <FadeInScroll>
         <Divider className="my-10" />
         <Header2Mono className="mb-5">Homelab</Header2Mono>
-        <Card isBlurred className="bg-primary-900 my-8 max-w-2xl m-auto">
-          {/* TODO: Add chips for each service & their uptime. */}
-          <div>
-            <CardBody className="p-4">
-              <p className="mt-0!">
-                I also host my own Homelab! I host several services on it (e.g.
-                Minecraft Server, Uptime Dashboard, Cloudflare DDNS, Zero Trust
-                Tunnel, etc.), some for public use and some for private use.
-              </p>
-              <p className="mt-0! mb-0!">
-                It runs off of an old HP Pavilion 15 from 2017-2018. I use
-                Tailscale to connect to it securely, and expose services using
-                Traefik, Cloudflare DDNS, and Cloudflare Zero Trust Tunnel. With
-                such an architecture, I can effectively load-balance any
-                incoming traffic while also keeping my home network secure and
-                unaffected.
-              </p>
-            </CardBody>
-            <CardFooter>
-              <Button
-                href={"https://uptime.alexanderjalexander.com/"}
-                as={Link}
-                target="_blank"
-                color="primary"
-                showAnchorIcon
-                variant="solid"
-                className="text-foreground bg-primary-700 right-0 ml-auto sm:w-auto"
-              >
-                View Uptime
-              </Button>
-            </CardFooter>
-          </div>
-        </Card>
+        <ProgrammingContent />
       </FadeInScroll>
 
       {/* Programming Project Cards Section */}
