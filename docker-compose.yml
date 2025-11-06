@@ -1,0 +1,23 @@
+networks:
+  traefik:
+    external: true
+
+services:
+  portfolio:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "80:3000"
+    env_file:
+      - path: ./.env
+        required: true
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.alexanderjalexander.service=alexanderjalexander"
+      - "traefik.http.routers.alexanderjalexander.rule=Host(`www.alexanderjalexander.com`)"
+      - "traefik.http.routers.alexanderjalexander.entrypoints=websecure"
+      - "traefik.http.routers.alexanderjalexander.tls=true"
+      - "traefik.http.routers.alexanderjalexander.tls.certResolver=cloudflare"
+      - "traefik.http.services.alexanderjalexander.loadbalancer.server.port=3000"
+    networks:
+      - traefik
