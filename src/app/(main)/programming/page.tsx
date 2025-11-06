@@ -15,8 +15,11 @@ import { Divider } from "@heroui/divider";
 import { Link } from "@heroui/link";
 
 import { GithubIcon } from "@/components/icons";
-import { getProgrammingProjectsSkillsFull } from "@/src/lib/data/programming";
-import ProgrammingContent from "@/components/content/programming_content";
+import {
+  getProgrammingProjectsSkillsFull,
+  getHomelabUptimes,
+} from "@/src/lib/data/programming";
+import HomelabCard from "@/components/content/homelab_card";
 
 export const metadata: Metadata = {
   title: "Programming",
@@ -24,8 +27,8 @@ export const metadata: Metadata = {
 
 export default async function Programming() {
   const programmingProjects = await getProgrammingProjectsSkillsFull();
-
-  // TODO: Make fetches to grab the uptimes, and make lil pointers and stuff
+  const uptimes = await getHomelabUptimes();
+  console.log(uptimes);
 
   return (
     <PageWrapper>
@@ -61,7 +64,7 @@ export default async function Programming() {
       <FadeInScroll>
         <Divider className="my-10" />
         <Header2Mono className="mb-5">Homelab</Header2Mono>
-        <ProgrammingContent />
+        <HomelabCard uptimes={uptimes} />
       </FadeInScroll>
 
       {/* Programming Project Cards Section */}
