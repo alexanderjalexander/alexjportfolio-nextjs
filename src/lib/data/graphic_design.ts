@@ -37,7 +37,7 @@ export async function getObjects() {
 
 export async function getObjectsResized() {
   const command = new ListObjectsCommand({
-    Bucket: `${process.env.BUCKET_NAME_RESIZE!}-temp`,
+    Bucket: `${process.env.BUCKET_NAME_RESIZE!}`,
   });
   const { Contents } = await s3.send(command);
   for (let x of Contents!) {
