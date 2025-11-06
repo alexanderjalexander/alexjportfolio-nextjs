@@ -2,21 +2,11 @@
 
 import { EndpointStatus } from "@/src/lib/data/programming";
 import { Button } from "@heroui/button";
-import { Card, CardBody, CardFooter, CardHeader } from "@heroui/card";
+import { Card, CardBody, CardFooter } from "@heroui/card";
 import { Image } from "@heroui/image";
 import { Link } from "@heroui/link";
-import {
-  Modal,
-  ModalHeader,
-  ModalContent,
-  ModalFooter,
-  ModalBody,
-} from "@heroui/modal";
 import { Chip } from "@heroui/react";
-import { Spinner } from "@heroui/spinner";
-import { useDisclosure } from "@heroui/use-disclosure";
 
-import { useState, useRef } from "react";
 import ImageModal from "./image_modal";
 
 export default function HomelabCard({
