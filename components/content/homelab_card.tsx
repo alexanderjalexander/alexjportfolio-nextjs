@@ -17,24 +17,14 @@ import { Spinner } from "@heroui/spinner";
 import { useDisclosure } from "@heroui/use-disclosure";
 
 import { useState, useRef } from "react";
-import ImageModal, { ImageModalHandle } from "./image_modal";
+import ImageModal from "./image_modal";
 
 export default function HomelabCard({
   uptimes,
 }: {
   uptimes: EndpointStatus[];
 }) {
-  const imageModalRef = useRef<ImageModalHandle>(null);
-
-  const openHomelabImage = () => {
-    imageModalRef.current?.openModal({
-      header: "Homelab",
-      alt: "An HP Pavilion Laptop 15 that serves as a homelab",
-      url: "/Homelab.jpg",
-    });
-  };
-
-  // uptimes.push(...uptimes);
+  const {modal, openModal} = ImageModal();
 
   const half_way_index = Math.max(
     1,
@@ -45,13 +35,17 @@ export default function HomelabCard({
 
   return (
     <div>
-      <ImageModal ref={imageModalRef} />
+      {modal}
       <Card isBlurred className="bg-primary-900 my-8 max-w-2xl m-auto">
         <CardBody className="p-4">
           <div className="block sm:flex flex-row gap-4">
             <Card
               isPressable
-              onPress={() => openHomelabImage()}
+              onPress={() => openModal({
+                url: "/Homelab.jpg",
+                alt: "An HP Pavilion 15 Laptop, serving as a Homelab server.",
+                header: "Homelab",
+              })}
               className="w-full h-full mb-4 sm:gap-8 mx-auto max-w-[300px]"
             >
               <Image

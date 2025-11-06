@@ -12,7 +12,7 @@ import {
 import { Spinner } from "@heroui/spinner";
 import { useDisclosure } from "@heroui/use-disclosure";
 
-import { useState, ReactNode, useImperativeHandle, forwardRef } from "react";
+import { useState, useCallback } from "react";
 
 export interface ImageModalProps {
   url: string;
@@ -20,11 +20,7 @@ export interface ImageModalProps {
   header?: string;
 }
 
-export interface ImageModalHandle {
-  openModal: (data: ImageModalProps) => void;
-}
-
-const ImageModal = forwardRef<ImageModalHandle>((_, ref) => {
+export default function ImageModal() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [image, setImage] = useState<ImageModalProps>({
     header: "",
@@ -33,15 +29,16 @@ const ImageModal = forwardRef<ImageModalHandle>((_, ref) => {
   });
   const [loaded, setLoaded] = useState(false);
 
-  useImperativeHandle(ref, () => ({
-    openModal: (data: ImageModalProps) => {
-      setImage(data);
+  const openModal = useCallback(
+    (data: ImageModalProps) => {
       setLoaded(false);
+      setImage(data);
       onOpen();
-    }
-  }))
+    },
+    [onOpen]
+  );
 
-  return (
+  const modal = (
     <div className="overflow-auto">
       <Modal
         isOpen={isOpen}
@@ -58,7 +55,7 @@ const ImageModal = forwardRef<ImageModalHandle>((_, ref) => {
               <ModalBody className="justify-center content-center items-center w-full max-w-full!">
                 {!loaded ? <Spinner label="Loading" /> : <></>}
                 <Image
-                  alt={image.alt}
+                  alt={image.alt || ""}
                   src={image.url}
                   onLoad={() => setLoaded(true)}
                   isBlurred
@@ -76,7 +73,6 @@ const ImageModal = forwardRef<ImageModalHandle>((_, ref) => {
       </Modal>
     </div>
   );
-});
 
-ImageModal.displayName = "ImageModal";
-export default ImageModal;
+  return {modal, openModal};
+};
