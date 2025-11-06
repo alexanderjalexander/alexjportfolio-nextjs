@@ -47,7 +47,7 @@ export default async function Graphic_Design() {
       </FadeInScroll>
 
       {/* Graphic Design Work Section */}
-      <GraphicDesignContent videos={objects} />
+      <GraphicDesignContent artworks={objects} />
     </PageWrapper>
   );
 }
