@@ -16,24 +16,22 @@ import { Chip } from "@heroui/react";
 import { Spinner } from "@heroui/spinner";
 import { useDisclosure } from "@heroui/use-disclosure";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
+import ImageModal, { ImageModalHandle } from "./image_modal";
 
 export default function HomelabCard({
   uptimes,
 }: {
   uptimes: EndpointStatus[];
 }) {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const [image, setImage] = useState({
-    header: "",
-    alt: "",
-    url: "",
-    loaded: false,
-  });
+  const imageModalRef = useRef<ImageModalHandle>(null);
 
-  const openModal = (header: string, alt: string, url: string) => {
-    setImage({ loaded: false, header: header, alt: alt, url: url });
-    onOpen();
+  const openHomelabImage = () => {
+    imageModalRef.current?.openModal({
+      header: "Homelab",
+      alt: "An HP Pavilion Laptop 15 that serves as a homelab",
+      url: "/Homelab.jpg",
+    });
   };
 
   // uptimes.push(...uptimes);
@@ -42,57 +40,18 @@ export default function HomelabCard({
     1,
     Math.min(5, Math.floor(uptimes.length / 2)),
   );
-  console.log(half_way_index);
   const uptimes_1 = uptimes.slice(0, half_way_index);
   const uptimes_2 = uptimes.slice(half_way_index, half_way_index * 2);
 
   return (
     <div>
-      <div className="overflow-auto">
-        <Modal
-          isOpen={isOpen}
-          className="bg-background"
-          backdrop="blur"
-          size="2xl"
-          onOpenChange={onOpenChange}
-          placement="top"
-        >
-          <ModalContent className="w-1/2">
-            {(onClose) => (
-              <>
-                <ModalHeader>{image.header}</ModalHeader>
-                <ModalBody className="justify-center content-center items-center w-full max-w-full!">
-                  {!image.loaded ? <Spinner label="Loading" /> : <></>}
-                  <Image
-                    alt={image.alt}
-                    src={image.url}
-                    onLoad={() => setImage({ ...image, loaded: true })}
-                    isBlurred
-                    className="z-0 object-cover"
-                  />
-                </ModalBody>
-                <ModalFooter>
-                  <Button color="danger" variant="solid" onPress={onClose}>
-                    Close
-                  </Button>
-                </ModalFooter>
-              </>
-            )}
-          </ModalContent>
-        </Modal>
-      </div>
+      <ImageModal ref={imageModalRef} />
       <Card isBlurred className="bg-primary-900 my-8 max-w-2xl m-auto">
         <CardBody className="p-4">
           <div className="block sm:flex flex-row gap-4">
             <Card
               isPressable
-              onPress={() =>
-                openModal(
-                  "Homelab",
-                  "An HP Pavilion Laptop 15 that serves as a homelab",
-                  `/Homelab.jpg`,
-                )
-              }
+              onPress={() => openHomelabImage()}
               className="w-full h-full mb-4 sm:gap-8 mx-auto max-w-[300px]"
             >
               <Image
