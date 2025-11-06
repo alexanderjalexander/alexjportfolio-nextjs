@@ -12,7 +12,7 @@ import { Button } from "@heroui/button";
 import { Card, CardBody, CardFooter, CardHeader } from "@heroui/card";
 import { Chip } from "@heroui/chip";
 import { Divider } from "@heroui/divider";
-import { Link } from "@heroui/link";
+import { Link, LinkIcon } from "@heroui/link";
 
 import { GithubIcon } from "@/components/icons";
 import { getProgrammingProjectsSkillsFull } from "@/src/lib/data/programming";
@@ -86,22 +86,40 @@ export default async function Programming() {
                 }
               </div>
 
-              {project.link ? (
-                <Button
-                  href={project.link}
-                  as={Link}
-                  target="_blank"
-                  color="primary"
-                  startContent={<GithubIcon />}
-                  showAnchorIcon
-                  variant="solid"
-                  className="text-foreground bg-primary-700 right-0 ml-auto w-full my-2 sm:w-auto"
-                >
-                  View Project
-                </Button>
-              ) : (
-                <div></div>
-              )}
+              <div className="ml-auto basis-1">
+                {project.repoLink ? (
+                  <Button
+                    href={project.repoLink}
+                    as={Link}
+                    target="_blank"
+                    color="primary"
+                    startContent={<GithubIcon />}
+                    showAnchorIcon
+                    variant="solid"
+                    className="text-foreground bg-primary-700 right-0 mx-4 my-2 sm:w-auto"
+                  >
+                    View Project
+                  </Button>
+                ) : (
+                  <div></div>
+                )}
+                {project.liveLink ? (
+                  <Button
+                    href={project.liveLink}
+                    as={Link}
+                    target="_blank"
+                    color="primary"
+                    startContent={<LinkIcon />}
+                    showAnchorIcon
+                    variant="solid"
+                    className="text-foreground bg-primary-700 right-0 mx-4 my-2 sm:w-auto"
+                  >
+                    View Project
+                  </Button>
+                ) : (
+                  <div></div>
+                )}
+              </div>
             </CardFooter>
           </Card>
         ))}
