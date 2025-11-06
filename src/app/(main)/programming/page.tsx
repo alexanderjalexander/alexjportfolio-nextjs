@@ -15,7 +15,11 @@ import { Divider } from "@heroui/divider";
 import { Link } from "@heroui/link";
 
 import { GithubIcon } from "@/components/icons";
-import { getProgrammingProjectsSkillsFull } from "@/src/lib/data/programming";
+import {
+  getProgrammingProjectsSkillsFull,
+  getHomelabUptimes,
+} from "@/src/lib/data/programming";
+import HomelabCard from "@/components/content/homelab_card";
 
 export const metadata: Metadata = {
   title: "Programming",
@@ -23,6 +27,7 @@ export const metadata: Metadata = {
 
 export default async function Programming() {
   const programmingProjects = await getProgrammingProjectsSkillsFull();
+  const uptimes = await getHomelabUptimes();
 
   return (
     <PageWrapper>
@@ -52,6 +57,13 @@ export default async function Programming() {
           always been super interested in developing my own programs and
           creating awesome products for users.
         </p>
+      </FadeInScroll>
+
+      {/* Homelab Card */}
+      <FadeInScroll>
+        <Divider className="my-10" />
+        <Header2Mono className="mb-5">Homelab</Header2Mono>
+        <HomelabCard uptimes={uptimes} />
       </FadeInScroll>
 
       {/* Programming Project Cards Section */}
@@ -86,22 +98,39 @@ export default async function Programming() {
                 }
               </div>
 
-              {project.link ? (
-                <Button
-                  href={project.link}
-                  as={Link}
-                  target="_blank"
-                  color="primary"
-                  startContent={<GithubIcon />}
-                  showAnchorIcon
-                  variant="solid"
-                  className="text-foreground bg-primary-700 right-0 ml-auto w-full my-2 sm:w-auto"
-                >
-                  View Project
-                </Button>
-              ) : (
-                <div></div>
-              )}
+              <div className="ml-auto basis-1">
+                {project.repoLink ? (
+                  <Button
+                    href={project.repoLink}
+                    as={Link}
+                    target="_blank"
+                    color="primary"
+                    startContent={<GithubIcon />}
+                    showAnchorIcon
+                    variant="solid"
+                    className="text-foreground bg-primary-700 right-0 mx-4 my-2 sm:w-auto"
+                  >
+                    View Project
+                  </Button>
+                ) : (
+                  <div></div>
+                )}
+                {project.liveLink ? (
+                  <Button
+                    href={project.liveLink}
+                    as={Link}
+                    target="_blank"
+                    color="primary"
+                    showAnchorIcon
+                    variant="solid"
+                    className="text-foreground bg-primary-700 right-0 mx-4 my-2 sm:w-auto"
+                  >
+                    View Project
+                  </Button>
+                ) : (
+                  <div></div>
+                )}
+              </div>
             </CardFooter>
           </Card>
         ))}

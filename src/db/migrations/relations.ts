@@ -3,15 +3,15 @@ import {
   categories,
   skillCategory,
   skills,
-  motionGraphicsProjects,
-  animationSkills,
-  motionGraphicsSkills,
+  workExperienceJobs,
+  workExperienceSkills,
   programmingProjects,
   programmingSkills,
   creators,
   videos,
-  workExperienceJobs,
-  workExperienceSkills,
+  motionGraphicsProjects,
+  motionGraphicsSkills,
+  animationSkills,
 } from "./schema";
 
 export const skillCategoryRelations = relations(skillCategory, ({ one }) => ({
@@ -31,45 +31,30 @@ export const categoriesRelations = relations(categories, ({ many }) => ({
 
 export const skillsRelations = relations(skills, ({ many }) => ({
   skillCategories: many(skillCategory),
-  animationSkills: many(animationSkills),
-  motionGraphicsSkills: many(motionGraphicsSkills),
-  programmingSkills: many(programmingSkills),
   workExperienceSkills: many(workExperienceSkills),
+  programmingSkills: many(programmingSkills),
+  motionGraphicsSkills: many(motionGraphicsSkills),
+  animationSkills: many(animationSkills),
 }));
 
-export const animationSkillsRelations = relations(
-  animationSkills,
+export const workExperienceSkillsRelations = relations(
+  workExperienceSkills,
   ({ one }) => ({
-    motionGraphicsProject: one(motionGraphicsProjects, {
-      fields: [animationSkills.project],
-      references: [motionGraphicsProjects.id],
+    workExperienceJob: one(workExperienceJobs, {
+      fields: [workExperienceSkills.job],
+      references: [workExperienceJobs.id],
     }),
     skill: one(skills, {
-      fields: [animationSkills.skill],
+      fields: [workExperienceSkills.skill],
       references: [skills.id],
     }),
   }),
 );
 
-export const motionGraphicsProjectsRelations = relations(
-  motionGraphicsProjects,
+export const workExperienceJobsRelations = relations(
+  workExperienceJobs,
   ({ many }) => ({
-    animationSkills: many(animationSkills),
-    motionGraphicsSkills: many(motionGraphicsSkills),
-  }),
-);
-
-export const motionGraphicsSkillsRelations = relations(
-  motionGraphicsSkills,
-  ({ one }) => ({
-    motionGraphicsProject: one(motionGraphicsProjects, {
-      fields: [motionGraphicsSkills.project],
-      references: [motionGraphicsProjects.id],
-    }),
-    skill: one(skills, {
-      fields: [motionGraphicsSkills.skill],
-      references: [skills.id],
-    }),
+    workExperienceSkills: many(workExperienceSkills),
   }),
 );
 
@@ -105,23 +90,38 @@ export const creatorsRelations = relations(creators, ({ many }) => ({
   videos: many(videos),
 }));
 
-export const workExperienceSkillsRelations = relations(
-  workExperienceSkills,
+export const motionGraphicsSkillsRelations = relations(
+  motionGraphicsSkills,
   ({ one }) => ({
-    workExperienceJob: one(workExperienceJobs, {
-      fields: [workExperienceSkills.job],
-      references: [workExperienceJobs.id],
+    motionGraphicsProject: one(motionGraphicsProjects, {
+      fields: [motionGraphicsSkills.project],
+      references: [motionGraphicsProjects.id],
     }),
     skill: one(skills, {
-      fields: [workExperienceSkills.skill],
+      fields: [motionGraphicsSkills.skill],
       references: [skills.id],
     }),
   }),
 );
 
-export const workExperienceJobsRelations = relations(
-  workExperienceJobs,
+export const motionGraphicsProjectsRelations = relations(
+  motionGraphicsProjects,
   ({ many }) => ({
-    workExperienceSkills: many(workExperienceSkills),
+    motionGraphicsSkills: many(motionGraphicsSkills),
+    animationSkills: many(animationSkills),
+  }),
+);
+
+export const animationSkillsRelations = relations(
+  animationSkills,
+  ({ one }) => ({
+    motionGraphicsProject: one(motionGraphicsProjects, {
+      fields: [animationSkills.project],
+      references: [motionGraphicsProjects.id],
+    }),
+    skill: one(skills, {
+      fields: [animationSkills.skill],
+      references: [skills.id],
+    }),
   }),
 );

@@ -19,9 +19,9 @@ import { Header2Mono } from "../text/headers";
 import { FadeInScroll } from "../page-anim/fadeinscroll";
 
 export default function GraphicDesignContent({
-  videos,
+  artworks,
 }: {
-  videos: (string | undefined)[];
+  artworks: (string | undefined)[];
 }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [image, setImage] = useState({
@@ -51,7 +51,7 @@ export default function GraphicDesignContent({
             {(onClose) => (
               <>
                 <ModalHeader>{image.header}</ModalHeader>
-                <ModalBody className="justify-center content-center">
+                <ModalBody className="justify-center content-center items-center">
                   {!image.loaded ? <Spinner label="Loading" /> : <></>}
                   <Image
                     alt={image.alt}
@@ -81,20 +81,20 @@ export default function GraphicDesignContent({
         <Divider className="my-10" />
         <Header2Mono className="mb-5">My Work</Header2Mono>
         <div className="columns-2 sm:columns-3 md:columns-4 my-2 sm:my-4 gap-4 sm:gap-8">
-          {videos !== undefined ? (
-            videos.map((video) => (
+          {artworks !== undefined ? (
+            artworks.map((artwork) => (
               <Card
-                key={video}
+                key={artwork}
                 isPressable
                 onPress={() =>
-                  openModal(video!, video!, `api/graphic_design/${video}`)
+                  openModal(artwork!, artwork!, `api/graphic_design/${artwork}`)
                 }
                 className="w-full h-full mb-4 sm:gap-8"
               >
                 <Image
                   isZoomed
-                  alt={`${video}`}
-                  src={`/api/graphic_design/resize/${video}`}
+                  alt={`${artwork}`}
+                  src={`/api/graphic_design/resize/${artwork}`}
                   className="z-0 object-fill"
                 />
               </Card>
