@@ -3,7 +3,7 @@ networks:
     external: true
 
 services:
-  portfolio:
+  alexanderjalexander:
     build: .
     restart: unless-stopped
     env_file:
