@@ -12,6 +12,7 @@ export async function GET(
     const key = Array.isArray(params.id) ? params.id.join("/") : params.id;
     let res = await getObject(key);
     const streamToString = await res.Body?.transformToByteArray();
+    // @ts-ignore
     return new Response(streamToString, {
       status: 200,
       // @ts-ignore
