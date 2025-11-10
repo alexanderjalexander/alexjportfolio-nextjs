@@ -3,7 +3,7 @@ networks:
     external: true
 
 services:
-  portfolio:
+  alexanderjalexander:
     build: .
     restart: unless-stopped
     env_file:
@@ -12,7 +12,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.alexanderjalexander.service=alexanderjalexander"
-      - "traefik.http.routers.alexanderjalexander.rule=Host(`www.alexanderjalexander.com`) || Host(`portfolio.home.alexanderjalexander.com`)"
+      - "traefik.http.routers.alexanderjalexander.rule=Host(`alexanderjalexander.com`) || Host(`www.alexanderjalexander.com`) || Host(`portfolio.home.alexanderjalexander.com`)"
       - "traefik.http.routers.alexanderjalexander.entrypoints=websecure"
       - "traefik.http.routers.alexanderjalexander.tls=true"
       - "traefik.http.routers.alexanderjalexander.tls.certResolver=cloudflare"
