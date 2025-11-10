@@ -11,13 +11,13 @@ import { siteConfig } from "@/config/site";
 import { getSkillsCategories } from "@/src/lib/data/skills";
 
 import NextImage from "next/image";
-import Link from "next/link";
 
 import { Card, CardHeader } from "@heroui/card";
 import { Chip } from "@heroui/chip";
 import { Divider } from "@heroui/divider";
 import { Image } from "@heroui/image";
 import WorkExperienceContent from "@/components/content/work_experience_content";
+import { ClientLink } from "@/components/content/client_link";
 
 export default async function Home() {
   const skillsCategories = await getSkillsCategories();
@@ -139,7 +139,7 @@ export default async function Home() {
               <Card
                 key={index}
                 isPressable
-                as={Link}
+                as={ClientLink}
                 href={item.href}
                 className="my-5 h-[100px] w-4/5 sm:h-[150px] sm:w-[300px] mx-auto bg-primary-900 hover:bg-primary-700"
               >
