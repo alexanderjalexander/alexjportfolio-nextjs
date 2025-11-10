@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 export default async function Programming() {
   const programmingProjects = await getProgrammingProjectsSkillsFull();
-  const uptimes = await getHomelabUptimes();
+  const uptimes = getHomelabUptimes();
 
   return (
     <PageWrapper>

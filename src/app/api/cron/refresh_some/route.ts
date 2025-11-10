@@ -6,7 +6,11 @@ export async function GET(req: Request) {
     return new Response("Unauthorized", { status: 401 });
   }
   try {
-    const paths = ["/", "/video", "/api/video", "/api/video/commissions"];
+    const paths = [
+      "/",
+      "/video", "/api/video", "/api/video/commissions",
+      "/programming", "/api/programming",
+    ];
     for (let path of paths) {
       revalidatePath(path);
     }

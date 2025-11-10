@@ -1,6 +1,5 @@
 import {
   DeleteObjectsCommand,
-  DeleteObjectsCommandOutput,
   GetObjectCommand,
   ListObjectsCommand,
   PutObjectCommand,
