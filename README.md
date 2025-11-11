@@ -45,6 +45,9 @@ BUCKET_NAME_RESIZE="<Resize Bucket. Good for optimized page loading and images>"
 AWS_ACCESS_KEY_ID="<your b2 keyId>"
 AWS_SECRET_ACCESS_KEY="<your b2 applicationKey>"
 
+# Uptime API URL
+UPTIME_API_URL=https://uptime.alexanderjalexander.com/api/v1
+
 # YouTube API Key
 YOUTUBE_API_KEY="<your YouTube Data API V3 Key (standard non-OAuth key)>"
 ```

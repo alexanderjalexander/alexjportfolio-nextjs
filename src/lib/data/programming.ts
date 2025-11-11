@@ -19,6 +19,9 @@ export async function getHomelabUptimes(): Promise<EndpointStatus[]> {
 
   const statuses_response = await fetch(`${process.env["UPTIME_API_URL"]!}/endpoints/statuses`, {
     method: "GET",
+    headers: {
+      "Accept": "application/json",
+    }
   });
 
   console.log(statuses_response)
