@@ -17,11 +17,11 @@ export interface EndpointStatus {
 export async function getHomelabUptimes(): Promise<EndpointStatus[]> {
   const services = [];
 
-  const base_url = "https://uptime.alexanderjalexander.com/api/v1";
-
-  const statuses_response = await fetch(`${base_url}/endpoints/statuses`, {
+  const statuses_response = await fetch(`${process.env["UPTIME_API_URL"]!}/endpoints/statuses`, {
     method: "GET",
   });
+
+  console.log(statuses_response)
 
   if (!statuses_response.ok) {
     throw Error("Could not obtain homelab endpoint statuses.");
@@ -30,7 +30,7 @@ export async function getHomelabUptimes(): Promise<EndpointStatus[]> {
   const statuses = await statuses_response.json();
   for (let status of statuses) {
     const uptime_response = await fetch(
-      `${base_url}/endpoints/${status.key}/uptimes/7d`,
+      `${process.env["UPTIME_API_URL"]!}/endpoints/${status.key}/uptimes/7d`,
     );
     if (!uptime_response.ok) {
       throw Error(`Could not obtain homelab uptime status for ${status.key}.`);
