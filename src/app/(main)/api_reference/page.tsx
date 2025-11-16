@@ -58,10 +58,12 @@ export default async function API_Reference() {
           <CardBody className={"bg-primary-900 font-mono " + fontMono.variable}>
             <pre>[</pre>
             <pre>&emsp;&#123;</pre>
-            <pre>&emsp;&emsp;"name": "...",</pre>
-            <pre>&emsp;&emsp;"url"?: "...",</pre>
-            <pre>&emsp;&emsp;"up": boolean,</pre>
-            <pre>&emsp;&emsp;"uptime_percent": 99.99,</pre>
+            <pre>&emsp;&emsp;"id": 4,</pre>
+            <pre>&emsp;&emsp;"title": "...",</pre>
+            <pre>&emsp;&emsp;"subtitle": "...",</pre>
+            <pre>&emsp;&emsp;"description": "...",</pre>
+            <pre>&emsp;&emsp;"link": "...",</pre>
+            <pre>&emsp;&emsp;"skills": [ "...", ... ]</pre>
             <pre>&emsp;&#125;,</pre>
             <pre>...</pre>
             <pre>]</pre>
@@ -76,12 +78,10 @@ export default async function API_Reference() {
           <CardBody className={"bg-primary-900 font-mono " + fontMono.variable}>
             <pre>[</pre>
             <pre>&emsp;&#123;</pre>
-            <pre>&emsp;&emsp;"id": 4,</pre>
-            <pre>&emsp;&emsp;"title": "...",</pre>
-            <pre>&emsp;&emsp;"subtitle": "...",</pre>
-            <pre>&emsp;&emsp;"description": "...",</pre>
-            <pre>&emsp;&emsp;"link": "...",</pre>
-            <pre>&emsp;&emsp;"skills": [ "...", ... ]</pre>
+            <pre>&emsp;&emsp;"name": "...",</pre>
+            <pre>&emsp;&emsp;"url"?: "...",</pre>
+            <pre>&emsp;&emsp;"up": boolean,</pre>
+            <pre>&emsp;&emsp;"uptime_percent": 99.99,</pre>
             <pre>&emsp;&#125;,</pre>
             <pre>...</pre>
             <pre>]</pre>
