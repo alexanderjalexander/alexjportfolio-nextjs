@@ -63,7 +63,7 @@ export default async function Programming() {
       <FadeInScroll>
         <Divider className="my-10" />
         <Header2Mono className="mb-5">Homelab</Header2Mono>
-        <HomelabCard uptimes={uptimes} />
+        <HomelabCard />
       </FadeInScroll>
 
       {/* Programming Project Cards Section */}
