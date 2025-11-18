@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 import { EndpointStatus } from "@/src/lib/data/programming";
 import { Button } from "@heroui/button";
 import { Card, CardBody, CardFooter } from "@heroui/card";
@@ -9,15 +11,24 @@ import { Chip } from "@heroui/react";
 
 import ImageModal from "./image_modal";
 
-import { use } from "react";
+export default function HomelabCard() {
+  const [loaded, setLoaded] = useState<boolean>(false);
+  const [endpoints, setEndpoints] = useState<EndpointStatus[] | null>(null);
 
-export default function HomelabCard({
-  uptimes,
-}: {
-  uptimes: Promise<EndpointStatus[]>;
-}) {
-  const allUptimes = use(uptimes);
-  console.log(allUptimes);
+  useEffect(() => {
+    fetch("/api/programming/homelab")
+      .then(res => res.json())
+      .then(data => {
+        setEndpoints(data);
+      })
+      .catch((e) => {
+        console.error(`Could not fetch: ${e}`);
+        setEndpoints(null);
+      });
+    setLoaded(true);
+  }, []);
+  
+  const allUptimes = endpoints !== null ? endpoints : [];
 
   const {modal, openModal} = ImageModal();
 

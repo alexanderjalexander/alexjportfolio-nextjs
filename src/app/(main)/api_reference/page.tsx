@@ -69,6 +69,24 @@ export default async function API_Reference() {
             <pre>]</pre>
           </CardBody>
         </Card>
+
+        <Header3Mono className="mb-5" align="left">
+          GET /homelab
+        </Header3Mono>
+        <p>Obtains list of endpoints and their statuses.</p>
+        <Card>
+          <CardBody className={"bg-primary-900 font-mono " + fontMono.variable}>
+            <pre>[</pre>
+            <pre>&emsp;&#123;</pre>
+            <pre>&emsp;&emsp;"name": "...",</pre>
+            <pre>&emsp;&emsp;"url"?: "...",</pre>
+            <pre>&emsp;&emsp;"up": boolean,</pre>
+            <pre>&emsp;&emsp;"uptime_percent": 99.99,</pre>
+            <pre>&emsp;&#125;,</pre>
+            <pre>...</pre>
+            <pre>]</pre>
+          </CardBody>
+        </Card>
         <p></p>
       </FadeInScroll>
       <FadeInScroll>
