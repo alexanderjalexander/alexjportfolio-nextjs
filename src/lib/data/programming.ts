@@ -24,8 +24,6 @@ export async function getHomelabUptimes(): Promise<EndpointStatus[]> {
     }
   });
 
-  console.log(statuses_response)
-
   if (!statuses_response.ok) {
     throw Error("Could not obtain homelab endpoint statuses.");
   }
