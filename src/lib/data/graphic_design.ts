@@ -14,7 +14,7 @@ const s3 = new S3Client({
 
 export async function getObjects() {
   const command = new ListObjectsCommand({
-    Bucket: process.env.BUCKET_NAME!,
+    Bucket: process.env.GD_BUCKET_NAME!,
   });
   const { Contents } = await s3.send(command);
   for (let x of Contents!) {
@@ -36,7 +36,7 @@ export async function getObjects() {
 
 export async function getObjectsResized() {
   const command = new ListObjectsCommand({
-    Bucket: `${process.env.BUCKET_NAME_RESIZE!}`,
+    Bucket: `${process.env.GD_BUCKET_NAME_RESIZE!}`,
   });
   const { Contents } = await s3.send(command);
   for (let x of Contents!) {
@@ -58,7 +58,7 @@ export async function getObjectsResized() {
 
 export async function getObject(key: string) {
   const command = new GetObjectCommand({
-    Bucket: process.env.BUCKET_NAME!,
+    Bucket: process.env.GD_BUCKET_NAME!,
     Key: key,
   });
   const data = await s3.send(command);
@@ -67,7 +67,7 @@ export async function getObject(key: string) {
 
 export async function getObjectResized(key: string) {
   const command = new GetObjectCommand({
-    Bucket: `${process.env.BUCKET_NAME_RESIZE!}`,
+    Bucket: `${process.env.GD_BUCKET_NAME_RESIZE!}`,
     Key: key,
   });
   const data = await s3.send(command);
@@ -76,7 +76,7 @@ export async function getObjectResized(key: string) {
 
 export async function syncObjects() {
   const list_temp_objs_command = new ListObjectsCommand({
-    Bucket: `${process.env.BUCKET_NAME_RESIZE!}`,
+    Bucket: `${process.env.GD_BUCKET_NAME_RESIZE!}`,
   });
   let keys_data =
     (await s3.send(list_temp_objs_command)).Contents?.map((x) => ({
@@ -84,7 +84,7 @@ export async function syncObjects() {
     })) ?? [];
 
   const del_objs_command = new DeleteObjectsCommand({
-    Bucket: `${process.env.BUCKET_NAME_RESIZE!}`,
+    Bucket: `${process.env.GD_BUCKET_NAME_RESIZE!}`,
     Delete: {
       Objects: keys_data,
     },
@@ -92,7 +92,7 @@ export async function syncObjects() {
   let del_data = await s3.send(del_objs_command);
 
   const list_full_size_objs_command = new ListObjectsCommand({
-    Bucket: `${process.env.BUCKET_NAME!}`,
+    Bucket: `${process.env.GD_BUCKET_NAME!}`,
   });
   let full_keys_data =
     (await s3.send(list_full_size_objs_command)).Contents ?? [];
@@ -108,7 +108,7 @@ export async function syncObjects() {
       .toBuffer();
 
     const put_obj_command = new PutObjectCommand({
-      Bucket: `${process.env.BUCKET_NAME_RESIZE!}`,
+      Bucket: `${process.env.GD_BUCKET_NAME_RESIZE!}`,
       Key: key.Key!,
       Body: resize_image!,
       ContentType: res.ContentType,
