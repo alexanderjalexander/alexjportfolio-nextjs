@@ -1,11 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  logging: {
-    fetches: {
-      fullUrl: true,
-      hmrRefreshes: true,
-    },
-  },
   experimental: {
     optimizePackageImports: ["@heroui", "@heroui/react", "framer-motion"],
   },
