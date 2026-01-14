@@ -40,8 +40,9 @@ CRON_SECRET="<alphanumeric token>"
 
 # BackBlaze B2 Environment Variables
 REGION="<specified AWS bucket region from BackBlaze>"
-BUCKET_NAME="<Original Bucket>"
-BUCKET_NAME_RESIZE="<Resize Bucket. Good for optimized page loading and images>"
+GD_BUCKET_NAME="<Original Bucket>"
+GD_BUCKET_NAME_RESIZE="<Resize Bucket. Good for optimized page loading and images>"
+WORK_BUCKET_NAME="<Work Pictures Bucket>"
 AWS_ACCESS_KEY_ID="<your b2 keyId>"
 AWS_SECRET_ACCESS_KEY="<your b2 applicationKey>"
 
