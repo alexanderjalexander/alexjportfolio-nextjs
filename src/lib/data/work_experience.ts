@@ -6,6 +6,21 @@ import {
 } from "@/src/db/migrations/schema";
 import { desc, eq } from "drizzle-orm";
 import { getColorCategorizedSkills } from "@/src/lib/data/skills";
+import { GetObjectCommand, S3Client } from "@aws-sdk/client-s3";
+
+const s3 = new S3Client({
+  endpoint: `https://s3.${process.env.REGION!}.backblazeb2.com`,
+  region: process.env.REGION!,
+});
+
+export async function getObject(key: string) {
+  const command = new GetObjectCommand({
+    Bucket: process.env.WORK_BUCKET_NAME!,
+    Key: key,
+  });
+  const data = await s3.send(command);
+  return data;
+}
 
 export async function getWorkExperienceJobs() {
   return (await getDatabase())
@@ -29,6 +44,7 @@ export async function getWorkExperienceSkills() {
 
 interface WorkExperienceJob {
   id: number;
+  companyPictureKey: string | null | undefined;
   jobTitle: string;
   jobStartDate: string;
   jobEndDate: string | null;
@@ -59,6 +75,7 @@ export async function getWorkExperienceJobsSkills(): Promise<
 
 interface WorkExperienceJobFull {
   id: number;
+  companyPictureKey: string | null | undefined;
   jobTitle: string;
   jobStartDate: string;
   jobEndDate: string | null;
