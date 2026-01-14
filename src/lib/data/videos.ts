@@ -19,7 +19,7 @@ export interface CommissionsObject {
     views: number;
     pfp: string;
     id: string;
-    videos: [{ url: string; date: string }];
+    videos: { url: string; date: string }[];
   };
 }
 
@@ -77,6 +77,12 @@ export async function getCommissions() {
     for (let item of vid_list!) {
       result[person].views += Number(item.statistics?.viewCount)!;
     }
+
+    // @ts-ignore
+    const vid_list_ids: Set<string> = new Set(vid_list.map((x) => x.id));
+    result[person].videos = result[person].videos.filter((x) =>
+      vid_list_ids.has(x.url),
+    );
 
     const channelInfo = await fetch(
       `https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&fields=items.snippet.thumbnails.medium&id=${result[person].id}&key=${process.env.YOUTUBE_API_KEY!}`,
