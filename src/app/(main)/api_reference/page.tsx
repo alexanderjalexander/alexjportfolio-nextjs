@@ -47,6 +47,43 @@ export default async function API_Reference() {
       <FadeInScroll>
         <Divider className="my-10" />
         <Header3Mono className="mb-5" align="left">
+          /api/work
+        </Header3Mono>
+
+        <Header3Mono className="mb-5" align="left">
+          GET /
+        </Header3Mono>
+        <p>Obtains list of all my existing work experiences.</p>
+        <Card>
+          <CardBody className={"bg-primary-900 font-mono " + fontMono.variable}>
+            <pre>[</pre>
+            <pre>&emsp;&#123;</pre>
+            <pre>&emsp;&emsp;"id": 4,</pre>
+            <pre>&emsp;&emsp;"jobTitle": "...",</pre>
+            <pre>&emsp;&emsp;"jobStartDate": "YYYY-MM-DD",</pre>
+            <pre>&emsp;&emsp;"jobEndDate": "YYYY-MM-DD",</pre>
+            <pre>&emsp;&emsp;"jobCompany": "...",</pre>
+            <pre>&emsp;&emsp;"jobLocation": "...",</pre>
+            <pre>&emsp;&emsp;"responsibilities": "...",</pre>
+            <pre>&emsp;&emsp;"companyPictureKey": "...",</pre>
+            <pre>&emsp;&emsp;"skills": [ "...", ... ]</pre>
+            <pre>&emsp;&#125;,</pre>
+            <pre>...</pre>
+            <pre>]</pre>
+          </CardBody>
+        </Card>
+        <p></p>
+
+        <Header3Mono className="mb-5" align="left">
+          GET /img/:id
+        </Header3Mono>
+        <p>Obtains an all-white logo image of a company if provided.</p>
+        <p>404s if the key leads to no image.</p>
+      </FadeInScroll>
+
+      <FadeInScroll>
+        <Divider className="my-10" />
+        <Header3Mono className="mb-5" align="left">
           /api/programming
         </Header3Mono>
 
@@ -69,6 +106,7 @@ export default async function API_Reference() {
             <pre>]</pre>
           </CardBody>
         </Card>
+        <p></p>
 
         <Header3Mono className="mb-5" align="left">
           GET /homelab
@@ -89,6 +127,7 @@ export default async function API_Reference() {
         </Card>
         <p></p>
       </FadeInScroll>
+
       <FadeInScroll>
         <Divider className="my-10" />
         <Header3Mono className="mb-5" align="left">
@@ -156,6 +195,7 @@ export default async function API_Reference() {
         </Card>
         <p></p>
       </FadeInScroll>
+
       <FadeInScroll>
         <Divider className="my-10" />
         <Header3Mono className="mb-5" align="left">
@@ -241,13 +281,13 @@ export default async function API_Reference() {
         <p></p>
 
         <Header3Mono className="mb-5" align="left">
-          GET /[...id]
+          GET /:id
         </Header3Mono>
         <p>Returns a full-quality image provided from the key given.</p>
         <p>404s if the key leads to no image.</p>
 
         <Header3Mono className="mb-5" align="left">
-          GET /resize/[...id]
+          GET /resize/:id
         </Header3Mono>
         <p>
           Returns a low-quality image provided from the key given. Useful for
@@ -325,6 +365,8 @@ export default async function API_Reference() {
             <pre>&#125;</pre>
           </CardBody>
         </Card>
+        <p></p>
+
         <Header3Mono className="mb-5" align="left">
           GET /refresh_some/
         </Header3Mono>
