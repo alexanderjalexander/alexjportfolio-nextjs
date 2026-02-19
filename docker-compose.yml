@@ -4,6 +4,7 @@ networks:
 
 services:
   alexanderjalexander:
+    container_name: 'alexjportfolio'
     build: .
     restart: unless-stopped
     env_file:
