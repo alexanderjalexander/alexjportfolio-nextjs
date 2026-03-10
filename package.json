@@ -50,5 +50,6 @@
   },
   "overrides": {
     "esbuild": "^0.25.5"
-  }
+  },
+  "name": "definitely_not_my_portfolio"
 }

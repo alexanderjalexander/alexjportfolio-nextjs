@@ -1,5 +1,6 @@
 services:
   portfolio:
+    container_name: "definitely_not_the_development_container"
     build: .
     restart: unless-stopped
     ports:
