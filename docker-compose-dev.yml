@@ -1,5 +1,6 @@
 services:
   portfolio:
+    container_name: "portfolio-dev-container"
     build: .
     restart: unless-stopped
     ports:
