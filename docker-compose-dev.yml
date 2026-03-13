@@ -1,6 +1,6 @@
 services:
   portfolio:
-    container_name: "portfolio-dev-container"
+    container_name: "alexjportfolio-dev"
     build: .
     restart: unless-stopped
     ports:
