@@ -92,7 +92,24 @@ export async function getProgrammingProjectsSkills() {
   return projects;
 }
 
-export async function getProgrammingProjectsSkillsFull() {
+interface ProgrammingProjectFull {
+  id: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  repoLink: string | null;
+  liveLink: string | null;
+  skills:
+    | {
+        color: string;
+        skill: string;
+      }[]
+    | null
+    | undefined;
+}
+[];
+
+export async function getProgrammingProjectsSkillsFull(): Promise<ProgrammingProjectFull[]> {
   const programmingSkills = await getProgrammingSkills();
   /** skills =
    * [
@@ -131,6 +148,7 @@ export async function getProgrammingProjectsSkillsFull() {
       });
   }
 
+  // @ts-ignore
   return projects;
 }
 

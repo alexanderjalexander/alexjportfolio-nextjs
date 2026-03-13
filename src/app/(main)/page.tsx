@@ -141,7 +141,7 @@ export default async function Home() {
                 isPressable
                 as={ClientLink}
                 href={item.href}
-                className="my-5 h-[100px] w-4/5 sm:h-[150px] sm:w-[300px] mx-auto bg-primary-900 hover:bg-primary-700"
+                className="my-5 h-[100px] w-4/5 sm:h-[150px] sm:w-[300px] mx-auto bg-primary-800 hover:bg-primary-600"
               >
                 <CardHeader className="absolute z-2 top-0 bottom-0">
                   <Header3Mono className="drop-shadow-sm">

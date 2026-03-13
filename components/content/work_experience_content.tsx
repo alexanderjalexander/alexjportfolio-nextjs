@@ -1,8 +1,7 @@
-import { Header3Mono, SubheaderMono } from "@/components/text/headers";
 import { getWorkExperienceJobsSkillsFull } from "@/src/lib/data/work_experience";
 import { Chip } from "@heroui/chip";
 import Image from "next/image";
-import { Card, Divider } from "@heroui/react";
+import { Divider } from "@heroui/react";
 
 export default async function WorkExperienceContent() {
   const workExperience = await getWorkExperienceJobsSkillsFull();
@@ -41,7 +40,7 @@ export default async function WorkExperienceContent() {
                 : `col-span-2 lg:col-span-1 w-full`
             }
           >
-            <div className="rounded-lg border border-[hsl(var(--heroui-divider)/.5)] p-4">
+            <div className="rounded-lg dark:bg-primary-900 bg-secondary-50 shadow-medium p-4">
               {/* First bit is the title, image, location, whatever*/}
               <div className="flex flex-row flex-nowrap items-center pb-2">
                 {job.companyPictureKey !== undefined &&

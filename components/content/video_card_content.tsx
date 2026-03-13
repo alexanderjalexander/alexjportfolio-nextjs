@@ -66,7 +66,7 @@ export default function VideoCardContent({
       <div className="overflow-auto">
         <Modal
           isOpen={isOpen}
-          className="bg-background w-full"
+          className="dark:bg-primary-900 bg-secondary-50 w-full"
           backdrop="blur"
           size="5xl"
           onOpenChange={onOpenChange}
@@ -102,7 +102,7 @@ export default function VideoCardContent({
             <Card
               key={project.id}
               isBlurred
-              className="basis-full md:basis-2/5 bg-primary-900 p-1 my-4"
+              className="basis-full md:basis-2/5 dark:bg-primary-900 bg-secondary-50 p-1 my-4"
             >
               <CardHeader className="justify-between items-baseline">
                 <div className="text-lg lg:text-lg font-bold">

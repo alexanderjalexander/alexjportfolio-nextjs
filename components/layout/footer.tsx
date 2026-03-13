@@ -6,6 +6,8 @@ import { GithubIcon, LinkedInIcon } from "../icons";
 import Webring from "../webring";
 import { fontMono } from "@/config/fonts";
 
+import * as constants from "@/components/constants"
+
 export default function Footer() {
   return (
     <FadeInScroll>
@@ -30,8 +32,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/in/alexander-j-27144720b/"
                 as={Link}
                 isExternal
-                className="bg-primary-900"
-                showAnchorIcon
+                className={`${constants.BUTTON_CLASSNAME}`}
                 startContent={<LinkedInIcon />}
                 variant="flat"
               >
@@ -43,8 +44,7 @@ export default function Footer() {
                 href="https://github.com/alexanderjalexander/"
                 as={Link}
                 isExternal
-                className="bg-primary-900"
-                showAnchorIcon
+                className={`${constants.BUTTON_CLASSNAME}`}
                 startContent={<GithubIcon />}
                 variant="flat"
               >

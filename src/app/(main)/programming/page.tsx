@@ -20,6 +20,7 @@ import {
   getHomelabUptimes,
 } from "@/src/lib/data/programming";
 import HomelabCard from "@/components/content/homelab_card";
+import ProgrammingContent from "@/components/content/programming_content";
 
 export const metadata: Metadata = {
   title: "Programming",
@@ -70,70 +71,7 @@ export default async function Programming() {
       <FadeInScroll>
         <Divider className="my-10" />
         <Header2Mono className="mb-5">Projects</Header2Mono>
-        {programmingProjects.reverse().map((project) => (
-          <Card key={project.id} isBlurred className="bg-primary-900 my-8">
-            <CardHeader className="block">
-              <div className="font-bold text-lg lg:text-lg">
-                {project.title}
-              </div>
-              <div className="text-sm lg:text-sm opacity-70">
-                {project.subtitle}
-              </div>
-            </CardHeader>
-            <CardBody>
-              <div>{project.description}</div>
-            </CardBody>
-            <CardFooter className="flex flex-wrap">
-              <div>
-                {
-                  //@ts-ignore
-                  project.skills.map(
-                    //@ts-ignore
-                    (item, index) => (
-                      <Chip key={index} className={"m-1 " + item.color}>
-                        {item.skill}
-                      </Chip>
-                    ),
-                  )
-                }
-              </div>
-
-              <div className="ml-auto basis-1">
-                {project.repoLink ? (
-                  <Button
-                    href={project.repoLink}
-                    as={Link}
-                    target="_blank"
-                    color="primary"
-                    startContent={<GithubIcon />}
-                    showAnchorIcon
-                    variant="solid"
-                    className="text-foreground bg-primary-700 right-0 mx-4 my-2 sm:w-auto"
-                  >
-                    View Project
-                  </Button>
-                ) : (
-                  <div></div>
-                )}
-                {project.liveLink ? (
-                  <Button
-                    href={project.liveLink}
-                    as={Link}
-                    target="_blank"
-                    color="primary"
-                    showAnchorIcon
-                    variant="solid"
-                    className="text-foreground bg-primary-700 right-0 mx-4 my-2 sm:w-auto"
-                  >
-                    View Project
-                  </Button>
-                ) : (
-                  <div></div>
-                )}
-              </div>
-            </CardFooter>
-          </Card>
-        ))}
+        <ProgrammingContent />
       </FadeInScroll>
     </PageWrapper>
   );

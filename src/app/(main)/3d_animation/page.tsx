@@ -39,7 +39,8 @@ export default async function Animation() {
           In addition with Video Editing and Motion Graphics, I found that it
           has always filled the gap that those two disciplines could not. It has
           the ability to make raw models come to life, create luscious and
-          intricate environments,{" "}
+          intricate environments, and tell stories through motion, lighting, and
+          timing — all while blending art with technical problem solving.
         </p>
       </FadeInScroll>
 

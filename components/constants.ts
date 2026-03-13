@@ -1,0 +1,1 @@
+export const BUTTON_CLASSNAME = "text-background font-bold uppercase tracking-wide bg-primary-50 hover:bg-primary-500 dark:bg-primary-100 hover:dark:bg-primary-200 sm:w-auto";

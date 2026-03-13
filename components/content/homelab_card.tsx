@@ -9,6 +9,8 @@ import { Image } from "@heroui/image";
 import { Link } from "@heroui/link";
 import { Chip } from "@heroui/react";
 
+import * as constants from "@/components/constants";
+
 import ImageModal from "./image_modal";
 
 export default function HomelabCard() {
@@ -45,7 +47,7 @@ export default function HomelabCard() {
   return (
     <div>
       {modal}
-      <Card isBlurred className="bg-primary-900 my-8 max-w-2xl m-auto">
+      <Card isBlurred className="dark:bg-primary-900 bg-secondary-50 my-8 max-w-2xl m-auto">
         <CardBody className="p-4">
           <div className="block sm:flex flex-row gap-4">
             <Card
@@ -84,7 +86,7 @@ export default function HomelabCard() {
                   {uptime_slice.map((uptime, i) => (
                     <tr
                       key={i}
-                      className={`${i % 2 === 0 && "bg-[#FFFFFF10]"}`}
+                      className={`${i % 2 === 0 && "dark:bg-[#FFFFFF20] bg-secondary-100"}`}
                     >
                       <td className="pl-2 w-full mr-auto">{uptime.name}</td>
                       <td className="py-1 px-2">
@@ -108,9 +110,8 @@ export default function HomelabCard() {
             as={Link}
             target="_blank"
             color="primary"
-            showAnchorIcon
             variant="solid"
-            className="text-foreground bg-primary-700 right-0 ml-auto sm:w-auto"
+            className={`${constants.BUTTON_CLASSNAME} ml-auto`}
           >
             View Uptime
           </Button>

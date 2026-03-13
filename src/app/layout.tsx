@@ -41,7 +41,8 @@ export default function RootLayout({
           "min-h-screen " +
           fontSans.variable +
           " font-sans antialiased" +
-          " bg-fixed bg-linear-to-tr from-primary-900 via-background to-primary-900"
+          " bg-fixed bg-linear-to-tr from-primary-900 via-background to-primary-900" +
+          " transition"
         }
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>

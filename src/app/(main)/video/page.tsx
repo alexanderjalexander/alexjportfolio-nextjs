@@ -118,10 +118,9 @@ export default async function Video() {
                   target="_blank"
                   href={`https://www.youtube.com/channel/${commissions[commissioner].id}`}
                   variant="solid"
-                  showAnchorIcon
-                  className="text-foreground bg-primary-700 sm:w-auto"
+                  className="text-foreground font-bold uppercase tracking-wide bg-primary-800 dark:bg-primary-400 sm:w-auto"
                 >
-                  Visit
+                  Visit Channel
                 </Button>
               </div>
             </Header3Mono>

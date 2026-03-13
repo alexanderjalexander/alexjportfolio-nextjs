@@ -69,9 +69,9 @@ export const Navbar = () => {
                 <Link
                   as={NextLink}
                   className={clsx(
-                    "hover:text-primary-100 hover:font-medium",
+                    "hover:font-medium",
                     "transition ease-in-out rounded-xl",
-                    item.href === pathname ? "bg-primary-700" : "",
+                    item.href === pathname ? "bg-primary-50 dark:text-black text-white" : "",
                   )}
                   color="foreground"
                   isBlock
