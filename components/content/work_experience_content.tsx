@@ -40,7 +40,7 @@ export default async function WorkExperienceContent() {
                 : `col-span-2 lg:col-span-1 w-full`
             }
           >
-            <div className="rounded-lg dark:bg-primary-900 bg-secondary-50 shadow-medium p-4">
+            <div className="rounded-lg dark:bg-primary-900 bg-secondary-50 h-full shadow-medium p-4 flex flex-col">
               {/* First bit is the title, image, location, whatever*/}
               <div className="flex flex-row flex-nowrap items-center pb-2">
                 {job.companyPictureKey !== undefined &&
@@ -79,7 +79,7 @@ export default async function WorkExperienceContent() {
                 </ul>
               </div>
               {/* Lastly, all the chips */}
-              <div className="mt-2">
+              <div className="flex flex-row items-end flex-wrap mt-auto">
                 {job.skills?.map((skill, index) => (
                   <Chip key={index} className={`m-1 ${skill.color}`}>
                     {skill.skill}
