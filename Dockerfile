@@ -1,15 +1,32 @@
-FROM alpine:latest
-
-RUN \
-apk add --no-cache \
-nodejs npm
+# Build stage
+FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-ADD package.json package-lock.json /app/
-RUN npm install
+# Copy package files
+COPY package*.json ./
 
-ADD . .
+# Install all dependencies (including devDependencies for build)
+RUN npm ci
+
+# Copy source code
+COPY . .
+
+# Build the application
 RUN npm run build
 
-CMD npm start
+# Production stage
+FROM node:20-alpine AS runner
+
+WORKDIR /app
+
+# Copy the standalone build
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+COPY --from=builder /app/public ./public
+
+# Expose port
+EXPOSE 3000
+
+# Start the application
+CMD ["node", "server.js"]
