@@ -42,8 +42,8 @@ export default async function ProgrammingContent() {
                 </div>
                 {/* Then the repo links */}
                 <div className="flex-shrink-0 ml-2 mb-3">
-                  {project.repoLink && 
-                    <Link 
+                  {project.repoLink &&
+                    <Link
                       target="_blank"
                       href={project.repoLink}
                       className={`${constants.BUTTON_CLASSNAME} transition rounded-xl m-1 p-3`}
@@ -51,10 +51,10 @@ export default async function ProgrammingContent() {
                       Visit Repo
                     </Link>
                   }
-                  {project.repoLink && 
-                    <Link 
+                  {project.liveLink &&
+                    <Link
                       target="_blank"
-                      href={project.repoLink}
+                      href={project.liveLink}
                       className={`${constants.BUTTON_CLASSNAME} transition rounded-xl m-1 p-3`}
                     >
                       Visit Site
