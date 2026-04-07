@@ -21,6 +21,7 @@ export const metadata: Metadata = {
 };
 
 export default async function API_Reference() {
+  // TODO: Remove this page, and all API routes except for graphic_design, cron, programming/homelab, and work
   return (
     <PageWrapper>
       {/* Intro Header */}
