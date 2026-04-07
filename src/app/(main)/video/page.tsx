@@ -100,6 +100,7 @@ export default async function Video() {
         <Header2Mono>Commissions</Header2Mono>
 
         {Object.keys(commissions).map((commissioner, index) => (
+          // TODO: Consider instead having separation between shorts and non-shorts?
           <FadeInScroll className="my-8" key={index}>
             <Header3Mono className="flex flex-col sm:flex-row gap-x-4 gap-y-1 justify-center items-center">
               <Image
