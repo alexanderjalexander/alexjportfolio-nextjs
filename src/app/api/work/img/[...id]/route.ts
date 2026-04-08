@@ -13,7 +13,6 @@ export async function GET(
     let res = await getObject(key);
     const streamToString = await res.Body?.transformToByteArray();
 
-    console.log(res.ContentType);
     // @ts-ignore
     return new Response(streamToString, {
       status: 200,
