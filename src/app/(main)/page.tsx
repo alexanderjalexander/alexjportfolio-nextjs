@@ -135,7 +135,7 @@ export default async function Home() {
         <div>
           <Header2Mono>What I Do</Header2Mono>
           <div className="block md:flex flex-row flex-wrap gap-1">
-            {siteConfig.activities.map((item, index) => (
+            {siteConfig.navItems.slice(1).map((item, index) => (
               <Card
                 key={index}
                 isPressable

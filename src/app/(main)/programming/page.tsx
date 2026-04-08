@@ -8,13 +8,8 @@ import { PageWrapper } from "@/components/page-anim/pagewrapper";
 import { Metadata } from "next";
 import { FadeInScroll } from "@/components/page-anim/fadeinscroll";
 
-import { Button } from "@heroui/button";
-import { Card, CardBody, CardFooter, CardHeader } from "@heroui/card";
-import { Chip } from "@heroui/chip";
 import { Divider } from "@heroui/divider";
-import { Link } from "@heroui/link";
 
-import { GithubIcon } from "@/components/icons";
 import {
   getProgrammingProjectsSkillsFull,
   getHomelabUptimes,

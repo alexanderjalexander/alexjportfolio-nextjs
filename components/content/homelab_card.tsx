@@ -18,7 +18,7 @@ export default function HomelabCard() {
   const [endpoints, setEndpoints] = useState<EndpointStatus[] | null>(null);
 
   useEffect(() => {
-    fetch("/api/programming/homelab")
+    fetch("/api/homelab")
       .then(res => res.json())
       .then(data => {
         setEndpoints(data);
@@ -29,7 +29,7 @@ export default function HomelabCard() {
       });
     setLoaded(true);
   }, []);
-  
+
   const allUptimes = endpoints !== null ? endpoints : [];
 
   const {modal, openModal} = ImageModal();
