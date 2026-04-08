@@ -23,7 +23,7 @@
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
     "dotenv": "^16.6.1",
-    "drizzle-orm": "^0.44.4",
+    "drizzle-orm": "^0.45.2",
     "eslint": "^9.28.0",
     "eslint-config-next": "^16.0.1",
     "framer-motion": "^12.17.3",
