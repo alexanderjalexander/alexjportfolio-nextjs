@@ -1,6 +1,6 @@
 import { getWorkExperienceJobsSkillsFull } from "@/src/lib/data/work_experience";
 import { Chip } from "@heroui/chip";
-import Image from "next/image";
+import { Image } from "@heroui/image";
 import { Divider } from "@heroui/react";
 
 export default async function WorkExperienceContent() {
@@ -47,8 +47,10 @@ export default async function WorkExperienceContent() {
                   job.companyPictureKey !== null && (
                     <Image
                       src={`/api/work/img/${job.companyPictureKey}`}
+                      removeWrapper={true}
+                      loading="eager"
                       alt={`Company Picture for ${job.jobCompany}`}
-                      className="w-[50px] brightness-0 m-2 dark:brightness-100"
+                      className="w-[50px] brightness-0 m-2 dark:brightness-100 object-contain"
                       width={MAX_IMG_WIDTH}
                       height={MAX_IMG_WIDTH}
                     />

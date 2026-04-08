@@ -18,7 +18,8 @@ export async function GET(
       // @ts-ignore
       headers: {
         "Content-Type": res.ContentType,
-        "Content-Length": res.ContentLength,
+        "Content-Length": res.ContentLength?.toString() || "",
+        "Content-Disposition": "inline",
       },
     });
   } catch (e) {

@@ -28,7 +28,6 @@ export default async function Home() {
         <div className="h-min m-auto">
           <div className="container max-w-(--breakpoint-sm) mx-auto pb-10 flex">
             <Image
-              as={NextImage}
               width={300}
               height={300}
               removeWrapper={true}

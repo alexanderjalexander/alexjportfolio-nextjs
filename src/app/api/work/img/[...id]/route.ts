@@ -12,13 +12,16 @@ export async function GET(
     const key = Array.isArray(params.id) ? params.id.join("/") : params.id;
     let res = await getObject(key);
     const streamToString = await res.Body?.transformToByteArray();
+
+    console.log(res.ContentType);
     // @ts-ignore
     return new Response(streamToString, {
       status: 200,
       // @ts-ignore
       headers: {
         "Content-Type": res.ContentType,
-        "Content-Length": res.ContentLength,
+        "Content-Length": res.ContentLength?.toString() || "",
+        "Content-Disposition": "inline",
       },
     });
   } catch (e) {
