@@ -25,6 +25,8 @@ export async function getHomelabUptimes(): Promise<EndpointStatus[]> {
   });
 
   if (!statuses_response.ok) {
+    console.error(`Uptime API URL: ${process.env["UPTIME_API_URL"]!}/endpoints/statuses`);
+    console.error(statuses_response.status);
     throw Error("Could not obtain homelab endpoint statuses.");
   }
 
