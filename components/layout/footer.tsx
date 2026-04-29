@@ -53,9 +53,6 @@ export default function Footer() {
             </p>
           </div>
         </div>
-        <div className="text-center py-6">
-          &copy; 2022 Alexander Jansiewicz. All Rights Reserved.
-        </div>
       </footer>
     </FadeInScroll>
   );
