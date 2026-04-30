@@ -10,6 +10,8 @@ services:
     env_file:
       - path: ./.env
         required: true
+      - path: ./.env.production.local
+        required: false
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.alexanderjalexander.service=alexanderjalexander"

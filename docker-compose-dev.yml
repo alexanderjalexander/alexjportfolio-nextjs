@@ -8,3 +8,5 @@ services:
     env_file:
       - path: ./.env
         required: true
+      - path: ./.env.development.local
+        required: false
