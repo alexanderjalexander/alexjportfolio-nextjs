@@ -15,7 +15,6 @@ import NextImage from "next/image";
 import { Card, CardHeader } from "@heroui/card";
 import { Chip } from "@heroui/chip";
 import { Divider } from "@heroui/divider";
-import { Image } from "@heroui/image";
 import WorkExperienceContent from "@/components/content/work_experience_content";
 import { ClientLink } from "@/components/content/client_link";
 
@@ -27,16 +26,14 @@ export default async function Home() {
       <div className="h-screen flex items-center">
         <div className="h-min m-auto">
           <div className="container max-w-(--breakpoint-sm) mx-auto pb-10 flex">
-            <Image
+            <NextImage
               width={300}
               height={300}
-              removeWrapper={true}
-              shadow="lg"
+              priority={true}
               alt="Profile Picture of AJ"
               src="/AJPicrew.png"
               loading="eager"
-              radius="full"
-              className="mx-auto z-1 max-w-[250px] max-h-[250px] sm:max-w-[300px] sm:max-h-[300px] w-4/5 border-8 border-primary-50"
+              className="rounded-full mx-auto z-1 max-w-[250px] max-h-[250px] sm:max-w-[300px] sm:max-h-[300px] w-4/5 border-8 border-primary-50"
             />
           </div>
           <Header1Mono>AJ&apos;s Portfolio</Header1Mono>
@@ -51,11 +48,12 @@ export default async function Home() {
         <Divider className="my-10" />
         <Header2Mono className="mb-5">About Me</Header2Mono>
         <div className="flex flex-wrap items-center justify-center gap-16">
-          <Image
-            width={500}
+          <NextImage
+            width={300}
+            height={300}
             alt="Portrait Picture of AJ"
             src="/portrait.jpg"
-            className="basis-1/5 z-1 max-w-[300px]"
+            className="rounded-xl basis-1/5 z-1 max-w-[300px] h-auto"
           />
           <div className="basis-100 lg:basis-3/5">
             <p>

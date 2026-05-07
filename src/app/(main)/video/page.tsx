@@ -15,6 +15,8 @@ import { Link } from "@heroui/link";
 import { Metadata } from "next";
 import * as vid from "@/src/lib/data/videos";
 
+import NextImage from "next/image";
+
 export const metadata: Metadata = {
   title: "Video",
 };
@@ -103,13 +105,12 @@ export default async function Video() {
           // TODO: Consider instead having separation between shorts and non-shorts?
           <FadeInScroll className="my-8" key={index}>
             <Header3Mono className="flex flex-col sm:flex-row gap-x-4 gap-y-1 justify-center items-center">
-              <Image
+              <NextImage
                 src={commissions[commissioner].pfp}
                 alt={`${commissioner} Profile Picture`}
-                height={100}
-                width={100}
-                radius="full"
-                className="z-0 sm:w-min"
+                height={75}
+                width={75}
+                className="rounded-full z-0 sm:w-min"
               />
               <div className="flex flex-wrap flex-row gap-x-4 gap-y-1 justify-center items-center">
                 {commissioner}
