@@ -1,6 +1,4 @@
-import { getHomelabUptimes, getProgrammingProjectsSkills } from "@/src/lib/data/programming";
-
-export const dynamic = "force-dynamic";
+import { getHomelabUptimes } from "@/src/lib/data/programming";
 
 export async function GET(req: Request) {
   try {

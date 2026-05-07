@@ -1,6 +1,4 @@
-import { getObjects, getObjectsResized } from "@/src/lib/data/graphic_design";
-
-export const dynamic = "force-static";
+import { getObjectsResized } from "@/src/lib/data/graphic_design";
 
 export async function GET(req: Request) {
   try {

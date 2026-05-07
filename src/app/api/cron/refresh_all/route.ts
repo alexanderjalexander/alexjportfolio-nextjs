@@ -1,8 +1,7 @@
 import { revalidatePath } from "next/cache";
 import {
   getObjects,
-  getObjectsResized,
-  syncObjects,
+  getObjectsResized
 } from "@/src/lib/data/graphic_design";
 import { authorizeBearerToken } from "../../bearerHelpers";
 
@@ -11,7 +10,7 @@ export async function GET(req: Request) {
     return new Response("Unauthorized", { status: 401 });
   }
   try {
-    const sync_result = await syncObjects();
+    // const sync_result = await syncObjects();
     const paths = [
       "/",
       "/programming",
@@ -58,7 +57,7 @@ export async function GET(req: Request) {
       }
     }
     return Response.json({
-      syncedObjects: sync_result,
+      // syncedObjects: sync_result,
       revalidatedPaths: revalidated_paths,
       error_revalidated_paths: error_revalidated_paths,
     });

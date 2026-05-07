@@ -62,39 +62,3 @@ npm run dev
 ## License
 
 Licensed under the [MIT license](https://github.com/nextui-org/next-app-template/blob/main/LICENSE).
-
-# API Routes Info
-
-## `/api/work`
-
-### GET `/img/:id`
-
-Obtains a specific image from a Backblaze B2 bucket pertaining to company logos and images.
-
-Returns 404 if not found, 500 if the server has an error, or a 200 with the image if it works.
-
-## `/api/cron`
-
-### GET `/refresh_all/`
-
-Activates the portfolio site's main Cron job: revalidate every path that is not dynamic. This is helpful to ensure that caches are properly updated every day at regular times. The website automatically fires this every week on Sunday at 12:00AM.
-
-To manually activate it, the correct alphanumeric Bearer token is required. This is to prevent unauthorized cache invalidations.
-
-Returns 401 if unauthorized, or the following if successful:
-
-```
-{
-  syncedObjects: {}[],
-  revalidatedPaths: [],
-  error_revalidated_paths: [],
-}
-```
-
-### GET `/refresh_some/`
-
-Activates the portfolio site's secondary Cron job: revalidate only certain non-dynamic paths that aren't expensive to recompute. The website automatically fires this every 24 hours at 12:00AM.
-
-To manually activate it, the correct alphanumeric Bearer token is required. This is to prevent unauthorized cache invalidations.
-
-Returns 401 if unauthorized, or `{success: true}` if authorization passes and revalidations are successful.
