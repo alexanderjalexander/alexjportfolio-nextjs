@@ -117,3 +117,13 @@ export async function getWorkExperienceJobsSkillsFull(): Promise<
   //@ts-ignore
   return jobs;
 }
+
+export async function getResumeFromS3()
+{
+  const command = new GetObjectCommand({
+    Bucket: process.env.RESUME_BUCKET_NAME!,
+    Key: 'resume.pdf',
+  });
+  const data = await s3.send(command);
+  return data;
+}

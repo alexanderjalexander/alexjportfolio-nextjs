@@ -53,7 +53,7 @@ export default async function Home() {
             height={300}
             alt="Portrait Picture of AJ"
             src="/portrait.jpg"
-            className="rounded-xl basis-1/5 z-1 max-w-[300px] h-auto"
+            className="rounded-xl basis-1/5 z-1"
           />
           <div className="basis-100 lg:basis-3/5">
             <p>

@@ -85,6 +85,18 @@ export const Navbar = () => {
         </NavbarContent>
 
         <NavbarContent className="basis-1 pl-4" justify="end">
+          <Link isExternal href={siteConfig.links.resume} aria-label="Resume">
+            <p
+              className={clsx(
+                linkStyles({ color: "foreground" }),
+                "hover:text-primary-100 hover:font-medium",
+                "transition ease-in-out",
+              )}
+            >
+              Resume
+            </p>
+          </Link>
+
           <Link isExternal href={siteConfig.links.github} aria-label="Github">
             <GithubIcon
               className={clsx(

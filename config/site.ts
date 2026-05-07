@@ -33,5 +33,6 @@ export const siteConfig = {
   links: {
     github: "https://github.com/alexanderjalexander",
     linkedin: "https://www.linkedin.com/in/alexander-j-27144720b/",
+    resume: "/resume",
   },
 };
