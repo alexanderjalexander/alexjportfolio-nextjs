@@ -1,5 +1,7 @@
 import { getObjectsResized } from "@/src/lib/data/graphic_design";
 
+export const revalidate = 86400;
+
 export async function GET(req: Request) {
   try {
     let res = await getObjectsResized();

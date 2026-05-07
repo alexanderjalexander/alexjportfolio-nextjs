@@ -1,6 +1,8 @@
 import { getObject } from "@/src/lib/data/graphic_design";
 import { NoSuchKey } from "@aws-sdk/client-s3";
 
+export const revalidate = 86400;
+
 export async function GET(
   req: Request,
   props: { params: Promise<{ id: string[] }> },
