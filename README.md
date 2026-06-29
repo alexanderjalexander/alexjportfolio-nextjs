@@ -24,15 +24,17 @@ npm install
 
 ### Create a .env file
 
-You will need access to a PostgreSQL Server of some kind, very much preferably Neon as Drizzle works directly with Neon in this project, as well as an object storage bucket(I recommend Backblaze B2). This project uses the S3-Compatible API for BackBlaze B2.
+You will need access to a PostgreSQL Server of some kind, as well as an object storage bucket(I recommend Backblaze B2). This project uses the S3-Compatible API for BackBlaze B2.
+- For databases, I use a homelab PostgreSQL server, combined with a Neon Database as a fallback option, in the event the first is unavailable. If you choose to elect out of this, see the file `/src/db/index.ts`
 
 There are two buckets utilized: a standard and a resize version. For any graphic design portfolio pieces, full-size images are placed in the standard bucket, and then resized & copied using the `syncObjects` library function into the resize bucket.
 
 The current setup utilized no versioning, or "Keep only the latest files" versioning.
 
 ```
-# Neon Environment Variables
-DATABASE_URL="<database url goes here from Neon>"
+# Database Environment Variables
+HOMELAB_DATABASE_URL="<database url goes here from Neon>"
+NEON_DATABASE_URL="<database url goes here from Neon>"
 
 # Next.js Environment Variables (CRON_SECRET can be whatever, just needs to be secure)
 NEXT_PRIVATE_DEBUG_CACHE=1

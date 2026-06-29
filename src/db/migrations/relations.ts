@@ -1,28 +1,5 @@
 import { relations } from "drizzle-orm/relations";
-import { programmingProjects, programmingSkills, skills, categories, skillCategory, workExperienceJobs, workExperienceSkills, creators, videos, motionGraphicsProjects, motionGraphicsSkills, animationSkills } from "./schema";
-
-export const programmingSkillsRelations = relations(programmingSkills, ({one}) => ({
-	programmingProject: one(programmingProjects, {
-		fields: [programmingSkills.project],
-		references: [programmingProjects.id]
-	}),
-	skill: one(skills, {
-		fields: [programmingSkills.skill],
-		references: [skills.id]
-	}),
-}));
-
-export const programmingProjectsRelations = relations(programmingProjects, ({many}) => ({
-	programmingSkills: many(programmingSkills),
-}));
-
-export const skillsRelations = relations(skills, ({many}) => ({
-	programmingSkills: many(programmingSkills),
-	skillCategories: many(skillCategory),
-	workExperienceSkills: many(workExperienceSkills),
-	motionGraphicsSkills: many(motionGraphicsSkills),
-	animationSkills: many(animationSkills),
-}));
+import { categories, skillCategory, skills, workExperienceJobs, workExperienceSkills, programmingProjects, programmingSkills, creators, videos, motionGraphicsProjects, motionGraphicsSkills, animationSkills } from "./schema";
 
 export const skillCategoryRelations = relations(skillCategory, ({one}) => ({
 	category: one(categories, {
@@ -39,6 +16,14 @@ export const categoriesRelations = relations(categories, ({many}) => ({
 	skillCategories: many(skillCategory),
 }));
 
+export const skillsRelations = relations(skills, ({many}) => ({
+	skillCategories: many(skillCategory),
+	workExperienceSkills: many(workExperienceSkills),
+	programmingSkills: many(programmingSkills),
+	motionGraphicsSkills: many(motionGraphicsSkills),
+	animationSkills: many(animationSkills),
+}));
+
 export const workExperienceSkillsRelations = relations(workExperienceSkills, ({one}) => ({
 	workExperienceJob: one(workExperienceJobs, {
 		fields: [workExperienceSkills.job],
@@ -52,6 +37,21 @@ export const workExperienceSkillsRelations = relations(workExperienceSkills, ({o
 
 export const workExperienceJobsRelations = relations(workExperienceJobs, ({many}) => ({
 	workExperienceSkills: many(workExperienceSkills),
+}));
+
+export const programmingSkillsRelations = relations(programmingSkills, ({one}) => ({
+	programmingProject: one(programmingProjects, {
+		fields: [programmingSkills.project],
+		references: [programmingProjects.id]
+	}),
+	skill: one(skills, {
+		fields: [programmingSkills.skill],
+		references: [skills.id]
+	}),
+}));
+
+export const programmingProjectsRelations = relations(programmingProjects, ({many}) => ({
+	programmingSkills: many(programmingSkills),
 }));
 
 export const videosRelations = relations(videos, ({one}) => ({
