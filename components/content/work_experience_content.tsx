@@ -50,7 +50,7 @@ export default async function WorkExperienceContent() {
                       removeWrapper={true}
                       loading="eager"
                       alt={`Company Picture for ${job.jobCompany}`}
-                      className="w-[50px] brightness-0 m-2 dark:brightness-100 object-contain"
+                      className="w-[50px] brightness-0 m-2 dark:brightness-100 object-contain z-0"
                       width={MAX_IMG_WIDTH}
                       height={MAX_IMG_WIDTH}
                     />
