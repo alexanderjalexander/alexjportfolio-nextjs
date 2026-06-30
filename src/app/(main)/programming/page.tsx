@@ -10,10 +10,6 @@ import { FadeInScroll } from "@/components/page-anim/fadeinscroll";
 
 import { Divider } from "@heroui/divider";
 
-import {
-  getProgrammingProjectsSkillsFull,
-  getHomelabUptimes,
-} from "@/src/lib/repos/programming.repo";
 import HomelabCard from "@/components/content/homelab-card";
 import ProgrammingContent from "@/components/content/programming-content";
 
@@ -22,9 +18,6 @@ export const metadata: Metadata = {
 };
 
 export default async function Programming() {
-  const programmingProjects = await getProgrammingProjectsSkillsFull();
-  const uptimes = getHomelabUptimes();
-
   return (
     <PageWrapper>
       {/* Intro Header */}

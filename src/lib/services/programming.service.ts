@@ -55,7 +55,7 @@ export async function getProgrammingProjectsWithSkills(): Promise<ProgrammingPro
   }));
 }
 
-export async function getProgrammingProjectsSkillsFull(): Promise<ProgrammingProjectDto[]> {
+export async function getProgrammingProjectsWithColoredSkills(): Promise<ProgrammingProjectDto[]> {
   const programmingSkills = await getProgrammingProjectSkills();
 
   let projects = await getProgrammingProjects();

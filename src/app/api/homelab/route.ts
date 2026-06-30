@@ -1,4 +1,4 @@
-import { getHomelabUptimes } from "@/src/lib/repos/programming.repo";
+import { getHomelabUptimes } from "@/src/lib/services/programming.service";
 
 export async function GET(req: Request) {
   try {

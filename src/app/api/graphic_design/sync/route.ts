@@ -1,5 +1,5 @@
-import { syncGraphicDesignObjects } from "@/src/lib/repos/graphic-design.repo";
 import { authorizeBearerToken } from "@/src/app/api/bearerHelpers";
+import { syncGraphicDesignObjects } from "@/src/lib/services/graphic-design.service";
 
 export async function GET(req: Request) {
   if (!authorizeBearerToken(req)) {

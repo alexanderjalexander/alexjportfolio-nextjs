@@ -6,7 +6,7 @@ import {
 } from "@/components/text/headers";
 import { PageWrapper } from "@/components/page-anim/pagewrapper";
 import TypewriterWrapper from "@/components/text/typewriterwrapper";
-import { getAnimationFull } from "@/src/lib/repos/animation";
+import { getAnimationProjectsWithColoredSkills } from "@/src/lib/services/animation.service";
 import { Divider } from "@heroui/divider";
 import { Metadata } from "next";
 import VideoCardContent from "@/components/content/video-card-content";
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Animation() {
-  const animation_projects = await getAnimationFull();
+  const animation_projects = await getAnimationProjectsWithColoredSkills();
 
   return (
     <PageWrapper>

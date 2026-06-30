@@ -1,4 +1,4 @@
-import { getWorkExperienceJobsWithColoredSkills } from "@/src/lib/repos/work-experience.repo";
+import { getWorkExperienceJobsWithColoredSkills } from "@/src/lib/services/work-experience.service";
 import { Chip } from "@heroui/chip";
 import { Image } from "@heroui/image";
 import { Divider } from "@heroui/react";

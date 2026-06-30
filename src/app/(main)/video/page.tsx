@@ -13,10 +13,12 @@ import { Divider } from "@heroui/divider";
 import { Image } from "@heroui/image";
 import { Link } from "@heroui/link";
 import { Metadata } from "next";
-import * as vid from "@/src/lib/repos/videos";
-import * as vidUtils from "@/src/lib/repos/video-utils";
 
 import NextImage from "next/image";
+import { getPersonalVideoRows } from "@/src/lib/repos/videos.repo";
+import { getCommissionsForCreators } from "@/src/lib/services/video.service";
+import { getVideoURL, getVideoThumbnail } from "@/src/lib/utils/video.utils";
+import { CommissionsForCreatorsDto } from "@/src/lib/types/videos";
 
 export const metadata: Metadata = {
   title: "Video",
@@ -24,10 +26,10 @@ export const metadata: Metadata = {
 
 export default async function Video() {
   let vids: { url: string; date: string }[];
-  let commissions: vid.CommissionsObject;
+  let commissions: CommissionsForCreatorsDto;
   try {
-    vids = await vid.getPersonalVideos();
-    commissions = await vid.getCommissions();
+    vids = await getPersonalVideoRows();
+    commissions = await getCommissionsForCreators();
   } catch (e) {
     throw Error("500: " + e);
   }
@@ -80,7 +82,7 @@ export default async function Video() {
             <a
               key={index}
               target="_blank"
-              href={vidUtils.getVideoURL(item.url)}
+              href={getVideoURL(item.url)}
               rel="noopener noreferrer"
               className={vid_link_css}
             >
@@ -88,7 +90,7 @@ export default async function Video() {
                 <Image
                   isZoomed
                   alt={`Video ${index} Link`}
-                  src={vidUtils.getVideoThumbnail(item.url)}
+                  src={getVideoThumbnail(item.url)}
                   className={image_css}
                 />
               </Card>
@@ -136,7 +138,7 @@ export default async function Video() {
                 <a
                   key={innerIndex}
                   target="_blank"
-                  href={vidUtils.getVideoURL(video.url)}
+                  href={getVideoURL(video.url)}
                   rel="noopener noreferrer"
                   className={vid_link_css}
                 >
@@ -145,7 +147,7 @@ export default async function Video() {
                       isZoomed
                       removeWrapper={true}
                       alt={`${commissioner} Video ${index}`}
-                      src={vidUtils.getVideoThumbnail(video.url)}
+                      src={getVideoThumbnail(video.url)}
                       className={image_css}
                     />
                   </Card>
@@ -155,7 +157,7 @@ export default async function Video() {
                 <a
                   key={innerIndex}
                   target="_blank"
-                  href={vidUtils.getVideoURL(video.url)}
+                  href={getVideoURL(video.url)}
                   rel="noopener noreferrer"
                   className={vid_link_css}
                 >
@@ -163,7 +165,7 @@ export default async function Video() {
                     <Image
                       isZoomed
                       alt={`${commissioner} Video ${index}`}
-                      src={vidUtils.getVideoThumbnail(video.url)}
+                      src={getVideoThumbnail(video.url)}
                       className={image_css}
                     />
                   </Card>

@@ -8,7 +8,6 @@ import {
 import { PageWrapper } from "@/components/page-anim/pagewrapper";
 import TypewriterWrapper from "@/components/text/typewriterwrapper";
 import { siteConfig } from "@/config/site";
-import { getSkillsCategories } from "@/src/lib/repos/skills.repo";
 
 import NextImage from "next/image";
 
@@ -17,9 +16,10 @@ import { Chip } from "@heroui/chip";
 import { Divider } from "@heroui/divider";
 import WorkExperienceContent from "@/components/content/work-experience-content";
 import { ClientLink } from "@/components/content/client_link";
+import { getSkillsCategoriesMap } from "@/src/lib/services/skills.service";
 
 export default async function Home() {
-  const skillsCategories = await getSkillsCategories();
+  const skillsCategories = await getSkillsCategoriesMap();
   return (
     <PageWrapper>
       {/* Intro Card */}

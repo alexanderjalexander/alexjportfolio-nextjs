@@ -5,16 +5,16 @@ import {
   motionGraphicsSkills,
 } from "@/src/db/migrations/schema";
 import { desc, eq, sql } from "drizzle-orm";
-import { getColorCategorizedSkills } from "@/src/lib/services/skills.service";
+import { MotionGraphicsProject } from "../types/motion-graphics";
 
-export async function getMotionGraphics() {
+export async function getMotionGraphics(): Promise<MotionGraphicsProject[]> {
   return (await getDatabase())
     .select({
       id: motionGraphicsProjects.id,
       name: motionGraphicsProjects.name,
       description: motionGraphicsProjects.description,
-      youtube_id: motionGraphicsProjects.youtubeId,
-      publish_date: motionGraphicsProjects.publishDate,
+      youtubeId: motionGraphicsProjects.youtubeId,
+      publishDate: motionGraphicsProjects.publishDate,
       skills: sql<string[]>`array_agg(${skills.skill})`,
     })
     .from(motionGraphicsProjects)
@@ -31,29 +31,4 @@ export async function getMotionGraphics() {
       motionGraphicsProjects.publishDate,
     )
     .orderBy(desc(motionGraphicsProjects.publishDate));
-}
-
-export async function getMotionGraphicsFull(): Promise<
-  {
-    id: number;
-    name: string;
-    description: string;
-    youtube_id: string;
-    publish_date: string;
-    skills: { color: string; skill: string }[];
-  }[]
-> {
-  let projects = await getMotionGraphics();
-  const skillsColored = await getColorCategorizedSkills();
-  projects.map((project) => {
-    //@ts-ignore
-    project.skills = project.skills.map((skill) => {
-      return {
-        color: skillsColored.filter((cs) => cs.skill === skill)[0].color,
-        skill,
-      };
-    });
-  });
-  //@ts-ignore
-  return projects;
 }

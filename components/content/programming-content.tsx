@@ -1,4 +1,4 @@
-import { getProgrammingProjectsSkillsFull } from "@/src/lib/repos/programming.repo";
+import { getProgrammingProjectsWithColoredSkills } from "@/src/lib/services/programming.service";
 import { Chip } from "@heroui/chip";
 import { Divider } from "@heroui/react";
 import Link from "next/link";
@@ -6,7 +6,7 @@ import Link from "next/link";
 import * as constants from "@/components/constants";
 
 export default async function ProgrammingContent() {
-  const programmingProjects = (await getProgrammingProjectsSkillsFull()).reverse();
+  const programmingProjects = (await getProgrammingProjectsWithColoredSkills()).reverse();
 
   return (
     <div className="m-auto xs:w-3/4 grid grid-cols-2 gap-4">

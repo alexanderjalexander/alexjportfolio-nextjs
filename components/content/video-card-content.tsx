@@ -17,24 +17,16 @@ import { useDisclosure } from "@heroui/use-disclosure";
 import { Header2Mono } from "@/components/text/headers";
 import { FadeInScroll } from "@/components/page-anim/fadeinscroll";
 import { useState } from "react";
-import { getVideoThumbnail, getVideoURL } from "@/src/lib/repos/video-utils";
+import { getVideoThumbnail, getVideoURL } from "@/src/lib/utils/video.utils";
 
 import LiteYouTubeEmbed from "react-lite-youtube-embed";
-
-export interface project_interface {
-  id: number;
-  name: string;
-  description: string;
-  youtube_id: string;
-  publish_date: string;
-  skills: { color: string; skill: string }[];
-}
+import { AnimationProjectDto } from "@/src/lib/types/animation";
 
 export default function VideoCardContent({
   content,
   header,
 }: {
-  content: project_interface[];
+  content: AnimationProjectDto[];
   header: string;
 }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -109,14 +101,14 @@ export default function VideoCardContent({
                   {project.name}
                 </div>
                 <div className="text-sm lg:text-sm opacity-70 italic">
-                  {project.publish_date}
+                  {project.publishDate}
                 </div>
               </CardHeader>
               <CardBody className="w-full">
                 <div className="pb-3">
                   <Card
                     isPressable
-                    onPress={() => openModal(project.name, project.youtube_id)}
+                    onPress={() => openModal(project.name, project.youtubeId)}
                     className="mw-full w-full"
                   >
                     <Image
@@ -124,7 +116,7 @@ export default function VideoCardContent({
                       isZoomed
                       className="z-0 w-full object-cover"
                       alt={`${project.name} Link`}
-                      src={getVideoThumbnail(project.youtube_id)}
+                      src={getVideoThumbnail(project.youtubeId)}
                     />
                   </Card>
                 </div>

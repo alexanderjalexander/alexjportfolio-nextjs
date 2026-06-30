@@ -8,15 +8,16 @@ import { Metadata } from "next";
 import TypewriterWrapper from "@/components/text/typewriterwrapper";
 import { FadeInScroll } from "@/components/page-anim/fadeinscroll";
 import { Divider } from "@heroui/divider";
-import { getMotionGraphicsFull } from "@/src/lib/repos/motion-graphics.repo";
+
 import VideoCardContent from "@/components/content/video-card-content";
+import { getMotionGraphicsWithColoredSkills } from "@/src/lib/services/motion-graphics.service";
 
 export const metadata: Metadata = {
   title: "Motion Graphics",
 };
 
 export default async function Motion_Graphics() {
-  const motion_graphics_projects = await getMotionGraphicsFull();
+  const motionGraphicsProjects = await getMotionGraphicsWithColoredSkills();
 
   return (
     <PageWrapper>
@@ -46,7 +47,7 @@ export default async function Motion_Graphics() {
       </FadeInScroll>
 
       {/* Motion Graphics Work */}
-      <VideoCardContent content={motion_graphics_projects} header={"My Work"} />
+      <VideoCardContent content={motionGraphicsProjects} header={"My Work"} />
     </PageWrapper>
   );
 }
