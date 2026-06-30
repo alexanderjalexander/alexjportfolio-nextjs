@@ -1,8 +1,8 @@
 import { revalidatePath } from "next/cache";
 import {
-  getObjects,
-  getObjectsResized
-} from "@/src/lib/data/graphic_design";
+  listGraphicDesignObjects,
+  listGraphicDesignResizedObjects
+} from "@/src/lib/repos/graphic-design.repo";
 import { authorizeBearerToken } from "../../bearerHelpers";
 
 export async function GET(req: Request) {
@@ -36,7 +36,7 @@ export async function GET(req: Request) {
         error_revalidated_paths.push(path);
       }
     }
-    let gd_objs = await getObjects();
+    let gd_objs = await listGraphicDesignObjects();
     for (let gd_obj of gd_objs!) {
       try {
         revalidatePath(`/api/graphic_design/${gd_obj.Key}`);
@@ -45,7 +45,7 @@ export async function GET(req: Request) {
         error_revalidated_paths.push(`/api/graphic_design/${gd_obj.Key}`);
       }
     }
-    let gd_objs_resized = await getObjectsResized();
+    let gd_objs_resized = await listGraphicDesignResizedObjects();
     for (let gd_obj of gd_objs_resized!) {
       try {
         revalidatePath(`/api/graphic_design/resize/${gd_obj.Key}`);

@@ -1,4 +1,4 @@
-import { syncObjects } from "@/src/lib/data/graphic_design";
+import { syncGraphicDesignObjects } from "@/src/lib/repos/graphic-design.repo";
 import { authorizeBearerToken } from "@/src/app/api/bearerHelpers";
 
 export async function GET(req: Request) {
@@ -6,7 +6,7 @@ export async function GET(req: Request) {
     return new Response("Unauthorized", { status: 401 });
   }
   try {
-    let res = await syncObjects();
+    let res = await syncGraphicDesignObjects();
     return new Response(JSON.stringify(res), {
       status: 200,
       headers: {},

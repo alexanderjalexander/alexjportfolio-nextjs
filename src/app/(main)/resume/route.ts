@@ -1,4 +1,4 @@
-import { getResumeFromS3 } from "@/src/lib/data/work_experience";
+import { getResumeFromS3 } from "@/src/lib/repos/work-experience.repo";
 import { NoSuchKey } from "@aws-sdk/client-s3";
 
 export const revalidate = 86400;

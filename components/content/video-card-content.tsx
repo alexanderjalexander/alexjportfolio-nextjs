@@ -17,7 +17,7 @@ import { useDisclosure } from "@heroui/use-disclosure";
 import { Header2Mono } from "@/components/text/headers";
 import { FadeInScroll } from "@/components/page-anim/fadeinscroll";
 import { useState } from "react";
-import { getVideoThumbnail, getVideoURL } from "@/src/lib/data/video-utils";
+import { getVideoThumbnail, getVideoURL } from "@/src/lib/repos/video-utils";
 
 import LiteYouTubeEmbed from "react-lite-youtube-embed";
 

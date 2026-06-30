@@ -2,7 +2,7 @@ import { Card, CardBody, CardFooter, CardHeader } from "@heroui/card";
 import { Chip } from "@heroui/chip";
 import { Image } from "@heroui/image";
 
-import { getVideoURL, getVideoThumbnail } from "@/src/lib/data/videos";
+import { getVideoURL, getVideoThumbnail } from "@/src/lib/repos/videos";
 
 interface project_interface {
   id: number;

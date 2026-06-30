@@ -5,7 +5,7 @@ import {
   motionGraphicsSkills,
 } from "@/src/db/migrations/schema";
 import { desc, eq, sql } from "drizzle-orm";
-import { getColorCategorizedSkills } from "./skills";
+import { getColorCategorizedSkills } from "@/src/lib/services/skills.service";
 
 export async function getMotionGraphics() {
   return (await getDatabase())

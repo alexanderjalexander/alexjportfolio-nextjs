@@ -1,4 +1,4 @@
-import { getProgrammingProjectsSkillsFull } from "@/src/lib/data/programming";
+import { getProgrammingProjectsSkillsFull } from "@/src/lib/repos/programming.repo";
 import { Chip } from "@heroui/chip";
 import { Divider } from "@heroui/react";
 import Link from "next/link";

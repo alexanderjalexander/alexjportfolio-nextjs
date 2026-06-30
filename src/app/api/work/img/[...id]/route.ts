@@ -1,4 +1,4 @@
-import { getObject } from "@/src/lib/data/work_experience";
+import { getWorkExperienceS3Object } from "@/src/lib/repos/work-experience.repo";
 import { NoSuchKey } from "@aws-sdk/client-s3";
 
 export const revalidate = 86400;
@@ -10,7 +10,7 @@ export async function GET(
   const params = await props.params;
   try {
     const key = Array.isArray(params.id) ? params.id.join("/") : params.id;
-    let res = await getObject(key);
+    let res = await getWorkExperienceS3Object(key);
     const streamToString = await res.Body?.transformToByteArray();
 
     // @ts-ignore

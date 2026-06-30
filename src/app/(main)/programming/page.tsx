@@ -13,9 +13,9 @@ import { Divider } from "@heroui/divider";
 import {
   getProgrammingProjectsSkillsFull,
   getHomelabUptimes,
-} from "@/src/lib/data/programming";
-import HomelabCard from "@/components/content/homelab_card";
-import ProgrammingContent from "@/components/content/programming_content";
+} from "@/src/lib/repos/programming.repo";
+import HomelabCard from "@/components/content/homelab-card";
+import ProgrammingContent from "@/components/content/programming-content";
 
 export const metadata: Metadata = {
   title: "Programming",

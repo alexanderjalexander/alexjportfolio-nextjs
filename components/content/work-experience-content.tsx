@@ -1,10 +1,10 @@
-import { getWorkExperienceJobsSkillsFull } from "@/src/lib/data/work_experience";
+import { getWorkExperienceJobsWithColoredSkills } from "@/src/lib/repos/work-experience.repo";
 import { Chip } from "@heroui/chip";
 import { Image } from "@heroui/image";
 import { Divider } from "@heroui/react";
 
 export default async function WorkExperienceContent() {
-  const workExperience = await getWorkExperienceJobsSkillsFull();
+  const workExperience = await getWorkExperienceJobsWithColoredSkills();
 
   const MAX_IMG_WIDTH = 50;
 

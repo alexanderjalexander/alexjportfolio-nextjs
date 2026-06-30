@@ -1,10 +1,10 @@
-import { getObjectsResized } from "@/src/lib/data/graphic_design";
+import { listGraphicDesignResizedObjects } from "@/src/lib/repos/graphic-design.repo";
 
 export const revalidate = 86400;
 
 export async function GET(req: Request) {
   try {
-    let res = await getObjectsResized();
+    let res = await listGraphicDesignResizedObjects();
     // let res = await getObjects();
     return new Response(JSON.stringify(res), {
       status: 200,

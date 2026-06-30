@@ -13,8 +13,8 @@ import { Divider } from "@heroui/divider";
 import { Image } from "@heroui/image";
 import { Link } from "@heroui/link";
 import { Metadata } from "next";
-import * as vid from "@/src/lib/data/videos";
-import * as vidUtils from "@/src/lib/data/video-utils";
+import * as vid from "@/src/lib/repos/videos";
+import * as vidUtils from "@/src/lib/repos/video-utils";
 
 import NextImage from "next/image";
 

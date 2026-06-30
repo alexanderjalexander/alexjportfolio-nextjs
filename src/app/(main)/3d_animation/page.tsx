@@ -6,10 +6,10 @@ import {
 } from "@/components/text/headers";
 import { PageWrapper } from "@/components/page-anim/pagewrapper";
 import TypewriterWrapper from "@/components/text/typewriterwrapper";
-import { getAnimationFull } from "@/src/lib/data/animation";
+import { getAnimationFull } from "@/src/lib/repos/animation";
 import { Divider } from "@heroui/divider";
 import { Metadata } from "next";
-import VideoCardContent from "@/components/content/video_card_content";
+import VideoCardContent from "@/components/content/video-card-content";
 
 export const metadata: Metadata = {
   title: "3D Animation",

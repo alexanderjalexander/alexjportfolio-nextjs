@@ -1,3 +1,4 @@
+import { S3Client } from "@aws-sdk/client-s3";
 import { neon } from "@neondatabase/serverless";
 import type { NeonQueryFunction } from "@neondatabase/serverless";
 import { drizzle as drizzleNeon } from "drizzle-orm/neon-http";
@@ -25,4 +26,11 @@ export async function getDatabase() {
   throw new Error(
     "No database configured. Set HOMELAB_DATABASE_URL (preferred) or NEON_DATABASE_URL or both in .env to have your DB up and running."
   );
+}
+
+export function getS3Client(): S3Client {
+  return new S3Client({
+    endpoint: `https://s3.${process.env.REGION!}.backblazeb2.com`,
+    region: process.env.REGION!,
+  });
 }

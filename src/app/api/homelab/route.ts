@@ -1,4 +1,4 @@
-import { getHomelabUptimes } from "@/src/lib/data/programming";
+import { getHomelabUptimes } from "@/src/lib/repos/programming.repo";
 
 export async function GET(req: Request) {
   try {

@@ -1,4 +1,4 @@
-import { getObjectResized } from "@/src/lib/data/graphic_design";
+import { getGraphicDesignResizedObject } from "@/src/lib/repos/graphic-design.repo";
 import { NoSuchKey } from "@aws-sdk/client-s3";
 
 export const revalidate = 86400;
@@ -10,7 +10,7 @@ export async function GET(
   const params = await props.params;
   try {
     const key = Array.isArray(params.id) ? params.id.join("/") : params.id;
-    let res = await getObjectResized(key);
+    let res = await getGraphicDesignResizedObject(key);
     const streamToString = await res.Body?.transformToByteArray();
     // @ts-ignore
     return new Response(streamToString, {

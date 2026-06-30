@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import { EndpointStatus } from "@/src/lib/data/programming";
+import { EndpointStatus } from "@/src/lib/repos/programming.repo";
 import { Button } from "@heroui/button";
 import { Card, CardBody, CardFooter } from "@heroui/card";
 import { Image } from "@heroui/image";

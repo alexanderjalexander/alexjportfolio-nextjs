@@ -8,8 +8,8 @@ import { Metadata } from "next";
 import TypewriterWrapper from "@/components/text/typewriterwrapper";
 import { FadeInScroll } from "@/components/page-anim/fadeinscroll";
 import { Divider } from "@heroui/divider";
-import { getMotionGraphicsFull } from "@/src/lib/data/motion";
-import VideoCardContent from "@/components/content/video_card_content";
+import { getMotionGraphicsFull } from "@/src/lib/repos/motion-graphics.repo";
+import VideoCardContent from "@/components/content/video-card-content";
 
 export const metadata: Metadata = {
   title: "Motion Graphics",

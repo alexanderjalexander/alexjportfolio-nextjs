@@ -8,14 +8,14 @@ import {
 import { PageWrapper } from "@/components/page-anim/pagewrapper";
 import TypewriterWrapper from "@/components/text/typewriterwrapper";
 import { siteConfig } from "@/config/site";
-import { getSkillsCategories } from "@/src/lib/data/skills";
+import { getSkillsCategories } from "@/src/lib/repos/skills.repo";
 
 import NextImage from "next/image";
 
 import { Card, CardHeader } from "@heroui/card";
 import { Chip } from "@heroui/chip";
 import { Divider } from "@heroui/divider";
-import WorkExperienceContent from "@/components/content/work_experience_content";
+import WorkExperienceContent from "@/components/content/work-experience-content";
 import { ClientLink } from "@/components/content/client_link";
 
 export default async function Home() {
