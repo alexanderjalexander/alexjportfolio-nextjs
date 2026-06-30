@@ -14,6 +14,7 @@ import { Image } from "@heroui/image";
 import { Link } from "@heroui/link";
 import { Metadata } from "next";
 import * as vid from "@/src/lib/data/videos";
+import * as vidUtils from "@/src/lib/data/video-utils";
 
 import NextImage from "next/image";
 
@@ -79,7 +80,7 @@ export default async function Video() {
             <a
               key={index}
               target="_blank"
-              href={vid.getVideoURL(item.url)}
+              href={vidUtils.getVideoURL(item.url)}
               rel="noopener noreferrer"
               className={vid_link_css}
             >
@@ -87,7 +88,7 @@ export default async function Video() {
                 <Image
                   isZoomed
                   alt={`Video ${index} Link`}
-                  src={vid.getVideoThumbnail(item.url)}
+                  src={vidUtils.getVideoThumbnail(item.url)}
                   className={image_css}
                 />
               </Card>
@@ -135,7 +136,26 @@ export default async function Video() {
                 <a
                   key={innerIndex}
                   target="_blank"
-                  href={vid.getVideoURL(video.url)}
+                  href={vidUtils.getVideoURL(video.url)}
+                  rel="noopener noreferrer"
+                  className={vid_link_css}
+                >
+                  <Card isPressable className={``}>
+                    <Image
+                      isZoomed
+                      removeWrapper={true}
+                      alt={`${commissioner} Video ${index}`}
+                      src={vidUtils.getVideoThumbnail(video.url)}
+                      className={image_css}
+                    />
+                  </Card>
+                </a>
+              ))}
+              {commissions[commissioner].shorts.map((video, innerIndex) => (
+                <a
+                  key={innerIndex}
+                  target="_blank"
+                  href={vidUtils.getVideoURL(video.url)}
                   rel="noopener noreferrer"
                   className={vid_link_css}
                 >
@@ -143,7 +163,7 @@ export default async function Video() {
                     <Image
                       isZoomed
                       alt={`${commissioner} Video ${index}`}
-                      src={vid.getVideoThumbnail(video.url)}
+                      src={vidUtils.getVideoThumbnail(video.url)}
                       className={image_css}
                     />
                   </Card>

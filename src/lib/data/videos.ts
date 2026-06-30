@@ -1,3 +1,5 @@
+import 'server-only';
+
 import { getDatabase } from "@/src/db";
 import { creators, videos } from "@/src/db/migrations/schema";
 import { eq, isNull } from "drizzle-orm";
@@ -20,6 +22,7 @@ export interface CommissionsObject {
     pfp: string;
     id: string;
     videos: { url: string; date: string }[];
+    shorts: { url: string; date: string }[];
   };
 }
 
@@ -29,6 +32,7 @@ export async function getCommissions() {
       person: creators.name,
       personId: creators.channelId,
       url: videos.youtubeId,
+      isShort: videos.isShort,
       date: videos.publishDate,
     })
     .from(creators)
@@ -45,13 +49,17 @@ export async function getCommissions() {
         views: 0,
         pfp: "",
         id: commission.personId,
-        videos: [
-          {
-            url: commission.url,
-            date: commission.date,
-          },
-        ],
+        videos: [],
+        shorts: [],
       };
+    }
+
+    if (commission.isShort) {
+      //@ts-ignore
+      result[person].shorts!.push({
+        url: commission.url,
+        date: commission.date,
+      });
     } else {
       //@ts-ignore
       result[person].videos!.push({
@@ -62,7 +70,9 @@ export async function getCommissions() {
   }
 
   for (let person in result) {
-    let vid_id_list = result[person].videos.map((vid) => vid.url);
+    let vid_id_list = result[person].videos
+      .concat(result[person].shorts)
+      .map((vid) => vid.url);
 
     const response = await fetch(
       `https://www.googleapis.com/youtube/v3/videos?part=id,statistics&fields=items.statistics.viewCount,items.id&id=${vid_id_list.toString()}&key=${process.env.YOUTUBE_API_KEY!}`,
@@ -97,12 +107,4 @@ export async function getCommissions() {
   }
 
   return result;
-}
-
-export function getVideoURL(id: string) {
-  return `https://www.youtube.com/watch?v=${id}`;
-}
-
-export function getVideoThumbnail(id: string) {
-  return `https://img.youtube.com/vi/${id}/mqdefault.jpg`;
 }
