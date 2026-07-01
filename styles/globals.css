@@ -1,6 +1,121 @@
 @import "tailwindcss";
-@plugin "daisyui";
-@config "../tailwind.config.js";
+
+@custom-variant dark (&:where([data-theme=portfolio-dark], [data-theme=portfolio-dark] *));
+
+@plugin "daisyui" {
+  themes: portfolio-light --default, portfolio-dark --prefersdark;
+
+  /* Range Slider Variables */
+  --range-bg: color-mix(in oklab, currentColor 50%, #0000);
+}
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  color-scheme: light;
+
+  /* Light Theme Page Colors */
+  --color-base-100: oklch(0.9715 0.013 260.44);
+  --color-base-200: oklch(0.9045 0.0457 260.44);
+  --color-base-300: oklch(0.8421 0.0772 260.44);
+  --color-base-content: oklch(20% 0.05 260);
+
+  --color-primary: oklch(0.4862 0.1924 260.44);
+  --color-primary-content: oklch(0.980808 0.009065 258.335161);
+  --color-secondary: oklch(0.5921 0.1011 222.67);
+  --color-secondary-content: oklch(98% 0.01 200);
+  --color-accent: oklch(0.5597 0.1702 28.91);
+  --color-accent-content: oklch(98% 0.01 160);
+  --color-neutral: oklch(50% 0.05 260);
+  --color-neutral-content: oklch(0.980808 0.009065 258.335161);
+
+  --color-info: oklch(70% 0.2 220);
+  --color-info-content: oklch(98% 0.01 220);
+  --color-success: oklch(65% 0.25 140);
+  --color-success-content: oklch(98% 0.01 140);
+  --color-warning: oklch(80% 0.25 80);
+  --color-warning-content: oklch(20% 0.05 80);
+  --color-error: oklch(65% 0.3 30);
+  --color-error-content: oklch(98% 0.01 30);
+
+  /* Border Radius */
+  --radius-selector: 1rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.5rem;
+
+  /* Base Sizes */
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  /* Border Size */
+  --border: 1px;
+
+  /* Special Effects */
+  --depth: 1;
+  --noise: 0;
+}
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  prefersdark: true;
+  color-scheme: dark;
+
+  /* Dark Theme Page Colors (use https://oklch.com/ for) */
+  --color-base-100: oklch(0.1715 0.0518 260.44);
+  --color-base-200: oklch(0.2332 0.0863 260.44);
+  --color-base-300: oklch(0.2932 0.092 260.44);
+  --color-base-content: oklch(0.875 0.05 260);
+
+  --color-primary: oklch(0.4862 0.1924 260.44);
+  --color-primary-content: oklch(0.980808 0.009065 258.335161);
+  --color-secondary: oklch(0.5921 0.1011 222.67);
+  --color-secondary-content: oklch(98% 0.01 200);
+  --color-accent: oklch(0.5597 0.1702 28.91);
+  --color-accent-content: oklch(98% 0.01 160);
+  --color-neutral: oklch(50% 0.05 260);
+  --color-neutral-content: oklch(0.980808 0.009065 258.335161);
+
+  --color-info: oklch(70% 0.2 220);
+  --color-info-content: oklch(98% 0.01 220);
+  --color-success: oklch(65% 0.25 140);
+  --color-success-content: oklch(98% 0.01 140);
+  --color-warning: oklch(80% 0.25 80);
+  --color-warning-content: oklch(20% 0.05 80);
+  --color-error: oklch(65% 0.3 30);
+  --color-error-content: oklch(98% 0.01 30);
+
+  /* Border Radius */
+  --radius-selector: 1rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.5rem;
+
+  /* Base Sizes */
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  /* Border Size */
+  --border: 1px;
+
+  /* Special Effects */
+  --depth: 1;
+  --noise: 0;
+}
+
+/* Design Specifications */
+@theme {
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 720px;
+  --breakpoint-lg: 920px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+/* Safelist Replacement */
+@source inline("{dark:,}bg-{red,fuchsia,yellow,green,cyan,blue,pink,slate,orange,violet,teal,lime,indigo,rose,amber,emerald}-{50,100,200,300,400,500,600,700,800,900}");
+@source inline("m-1");
 
 p {
   margin-top: 1rem;

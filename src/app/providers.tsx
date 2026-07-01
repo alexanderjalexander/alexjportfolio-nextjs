@@ -1,7 +1,6 @@
 "use client";
 
 import { ReactNode } from "react";
-import { useRouter } from "next/navigation";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { ThemeProviderProps } from "next-themes";
 
@@ -13,8 +12,9 @@ export interface ProvidersProps {
 export function Providers({ children }: ProvidersProps) {
   return (
     <NextThemesProvider
-      attribute="class"
-      defaultTheme="dark"
+      attribute="data-theme"
+      defaultTheme="system"
+      enableSystem={true}
       themes={["light", "dark"]}
     >
       {children}

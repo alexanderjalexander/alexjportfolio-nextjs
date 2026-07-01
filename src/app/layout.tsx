@@ -42,7 +42,7 @@ export default function RootLayout({
           " font-sans antialiased"
         }
       >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+        <Providers themeProps={{ attribute: "data-theme", defaultTheme: "dark" }}>
           <Navbar />
           <main className="container mx-auto max-w-7xl px-6 grow">
             {children}
