@@ -1,15 +1,5 @@
-import {
-  Header1Mono,
-  Header2Mono,
-  SubheaderMono,
-} from "@/components/text/headers";
-import { PageWrapper } from "@/components/page-anim/pagewrapper";
 import { Metadata } from "next";
-import TypewriterWrapper from "@/components/text/typewriterwrapper";
-import { FadeInScroll } from "@/components/page-anim/fadeinscroll";
-import { Divider } from "@heroui/divider";
 
-import VideoCardContent from "@/components/content/video-card-content";
 import { getMotionGraphicsWithColoredSkills } from "@/src/lib/services/motion-graphics.service";
 
 export const metadata: Metadata = {
@@ -20,34 +10,6 @@ export default async function Motion_Graphics() {
   const motionGraphicsProjects = await getMotionGraphicsWithColoredSkills();
 
   return (
-    <PageWrapper>
-      {/* Intro Header */}
-      <div className="h-screen flex items-center">
-        <div className="h-min m-auto">
-          <Header1Mono className="mb-5">Motion Graphics</Header1Mono>
-          <SubheaderMono>
-            <TypewriterWrapper text="Adjustment layers, chroma keys, typography, and VFX galore" />
-          </SubheaderMono>
-        </div>
-      </div>
-
-      {/* About Section */}
-      <FadeInScroll>
-        <Divider className="my-10" />
-        <Header2Mono className="mb-5">About</Header2Mono>
-        <p>
-          Motion Graphics is one of many influential disciplines that
-          transformed the techniques of videography and filmmaking, and is
-          unbelievably prevalent in modern content creation. We see it
-          everywhere: flashy text animation, character walk cycles, design
-          animations, etc. Motion Graphics has the power to take mere
-          illustrative concepts to the next level by bringing it to life for all
-          to watch.
-        </p>
-      </FadeInScroll>
-
-      {/* Motion Graphics Work */}
-      <VideoCardContent content={motionGraphicsProjects} header={"My Work"} />
-    </PageWrapper>
+    <div></div>
   );
 }

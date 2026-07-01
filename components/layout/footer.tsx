@@ -1,59 +1,7 @@
-import { FadeInScroll } from "../page-anim/fadeinscroll";
-import { Header2Mono } from "../text/headers";
-import { Button } from "@heroui/button";
-import { Link } from "@heroui/link";
-import { GithubIcon, LinkedInIcon } from "../icons";
-import Webring from "../webring";
-import { fontMono } from "@/config/fonts";
-
 import * as constants from "@/components/constants"
 
 export default function Footer() {
   return (
-    <FadeInScroll>
-      <footer className="px-6">
-        <Webring />
-        <div className="w-full flex flex-col sm:flex-row items-start content-center justify-around">
-          <div className={``}>
-            <Header2Mono className={`mb-4!`}>Contact Me</Header2Mono>
-            <p className={`my-2! font-mono ${fontMono.variable}`}>
-              {" "}
-              Email Address: {process.env.EMAIL_ADDRESS!}
-            </p>
-            <p className={`my-2! font-mono ${fontMono.variable}`}>
-              {" "}
-              Phone Number: {process.env.PHONE_NUMBER!}
-            </p>
-          </div>
-          <div className={``}>
-            <Header2Mono className={`mb-4!`}>Socials</Header2Mono>
-            <p className={`my-2!`}>
-              <Button
-                href="https://www.linkedin.com/in/alexander-j-27144720b/"
-                as={Link}
-                isExternal
-                className={`${constants.BUTTON_CLASSNAME}`}
-                startContent={<LinkedInIcon />}
-                variant="flat"
-              >
-                LinkedIn
-              </Button>
-            </p>
-            <p className={`my-2!`}>
-              <Button
-                href="https://github.com/alexanderjalexander/"
-                as={Link}
-                isExternal
-                className={`${constants.BUTTON_CLASSNAME}`}
-                startContent={<GithubIcon />}
-                variant="flat"
-              >
-                Github
-              </Button>
-            </p>
-          </div>
-        </div>
-      </footer>
-    </FadeInScroll>
+    <div></div>
   );
 }

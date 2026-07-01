@@ -1,5 +1,3 @@
-import { heroui } from "@heroui/theme";
-
 const safelist = [
   "m-1",
   "dark:bg-red-700 bg-red-300",
@@ -46,7 +44,7 @@ export default {
   },
   darkMode: "class",
   plugins: [
-    heroui({
+    /* heroui({
       themes: {
         light: {
           colors: {
@@ -91,6 +89,6 @@ export default {
           },
         },
       },
-    }),
+    }), */
   ],
 };

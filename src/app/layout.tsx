@@ -3,9 +3,8 @@ import { Metadata, Viewport } from "next";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Providers } from "./providers";
-import { Navbar } from "@/components/layout/navbar";
+import Navbar from "@/components/layout/navbar";
 import React from "react";
-import { Divider } from "@heroui/divider";
 import Footer from "@/components/layout/footer";
 
 export const metadata: Metadata = {
@@ -40,9 +39,7 @@ export default function RootLayout({
         className={
           "min-h-screen " +
           fontSans.variable +
-          " font-sans antialiased" +
-          " bg-fixed bg-linear-to-tr from-primary-900 via-background to-primary-900" +
-          " transition"
+          " font-sans antialiased"
         }
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
@@ -50,7 +47,6 @@ export default function RootLayout({
           <main className="container mx-auto max-w-7xl px-6 grow">
             {children}
           </main>
-          <Divider className="my-10" />
           <Footer />
         </Providers>
       </body>

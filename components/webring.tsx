@@ -1,4 +1,4 @@
-import { Link } from "@heroui/link";
+// import { Link } from "@heroui/link";
 
 interface WebringPerson {
   id: string;
@@ -28,48 +28,36 @@ export default async function Webring() {
       <div className="m-auto w-fit pb-6 text-xs text-center">
         <div>
           &lt;-{" "}
-          <Link
+          <a
             className="text-xs"
-            isBlock
-            underline="always"
-            color="foreground"
             href={neighbors[0].url}
           >
             {neighbors[0].name}
-          </Link>
+          </a>
           &bull;{" "}
-          <Link
+          <a
             className="text-xs"
-            isBlock
-            underline="always"
-            color="foreground"
             href={random.url}
           >
             Random
-          </Link>
+          </a>
           &bull;{" "}
-          <Link
+          <a
             className="text-xs"
-            isBlock
-            underline="always"
-            color="foreground"
             href={neighbors[1].url}
           >
             {neighbors[1].name}
-          </Link>
+          </a>
           -&gt;
         </div>
         <div>
           This website is part of the{" "}
-          <Link
+          <a
             className="text-xs"
-            isBlock
-            underline="always"
-            color="foreground"
             href={"https://github.com/Stevens-26/webring"}
           >
             Stevens Community Webring.
-          </Link>
+          </a>
         </div>
       </div>
     );

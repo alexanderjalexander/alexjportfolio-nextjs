@@ -1,7 +1,5 @@
 "use client";
 
-import { Header1Mono, Header3 } from "@/components/text/headers";
-import { Button } from "@heroui/button";
 import { useEffect } from "react";
 
 export default function Error({
@@ -18,28 +16,20 @@ export default function Error({
 
   return (
     <div className="container mx-auto max-w-7xl px-6 grow">
-      <Header1Mono className="pt-32">Something went wrong!</Header1Mono>
       <p className="text-center">
         Oops. We&apos;re not sure what happened there... :\
       </p>
 
       <div>
-        <Header3 className="text-red-700" align="start">
-          {error.message}
-        </Header3>
-        <p color="danger">{error.stack}</p>
-      </div>
-
-      <div>
-        <Button
+        <button
           className="display-block align-center"
-          onPress={
+          onClick={
             // Attempt to recover by trying to re-render the segment
             () => reset()
           }
         >
           Try again
-        </Button>
+        </button>
       </div>
     </div>
   );

@@ -11,7 +11,6 @@
   "dependencies": {
     "@aws-sdk/client-s3": "^3.592.0",
     "@eslint/eslintrc": "^3.3.1",
-    "@heroui/react": "^2.8.0-beta.7",
     "@neondatabase/serverless": "^1.0.1",
     "@react-aria/visually-hidden": "^3.8.25",
     "@types/node": "^24.0.1",
@@ -20,6 +19,7 @@
     "autoprefixer": "^10.4.21",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
+    "daisyui": "^5.6.6",
     "dotenv": "^16.6.1",
     "drizzle-orm": "^0.45.2",
     "eslint": "^9.28.0",
@@ -52,5 +52,6 @@
     "esbuild": "^0.25.5",
     "postcss": "^8.5.16"
   },
-  "name": "alexjportfolio-nextjs"
+  "name": "alexjportfolio-nextjs",
+  "browserslist": "> 1%"
 }

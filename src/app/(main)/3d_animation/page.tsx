@@ -1,15 +1,6 @@
-import { FadeInScroll } from "@/components/page-anim/fadeinscroll";
-import {
-  Header1Mono,
-  Header2Mono,
-  SubheaderMono,
-} from "@/components/text/headers";
-import { PageWrapper } from "@/components/page-anim/pagewrapper";
-import TypewriterWrapper from "@/components/text/typewriterwrapper";
-import { getAnimationProjectsWithColoredSkills } from "@/src/lib/services/animation.service";
-import { Divider } from "@heroui/divider";
 import { Metadata } from "next";
-import VideoCardContent from "@/components/content/video-card-content";
+
+import { getAnimationProjectsWithColoredSkills } from "@/src/lib/services/animation.service";
 
 export const metadata: Metadata = {
   title: "3D Animation",
@@ -19,33 +10,6 @@ export default async function Animation() {
   const animation_projects = await getAnimationProjectsWithColoredSkills();
 
   return (
-    <PageWrapper>
-      {/* Intro Header */}
-      <div className="h-screen flex items-center">
-        <div className="h-min m-auto">
-          <Header1Mono className="mb-5">3D Animation</Header1Mono>
-          <SubheaderMono>
-            <TypewriterWrapper text="Where even the most impossible of things can come to life" />
-          </SubheaderMono>
-        </div>
-      </div>
-
-      {/* About Section */}
-      <FadeInScroll>
-        <Divider className="my-10" />
-        <Header2Mono className="mb-5">About</Header2Mono>
-        <p>
-          3D Animation has always been a particularly interesting hobby of mine.
-          In addition with Video Editing and Motion Graphics, I found that it
-          has always filled the gap that those two disciplines could not. It has
-          the ability to make raw models come to life, create luscious and
-          intricate environments, and tell stories through motion, lighting, and
-          timing — all while blending art with technical problem solving.
-        </p>
-      </FadeInScroll>
-
-      {/* 3D Animation Cards Section */}
-      <VideoCardContent content={animation_projects} header={"My Work"} />
-    </PageWrapper>
+    <div></div>
   );
 }
