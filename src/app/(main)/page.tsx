@@ -1,11 +1,4 @@
-"use client";
-
-import { useTheme } from "next-themes";
-
 export default function Home() {
-  const { theme, setTheme } = useTheme();
-  const isDark = theme === "dark";
-
   return (
     <div>
       <div className="max-w-3xl mx-auto space-y-8">
@@ -17,14 +10,6 @@ export default function Home() {
           >
             disregard
           </h1>
-          <label className="swap swap-rotate btn btn-ghost btn-circle">
-            <input
-              type="checkbox"
-              onChange={() => setTheme(isDark ? "light" : "dark")}
-            />
-            <span className="swap-off">🌞</span>
-            <span className="swap-on">🌙</span>
-          </label>
         </div>
 
         {/* Base surfaces */}
