@@ -36,7 +36,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       >
         <Providers themeProps={{ attribute: 'data-theme', defaultTheme: 'dark' }}>
           <Navbar />
-          <main className="container mx-auto max-w-7xl px-6 grow">{children}</main>
+          <main className="pb-24 container mx-auto max-w-7xl px-6 grow">
+            {children}
+          </main>
           <Footer />
         </Providers>
       </body>

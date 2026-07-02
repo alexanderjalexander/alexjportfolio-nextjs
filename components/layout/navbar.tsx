@@ -8,20 +8,32 @@ import { ThemeSwitch } from './theme-switch';
 import { GithubIcon, LinkedInIcon } from '../icons';
 import { BUTTON_STYLE } from '@/config/constants';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+
+const NAVBAR_BG = "bg-base-100 border-b-2";
+const LINK_STYLE = "hover:text-white active:text-base-content font-bold text-xl p-2 underline underline-offset-4 transition-all duration-50";
 
 export default function Navbar() {
   const [dropdownActive, setDropdownActive] = useState(false);
+  const pathname = usePathname();
+
+  const LINK_STYLE_PATHNAME = (href:string) => `${pathname === href ? 'decoration-2' : 'decoration-0'} ${LINK_STYLE}`;
 
   return (
-    <div className={`fixed top-0 w-screen z-50 ${bricolageGrotesque.className} font-black text-3xl`}>
-      <div className={`navbar h-16! bg-base-100 w-full border-b-2 border-b-red`}>
+    <div className={`fixed top-0 w-screen h-screen z-50 ${bricolageGrotesque.className} font-black text-3xl`}>
+      {/* Navbar & Links */}
+      <div className={`navbar z-50 h-16! w-full ${NAVBAR_BG}`}>
         <div className={`flex flex-row w-full items-center text-center justify-between`}>
-          <div>
+          <div className='pl-2'>
             <Link href="/">AJ</Link>
           </div>
-          <div className={``}>
+          <div className={`hidden lg:block`}>
             {siteConfig.navItems.map((navItem, idx) => (
-              <Link key={idx} href={navItem.href} className={`font-bold text-xl p-2`}>
+              <Link
+                key={idx}
+                href={navItem.href}
+                className={LINK_STYLE_PATHNAME(navItem.href)}
+              >
                 {navItem.label.toWellFormed()}
               </Link>
             ))}
@@ -45,9 +57,10 @@ export default function Navbar() {
             </Link>
             <ThemeSwitch />
 
-            <label id="hamburgerButton" className={`swap swap-rotate ${BUTTON_STYLE}`}>
+            <label id="hamburgerButton" className={`ml-4 lg:hidden swap swap-rotate ${BUTTON_STYLE}`}>
               <input
                 type="checkbox"
+                checked={dropdownActive}
                 onChange={(event) => setDropdownActive(event.target.checked)}
               />
 
@@ -73,6 +86,19 @@ export default function Navbar() {
             </label>
           </div>
         </div>
+      </div>
+      {/* Dropdown Elements */}
+      <div className={`fixed lg:hidden ${dropdownActive ? 'top-0' : '-top-full'} transition-[top] py-16 px-4 w-lvw h-lvh ${NAVBAR_BG}`}>
+        {siteConfig.navItems.map((navItem, idx) => (
+          <Link
+            key={idx}
+            href={navItem.href}
+            onClick={() => setDropdownActive(false)}
+            className={`block ${LINK_STYLE_PATHNAME(navItem.href)}`}
+          >
+            {navItem.label.toWellFormed()}
+          </Link>
+        ))}
       </div>
     </div>
   );
