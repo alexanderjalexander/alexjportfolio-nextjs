@@ -1,5 +1,5 @@
 import { tv } from "tailwind-variants";
-import { fontMono } from "@/config/fonts";
+import { firaCode } from "@/fonts/config";
 
 export const title = tv({
   base: "tracking-tight inline font-semibold",
@@ -31,7 +31,7 @@ export const title = tv({
     },
     font: {
       sans: "font-sans",
-      mono: "font-mono " + fontMono.variable,
+      mono: "font-mono " + firaCode.variable,
     },
   },
   defaultVariants: {
@@ -70,7 +70,7 @@ export const subtitle = tv({
     },
     font: {
       sans: "font-sans",
-      mono: "font-mono " + fontMono.variable,
+      mono: "font-mono " + firaCode.variable,
     },
   },
   defaultVariants: {

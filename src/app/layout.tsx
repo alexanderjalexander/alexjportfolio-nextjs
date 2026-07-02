@@ -1,11 +1,11 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import { siteConfig } from "@/config/site";
-import { fontSans } from "@/config/fonts";
 import { Providers } from "./providers";
 import Navbar from "@/components/layout/navbar";
 import React from "react";
 import Footer from "@/components/layout/footer";
+import * as fonts from "@/fonts/config";
 
 export const metadata: Metadata = {
   title: {
@@ -36,11 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={
-          "min-h-screen " +
-          fontSans.variable +
-          " font-sans antialiased"
-        }
+        className={`min-h-screen ${fonts.bricolageGrotesque.variable} ${fonts.inter.variable} ${fonts.geistMono.variable} antialiased`}
       >
         <Providers themeProps={{ attribute: "data-theme", defaultTheme: "dark" }}>
           <Navbar />

@@ -12,7 +12,11 @@ export default function Home() {
 
         {/* Header + theme toggle */}
         <div className="flex items-center justify-between">
-          <h1 className="text-3xl font-bold">Theme Test</h1>
+          <h1
+            className="text-3xl font-extrabold"
+          >
+            disregard
+          </h1>
           <label className="swap swap-rotate btn btn-ghost btn-circle">
             <input
               type="checkbox"

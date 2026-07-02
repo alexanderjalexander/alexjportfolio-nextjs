@@ -4,9 +4,6 @@
 
 @plugin "daisyui" {
   themes: portfolio-light --default, portfolio-dark --prefersdark;
-
-  /* Range Slider Variables */
-  --range-bg: color-mix(in oklab, currentColor 50%, #0000);
 }
 
 @plugin "daisyui/theme" {
@@ -37,22 +34,6 @@
   --color-warning-content: oklch(20% 0.05 80);
   --color-error: oklch(65% 0.3 30);
   --color-error-content: oklch(98% 0.01 30);
-
-  /* Border Radius */
-  --radius-selector: 1rem;
-  --radius-field: 0.25rem;
-  --radius-box: 0.5rem;
-
-  /* Base Sizes */
-  --size-selector: 0.25rem;
-  --size-field: 0.25rem;
-
-  /* Border Size */
-  --border: 1px;
-
-  /* Special Effects */
-  --depth: 1;
-  --noise: 0;
 }
 
 @plugin "daisyui/theme" {
@@ -83,29 +64,31 @@
   --color-warning-content: oklch(20% 0.05 80);
   --color-error: oklch(65% 0.3 30);
   --color-error-content: oklch(98% 0.01 30);
+}
 
-  /* Border Radius */
-  --radius-selector: 1rem;
-  --radius-field: 0.25rem;
-  --radius-box: 0.5rem;
+:root {
+    /* Border Radius */
+  --radius-selector: 0rem;
+  --radius-field: 0rem;
+  --radius-box: 0rem;
 
   /* Base Sizes */
-  --size-selector: 0.25rem;
+  --size-selector: 0.30rem;
   --size-field: 0.25rem;
 
   /* Border Size */
   --border: 1px;
 
   /* Special Effects */
-  --depth: 1;
+  --depth: 0;
   --noise: 0;
+
+  /* Range Slider Variables */
+  --range-bg: color-mix(in oklab, currentColor 50%, #0000);
 }
 
 /* Design Specifications */
 @theme {
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
-
   --breakpoint-sm: 480px;
   --breakpoint-md: 720px;
   --breakpoint-lg: 920px;
@@ -113,14 +96,29 @@
   --breakpoint-2xl: 1536px;
 }
 
+@layer base {
+  html, body {
+    font-family: var(--inter);
+    font-variation-settings: "opsz" 24;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--bricolage);
+    font-weight: 800;
+    font-variation-settings: "opsz" 48;
+  }
+
+  p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+
+
 /* Safelist Replacement */
 @source inline("{dark:,}bg-{red,fuchsia,yellow,green,cyan,blue,pink,slate,orange,violet,teal,lime,indigo,rose,amber,emerald}-{50,100,200,300,400,500,600,700,800,900}");
 @source inline("m-1");
-
-p {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
 
 .yt-lite {
   background-color: #000;
