@@ -1,4 +1,4 @@
-import { ColorCategorizedSkill } from "./skills";
+import { ColorCategorizedSkill } from './skills';
 
 export interface EndpointStatus {
   name: string;
@@ -7,19 +7,15 @@ export interface EndpointStatus {
   uptime_percent: number;
 }
 
-export interface ProgrammingProject{
+export interface ProgrammingProject {
   id: number;
   title: string;
   subtitle: string;
   description: string;
   repoLink: string | null;
   liveLink: string | null;
-  skills:
-    | string[]
-    | null
-    | undefined;
-};
-
+  skills: string[] | null | undefined;
+}
 
 export interface ProgrammingProjectDto {
   id: number;
@@ -28,8 +24,5 @@ export interface ProgrammingProjectDto {
   description: string;
   repoLink: string | null;
   liveLink: string | null;
-  skills:
-    | ColorCategorizedSkill[]
-    | null
-    | undefined;
-};
+  skills: ColorCategorizedSkill[] | null | undefined;
+}

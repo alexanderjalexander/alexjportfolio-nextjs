@@ -1,29 +1,27 @@
-import { EndpointStatus } from "../types/programming";
-import { ProgrammingProject, ProgrammingProjectDto } from "@/src/lib/types/programming";
-import { getProgrammingProjects, getProgrammingProjectSkills } from "@/src/lib/repos/programming.repo";
-import { getColorCategorizedSkills } from "@/src/lib/services/skills.service";
+import { EndpointStatus } from '../types/programming';
+import { ProgrammingProject, ProgrammingProjectDto } from '@/src/lib/types/programming';
+import { getProgrammingProjects, getProgrammingProjectSkills } from '@/src/lib/repos/programming.repo';
+import { getColorCategorizedSkills } from '@/src/lib/services/skills.service';
 
 export async function getHomelabUptimes(): Promise<EndpointStatus[]> {
   const services = [];
 
-  const statuses_response = await fetch(`${process.env["UPTIME_API_URL"]!}/endpoints/statuses`, {
-    method: "GET",
+  const statuses_response = await fetch(`${process.env['UPTIME_API_URL']!}/endpoints/statuses`, {
+    method: 'GET',
     headers: {
-      "Accept": "application/json",
-    }
+      Accept: 'application/json',
+    },
   });
 
   if (!statuses_response.ok) {
-    console.error(`Uptime API URL: ${process.env["UPTIME_API_URL"]!}/endpoints/statuses`);
+    console.error(`Uptime API URL: ${process.env['UPTIME_API_URL']!}/endpoints/statuses`);
     console.error(statuses_response.status);
-    throw Error("Could not obtain homelab endpoint statuses.");
+    throw Error('Could not obtain homelab endpoint statuses.');
   }
 
   const statuses = await statuses_response.json();
   for (let status of statuses) {
-    const uptime_response = await fetch(
-      `${process.env["UPTIME_API_URL"]!}/endpoints/${status.key}/uptimes/7d`,
-    );
+    const uptime_response = await fetch(`${process.env['UPTIME_API_URL']!}/endpoints/${status.key}/uptimes/7d`);
     if (!uptime_response.ok) {
       throw Error(`Could not obtain homelab uptime status for ${status.key}.`);
     }
@@ -49,9 +47,7 @@ export async function getProgrammingProjectsWithSkills(): Promise<ProgrammingPro
 
   return projects.map(project => ({
     ...project,
-    skills: programmingSkills
-      .filter(el => el.project = project.id)
-      .map(el => el.skill)
+    skills: programmingSkills.filter(el => (el.project = project.id)).map(el => el.skill),
   }));
 }
 
@@ -65,13 +61,11 @@ export async function getProgrammingProjectsWithColoredSkills(): Promise<Program
   return projects.map(project => ({
     ...project,
     skills: programmingSkills
-      .filter((element) => element.project === project.id)
-      .map((element) => element.skill)
-      .map((skill) => {
-        let color = skillsColored.filter(
-          (color_skill) => color_skill.skill === skill,
-        )[0].color;
+      .filter(element => element.project === project.id)
+      .map(element => element.skill)
+      .map(skill => {
+        let color = skillsColored.filter(color_skill => color_skill.skill === skill)[0].color;
         return { color: color, skill: skill };
-      })
+      }),
   }));
 }

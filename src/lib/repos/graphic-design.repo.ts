@@ -1,8 +1,5 @@
-import { getS3Client } from "@/src/db";
-import {
-  GetObjectCommand,
-  ListObjectsCommand,
-} from "@aws-sdk/client-s3";
+import { getS3Client } from '@/src/db';
+import { GetObjectCommand, ListObjectsCommand } from '@aws-sdk/client-s3';
 
 const s3 = getS3Client();
 
@@ -12,17 +9,10 @@ export async function listGraphicDesignObjects() {
   });
   const { Contents } = await s3.send(command);
   for (let x of Contents!) {
-    [
-      "LastModified",
-      "ETag",
-      "StorageClass",
-      "Owner",
-      "ChecksumAlgorithm",
-      "ChecksumType",
-    ].forEach(
+    ['LastModified', 'ETag', 'StorageClass', 'Owner', 'ChecksumAlgorithm', 'ChecksumType'].forEach(
       // It works, TypeScript is just being annoying about it bc it thinks a string can't be used to index an object smh my head
       // @ts-ignore
-      (e) => delete x[e],
+      e => delete x[e]
     );
   }
   return Contents;
@@ -34,17 +24,10 @@ export async function listGraphicDesignResizedObjects() {
   });
   const { Contents } = await s3.send(command);
   for (let x of Contents!) {
-    [
-      "LastModified",
-      "ETag",
-      "StorageClass",
-      "Owner",
-      "ChecksumAlgorithm",
-      "ChecksumType",
-    ].forEach(
+    ['LastModified', 'ETag', 'StorageClass', 'Owner', 'ChecksumAlgorithm', 'ChecksumType'].forEach(
       // It works, TypeScript is just being annoying about it bc it thinks a string can't be used to index an object smh my head
       // @ts-ignore
-      (e) => delete x[e],
+      e => delete x[e]
     );
   }
   return Contents;

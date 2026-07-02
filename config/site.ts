@@ -2,37 +2,36 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   name: "AJ's Portfolio",
-  description:
-    "A comprehensive website of all my projects/hobbies/accomplishments.",
+  description: 'A comprehensive website of all my projects/hobbies/accomplishments.',
   navItems: [
     {
-      label: "Home",
-      href: "/",
+      label: 'Home',
+      href: '/',
     },
     {
-      label: "Programming",
-      href: "/programming",
+      label: 'Programming',
+      href: '/programming',
     },
     {
-      label: "Video",
-      href: "/video",
+      label: 'Video',
+      href: '/video',
     },
     {
-      label: "Motion",
-      href: "/motion_graphics",
+      label: 'Motion',
+      href: '/motion_graphics',
     },
     {
-      label: "Graphics",
-      href: "/graphic_design",
+      label: 'Graphics',
+      href: '/graphic_design',
     },
     {
-      label: "3D Animation",
-      href: "/3d_animation",
+      label: '3D Animation',
+      href: '/3d_animation',
     },
   ],
   links: {
-    github: "https://github.com/alexanderjalexander",
-    linkedin: "https://www.linkedin.com/in/alexander-j-27144720b/",
-    resume: "/resume",
+    github: 'https://github.com/alexanderjalexander',
+    linkedin: 'https://www.linkedin.com/in/alexander-j-27144720b/',
+    resume: '/resume',
   },
 };

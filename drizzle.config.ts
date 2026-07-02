@@ -1,12 +1,12 @@
-import { config } from "dotenv";
-import { defineConfig } from "drizzle-kit";
+import { config } from 'dotenv';
+import { defineConfig } from 'drizzle-kit';
 
-config({ path: ".env" });
+config({ path: '.env' });
 
 export default defineConfig({
-  schema: "./src/db/migrations/schema.ts",
-  out: "./src/db/migrations",
-  dialect: "postgresql",
+  schema: './src/db/migrations/schema.ts',
+  out: './src/db/migrations',
+  dialect: 'postgresql',
   dbCredentials: {
     url: process.env.HOMELAB_DATABASE_URL!,
   },

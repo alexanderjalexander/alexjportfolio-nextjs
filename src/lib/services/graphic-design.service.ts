@@ -1,11 +1,6 @@
-import {
-  DeleteObjectsCommand,
-  ListObjectsCommand,
-  PutObjectCommand,
-  S3Client,
-} from "@aws-sdk/client-s3";
-import sharp from "sharp";
-import { getGraphicDesignObject } from "../repos/graphic-design.repo";
+import { DeleteObjectsCommand, ListObjectsCommand, PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
+import sharp from 'sharp';
+import { getGraphicDesignObject } from '../repos/graphic-design.repo';
 
 const s3 = new S3Client({
   endpoint: `https://s3.${process.env.REGION!}.backblazeb2.com`,
@@ -17,7 +12,7 @@ export async function syncGraphicDesignObjects() {
     Bucket: `${process.env.GD_BUCKET_NAME_RESIZE!}`,
   });
   let keys_data =
-    (await s3.send(list_temp_objs_command)).Contents?.map((x) => ({
+    (await s3.send(list_temp_objs_command)).Contents?.map(x => ({
       Key: x.Key,
     })) ?? [];
 
@@ -32,8 +27,7 @@ export async function syncGraphicDesignObjects() {
   const list_full_size_objs_command = new ListObjectsCommand({
     Bucket: `${process.env.GD_BUCKET_NAME!}`,
   });
-  let full_keys_data =
-    (await s3.send(list_full_size_objs_command)).Contents ?? [];
+  let full_keys_data = (await s3.send(list_full_size_objs_command)).Contents ?? [];
 
   let put_results = [];
 
@@ -41,9 +35,7 @@ export async function syncGraphicDesignObjects() {
     let res = await getGraphicDesignObject(key.Key!);
     const streamToString = await res.Body?.transformToByteArray();
 
-    const resize_image = await sharp(streamToString)
-      .resize({ width: 360 })
-      .toBuffer();
+    const resize_image = await sharp(streamToString).resize({ width: 360 }).toBuffer();
 
     const put_obj_command = new PutObjectCommand({
       Bucket: `${process.env.GD_BUCKET_NAME_RESIZE!}`,

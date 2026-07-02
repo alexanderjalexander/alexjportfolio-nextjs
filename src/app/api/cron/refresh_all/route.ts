@@ -1,30 +1,27 @@
-import { revalidatePath } from "next/cache";
-import {
-  listGraphicDesignObjects,
-  listGraphicDesignResizedObjects
-} from "@/src/lib/repos/graphic-design.repo";
-import { authorizeBearerToken } from "../../bearerHelpers";
+import { revalidatePath } from 'next/cache';
+import { listGraphicDesignObjects, listGraphicDesignResizedObjects } from '@/src/lib/repos/graphic-design.repo';
+import { authorizeBearerToken } from '../../bearerHelpers';
 
 export async function GET(req: Request) {
   if (!authorizeBearerToken(req)) {
-    return new Response("Unauthorized", { status: 401 });
+    return new Response('Unauthorized', { status: 401 });
   }
   try {
     // const sync_result = await syncObjects();
     const paths = [
-      "/",
-      "/programming",
-      "/video",
-      "/motion_graphics",
-      "/graphic_design",
-      "/3d_animation",
-      "/api-reference",
-      "/api/animation",
-      "/api/graphic_design",
-      "/api/motion",
-      "/api/programming",
-      "/api/video",
-      "/api/video/commissions",
+      '/',
+      '/programming',
+      '/video',
+      '/motion_graphics',
+      '/graphic_design',
+      '/3d_animation',
+      '/api-reference',
+      '/api/animation',
+      '/api/graphic_design',
+      '/api/motion',
+      '/api/programming',
+      '/api/video',
+      '/api/video/commissions',
     ];
     const revalidated_paths = [];
     const error_revalidated_paths = [];
@@ -51,9 +48,7 @@ export async function GET(req: Request) {
         revalidatePath(`/api/graphic_design/resize/${gd_obj.Key}`);
         revalidated_paths.push(`/api/graphic_design/resize/${gd_obj.Key}`);
       } catch (_) {
-        error_revalidated_paths.push(
-          `/api/graphic_design/resize/${gd_obj.Key}`,
-        );
+        error_revalidated_paths.push(`/api/graphic_design/resize/${gd_obj.Key}`);
       }
     }
     return Response.json({
@@ -62,7 +57,7 @@ export async function GET(req: Request) {
       error_revalidated_paths: error_revalidated_paths,
     });
   } catch (e) {
-    return new Response("Something went wrong", {
+    return new Response('Something went wrong', {
       status: 500,
     });
   }

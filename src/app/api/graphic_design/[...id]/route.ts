@@ -1,15 +1,12 @@
-import { getGraphicDesignObject } from "@/src/lib/repos/graphic-design.repo";
-import { NoSuchKey } from "@aws-sdk/client-s3";
+import { getGraphicDesignObject } from '@/src/lib/repos/graphic-design.repo';
+import { NoSuchKey } from '@aws-sdk/client-s3';
 
 export const revalidate = 86400;
 
-export async function GET(
-  req: Request,
-  props: { params: Promise<{ id: string[] }> },
-) {
+export async function GET(req: Request, props: { params: Promise<{ id: string[] }> }) {
   const params = await props.params;
   try {
-    const key = Array.isArray(params.id) ? params.id.join("/") : params.id;
+    const key = Array.isArray(params.id) ? params.id.join('/') : params.id;
     let res = await getGraphicDesignObject(key);
     const streamToString = await res.Body?.transformToByteArray();
     // @ts-ignore
@@ -17,19 +14,19 @@ export async function GET(
       status: 200,
       // @ts-ignore
       headers: {
-        "Content-Type": res.ContentType,
-        "Content-Length": res.ContentLength?.toString() || "",
-        "Content-Disposition": "inline",
+        'Content-Type': res.ContentType,
+        'Content-Length': res.ContentLength?.toString() || '',
+        'Content-Disposition': 'inline',
       },
     });
   } catch (e) {
     console.error(e);
     if (e instanceof NoSuchKey) {
-      return new Response("NoSuchKey Error: key not found.", {
+      return new Response('NoSuchKey Error: key not found.', {
         status: 404,
       });
     } else {
-      return new Response("An error happened while fetching data", {
+      return new Response('An error happened while fetching data', {
         status: 500,
       });
     }

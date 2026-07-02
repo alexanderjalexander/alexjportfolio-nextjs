@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { TypeAnimation } from "react-type-animation";
+import { TypeAnimation } from 'react-type-animation';
 
 export default function TypewriterWrapper({ text }: { text: string }) {
   return (

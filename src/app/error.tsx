@@ -1,14 +1,8 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
-export default function Error({
-  error,
-  reset,
-}: {
-  error: Error;
-  reset: () => void;
-}) {
+export default function Error({ error, reset }: { error: Error; reset: () => void }) {
   useEffect(() => {
     // Log the error to an error reporting service
     console.error(error);
@@ -16,9 +10,7 @@ export default function Error({
 
   return (
     <div className="container mx-auto max-w-7xl px-6 grow">
-      <p className="text-center">
-        Oops. We&apos;re not sure what happened there... :\
-      </p>
+      <p className="text-center">Oops. We&apos;re not sure what happened there... :\</p>
 
       <div>
         <button

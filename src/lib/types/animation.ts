@@ -1,4 +1,4 @@
-import { ColorCategorizedSkill } from "./skills";
+import { ColorCategorizedSkill } from './skills';
 
 export interface AnimationProject {
   id: number;

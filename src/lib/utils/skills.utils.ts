@@ -1,4 +1,4 @@
-import { ColorCategorizedSkill, SkillCategoriesMap } from "@/src/lib/types/skills";
+import { ColorCategorizedSkill, SkillCategoriesMap } from '@/src/lib/types/skills';
 
 type SkillColorLookup = Record<string, string>;
 
@@ -12,9 +12,7 @@ export function buildSkillColorMap(skills: ColorCategorizedSkill[]): SkillColorL
   return lookup;
 }
 
-export function buildSkillColorMapFromCategories(
-  categories: SkillCategoriesMap,
-): SkillColorLookup {
+export function buildSkillColorMapFromCategories(categories: SkillCategoriesMap): SkillColorLookup {
   const lookup: SkillColorLookup = {};
 
   for (const category of Object.values(categories)) {

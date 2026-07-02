@@ -1,15 +1,15 @@
-import { getMotionGraphics } from "@/src/lib/repos/motion-graphics.repo";
-import { getColorCategorizedSkills } from "@/src/lib/services/skills.service";
-import { MotionGraphicsProjectDto } from "../types/motion-graphics";
+import { getMotionGraphics } from '@/src/lib/repos/motion-graphics.repo';
+import { getColorCategorizedSkills } from '@/src/lib/services/skills.service';
+import { MotionGraphicsProjectDto } from '../types/motion-graphics';
 
 export async function getMotionGraphicsWithColoredSkills(): Promise<MotionGraphicsProjectDto[]> {
   let projects = await getMotionGraphics();
   const skillsColored = await getColorCategorizedSkills();
-  projects.map((project) => {
+  projects.map(project => {
     //@ts-ignore
-    project.skills = project.skills.map((skill) => {
+    project.skills = project.skills.map(skill => {
       return {
-        color: skillsColored.filter((cs) => cs.skill === skill)[0].color,
+        color: skillsColored.filter(cs => cs.skill === skill)[0].color,
         skill,
       };
     });

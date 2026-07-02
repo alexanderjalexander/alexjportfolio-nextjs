@@ -2,14 +2,9 @@ export default function Home() {
   return (
     <div>
       <div className="max-w-3xl mx-auto space-y-8">
-
         {/* Header + theme toggle */}
         <div className="flex items-center justify-between">
-          <h1
-            className="text-3xl font-extrabold"
-          >
-            disregard
-          </h1>
+          <h1 className="text-3xl font-extrabold">disregard</h1>
         </div>
 
         {/* Base surfaces */}
@@ -36,7 +31,9 @@ export default function Home() {
           <button className="btn btn-outline btn-primary">Outline</button>
           <button className="btn btn-ghost">Ghost</button>
           <button className="btn btn-link">Link</button>
-          <button className="btn btn-disabled" disabled>Disabled</button>
+          <button className="btn btn-disabled" disabled>
+            Disabled
+          </button>
         </div>
 
         {/* Card */}
@@ -84,14 +81,20 @@ export default function Home() {
 
         {/* Tabs */}
         <div role="tablist" className="tabs tabs-boxed w-fit">
-          <a role="tab" className="tab tab-active">Tab 1</a>
-          <a role="tab" className="tab">Tab 2</a>
-          <a role="tab" className="tab">Tab 3</a>
+          <a role="tab" className="tab tab-active">
+            Tab 1
+          </a>
+          <a role="tab" className="tab">
+            Tab 2
+          </a>
+          <a role="tab" className="tab">
+            Tab 3
+          </a>
         </div>
 
         {/* Safelisted swatch colors from your old config */}
         <div className="flex flex-wrap gap-2">
-          {["red", "fuchsia", "yellow", "green", "cyan", "blue", "pink", "slate"].map((c) => (
+          {['red', 'fuchsia', 'yellow', 'green', 'cyan', 'blue', 'pink', 'slate'].map(c => (
             <div key={c} className={`m-1 w-16 h-16 rounded-lg dark:bg-${c}-600 bg-${c}-400`} />
           ))}
         </div>

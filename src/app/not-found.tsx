@@ -1,7 +1,5 @@
-import { Header1Mono } from "@/components/text/headers";
+import { Header1Mono } from '@/components/text/headers';
 
 export default function notFound() {
-  return (
-    <div></div>
-  );
+  return <div></div>;
 }

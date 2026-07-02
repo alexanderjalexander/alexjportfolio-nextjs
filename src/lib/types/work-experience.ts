@@ -1,4 +1,4 @@
-import { ColorCategorizedSkill } from "@/src/lib/types/skills";
+import { ColorCategorizedSkill } from '@/src/lib/types/skills';
 
 export interface WorkExperienceSkill {
   job: number;

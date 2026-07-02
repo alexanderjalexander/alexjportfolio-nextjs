@@ -1,8 +1,8 @@
 import 'server-only';
 
-import { getDatabase } from "@/src/db";
-import { creators, videos } from "@/src/db/migrations/schema";
-import { eq, isNull } from "drizzle-orm";
+import { getDatabase } from '@/src/db';
+import { creators, videos } from '@/src/db/migrations/schema';
+import { eq, isNull } from 'drizzle-orm';
 import { CommissionVideoRow, VideoWithDate } from '@/src/lib/types/videos';
 
 export async function getPersonalVideoRows(): Promise<VideoWithDate[]> {

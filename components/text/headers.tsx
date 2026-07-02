@@ -1,5 +1,5 @@
-import { subtitle, title } from "@/components/text/primitives";
-import classNames from "classnames";
+import { subtitle, title } from '@/components/text/primitives';
+import classNames from 'classnames';
 
 export function Header1({
   children,
@@ -10,18 +10,17 @@ export function Header1({
   children?: React.ReactNode;
   className?: string;
   fullWidth?: boolean;
-  align?: "center" | "right" | "left" | "justify" | "start" | "end" | undefined;
+  align?: 'center' | 'right' | 'left' | 'justify' | 'start' | 'end' | undefined;
 }) {
   return (
     <div
       className={classNames(
         title({
-          size: "lg",
-          fullWidth:
-            fullWidth !== null && fullWidth !== undefined ? fullWidth : true,
-          align: align ? align : "center",
+          size: 'lg',
+          fullWidth: fullWidth !== null && fullWidth !== undefined ? fullWidth : true,
+          align: align ? align : 'center',
         }),
-        className,
+        className
       )}
     >
       {children}
@@ -38,19 +37,18 @@ export function Header1Mono({
   children?: React.ReactNode;
   className?: string;
   fullWidth?: boolean;
-  align?: "center" | "right" | "left" | "justify" | "start" | "end" | undefined;
+  align?: 'center' | 'right' | 'left' | 'justify' | 'start' | 'end' | undefined;
 }) {
   return (
     <div
       className={classNames(
         title({
-          font: "mono",
-          size: "lg",
-          fullWidth:
-            fullWidth !== null && fullWidth !== undefined ? fullWidth : true,
-          align: align ? align : "center",
+          font: 'mono',
+          size: 'lg',
+          fullWidth: fullWidth !== null && fullWidth !== undefined ? fullWidth : true,
+          align: align ? align : 'center',
         }),
-        className,
+        className
       )}
     >
       {children}
@@ -67,18 +65,17 @@ export function Header2({
   children?: React.ReactNode;
   className?: string;
   fullWidth?: boolean;
-  align?: "center" | "right" | "left" | "justify" | "start" | "end" | undefined;
+  align?: 'center' | 'right' | 'left' | 'justify' | 'start' | 'end' | undefined;
 }) {
   return (
     <div
       className={classNames(
         title({
-          size: "md",
-          fullWidth:
-            fullWidth !== null && fullWidth !== undefined ? fullWidth : true,
-          align: align ? align : "center",
+          size: 'md',
+          fullWidth: fullWidth !== null && fullWidth !== undefined ? fullWidth : true,
+          align: align ? align : 'center',
         }),
-        className,
+        className
       )}
     >
       {children}
@@ -95,19 +92,18 @@ export function Header2Mono({
   children?: React.ReactNode;
   className?: string;
   fullWidth?: boolean;
-  align?: "center" | "right" | "left" | "justify" | "start" | "end" | undefined;
+  align?: 'center' | 'right' | 'left' | 'justify' | 'start' | 'end' | undefined;
 }) {
   return (
     <div
       className={classNames(
         title({
-          font: "mono",
-          size: "md",
-          fullWidth:
-            fullWidth !== null && fullWidth !== undefined ? fullWidth : true,
-          align: align ? align : "center",
+          font: 'mono',
+          size: 'md',
+          fullWidth: fullWidth !== null && fullWidth !== undefined ? fullWidth : true,
+          align: align ? align : 'center',
         }),
-        className,
+        className
       )}
     >
       {children}
@@ -124,18 +120,17 @@ export function Header3({
   children?: React.ReactNode;
   className?: string;
   fullWidth?: boolean;
-  align?: "center" | "right" | "left" | "justify" | "start" | "end" | undefined;
+  align?: 'center' | 'right' | 'left' | 'justify' | 'start' | 'end' | undefined;
 }) {
   return (
     <div
       className={classNames(
         title({
-          size: "sm",
-          fullWidth:
-            fullWidth !== null && fullWidth !== undefined ? fullWidth : true,
-          align: align ? align : "center",
+          size: 'sm',
+          fullWidth: fullWidth !== null && fullWidth !== undefined ? fullWidth : true,
+          align: align ? align : 'center',
         }),
-        className,
+        className
       )}
     >
       {children}
@@ -152,19 +147,18 @@ export function Header3Mono({
   children?: React.ReactNode;
   className?: string;
   fullWidth?: boolean;
-  align?: "center" | "right" | "left" | "justify" | "start" | "end" | undefined;
+  align?: 'center' | 'right' | 'left' | 'justify' | 'start' | 'end' | undefined;
 }) {
   return (
     <div
       className={classNames(
         title({
-          font: "mono",
-          size: "sm",
-          fullWidth:
-            fullWidth !== null && fullWidth !== undefined ? fullWidth : true,
-          align: align ? align : "center",
+          font: 'mono',
+          size: 'sm',
+          fullWidth: fullWidth !== null && fullWidth !== undefined ? fullWidth : true,
+          align: align ? align : 'center',
         }),
-        className,
+        className
       )}
     >
       {children}
@@ -179,15 +173,15 @@ export function Subheader({
 }: {
   children?: React.ReactNode;
   className?: string;
-  align?: "center" | "right" | "left" | "justify" | "start" | "end" | undefined;
+  align?: 'center' | 'right' | 'left' | 'justify' | 'start' | 'end' | undefined;
 }) {
   return (
     <div
       className={classNames(
         subtitle({
-          align: align ? align : "center",
+          align: align ? align : 'center',
         }),
-        className,
+        className
       )}
     >
       {children}
@@ -203,16 +197,16 @@ export function SubheaderMono({
   children?: React.ReactNode;
   className?: string;
   fullWidth?: boolean;
-  align?: "center" | "right" | "left" | "justify" | "start" | "end" | undefined;
+  align?: 'center' | 'right' | 'left' | 'justify' | 'start' | 'end' | undefined;
 }) {
   return (
     <div
       className={classNames(
         subtitle({
-          font: "mono",
-          align: align ? align : "center",
+          font: 'mono',
+          align: align ? align : 'center',
         }),
-        className,
+        className
       )}
     >
       {children}

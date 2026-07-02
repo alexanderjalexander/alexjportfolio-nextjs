@@ -1,4 +1,4 @@
-import { listGraphicDesignResizedObjects } from "@/src/lib/repos/graphic-design.repo";
+import { listGraphicDesignResizedObjects } from '@/src/lib/repos/graphic-design.repo';
 
 export const revalidate = 86400;
 
@@ -11,7 +11,7 @@ export async function GET(req: Request) {
       headers: {},
     });
   } catch (e) {
-    return new Response("An error happened while fetching data", {
+    return new Response('An error happened while fetching data', {
       status: 500,
     });
   }

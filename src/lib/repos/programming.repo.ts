@@ -1,10 +1,6 @@
-import { getDatabase } from "@/src/db";
-import {
-  programmingProjects,
-  programmingSkills,
-  skills,
-} from "@/src/db/migrations/schema";
-import { eq } from "drizzle-orm";
+import { getDatabase } from '@/src/db';
+import { programmingProjects, programmingSkills, skills } from '@/src/db/migrations/schema';
+import { eq } from 'drizzle-orm';
 
 export async function getProgrammingProjects() {
   return (await getDatabase()).select().from(programmingProjects);

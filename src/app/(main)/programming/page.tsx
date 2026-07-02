@@ -1,11 +1,9 @@
-import { Metadata } from "next";
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Programming",
+  title: 'Programming',
 };
 
 export default async function Programming() {
-  return (
-    <div></div>
-  );
+  return <div></div>;
 }

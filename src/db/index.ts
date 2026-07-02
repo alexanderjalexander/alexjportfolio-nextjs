@@ -1,7 +1,7 @@
-import { S3Client } from "@aws-sdk/client-s3";
-import { neon } from "@neondatabase/serverless";
-import type { NeonQueryFunction } from "@neondatabase/serverless";
-import { drizzle as drizzleNeon } from "drizzle-orm/neon-http";
+import { S3Client } from '@aws-sdk/client-s3';
+import { neon } from '@neondatabase/serverless';
+import type { NeonQueryFunction } from '@neondatabase/serverless';
+import { drizzle as drizzleNeon } from 'drizzle-orm/neon-http';
 import { drizzle as drizzlePg } from 'drizzle-orm/node-postgres';
 
 // Consider using driver over websockets for interactive transactions
@@ -12,19 +12,17 @@ export async function getDatabase() {
       connection: {
         connectionString: process.env.HOMELAB_DATABASE_URL,
         ssl: false,
-      }
+      },
     });
   }
 
   if (process.env.NEON_DATABASE_URL) {
-    const sql: NeonQueryFunction<boolean, boolean> = neon(
-      process.env.NEON_DATABASE_URL!,
-    );
+    const sql: NeonQueryFunction<boolean, boolean> = neon(process.env.NEON_DATABASE_URL!);
     return drizzleNeon(sql);
   }
 
   throw new Error(
-    "No database configured. Set HOMELAB_DATABASE_URL (preferred) or NEON_DATABASE_URL or both in .env to have your DB up and running."
+    'No database configured. Set HOMELAB_DATABASE_URL (preferred) or NEON_DATABASE_URL or both in .env to have your DB up and running.'
   );
 }
 

@@ -1,11 +1,11 @@
-import "@/styles/globals.css";
-import { Metadata, Viewport } from "next";
-import { siteConfig } from "@/config/site";
-import { Providers } from "./providers";
-import Navbar from "@/components/layout/navbar";
-import React from "react";
-import Footer from "@/components/layout/footer";
-import * as fonts from "@/fonts/config";
+import '@/styles/globals.css';
+import { Metadata, Viewport } from 'next';
+import { siteConfig } from '@/config/site';
+import { Providers } from './providers';
+import Navbar from '@/components/layout/navbar';
+import React from 'react';
+import Footer from '@/components/layout/footer';
+import * as fonts from '@/fonts/config';
 
 export const metadata: Metadata = {
   title: {
@@ -14,35 +14,29 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
+    icon: '/favicon.ico',
+    shortcut: '/favicon-16x16.png',
   },
 };
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
+    { media: '(prefers-color-scheme: light)', color: 'white' },
+    { media: '(prefers-color-scheme: dark)', color: 'black' },
   ],
 };
 
 export const revalidate = 86400;
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
         className={`min-h-screen ${fonts.bricolageGrotesque.variable} ${fonts.inter.variable} ${fonts.geistMono.variable} antialiased`}
       >
-        <Providers themeProps={{ attribute: "data-theme", defaultTheme: "dark" }}>
+        <Providers themeProps={{ attribute: 'data-theme', defaultTheme: 'dark' }}>
           <Navbar />
-          <main className="container mx-auto max-w-7xl px-6 grow">
-            {children}
-          </main>
+          <main className="container mx-auto max-w-7xl px-6 grow">{children}</main>
           <Footer />
         </Providers>
       </body>

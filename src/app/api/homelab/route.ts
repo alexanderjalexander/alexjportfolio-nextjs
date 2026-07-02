@@ -1,4 +1,4 @@
-import { getHomelabUptimes } from "@/src/lib/services/programming.service";
+import { getHomelabUptimes } from '@/src/lib/services/programming.service';
 
 export async function GET(req: Request) {
   try {
@@ -9,7 +9,7 @@ export async function GET(req: Request) {
     });
   } catch (e) {
     console.error(e);
-    return new Response("An error happened while fetching data", {
+    return new Response('An error happened while fetching data', {
       status: 500,
     });
   }
