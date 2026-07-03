@@ -6,21 +6,21 @@ import { siteConfig } from '@/config/site';
 import Link from 'next/link';
 import { ThemeSwitch } from './theme-switch';
 import { GithubIcon, LinkedInIcon } from '../icons';
-import { BUTTON_STYLE } from '@/config/constants';
+import { BUTTON_STYLE, LINK_STYLE } from '@/config/constants';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 
-const NAVBAR_BG = "bg-base-100 border-b-2";
-const LINK_STYLE = "hover:text-white active:text-base-content font-bold text-xl p-2 underline underline-offset-4 transition-all duration-50";
+const NAVBAR_BG = "bg-base-100 border-b-2 border-base-content";
+const NAVBAR_LINK_STYLE = `${LINK_STYLE} text-xl p-2 underline underline-offset-4 transition-all duration-50`;
 
 export default function Navbar() {
   const [dropdownActive, setDropdownActive] = useState(false);
   const pathname = usePathname();
 
-  const LINK_STYLE_PATHNAME = (href:string) => `${pathname === href ? 'decoration-2' : 'decoration-0'} ${LINK_STYLE}`;
+  const NAVBAR_LINK_STYLE_PATHNAME = (href:string) => `${pathname === href ? 'decoration-2' : 'decoration-0'} ${NAVBAR_LINK_STYLE}`;
 
   return (
-    <div className={`fixed top-0 w-screen h-screen z-50 ${bricolageGrotesque.className} font-black text-3xl`}>
+    <div className={`fixed top-0 w-screen z-50 ${bricolageGrotesque.className} font-black text-3xl`}>
       {/* Navbar & Links */}
       <div className={`navbar z-50 h-16! w-full ${NAVBAR_BG}`}>
         <div className={`flex flex-row w-full items-center text-center justify-between`}>
@@ -32,7 +32,7 @@ export default function Navbar() {
               <Link
                 key={idx}
                 href={navItem.href}
-                className={LINK_STYLE_PATHNAME(navItem.href)}
+                className={NAVBAR_LINK_STYLE_PATHNAME(navItem.href)}
               >
                 {navItem.label.toWellFormed()}
               </Link>
@@ -88,13 +88,13 @@ export default function Navbar() {
         </div>
       </div>
       {/* Dropdown Elements */}
-      <div className={`fixed lg:hidden ${dropdownActive ? 'top-0' : '-top-full'} transition-[top] py-16 px-4 w-lvw h-lvh ${NAVBAR_BG}`}>
+      <div className={`fixed lg:hidden overflow-scroll ${dropdownActive ? 'top-0' : '-top-full'} transition-[top] pt-16 pb-4 px-4 w-lvw h-lvh ${NAVBAR_BG}`}>
         {siteConfig.navItems.map((navItem, idx) => (
           <Link
             key={idx}
             href={navItem.href}
             onClick={() => setDropdownActive(false)}
-            className={`block ${LINK_STYLE_PATHNAME(navItem.href)}`}
+            className={`block ${NAVBAR_LINK_STYLE_PATHNAME(navItem.href)}`}
           >
             {navItem.label.toWellFormed()}
           </Link>

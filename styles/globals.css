@@ -67,7 +67,7 @@
 }
 
 :root {
-    /* Border Radius */
+  /* Border Radius */
   --radius-selector: 0rem;
   --radius-field: 0rem;
   --radius-box: 0rem;
@@ -96,27 +96,49 @@
   --breakpoint-2xl: 1536px;
 }
 
-@layer base {
-  html, body {
-    font-family: var(--inter);
-    font-variation-settings: "opsz" 24;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--bricolage);
-    font-weight: 800;
-    font-variation-settings: "opsz" 48;
-  }
-
-  p {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
-}
-
 /* Safelist Replacement */
 @source inline("{dark:,}bg-{red,fuchsia,yellow,green,cyan,blue,pink,slate,orange,violet,teal,lime,indigo,rose,amber,emerald}-{50,100,200,300,400,500,600,700,800,900}");
 @source inline("m-1");
+
+/* ===== ACTUAL HTML RULES START HERE ===== */
+
+html, body {
+  font-family: var(--inter);
+  font-variation-settings: "opsz" 24;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--bricolage);
+  font-weight: 800;
+  font-variation-settings: "opsz" 48;
+  font-variation-settings: "wdth" 90;
+}
+
+h1 {
+  font-size: 36pt;
+}
+
+h2 {
+  font-size: 30pt;
+}
+
+h3 {
+  font-size: 24pt;
+}
+
+p {
+  font-size: 13pt;
+}
+
+code {
+  display: inline-block;
+  font-family: var(--geist-mono);
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding: 2px 6px;
+  border: 1px var(--color-base-content) solid;
+  border-radius: 4pt;
+}
 
 .yt-lite {
   background-color: #000;
