@@ -53,6 +53,9 @@ UPTIME_API_URL=https://uptime.alexanderjalexander.com/api/v1
 
 # YouTube API Key
 YOUTUBE_API_KEY="<your YouTube Data API V3 Key (standard non-OAuth key)>"
+
+# Used for the footer content :P
+EMAIL_ADDRESS="<relevant email address goes here>"
 ```
 
 ### Run the development server
