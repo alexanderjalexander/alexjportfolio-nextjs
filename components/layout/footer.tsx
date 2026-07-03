@@ -17,18 +17,11 @@ export default function Footer() {
           <div className={`text-left w-1/2`}>
             <h1 className={`text-3xl! sm:text-4xl! md:text-5xl!`}>Contact Me</h1>
             <Link
-              className={FOOTER_LINK_STYLE}
+              className={`${FOOTER_LINK_STYLE} py-10.5`}
               href={`mailto:${process.env.EMAIL_ADDRESS!}`}
               target="_blank"
             >
               {process.env.EMAIL_ADDRESS!}
-            </Link>
-            <Link
-              className={FOOTER_LINK_STYLE}
-              href={`tel:${process.env.PHONE_NUMBER!}`}
-              target="_blank"
-            >
-              {process.env.PHONE_NUMBER!}
             </Link>
           </div>
           <div className={`text-right w-1/2 px-2`}>
