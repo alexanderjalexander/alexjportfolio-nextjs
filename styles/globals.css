@@ -15,6 +15,7 @@
   --color-base-100: oklch(0.9715 0.013 260.44);
   --color-base-200: oklch(0.9045 0.0457 260.44);
   --color-base-300: oklch(0.8421 0.0772 260.44);
+  --color-base-400: oklch(0.7618 0.1184 260.44);
   --color-base-content: oklch(20% 0.05 260);
 
   --color-primary: oklch(0.4862 0.1924 260.44);
@@ -45,6 +46,7 @@
   --color-base-100: oklch(0.1715 0.0518 260.44);
   --color-base-200: oklch(0.2332 0.0863 260.44);
   --color-base-300: oklch(0.2932 0.092 260.44);
+  --color-base-400: oklch(0.3971 0.1258 260.44);
   --color-base-content: oklch(0.875 0.05 260);
 
   --color-primary: oklch(0.4862 0.1924 260.44);
@@ -100,7 +102,7 @@
 @source inline("{dark:,}bg-{red,fuchsia,yellow,green,cyan,blue,pink,slate,orange,violet,teal,lime,indigo,rose,amber,emerald}-{50,100,200,300,400,500,600,700,800,900}");
 @source inline("m-1");
 
-/* ===== ACTUAL HTML RULES START HERE ===== */
+/* ===== HTML BASE ELEMENT RULES START HERE ===== */
 
 html, body {
   font-family: var(--inter);
@@ -138,6 +140,35 @@ code {
   padding: 2px 6px;
   border: 1px var(--color-base-content) solid;
   border-radius: 4pt;
+}
+
+/* ===== CUSTOM CLASSES AND CSS RULES START HERE ===== */
+
+@layer components {
+  .button-link {
+    @apply btn btn-outline border-2 px-2 transition-colors duration-250;
+  }
+  .button-link:hover {
+    @apply bg-base-content text-base-100 border-base-content;
+  }
+
+  .footer-bg {
+    @apply bg-base-100 border-base-content border-t-2;
+  }
+
+  .nav-bg {
+    @apply bg-base-100 border-base-content border-b-2;
+  }
+
+  .nav-link {
+    @apply active:text-base-content font-bold transition-all duration-100;
+  }
+  .nav-link-navbar {
+    @apply hover:text-primary decoration-0 text-xl p-2 underline underline-offset-4 transition-all duration-200;
+  }
+  .nav-link-active {
+    @apply decoration-4;
+  }
 }
 
 .yt-lite {

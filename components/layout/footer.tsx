@@ -1,16 +1,13 @@
 import Link from "next/link";
 import Webring from "../webring";
-import { BUTTON_STYLE } from "@/config/constants";
 import { geistMono } from "@/fonts/config";
 import { GithubIcon, LinkedInIcon } from "../icons";
 
-const FOOTER_BG = "bg-base-100 border-t-2 border-base-content";
-
-const FOOTER_LINK_STYLE = `${geistMono.className} ${BUTTON_STYLE} w-full mb-2`;
+const FOOTER_LINK_STYLE = `${geistMono.className} button-link w-full mb-2`;
 
 export default function Footer() {
   return (
-    <div className={`min-h-16 ${FOOTER_BG}`}>
+    <div className={`footer-bg min-h-16`}>
       <div className={`max-w-4xl mx-auto py-4 pb-16`}>
         <Webring />
         <div className={`flex flex-row gap-0 px-4 justify-center items-start content-start`}>

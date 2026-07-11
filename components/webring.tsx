@@ -1,4 +1,3 @@
-import { LINK_STYLE } from "@/config/constants";
 import { bricolageGrotesque } from "@/fonts/config";
 
 interface WebringPerson {
@@ -32,7 +31,7 @@ export default async function Webring() {
         <div>
           &lt;-{' '}
           <a
-            className={`${bricolageGrotesque.className} ${LINK_STYLE} font-extrabold`}
+            className={`${bricolageGrotesque.className} nav-link font-extrabold`}
             href={neighbors[0].url}
             target="_blank"
           >
@@ -40,7 +39,7 @@ export default async function Webring() {
           </a>
           {' '}&bull;{' '}
           <a
-            className={`${bricolageGrotesque.className} ${LINK_STYLE} font-extrabold`}
+            className={`${bricolageGrotesque.className} nav-link font-extrabold`}
             href={random.url}
             target="_blank"
           >
@@ -48,7 +47,7 @@ export default async function Webring() {
           </a>
           {' '}&bull;{' '}
           <a
-            className={`${bricolageGrotesque.className} ${LINK_STYLE} font-extrabold`}
+            className={`${bricolageGrotesque.className} nav-link font-extrabold`}
             href={neighbors[1].url}
             target="_blank"
           >
@@ -59,7 +58,7 @@ export default async function Webring() {
         <div>
           This website is part of the{' '}
           <a
-            className={`${bricolageGrotesque.className} ${LINK_STYLE} font-extrabold`}
+            className={`${bricolageGrotesque.className} nav-link font-extrabold`}
             href={'https://github.com/Stevens-26/webring'}
             target="_blank"
           >
