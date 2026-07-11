@@ -1,4 +1,4 @@
-import { bricolageGrotesque } from "@/fonts/config";
+import { bricolageGrotesque } from '@/fonts/config';
 
 interface WebringPerson {
   id: string;
@@ -25,9 +25,7 @@ export default async function Webring() {
     });
     random = await response2.json();
     return (
-      <div
-        className={`m-auto w-fit pb-6 text-md text-center`}
-      >
+      <div className={`m-auto w-fit pb-6 text-md text-center`}>
         <div>
           &lt;-{' '}
           <a
@@ -36,24 +34,20 @@ export default async function Webring() {
             target="_blank"
           >
             {neighbors[0].name}
-          </a>
-          {' '}&bull;{' '}
-          <a
-            className={`${bricolageGrotesque.className} nav-link font-extrabold`}
-            href={random.url}
-            target="_blank"
-          >
+          </a>{' '}
+          &bull;{' '}
+          <a className={`${bricolageGrotesque.className} nav-link font-extrabold`} href={random.url} target="_blank">
             Random
-          </a>
-          {' '}&bull;{' '}
+          </a>{' '}
+          &bull;{' '}
           <a
             className={`${bricolageGrotesque.className} nav-link font-extrabold`}
             href={neighbors[1].url}
             target="_blank"
           >
             {neighbors[1].name}
-          </a>
-          {' '}-&gt;
+          </a>{' '}
+          -&gt;
         </div>
         <div>
           This website is part of the{' '}
