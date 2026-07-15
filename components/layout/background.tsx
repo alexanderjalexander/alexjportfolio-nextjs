@@ -1,11 +1,9 @@
 'use client';
 import { useEffect, useRef } from 'react';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import gsap from 'gsap';
 
 const GRID_CELL_SIZE = 50;
-const GRID_ANIM_TOTAL_MS = 1000;
-const GRID_ANIM_LINE_OFFSET_MS = 25;
+const GRID_ANIM_TOTAL_MS = 500;
+const GRID_ANIM_LINE_OFFSET_MS = 0.05 * GRID_ANIM_TOTAL_MS;
 
 interface Point2D {
   x: number,
@@ -162,7 +160,11 @@ export function GridBackground() {
       }
     }
 
-    function loop(timestamp: number) {
+    /**
+     * Main animation draw loop.
+     * @param timestamp timestamp in milliseconds
+     */
+    function loop(timestamp: number): void {
       if (startTime === null) startTime = timestamp;
       const elapsed = timestamp - startTime;
 
@@ -173,8 +175,10 @@ export function GridBackground() {
       }
     }
 
+    // Necessary resize observer
     window.addEventListener('resize', () => requestAnimationFrame(loop));
 
+    // Necessary mutation observer, for the DaisyUI 'data-theme', light and dark mode
     const observer = new MutationObserver(() => {
       requestAnimationFrame(loop);
     });
@@ -184,10 +188,12 @@ export function GridBackground() {
       attributeFilter: ['data-theme'],
     });
 
+    // Loop the darn thing
     requestAnimationFrame(loop);
 
+    // Cleanup on component destruction :P
     return () => {
-      window.removeEventListener('resize', draw);
+      window.removeEventListener('resize', () => requestAnimationFrame(loop));
       observer.disconnect();
     };
   }, []);
