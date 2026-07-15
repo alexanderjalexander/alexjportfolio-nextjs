@@ -1,7 +1,10 @@
+import { GridBackground } from "@/components/layout/background";
+
 export default function Home() {
   return (
     <div>
-      <div className="max-w-1/2! h-lvh bg-base-300 space-y-8">
+      <div className="max-w-full h-lvh space-y-8">
+        <GridBackground />
       </div>
     </div>
   );

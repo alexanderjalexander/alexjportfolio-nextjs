@@ -172,7 +172,7 @@ code {
     @apply hover:text-primary active:text-base-content font-bold transition-all duration-100;
   }
   .nav-link-navbar {
-    @apply hover:text-primary decoration-0 text-xl p-2 underline underline-offset-4 transition-all duration-200;
+    @apply hover:text-primary decoration-0 text-lg p-2 underline underline-offset-4 transition-all duration-200;
   }
   .nav-link-active {
     @apply decoration-4;

@@ -20,10 +20,10 @@ export default function Navbar() {
       {/* Navbar & Links */}
       <div className={`nav-bg navbar z-50 h-16! w-full`}>
         <div className={`flex flex-row w-full items-center text-center justify-between`}>
-          <div className='pl-2'>
+          <div className='pl-2 font-black'>
             <Link href="/">AJ</Link>
           </div>
-          <div className={`hidden lg:block`}>
+          <div className={`hidden lg:flex flex-row items-center`}>
             {siteConfig.navItems.map((navItem, idx) => (
               <Link
                 key={idx}

@@ -1,7 +1,7 @@
 import '@/styles/globals.css';
 import { Metadata, Viewport } from 'next';
 import { siteConfig } from '@/config/site';
-import { Providers } from './providers';
+import { Providers } from '@/src/app/providers';
 import Navbar from '@/components/layout/navbar';
 import React from 'react';
 import Footer from '@/components/layout/footer';
