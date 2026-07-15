@@ -176,12 +176,11 @@ export function GridBackground() {
     }
 
     // Necessary resize observer
-    window.addEventListener('resize', () => requestAnimationFrame(loop));
+    const animationLoop = () => requestAnimationFrame(loop);
+    window.addEventListener('resize', animationLoop);
 
     // Necessary mutation observer, for the DaisyUI 'data-theme', light and dark mode
-    const observer = new MutationObserver(() => {
-      requestAnimationFrame(loop);
-    });
+    const observer = new MutationObserver(animationLoop);
 
     observer.observe(document.documentElement, {
       attributes: true,
@@ -189,11 +188,11 @@ export function GridBackground() {
     });
 
     // Loop the darn thing
-    requestAnimationFrame(loop);
+    animationLoop();
 
     // Cleanup on component destruction :P
     return () => {
-      window.removeEventListener('resize', () => requestAnimationFrame(loop));
+      window.removeEventListener('resize', animationLoop);
       observer.disconnect();
     };
   }, []);
