@@ -1,5 +1,7 @@
 'use client';
-import { useEffect, useRef } from 'react';
+
+import { PropsWithChildren, useEffect, useRef } from 'react';
+import { gsap } from '@/src/lib/gsap';
 
 const GRID_CELL_SIZE = 50;
 const GRID_ANIM_TOTAL_MS = 500;
@@ -19,6 +21,26 @@ interface Point2D {
 function easeOutExpo(t: number) {
   const value = t >= 1 ? 1 : 1 - Math.pow(2, -10 * t);
   return Math.max(0, Math.min(1, value));
+}
+
+export function MarqueeText({ className, children }: { className?: string, children?: React.ReactNode }) {
+  const divRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const animation = gsap.to(divRef.current, {
+      x: window.innerWidth,
+      duration: 100,
+      repeat: -1,
+    });
+    return () => { animation.kill() };
+  }, []);
+
+  return (
+    <div ref={divRef} className={className}>
+      Hello!
+      {children}
+    </div>
+  );
 }
 
 export function GridBackground() {
@@ -198,8 +220,9 @@ export function GridBackground() {
   }, []);
 
   return (
-    <div ref={containerRef} className="w-full h-full">
-      <canvas ref={canvasRef} style={{ display: 'block' }} />
+    <div ref={containerRef} className="w-full h-full relative">
+      <canvas ref={canvasRef} className="absolute" />
+      <MarqueeText className="absolute bottom-1/2" />
     </div>
   );
 }
