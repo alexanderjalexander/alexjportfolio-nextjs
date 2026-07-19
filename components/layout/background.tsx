@@ -1,15 +1,16 @@
 'use client';
 
-import { PropsWithChildren, useEffect, useRef } from 'react';
-import { gsap } from '@/src/lib/gsap';
+import { PropsWithChildren, useEffect, useRef, useState } from 'react';
+import { gsap, useGSAP } from '@/src/lib/gsap';
+import { bricolageGrotesque } from '@/fonts/config';
 
 const GRID_CELL_SIZE = 50;
 const GRID_ANIM_TOTAL_MS = 500;
 const GRID_ANIM_LINE_OFFSET_MS = 0.05 * GRID_ANIM_TOTAL_MS;
 
 interface Point2D {
-  x: number,
-  y: number
+  x: number;
+  y: number;
 }
 
 /**
@@ -23,22 +24,61 @@ function easeOutExpo(t: number) {
   return Math.max(0, Math.min(1, value));
 }
 
-export function MarqueeText({ className, children }: { className?: string, children?: React.ReactNode }) {
+export function MarqueeText({ text }: { text?: string }) {
   const divRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const animation = gsap.to(divRef.current, {
-      x: window.innerWidth,
-      duration: 100,
+  const [rowStats, setRowStats] = useState({
+    rowCount: 0,
+    topOffset: 0,
+  });
+
+  useGSAP(() => {
+    gsap.to('h1.left-hero-marquee', {
+      xPercent: -100, // Moves exactly 100% of text width taken up
+      duration: 1,
+      ease: 'linear',
       repeat: -1,
     });
-    return () => { animation.kill() };
+
+    gsap.to('h1.right-hero-marquee', {
+      xPercent: 100,
+      duration: 1,
+      ease: 'linear',
+      repeat: -1,
+    });
+  }, []);
+
+  useEffect(() => {
+    const div = divRef.current!;
+    if (!div) return;
+
+    const observer = new ResizeObserver(() => {
+      setRowStats({
+        topOffset: (div.offsetHeight / 2) % GRID_CELL_SIZE,
+        rowCount: Math.ceil(div.offsetHeight / GRID_CELL_SIZE),
+      });
+    });
+
+    observer.observe(div);
+
+    // Cleanup on destruction
+    return () => {
+      observer.disconnect()
+    };
   }, []);
 
   return (
-    <div ref={divRef} className={className}>
-      Hello!
-      {children}
+    <div
+      ref={divRef}
+      className={`${bricolageGrotesque.className} w-full h-full text-[50px] leading-12.5 font-bold italic text-base-300`}
+    >
+      <div style={{marginTop: rowStats.topOffset}}>
+        {Array.from({ length: rowStats.rowCount }).map((_, i) => (
+        <div key={i} className="h-[50px] border border-red-500 -z-10">
+          Row {i}
+        </div>
+      ))}
+      </div>
     </div>
   );
 }
@@ -62,6 +102,7 @@ export function GridBackground() {
      * Applies necessary styling to the function.
      */
     function applyStyling(strokeWidth: number = 1): void {
+      console.log('applyStyling()');
       const style = getComputedStyle(document.documentElement);
       const lineColor = style.getPropertyValue('--color-base-300').trim();
       ctx.strokeStyle = lineColor;
@@ -75,7 +116,14 @@ export function GridBackground() {
      * @param p2x Point 2 X coordinate
      * @param p2y Point 2 Y coordinate
      */
-    function drawLine(p1x: number, p1y: number, p2x: number, p2y: number, inBetween: boolean = true, strokeWidth: number = 1): void {
+    function drawLine(
+      p1x: number,
+      p1y: number,
+      p2x: number,
+      p2y: number,
+      inBetween: boolean = true,
+      strokeWidth: number = 1
+    ): void {
       applyStyling(strokeWidth);
 
       if (inBetween) {
@@ -110,20 +158,26 @@ export function GridBackground() {
       // Coordinate positions as consts
       const width = canvas.width;
       const height = canvas.height;
-      const centerX = (width / 2) + 0.5;
-      const centerY = (height / 2) + 0.5;
+      const centerX = width / 2 + 0.5;
+      const centerY = height / 2 + 0.5;
 
       // Main center line
       const centerProgress = elapsed / duration;
       drawLine(
-        centerX - (easeOutExpo(centerProgress) * width * 0.5), centerY,
-        centerX + (easeOutExpo(centerProgress) * width * 0.5), centerY,
-        true, 3,
+        centerX - easeOutExpo(centerProgress) * width * 0.5,
+        centerY,
+        centerX + easeOutExpo(centerProgress) * width * 0.5,
+        centerY,
+        true,
+        3
       );
       drawLine(
-        centerX, centerY - (easeOutExpo(centerProgress) * height * 0.5),
-        centerX, centerY + (easeOutExpo(centerProgress) * height * 0.5),
-        true, 3
+        centerX,
+        centerY - easeOutExpo(centerProgress) * height * 0.5,
+        centerX,
+        centerY + easeOutExpo(centerProgress) * height * 0.5,
+        true,
+        3
       );
 
       let verticalRingsDone = false;
@@ -133,23 +187,27 @@ export function GridBackground() {
       for (let x = cellSize; x <= width / 2; x += cellSize) {
         // Determine offset based off of cell index
         const cellIndex = Math.floor(x / cellSize);
-        const lineProgress = (elapsed - (cellIndex * GRID_ANIM_LINE_OFFSET_MS)) / duration;
-        const lastCell = (x + cellSize) > (width / 2);
+        const lineProgress = (elapsed - cellIndex * GRID_ANIM_LINE_OFFSET_MS) / duration;
+        const lastCell = x + cellSize > width / 2;
 
         // Update whether this is done or not
-        if (lastCell && (lineProgress >= 1)) {
+        if (lastCell && lineProgress >= 1) {
           verticalRingsDone = true;
         }
 
         // Horizontal line on left-hand side
         drawLine(
-          centerX - x, centerY - (easeOutExpo(lineProgress) * height * 0.5),
-          centerX - x, centerY + (easeOutExpo(lineProgress) * height * 0.5)
+          centerX - x,
+          centerY - easeOutExpo(lineProgress) * height * 0.5,
+          centerX - x,
+          centerY + easeOutExpo(lineProgress) * height * 0.5
         );
         // Horizontal line on right-hand side
         drawLine(
-          centerX + x, centerY - (easeOutExpo(lineProgress) * height * 0.5),
-          centerX + x, centerY + (easeOutExpo(lineProgress) * height * 0.5)
+          centerX + x,
+          centerY - easeOutExpo(lineProgress) * height * 0.5,
+          centerX + x,
+          centerY + easeOutExpo(lineProgress) * height * 0.5
         );
       }
 
@@ -157,23 +215,27 @@ export function GridBackground() {
       for (let y = cellSize; y <= height / 2; y += cellSize) {
         // Determine offset based off of cell index
         const cellIndex = Math.floor(y / cellSize);
-        const lineProgress = (elapsed - (cellIndex * GRID_ANIM_LINE_OFFSET_MS)) / duration;
-        const lastCell = (y + cellSize) > (height / 2);
+        const lineProgress = (elapsed - cellIndex * GRID_ANIM_LINE_OFFSET_MS) / duration;
+        const lastCell = y + cellSize > height / 2;
 
         // Update whether this is done or not
-        if (lastCell && (lineProgress >= 1)) {
+        if (lastCell && lineProgress >= 1) {
           horizontalRingsDone = true;
         }
 
         // Vertical line on top side
         drawLine(
-          centerX - (easeOutExpo(lineProgress) * width * 0.5), centerY + y,
-          centerX + (easeOutExpo(lineProgress) * width * 0.5), centerY + y
+          centerX - easeOutExpo(lineProgress) * width * 0.5,
+          centerY + y,
+          centerX + easeOutExpo(lineProgress) * width * 0.5,
+          centerY + y
         );
         // Vertical line on bottom side
         drawLine(
-          centerX - (easeOutExpo(lineProgress) * width * 0.5), centerY - y,
-          centerX + (easeOutExpo(lineProgress) * width * 0.5), centerY - y
+          centerX - easeOutExpo(lineProgress) * width * 0.5,
+          centerY - y,
+          centerX + easeOutExpo(lineProgress) * width * 0.5,
+          centerY - y
         );
       }
 
@@ -220,9 +282,11 @@ export function GridBackground() {
   }, []);
 
   return (
-    <div ref={containerRef} className="w-full h-full relative">
+    <div ref={containerRef} className="w-full h-full relative overflow-hidden">
       <canvas ref={canvasRef} className="absolute" />
-      <MarqueeText className="absolute bottom-1/2" />
+      <div className="absolute inset-0">
+        <MarqueeText text="AJ's PORTFOLIO" />
+      </div>
     </div>
   );
 }
