@@ -1,20 +1,27 @@
-import 'server-only';
+import "server-only";
 
-import { CommissionsForCreatorsDto, CommissionVideoRow, VideoWithDate } from '@/src/lib/types/videos';
-import { getCommissionVideoRows } from '@/src/lib/repos/videos.repo';
-import { fetchBatchedVideoStats, fetchCreatorChannelInfo } from '@/src/lib/utils/video.utils';
+import {
+  CommissionsForCreatorsDto,
+  CommissionVideoRow,
+  VideoWithDate,
+} from "@/src/lib/types/videos";
+import { getCommissionVideoRows } from "@/src/lib/repos/videos.repo";
+import {
+  fetchBatchedVideoStats,
+  fetchCreatorChannelInfo,
+} from "@/src/lib/utils/video.utils";
 
 function groupCommissionRowsByCreator(
-  rows: CommissionVideoRow[]
+  rows: CommissionVideoRow[],
 ): CommissionsForCreatorsDto {
   return rows.reduce<CommissionsForCreatorsDto>((acc, row) => {
-    const creator = acc[row.person] ??= {
+    const creator = (acc[row.person] ??= {
       id: row.personId,
       pfp: "",
       views: 0,
       videos: [],
-      shorts: []
-    };
+      shorts: [],
+    });
 
     const video: VideoWithDate = { url: row.url, date: row.date };
 
@@ -44,7 +51,11 @@ export async function getCommissionsForCreators(): Promise<CommissionsForCreator
     if (videoIdList.length <= 0) continue;
 
     const videoList = await fetchBatchedVideoStats(videoIdList);
-    creator.views = videoList.reduce((sum, item) => sum + Number(item.statistics?.viewCount ?? 0), 0);
+    console.log("creator.id", creator.id, "videoList", videoList);
+    creator.views = videoList.reduce(
+      (sum, item) => sum + Number(item.statistics?.viewCount ?? 0),
+      0,
+    );
 
     const validIds = new Set(videoList.map((item) => item.id));
     creator.videos = creator.videos.filter((item) => validIds.has(item.url));
